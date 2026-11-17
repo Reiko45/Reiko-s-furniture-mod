@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,half=lower": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_lower",
+      "y": 90
+    },
+    "facing=east,half=upper": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_upper",
+      "y": 90
+    },
+    "facing=north,half=lower": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_lower"
+    },
+    "facing=north,half=upper": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_upper"
+    },
+    "facing=south,half=lower": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_lower",
+      "y": 180
+    },
+    "facing=south,half=upper": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_upper",
+      "y": 180
+    },
+    "facing=west,half=lower": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_lower",
+      "y": 270
+    },
+    "facing=west,half=upper": {
+      "model": "reikos_furniture:block/mangrove_wardrobe_upper",
+      "y": 270
+    }
+  }
+}

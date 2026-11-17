@@ -1,5 +1,6 @@
 package com.reiko45.furniture.datagen;
 
+import com.reiko45.furniture.bedroom.BedroomData;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -14,7 +15,8 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 /** Runs with {@code ./gradlew runData}; output goes to {@code src/generated/resources}. */
 public final class DataGenerators {
     /** Data for each room section, in creative tab order. */
-    static final List<RoomData> ROOMS = List.of();
+    static final List<RoomData> ROOMS = List.of(
+            new BedroomData());
 
     private DataGenerators() {
     }

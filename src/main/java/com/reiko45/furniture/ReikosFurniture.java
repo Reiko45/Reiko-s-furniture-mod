@@ -1,6 +1,7 @@
 package com.reiko45.furniture;
 
 import com.mojang.logging.LogUtils;
+import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
 import com.reiko45.furniture.core.registry.ModBlocks;
@@ -30,6 +31,7 @@ public class ReikosFurniture {
 
     public ReikosFurniture(IEventBus modBus, ModContainer container) {
         // Room sections, in the order they appear in the creative tab.
+        BedroomFurniture.init();
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);

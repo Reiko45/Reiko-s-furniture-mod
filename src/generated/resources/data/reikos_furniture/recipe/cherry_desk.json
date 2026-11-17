@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "P P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:cherry_desk"
+  }
+}
