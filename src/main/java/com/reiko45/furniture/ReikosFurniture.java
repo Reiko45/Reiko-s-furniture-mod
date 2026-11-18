@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import com.reiko45.furniture.bathroom.BathroomFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
+import com.reiko45.furniture.core.modded.ModdedWoodPack;
+import com.reiko45.furniture.core.modded.ModdedWoods;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
 import com.reiko45.furniture.core.registry.ModBlocks;
 import com.reiko45.furniture.core.registry.ModCreativeTab;
@@ -84,6 +86,10 @@ public class ReikosFurniture {
         modBus.addListener(ReikosFurniture::registerCapabilities);
         modBus.addListener(DataGenerators::gatherData);
         modBus.addListener(ReikosFurniture::addBlockEntityBlocks);
+        // Furniture in other mods' woods.
+        modBus.addListener(ModdedWoods::onRegister);
+        modBus.addListener(ModdedWoods::onAddBlockEntityBlocks);
+        modBus.addListener(ModdedWoodPack::onAddPackFinders);
         NeoForge.EVENT_BUS.addListener(PetFurniture::onEntityJoin);
         NeoForge.EVENT_BUS.addListener(FurnitureMaker::addTrades);
     }

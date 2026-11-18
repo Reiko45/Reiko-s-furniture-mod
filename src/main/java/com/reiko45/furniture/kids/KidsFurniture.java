@@ -4,19 +4,13 @@ import static com.reiko45.furniture.core.ShapeUtil.box;
 import static com.reiko45.furniture.core.ShapeUtil.boxes;
 
 import com.reiko45.furniture.core.FurnitureRegistry;
-import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SeatBlock;
-import com.reiko45.furniture.core.registry.ModBlocks;
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.Map;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.registries.DeferredBlock;
 
 /**
  * Kids' room section: toy chest, kids' table, kids' chair, rocking horse and bunk bed, each in every
@@ -45,22 +39,13 @@ public final class KidsFurniture {
     public static final WoodSet<SeatBlock> ROCKING_HORSE = FurnitureRegistry.woodSet("rocking_horse", ROOM,
             wood -> new SeatBlock(wood.properties(), HORSE_SHAPE, 10.5));
 
-    /** The decorative top bunks; they have no item and are placed by the bunk bed. */
-    public static final Map<FurnitureWood, DeferredBlock<BunkTopBlock>> BUNK_BED_TOP;
-
     /** Bunk bed: sleep in the bottom bunk; right-click with dye to change both blankets. */
-    public static final WoodSet<BunkBedBlock> BUNK_BED;
+    public static final WoodSet<BunkBedBlock> BUNK_BED = FurnitureRegistry.woodSet("bunk_bed", ROOM, wood -> new BunkBedBlock(
+            wood.properties().strength(0.2F).pushReaction(PushReaction.DESTROY), () -> KidsFurniture.BUNK_BED_TOP.get(wood).get()));
 
-    static {
-        Map<FurnitureWood, DeferredBlock<BunkTopBlock>> tops = new EnumMap<>(FurnitureWood.class);
-        BUNK_BED = FurnitureRegistry.woodSet("bunk_bed", ROOM, wood -> new BunkBedBlock(
-                wood.properties().strength(0.2F).pushReaction(PushReaction.DESTROY), () -> tops.get(wood).get()));
-        for (FurnitureWood wood : FurnitureWood.values()) {
-            tops.put(wood, ModBlocks.BLOCKS.register(wood.id() + "_bunk_bed_top", () -> new BunkTopBlock(
-                    wood.properties().strength(0.2F).pushReaction(PushReaction.DESTROY), () -> BUNK_BED.get(wood).get())));
-        }
-        BUNK_BED_TOP = Collections.unmodifiableMap(tops);
-    }
+    /** The decorative top bunks; they have no item and are placed by the bunk bed. */
+    public static final WoodSet<BunkTopBlock> BUNK_BED_TOP = FurnitureRegistry.woodBlocks("bunk_bed_top", wood -> new BunkTopBlock(
+            wood.properties().strength(0.2F).pushReaction(PushReaction.DESTROY), () -> BUNK_BED.get(wood).get()));
 
     private KidsFurniture() {
     }

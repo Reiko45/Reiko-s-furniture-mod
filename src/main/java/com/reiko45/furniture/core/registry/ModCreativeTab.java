@@ -1,6 +1,7 @@
 package com.reiko45.furniture.core.registry;
 
 import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.core.FurnitureRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -19,9 +20,11 @@ public final class ModCreativeTab {
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.reikos_furniture"))
                     .icon(ModCreativeTab::icon)
-                    .displayItems((params, output) -> ModItems.ITEMS.getEntries().stream()
-                            .map(Holder::value)
-                            .forEach(output::accept))
+                    .displayItems((params, output) -> {
+                        ModItems.ITEMS.getEntries().stream().map(Holder::value).forEach(output::accept);
+                        // Furniture in other mods' woods goes at the end.
+                        FurnitureRegistry.moddedItems().forEach(output::accept);
+                    })
                     .build());
 
     private ModCreativeTab() {

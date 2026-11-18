@@ -79,7 +79,7 @@ public class KidsData implements RoomData {
 
     @Override
     public void tags(FurnitureBlockTagsProvider tags) {
-        BUNK_BED_TOP.values().forEach(top -> tags.tagFor(BlockTags.MINEABLE_WITH_AXE).add((Block) top.get()));
+        BUNK_BED_TOP.all().forEach(top -> tags.tagFor(BlockTags.MINEABLE_WITH_AXE).add((Block) top.get()));
     }
 
     @Override

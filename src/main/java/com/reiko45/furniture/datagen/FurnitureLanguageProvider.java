@@ -35,6 +35,9 @@ public class FurnitureLanguageProvider extends LanguageProvider {
 
         Set<Block> named = new HashSet<>();
         for (WoodSet<?> set : FurnitureRegistry.woodSets()) {
+            if (!set.hasItem()) {
+                continue; // helper blocks (the top bunk) are named by their room
+            }
             for (FurnitureWood wood : FurnitureWood.values()) {
                 Block block = set.get(wood).get();
                 add(block, wood.displayName() + " " + words(set.piece()));

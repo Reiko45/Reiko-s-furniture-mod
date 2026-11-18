@@ -1,5 +1,6 @@
 package com.reiko45.furniture.core;
 
+import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.item.FurnitureBlockItem;
 import com.reiko45.furniture.core.registry.ModBlocks;
 import com.reiko45.furniture.core.registry.ModItems;
@@ -9,8 +10,12 @@ import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -30,23 +35,61 @@ public final class FurnitureRegistry {
     private static final Map<DeferredBlock<?>, int[]> FLAMMABLE = new LinkedHashMap<>();
     private static final List<WoodSet<?>> WOOD_SETS = new ArrayList<>();
     private static final List<ColorSet<?>> COLOR_SETS = new ArrayList<>();
+    private static final List<Item> MODDED_ITEMS = new ArrayList<>();
 
     private FurnitureRegistry() {
     }
 
-    /** Registers {@code <wood>_<piece>} for every wood type. */
+    /** Registers {@code <wood>_<piece>} with its item for every vanilla wood (and later, every modded wood). */
     public static <B extends Block> WoodSet<B> woodSet(String piece, Room room, Function<FurnitureWood, B> factory) {
-        Map<FurnitureWood, DeferredBlock<B>> blocks = new EnumMap<>(FurnitureWood.class);
+        return woodSet(piece, room, factory, true);
+    }
+
+    /** Like {@link #woodSet} but without items: helper blocks that another block places, like the top bunk. */
+    public static <B extends Block> WoodSet<B> woodBlocks(String piece, Function<FurnitureWood, B> factory) {
+        return woodSet(piece, null, factory, false);
+    }
+
+    private static <B extends Block> WoodSet<B> woodSet(String piece, @Nullable Room room, Function<FurnitureWood, B> factory,
+                                                        boolean hasItem) {
+        WoodSet<B> set = new WoodSet<>(piece, room, factory, hasItem);
         for (FurnitureWood wood : FurnitureWood.values()) {
-            DeferredBlock<B> block = register(wood.id() + "_" + piece, room, () -> factory.apply(wood));
-            blocks.put(wood, block);
+            String name = WoodSet.name(wood, piece);
+            DeferredBlock<B> block = hasItem ? register(name, room, () -> set.create(wood))
+                    : ModBlocks.BLOCKS.register(name, () -> set.create(wood));
+            set.put(wood, block);
             if (wood.flammable()) {
                 FLAMMABLE.put(block, new int[] {5, 20});
             }
         }
-        WoodSet<B> set = new WoodSet<>(piece, room, Collections.unmodifiableMap(blocks));
         WOOD_SETS.add(set);
         return set;
+    }
+
+    /**
+     * Registers every wood set's block (and item) for one modded wood. Called while items are being
+     * registered, when every mod's blocks exist; the block registry is still open at that point.
+     */
+    public static <B extends Block> void registerModded(WoodSet<B> set, FurnitureWood wood, BiConsumer<String, Item> items) {
+        String name = WoodSet.name(wood, set.piece());
+        ResourceLocation id = ReikosFurniture.id(name);
+        B block = set.create(wood);
+        Registry.register(BuiltInRegistries.BLOCK, id, block);
+        DeferredBlock<B> holder = DeferredBlock.createBlock(id);
+        set.put(wood, holder);
+        if (set.hasItem()) {
+            Item item = new FurnitureBlockItem(block, new Item.Properties(), set.room());
+            items.accept(name, item);
+            MODDED_ITEMS.add(item);
+        }
+        if (wood.flammable()) {
+            FLAMMABLE.put(holder, new int[] {5, 20});
+        }
+    }
+
+    /** Items of modded-wood furniture, in registration order (shown at the end of the creative tab). */
+    public static List<Item> moddedItems() {
+        return Collections.unmodifiableList(MODDED_ITEMS);
     }
 
     /** Registers {@code <color>_<piece>} for every dye color. These burn like wool. */
