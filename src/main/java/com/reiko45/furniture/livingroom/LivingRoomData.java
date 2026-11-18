@@ -15,6 +15,7 @@ import static com.reiko45.furniture.livingroom.LivingRoomFurniture.SOFA;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.TV;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.TV_STAND;
 
+import com.reiko45.furniture.core.ColorSet;
 import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureBlock;
@@ -46,7 +47,7 @@ public class LivingRoomData implements RoomData {
     @Override
     public void models(FurnitureBlockStateProvider models) {
         for (DyeColor color : DyeColor.values()) {
-            sofa(models, SOFA.get(color).get(), color);
+            sofa(models, SOFA, color);
             models.woolItem(SOFA, color, "sofa_item");
         }
         models.woodTable(COFFEE_TABLE, "coffee_table");
@@ -77,13 +78,14 @@ public class LivingRoomData implements RoomData {
     }
 
     /** The base is always shown; each armrest only on the open ends; an extra backrest on corners. */
-    private static void sofa(FurnitureBlockStateProvider models, Block block, DyeColor color) {
+    public static void sofa(FurnitureBlockStateProvider models, ColorSet<? extends SofaBlock> set, DyeColor color) {
+        Block block = set.get(color).get();
         String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
-        ModelFile base = models.woolModel(name + "_base", models.template(ROOM, "sofa_base"), color);
-        ModelFile left = models.woolModel(name + "_arm_left", models.template(ROOM, "sofa_arm_left"), color);
-        ModelFile right = models.woolModel(name + "_arm_right", models.template(ROOM, "sofa_arm_right"), color);
-        ModelFile cornerLeft = models.woolModel(name + "_corner_left", models.template(ROOM, "sofa_corner_left"), color);
-        ModelFile cornerRight = models.woolModel(name + "_corner_right", models.template(ROOM, "sofa_corner_right"), color);
+        ModelFile base = models.woolModel(name + "_base", models.template(set, "sofa_base"), color);
+        ModelFile left = models.woolModel(name + "_arm_left", models.template(set, "sofa_arm_left"), color);
+        ModelFile right = models.woolModel(name + "_arm_right", models.template(set, "sofa_arm_right"), color);
+        ModelFile cornerLeft = models.woolModel(name + "_corner_left", models.template(set, "sofa_corner_left"), color);
+        ModelFile cornerRight = models.woolModel(name + "_corner_right", models.template(set, "sofa_corner_right"), color);
 
         var builder = models.getMultipartBuilder(block);
         for (Direction facing : Direction.Plane.HORIZONTAL) {

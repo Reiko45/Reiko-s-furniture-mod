@@ -897,7 +897,36 @@ def bar_and_nursery():
     save(water, "block/aquarium_water.png")
 
 
+def style_textures():
+    """Washi paper for shoji panels and woven tatami for the Japanese style."""
+    rnd = random.Random("washi")
+    img = new()
+    px = img.load()
+    paper = (0xF0, 0xEA, 0xDA)
+    for y in range(16):
+        for x in range(16):
+            px[x, y] = shade(paper, 0.97 + rnd.random() * 0.05) + (255,)
+    for _ in range(7):  # long paper fibres
+        x, y = rnd.randint(0, 15), rnd.randint(0, 15)
+        for k in range(rnd.randint(2, 4)):
+            px[(x + k) % 16, (y + (k if rnd.random() < 0.4 else 0)) % 16] = shade(paper, 0.91) + (255,)
+    save(img, "block/style/washi.png")
+
+    rnd = random.Random("tatami")
+    img = new()
+    px = img.load()
+    straw = (0xBC, 0xB8, 0x74)
+    for y in range(16):
+        for x in range(16):
+            f = 1.04 if y % 2 == 0 else 0.94  # woven rows
+            if x % 8 == 0:
+                f *= 0.86  # stitching between the rush bundles
+            px[x, y] = shade(straw, f * (0.97 + rnd.random() * 0.06)) + (255,)
+    save(img, "block/style/tatami.png")
+
+
 if __name__ == "__main__":
+    style_textures()
     bar_and_nursery()
     garage_and_library()
     paintings()

@@ -39,6 +39,12 @@ public final class WoodSet<B extends Block> {
         return room;
     }
 
+    /** The furniture style, from the piece name ({@code rustic_bed}), or null for classic pieces. */
+    @Nullable
+    public Style style() {
+        return Style.of(piece);
+    }
+
     /** Whether the blocks have items (helper blocks placed by another block don't). */
     public boolean hasItem() {
         return hasItem;

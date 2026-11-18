@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reikos_furniture:dark_oak_coffee_table"
+    },
+    {
+      "item": "minecraft:bamboo"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:dark_oak_japanese_coffee_table"
+  }
+}

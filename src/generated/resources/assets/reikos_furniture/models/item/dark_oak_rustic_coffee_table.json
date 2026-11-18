@@ -1,0 +1,8 @@
+{
+  "parent": "reikos_furniture:block/template/style/rustic/coffee_table_item",
+  "textures": {
+    "log": "minecraft:block/dark_oak_log",
+    "planks": "minecraft:block/dark_oak_planks",
+    "stripped_log": "minecraft:block/stripped_dark_oak_log"
+  }
+}

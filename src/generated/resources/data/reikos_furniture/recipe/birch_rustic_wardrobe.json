@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reikos_furniture:birch_wardrobe"
+    },
+    {
+      "tag": "minecraft:logs"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:birch_rustic_wardrobe"
+  }
+}

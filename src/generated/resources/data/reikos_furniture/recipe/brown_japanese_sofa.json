@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reikos_furniture:brown_sofa"
+    },
+    {
+      "item": "minecraft:bamboo"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:brown_japanese_sofa"
+  }
+}

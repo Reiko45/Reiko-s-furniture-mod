@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/style/modern/bunk_bed_lower_head",
+  "textures": {
+    "log": "minecraft:block/acacia_log",
+    "planks": "minecraft:block/acacia_planks",
+    "stripped_log": "minecraft:block/stripped_acacia_log",
+    "wool": "reikos_furniture:block/fabric/brown"
+  }
+}

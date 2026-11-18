@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/light_blue_japanese_armchair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/light_blue_japanese_armchair"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/light_blue_japanese_armchair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/light_blue_japanese_armchair",
+      "y": 270
+    }
+  }
+}

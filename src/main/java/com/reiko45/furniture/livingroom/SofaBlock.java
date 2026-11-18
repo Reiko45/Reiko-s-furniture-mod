@@ -1,6 +1,7 @@
 package com.reiko45.furniture.livingroom;
 
 import com.reiko45.furniture.core.ShapeUtil;
+import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.block.SeatBlock;
 import java.util.EnumMap;
 import java.util.Map;
@@ -27,33 +28,49 @@ import org.jetbrains.annotations.Nullable;
 public class SofaBlock extends SeatBlock {
     public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
 
-    private static final VoxelShape BASE = ShapeUtil.boxes(ShapeUtil.box(0, 0, 1, 16, 8, 16), ShapeUtil.box(0, 8, 11.5, 16, 15, 16));
-    private static final VoxelShape LEFT_ARM = ShapeUtil.boxes(ShapeUtil.box(0, 8, 1, 2.5, 11, 11.5));
-    private static final VoxelShape RIGHT_ARM = ShapeUtil.boxes(ShapeUtil.box(13.5, 8, 1, 16, 11, 11.5));
-    private static final VoxelShape LEFT_BACK = ShapeUtil.boxes(ShapeUtil.box(0, 8, 0, 4.5, 15, 11.5));
-    private static final VoxelShape RIGHT_BACK = ShapeUtil.boxes(ShapeUtil.box(11.5, 8, 0, 16, 15, 11.5));
-
     private final Map<Part, Map<Direction, VoxelShape>> shapes = new EnumMap<>(Part.class);
 
+    @Nullable
+    private final Style style;
+
     public SofaBlock(Properties properties) {
-        super(properties, BASE, 8);
+        this(properties, 8, null);
+    }
+
+    /**
+     * A sofa whose seat is {@code seatHeight} pixels up (8 for the classic sofa). The backrest, arms and
+     * corner backrest sit on the seat, 7, 3 and 7 pixels tall. Sofas only join sofas of the same
+     * style ({@code null} for the classic sofa).
+     */
+    public SofaBlock(Properties properties, double seatHeight, @Nullable Style style) {
+        super(properties, base(seatHeight), seatHeight);
+        this.style = style;
+        double h = seatHeight;
+        VoxelShape leftArm = ShapeUtil.boxes(ShapeUtil.box(0, h, 1, 2.5, h + 3, 11.5));
+        VoxelShape rightArm = ShapeUtil.boxes(ShapeUtil.box(13.5, h, 1, 16, h + 3, 11.5));
+        VoxelShape leftBack = ShapeUtil.boxes(ShapeUtil.box(0, h, 0, 4.5, h + 7, 11.5));
+        VoxelShape rightBack = ShapeUtil.boxes(ShapeUtil.box(11.5, h, 0, 16, h + 7, 11.5));
         for (Part part : Part.values()) {
-            VoxelShape shape = BASE;
+            VoxelShape shape = base(h);
             if (part.hasLeftArm()) {
-                shape = Shapes.or(shape, LEFT_ARM);
+                shape = Shapes.or(shape, leftArm);
             }
             if (part.hasRightArm()) {
-                shape = Shapes.or(shape, RIGHT_ARM);
+                shape = Shapes.or(shape, rightArm);
             }
             if (part == Part.CORNER_LEFT) {
-                shape = Shapes.or(shape, LEFT_BACK);
+                shape = Shapes.or(shape, leftBack);
             }
             if (part == Part.CORNER_RIGHT) {
-                shape = Shapes.or(shape, RIGHT_BACK);
+                shape = Shapes.or(shape, rightBack);
             }
             shapes.put(part, ShapeUtil.horizontal(shape.optimize()));
         }
         registerDefaultState(defaultBlockState().setValue(PART, Part.SINGLE));
+    }
+
+    private static VoxelShape base(double h) {
+        return ShapeUtil.boxes(ShapeUtil.box(0, 0, 1, 16, h, 16), ShapeUtil.box(0, h, 11.5, 16, h + 7, 16));
     }
 
     @Override
@@ -81,12 +98,17 @@ public class SofaBlock extends SeatBlock {
         return shapes.get(state.getValue(PART)).get(state.getValue(FACING));
     }
 
+    /** Whether this sofa joins up with {@code other}: any sofa of the same style, whatever its color. */
+    public boolean joins(Block other) {
+        return other instanceof SofaBlock sofa && sofa.style == style;
+    }
+
     /** Works out which part of a long or L-shaped sofa this block is, from the sofas around it. */
-    private static Part partFor(BlockState state, BlockGetter level, BlockPos pos) {
+    private Part partFor(BlockState state, BlockGetter level, BlockPos pos) {
         Direction facing = state.getValue(FACING);
         // A sofa right in front, turned sideways, makes this the inner corner of an L.
         BlockState front = level.getBlockState(pos.relative(facing));
-        if (front.getBlock() instanceof SofaBlock) {
+        if (joins(front.getBlock())) {
             if (front.getValue(FACING) == facing.getClockWise()) {
                 return Part.CORNER_LEFT;
             }
@@ -113,8 +135,8 @@ public class SofaBlock extends SeatBlock {
      * A neighbour on the left or right joins if it faces the same way, or if it is the corner of an L
      * (it then faces {@code cornerFacing}, and this sofa is the one in front of it).
      */
-    private static boolean connects(BlockState neighbor, Direction cornerFacing, Direction facing) {
-        if (!(neighbor.getBlock() instanceof SofaBlock)) {
+    private boolean connects(BlockState neighbor, Direction cornerFacing, Direction facing) {
+        if (!joins(neighbor.getBlock())) {
             return false;
         }
         Direction other = neighbor.getValue(FACING);

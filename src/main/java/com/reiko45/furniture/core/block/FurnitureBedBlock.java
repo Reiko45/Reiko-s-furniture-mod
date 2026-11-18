@@ -9,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
@@ -18,6 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -28,9 +31,23 @@ import org.jetbrains.annotations.Nullable;
 public class FurnitureBedBlock extends BedBlock {
     public static final EnumProperty<DyeColor> COLOR = EnumProperty.create("color", DyeColor.class);
 
+    @Nullable
+    private final VoxelShape shape;
+
     public FurnitureBedBlock(Properties properties) {
+        this(properties, null);
+    }
+
+    /** A bed with its own outline and collision (the same for both halves), or the vanilla bed's if null. */
+    public FurnitureBedBlock(Properties properties, @Nullable VoxelShape shape) {
         super(DyeColor.RED, properties);
+        this.shape = shape;
         registerDefaultState(defaultBlockState().setValue(COLOR, DyeColor.RED));
+    }
+
+    @Override
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return shape != null ? shape : super.getShape(state, level, pos, context);
     }
 
     @Override

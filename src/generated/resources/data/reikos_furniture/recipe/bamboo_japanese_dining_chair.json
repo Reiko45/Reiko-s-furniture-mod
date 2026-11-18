@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reikos_furniture:bamboo_dining_chair"
+    },
+    {
+      "item": "minecraft:bamboo"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:bamboo_japanese_dining_chair"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/style/royal/bed_head",
+  "textures": {
+    "log": "minecraft:block/crimson_stem",
+    "planks": "minecraft:block/crimson_planks",
+    "stripped_log": "minecraft:block/stripped_crimson_stem",
+    "wool": "reikos_furniture:block/fabric/pink"
+  }
+}

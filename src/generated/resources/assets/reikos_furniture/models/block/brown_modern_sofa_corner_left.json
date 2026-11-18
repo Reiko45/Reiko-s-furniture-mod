@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/style/modern/sofa_corner_left",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/brown"
+  }
+}

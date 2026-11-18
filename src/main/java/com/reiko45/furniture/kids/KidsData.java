@@ -10,6 +10,7 @@ import static com.reiko45.furniture.kids.KidsFurniture.TOY_CHEST;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Room;
+import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.FurnitureBedBlock;
 import com.reiko45.furniture.datagen.FurnitureBlockStateProvider;
 import com.reiko45.furniture.datagen.FurnitureBlockTagsProvider;
@@ -18,6 +19,7 @@ import com.reiko45.furniture.datagen.RoomData;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.DyeColor;
@@ -38,32 +40,33 @@ public class KidsData implements RoomData {
         models.woodTable(KIDS_TABLE, "kids_table");
         models.woodFacing(KIDS_CHAIR, "kids_chair");
         models.woodFacing(ROCKING_HORSE, "rocking_horse");
-        bunkBeds(models);
+        bunkBeds(models, BUNK_BED, BUNK_BED_TOP);
     }
 
     /** Lower bed and top bunk each have a head and a foot model for every wood and blanket color. */
-    private static void bunkBeds(FurnitureBlockStateProvider models) {
+    public static void bunkBeds(FurnitureBlockStateProvider models, WoodSet<? extends BunkBedBlock> bunk,
+                                WoodSet<? extends BunkTopBlock> tops) {
         for (FurnitureWood wood : FurnitureWood.values()) {
-            String name = wood.id() + "_bunk_bed";
+            String name = BuiltInRegistries.BLOCK.getKey(bunk.get(wood).get()).getPath();
             Map<DyeColor, ModelFile[]> lower = new EnumMap<>(DyeColor.class);
             Map<DyeColor, ModelFile[]> top = new EnumMap<>(DyeColor.class);
             for (DyeColor color : DyeColor.values()) {
                 lower.put(color, new ModelFile[] {
-                        bunkModel(models, name, "lower_head", color, wood), bunkModel(models, name, "lower_foot", color, wood)});
+                        bunkModel(models, bunk, name, "lower_head", color, wood), bunkModel(models, bunk, name, "lower_foot", color, wood)});
                 top.put(color, new ModelFile[] {
-                        bunkModel(models, name, "top_head", color, wood), bunkModel(models, name, "top_foot", color, wood)});
+                        bunkModel(models, bunk, name, "top_head", color, wood), bunkModel(models, bunk, name, "top_foot", color, wood)});
             }
-            models.facingBlock(BUNK_BED.get(wood).get(), state -> lower.get(state.getValue(FurnitureBedBlock.COLOR))
+            models.facingBlock(bunk.get(wood).get(), state -> lower.get(state.getValue(FurnitureBedBlock.COLOR))
                     [state.getValue(BedBlock.PART) == BedPart.HEAD ? 0 : 1], BedBlock.OCCUPIED);
-            models.facingBlock(BUNK_BED_TOP.get(wood).get(), state -> top.get(state.getValue(FurnitureBedBlock.COLOR))
+            models.facingBlock(tops.get(wood).get(), state -> top.get(state.getValue(FurnitureBedBlock.COLOR))
                     [state.getValue(BedBlock.PART) == BedPart.HEAD ? 0 : 1]);
-            models.woodItem(BUNK_BED.get(wood).get(), ROOM, "bunk_bed_item", wood);
+            models.woodItem(bunk.get(wood).get(), models.template(bunk, "bunk_bed_item"), wood);
         }
     }
 
-    private static ModelFile bunkModel(FurnitureBlockStateProvider models, String name, String part, DyeColor color,
-                                       FurnitureWood wood) {
-        return models.woodModel(name + "_" + color.getName() + "_" + part, models.template(ROOM, "bunk_bed_" + part), wood)
+    private static ModelFile bunkModel(FurnitureBlockStateProvider models, WoodSet<?> set, String name, String part,
+                                       DyeColor color, FurnitureWood wood) {
+        return models.woodModel(name + "_" + color.getName() + "_" + part, models.template(set, "bunk_bed_" + part), wood)
                 .texture("wool", FurnitureBlockStateProvider.woolTexture(color));
     }
 

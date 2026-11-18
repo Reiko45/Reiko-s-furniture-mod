@@ -1,0 +1,84 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "paper": "reikos_furniture:block/style/washi",
+    "tatami": "reikos_furniture:block/style/tatami",
+    "iron": "minecraft:block/anvil",
+    "cushion": "reikos_furniture:block/fabric/blue"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        7,
+        0
+      ],
+      "to": [
+        16,
+        8.5,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            0,
+            7.5,
+            16,
+            9
+          ],
+          "texture": "#planks",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            0,
+            7.5,
+            16,
+            9
+          ],
+          "texture": "#planks",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0,
+            7.5,
+            16,
+            9
+          ],
+          "texture": "#planks",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            7.5,
+            16,
+            9
+          ],
+          "texture": "#planks",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/style/modern/sofa_item",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/magenta"
+  }
+}

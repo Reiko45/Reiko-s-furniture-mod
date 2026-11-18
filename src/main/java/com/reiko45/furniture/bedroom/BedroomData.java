@@ -11,13 +11,14 @@ import static com.reiko45.furniture.bedroom.BedroomFurniture.TABLE_LAMP;
 import static com.reiko45.furniture.bedroom.BedroomFurniture.WARDROBE;
 
 import com.reiko45.furniture.core.FurnitureWood;
-import com.reiko45.furniture.core.Room;
+import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.FurnitureBedBlock;
 import com.reiko45.furniture.datagen.FurnitureBlockStateProvider;
 import com.reiko45.furniture.datagen.FurnitureRecipeProvider;
 import com.reiko45.furniture.datagen.RoomData;
 import java.util.EnumMap;
 import java.util.Map;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.BedBlock;
@@ -36,28 +37,28 @@ public class BedroomData implements RoomData {
         models.woodTallOpenable(WARDROBE, "wardrobe");
         models.woodFacing(DESK, "desk");
         models.woodFacingLit(TABLE_LAMP, "table_lamp");
-        beds(models);
+        beds(models, BED);
         models.woodFacing(MIRROR, "mirror");
         models.woodFacingOpenable(VANITY, "vanity");
         models.woodFacingLit(WALL_LAMP, "wall_lamp");
     }
 
     /** Beds have a head and a foot model for every wood and blanket color. */
-    private static void beds(FurnitureBlockStateProvider models) {
+    public static void beds(FurnitureBlockStateProvider models, WoodSet<? extends FurnitureBedBlock> set) {
         for (FurnitureWood wood : FurnitureWood.values()) {
-            FurnitureBedBlock block = BED.get(wood).get();
-            String name = wood.id() + "_bed";
+            FurnitureBedBlock block = set.get(wood).get();
+            String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
             Map<DyeColor, ModelFile> heads = new EnumMap<>(DyeColor.class);
             Map<DyeColor, ModelFile> feet = new EnumMap<>(DyeColor.class);
             for (DyeColor color : DyeColor.values()) {
-                heads.put(color, models.woodModel(name + "_" + color.getName() + "_head", models.template(Room.BEDROOM, "bed_head"), wood)
+                heads.put(color, models.woodModel(name + "_" + color.getName() + "_head", models.template(set, "bed_head"), wood)
                         .texture("wool", FurnitureBlockStateProvider.woolTexture(color)));
-                feet.put(color, models.woodModel(name + "_" + color.getName() + "_foot", models.template(Room.BEDROOM, "bed_foot"), wood)
+                feet.put(color, models.woodModel(name + "_" + color.getName() + "_foot", models.template(set, "bed_foot"), wood)
                         .texture("wool", FurnitureBlockStateProvider.woolTexture(color)));
             }
             models.facingBlock(block, state -> (state.getValue(BedBlock.PART) == BedPart.HEAD ? heads : feet)
                     .get(state.getValue(FurnitureBedBlock.COLOR)), BedBlock.OCCUPIED);
-            models.woodItem(block, Room.BEDROOM, "bed_item", wood);
+            models.woodItem(block, models.template(set, "bed_item"), wood);
         }
     }
 

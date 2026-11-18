@@ -55,7 +55,7 @@ public final class FurnitureRegistry {
         WoodSet<B> set = new WoodSet<>(piece, room, factory, hasItem);
         for (FurnitureWood wood : FurnitureWood.values()) {
             String name = WoodSet.name(wood, piece);
-            DeferredBlock<B> block = hasItem ? register(name, room, () -> set.create(wood))
+            DeferredBlock<B> block = hasItem ? register(name, room, set.style(), () -> set.create(wood))
                     : ModBlocks.BLOCKS.register(name, () -> set.create(wood));
             set.put(wood, block);
             if (wood.flammable()) {
@@ -78,7 +78,7 @@ public final class FurnitureRegistry {
         DeferredBlock<B> holder = DeferredBlock.createBlock(id);
         set.put(wood, holder);
         if (set.hasItem()) {
-            Item item = new FurnitureBlockItem(block, new Item.Properties(), set.room());
+            Item item = new FurnitureBlockItem(block, new Item.Properties(), set.room(), set.style());
             items.accept(name, item);
             MODDED_ITEMS.add(item);
         }
@@ -101,7 +101,7 @@ public final class FurnitureRegistry {
     public static <B extends Block> ColorSet<B> colorSet(String piece, Room room, Function<DyeColor, B> factory, boolean flammable) {
         Map<DyeColor, DeferredBlock<B>> blocks = new EnumMap<>(DyeColor.class);
         for (DyeColor color : DyeColor.values()) {
-            DeferredBlock<B> block = register(color.getName() + "_" + piece, room, () -> factory.apply(color));
+            DeferredBlock<B> block = register(color.getName() + "_" + piece, room, Style.of(piece), () -> factory.apply(color));
             blocks.put(color, block);
             if (flammable) {
                 FLAMMABLE.put(block, new int[] {30, 60});
@@ -114,8 +114,13 @@ public final class FurnitureRegistry {
 
     /** Registers a single block (no wood or color variants) and its item. {@code room} is null for tools like the workbench. */
     public static <B extends Block> DeferredBlock<B> register(String name, @Nullable Room room, Supplier<B> factory) {
+        return register(name, room, null, factory);
+    }
+
+    private static <B extends Block> DeferredBlock<B> register(String name, @Nullable Room room, @Nullable Style style,
+                                                               Supplier<B> factory) {
         DeferredBlock<B> block = ModBlocks.BLOCKS.register(name, factory);
-        ModItems.ITEMS.register(name, () -> new FurnitureBlockItem(block.get(), new Item.Properties(), room));
+        ModItems.ITEMS.register(name, () -> new FurnitureBlockItem(block.get(), new Item.Properties(), room, style));
         ROOMS.put(block, room);
         return block;
     }

@@ -4,6 +4,7 @@ import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.ColorSet;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Room;
+import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureBlock;
@@ -54,6 +55,19 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
 
     public ResourceLocation template(Room room, String name) {
         return modLoc("block/template/" + room.id() + "/" + name);
+    }
+
+    /** Templates of style pieces live in {@code template/style/<style>/}, others in their room's folder. */
+    public ResourceLocation template(WoodSet<?> set, String name) {
+        return set.style() != null ? template(set.style(), name) : template(set.room(), name);
+    }
+
+    public ResourceLocation template(ColorSet<?> set, String name) {
+        return set.style() != null ? template(set.style(), name) : template(set.room(), name);
+    }
+
+    public ResourceLocation template(Style style, String name) {
+        return modLoc("block/template/style/" + style.id() + "/" + name);
     }
 
     public ModelFile existingTemplate(Room room, String name) {
@@ -146,7 +160,7 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (FurnitureWood wood : FurnitureWood.values()) {
             Block block = set.get(wood).get();
             String name = name(block);
-            ModelFile model = woodModel(name, template(set.room(), template), wood);
+            ModelFile model = woodModel(name, template(set, template), wood);
             facingBlock(block, state -> model);
             itemModels().withExistingParent(name, modLoc("block/" + name));
         }
@@ -157,8 +171,8 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (FurnitureWood wood : FurnitureWood.values()) {
             Block block = set.get(wood).get();
             String name = name(block);
-            ModelFile closed = woodModel(name, template(set.room(), template), wood);
-            ModelFile open = woodModel(name + "_open", template(set.room(), template + "_open"), wood);
+            ModelFile closed = woodModel(name, template(set, template), wood);
+            ModelFile open = woodModel(name + "_open", template(set, template + "_open"), wood);
             facingBlock(block, state -> state.getValue(FurnitureStorageBlock.OPEN) ? open : closed);
             itemModels().withExistingParent(name, modLoc("block/" + name));
         }
@@ -170,11 +184,11 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
             Block block = set.get(wood).get();
             String name = name(block);
             tallOpenableBlock(block,
-                    woodModel(name + "_lower", template(set.room(), template + "_lower"), wood),
-                    woodModel(name + "_upper", template(set.room(), template + "_upper"), wood),
-                    woodModel(name + "_lower_open", template(set.room(), template + "_lower_open"), wood),
-                    woodModel(name + "_upper_open", template(set.room(), template + "_upper_open"), wood));
-            woodTextures(itemModels().withExistingParent(name, template(set.room(), template + "_item")), wood);
+                    woodModel(name + "_lower", template(set, template + "_lower"), wood),
+                    woodModel(name + "_upper", template(set, template + "_upper"), wood),
+                    woodModel(name + "_lower_open", template(set, template + "_lower_open"), wood),
+                    woodModel(name + "_upper_open", template(set, template + "_upper_open"), wood));
+            woodTextures(itemModels().withExistingParent(name, template(set, template + "_item")), wood);
         }
     }
 
@@ -183,7 +197,7 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (FurnitureWood wood : FurnitureWood.values()) {
             Block block = set.get(wood).get();
             String name = name(block);
-            simpleBlock(block, woodModel(name, template(set.room(), template), wood));
+            simpleBlock(block, woodModel(name, template(set, template), wood));
             itemModels().withExistingParent(name, modLoc("block/" + name));
         }
     }
@@ -193,8 +207,8 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (FurnitureWood wood : FurnitureWood.values()) {
             Block block = set.get(wood).get();
             String name = name(block);
-            ModelFile off = woodModel(name, template(set.room(), template), wood);
-            ModelFile on = woodModel(name + "_on", template(set.room(), template + "_on"), wood);
+            ModelFile off = woodModel(name, template(set, template), wood);
+            ModelFile on = woodModel(name + "_on", template(set, template + "_on"), wood);
             facingLitBlock(block, off, on);
             itemModels().withExistingParent(name, modLoc("block/" + name));
         }
@@ -205,10 +219,10 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (FurnitureWood wood : FurnitureWood.values()) {
             Block block = set.get(wood).get();
             String name = name(block);
-            ModelFile lower = woodModel(name + "_lower", template(set.room(), template + "_lower"), wood);
-            ModelFile upper = woodModel(name + "_upper", template(set.room(), template + "_upper"), wood);
+            ModelFile lower = woodModel(name + "_lower", template(set, template + "_lower"), wood);
+            ModelFile upper = woodModel(name + "_upper", template(set, template + "_upper"), wood);
             tallBlock(block, lower, upper);
-            woodTextures(itemModels().withExistingParent(name, template(set.room(), template + "_item")), wood);
+            woodTextures(itemModels().withExistingParent(name, template(set, template + "_item")), wood);
         }
     }
 
@@ -220,16 +234,16 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (FurnitureWood wood : FurnitureWood.values()) {
             Block block = set.get(wood).get();
             String name = name(block);
-            ModelFile lower = woodModel(name + "_lower", template(set.room(), template + "_lower"), wood);
-            ModelFile upper = woodModel(name + "_upper", template(set.room(), template + "_upper"), wood);
-            ModelFile upperOn = woodModel(name + "_upper_on", template(set.room(), template + "_upper_on"), wood);
+            ModelFile lower = woodModel(name + "_lower", template(set, template + "_lower"), wood);
+            ModelFile upper = woodModel(name + "_upper", template(set, template + "_upper"), wood);
+            ModelFile upperOn = woodModel(name + "_upper_on", template(set, template + "_upper_on"), wood);
             facingBlock(block, state -> {
                 if (state.getValue(TallBlockHelper.HALF) == DoubleBlockHalf.LOWER) {
                     return lower;
                 }
                 return state.getValue(SwitchableFurnitureBlock.LIT) ? upperOn : upper;
             });
-            woodTextures(itemModels().withExistingParent(name, template(set.room(), template + "_item")), wood);
+            woodTextures(itemModels().withExistingParent(name, template(set, template + "_item")), wood);
         }
     }
 
@@ -238,16 +252,20 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (FurnitureWood wood : FurnitureWood.values()) {
             Block block = set.get(wood).get();
             String name = name(block);
-            ModelFile top = woodModel(name + "_top", template(set.room(), template + "_top"), wood);
-            ModelFile leg = woodModel(name + "_leg", template(set.room(), template + "_leg"), wood);
+            ModelFile top = woodModel(name + "_top", template(set, template + "_top"), wood);
+            ModelFile leg = woodModel(name + "_leg", template(set, template + "_leg"), wood);
             tableBlock(block, top, leg);
-            woodTextures(itemModels().withExistingParent(name, template(set.room(), template + "_item")), wood);
+            woodTextures(itemModels().withExistingParent(name, template(set, template + "_item")), wood);
         }
     }
 
     /** Item model for one wooden block from an item template, filling in the wood's textures. */
     public void woodItem(Block block, Room room, String template, FurnitureWood wood) {
-        woodTextures(itemModels().withExistingParent(name(block), template(room, template)), wood);
+        woodItem(block, template(room, template), wood);
+    }
+
+    public void woodItem(Block block, ResourceLocation template, FurnitureWood wood) {
+        woodTextures(itemModels().withExistingParent(name(block), template), wood);
     }
 
     // ---- Color sets ------------------------------------------------------------------------
@@ -257,7 +275,7 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (DyeColor color : DyeColor.values()) {
             Block block = set.get(color).get();
             String name = name(block);
-            ModelFile model = woolModel(name, template(set.room(), template), color);
+            ModelFile model = woolModel(name, template(set, template), color);
             facingBlock(block, state -> model);
             itemModels().withExistingParent(name, modLoc("block/" + name));
         }
@@ -268,8 +286,8 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (DyeColor color : DyeColor.values()) {
             Block block = set.get(color).get();
             String name = name(block);
-            ModelFile off = woolModel(name, template(set.room(), template), color);
-            ModelFile on = woolModel(name + "_on", template(set.room(), template + "_on"), color);
+            ModelFile off = woolModel(name, template(set, template), color);
+            ModelFile on = woolModel(name + "_on", template(set, template + "_on"), color);
             facingLitBlock(block, off, on);
             itemModels().withExistingParent(name, modLoc("block/" + name));
         }
@@ -299,8 +317,8 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         for (DyeColor color : DyeColor.values()) {
             Block block = set.get(color).get();
             String name = name(block);
-            ModelFile closed = woolModel(name, template(set.room(), template), color);
-            ModelFile open = woolModel(name + "_open", template(set.room(), template + "_open"), color);
+            ModelFile closed = woolModel(name, template(set, template), color);
+            ModelFile open = woolModel(name + "_open", template(set, template + "_open"), color);
             facingBlock(block, state -> state.getValue(BlockStateProperties.OPEN) ? open : closed);
             itemModels().withExistingParent(name, modLoc("block/" + name));
         }
@@ -314,7 +332,7 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
     /** Item model for a colored piece, using an item template and filling in {@code #wool}. */
     public void woolItem(ColorSet<?> set, DyeColor color, String template) {
         Block block = set.get(color).get();
-        itemModels().withExistingParent(name(block), template(set.room(), template))
+        itemModels().withExistingParent(name(block), template(set, template))
                 .texture("wool", woolTexture(color));
     }
 

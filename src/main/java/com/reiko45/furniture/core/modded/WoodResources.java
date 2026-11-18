@@ -101,6 +101,9 @@ public final class WoodResources {
                 String path = relative.substring(slash + 1);
                 String fileName = path.substring(path.lastIndexOf('/') + 1);
                 if (fileName.startsWith(OAK_PREFIX) && namespace.equals(ReikosFurniture.MODID) && !path.startsWith("textures/")) {
+                    if (!ModdedWoods.includes(fileName.substring(OAK_PREFIX.length()))) {
+                        continue;
+                    }
                     String json = Files.readString(file, StandardCharsets.UTF_8);
                     String folder = path.substring(0, path.length() - fileName.length());
                     for (Swap swap : swaps) {
@@ -128,7 +131,8 @@ public final class WoodResources {
         JsonArray added = new JsonArray();
         String oak = "reikos_furniture:" + OAK_PREFIX;
         for (JsonElement value : tag.getAsJsonArray("values")) {
-            if (value.isJsonPrimitive() && value.getAsString().startsWith(oak)) {
+            if (value.isJsonPrimitive() && value.getAsString().startsWith(oak)
+                    && ModdedWoods.includes(value.getAsString().substring(oak.length()))) {
                 for (Swap swap : swaps) {
                     added.add("reikos_furniture:" + swap.woodId() + "_" + value.getAsString().substring(oak.length()));
                 }
@@ -149,7 +153,7 @@ public final class WoodResources {
         JsonObject out = new JsonObject();
         String oak = "block.reikos_furniture." + OAK_PREFIX;
         for (Map.Entry<String, JsonElement> entry : names.entrySet()) {
-            if (entry.getKey().startsWith(oak)) {
+            if (entry.getKey().startsWith(oak) && ModdedWoods.includes(entry.getKey().substring(oak.length()))) {
                 for (Swap swap : swaps) {
                     out.addProperty("block.reikos_furniture." + swap.woodId() + "_" + entry.getKey().substring(oak.length()),
                             rename(entry.getValue().getAsString(), swap.displayName()));

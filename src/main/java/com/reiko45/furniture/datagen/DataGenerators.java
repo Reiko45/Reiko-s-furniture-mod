@@ -15,6 +15,7 @@ import com.reiko45.furniture.laundry.LaundryData;
 import com.reiko45.furniture.livingroom.LivingRoomData;
 import com.reiko45.furniture.music.MusicData;
 import com.reiko45.furniture.nursery.NurseryData;
+import com.reiko45.furniture.styles.StyleData;
 import com.reiko45.furniture.office.OfficeData;
 import com.reiko45.furniture.outdoor.OutdoorData;
 import com.reiko45.furniture.pets.PetData;
@@ -55,6 +56,7 @@ public final class DataGenerators {
             new LibraryData(),
             new BarData(),
             new NurseryData(),
+            new StyleData(),
             new ToolsData());
 
     private DataGenerators() {

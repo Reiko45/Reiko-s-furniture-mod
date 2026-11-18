@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/style/royal/sofa_item",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/purple"
+  }
+}

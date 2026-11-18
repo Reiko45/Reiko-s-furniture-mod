@@ -18,6 +18,12 @@ public record ColorSet<B extends Block>(String piece, Room room, Map<DyeColor, D
         return blocks.get(color);
     }
 
+    /** The furniture style, from the piece name ({@code modern_sofa}), or null for classic pieces. */
+    @org.jetbrains.annotations.Nullable
+    public Style style() {
+        return Style.of(piece);
+    }
+
     public Collection<DeferredBlock<B>> all() {
         return blocks.values();
     }

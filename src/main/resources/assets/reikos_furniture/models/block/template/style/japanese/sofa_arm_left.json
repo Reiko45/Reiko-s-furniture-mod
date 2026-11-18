@@ -1,0 +1,78 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#wool",
+    "frame": "minecraft:block/bamboo_planks"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        2,
+        1
+      ],
+      "to": [
+        2,
+        8,
+        12
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            4,
+            2,
+            15
+          ],
+          "texture": "#frame"
+        },
+        "up": {
+          "uv": [
+            0,
+            1,
+            2,
+            12
+          ],
+          "texture": "#frame"
+        },
+        "north": {
+          "uv": [
+            14,
+            8,
+            16,
+            14
+          ],
+          "texture": "#frame"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            2,
+            14
+          ],
+          "texture": "#frame"
+        },
+        "west": {
+          "uv": [
+            1,
+            8,
+            12,
+            14
+          ],
+          "texture": "#frame",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            15,
+            14
+          ],
+          "texture": "#frame"
+        }
+      }
+    }
+  ]
+}

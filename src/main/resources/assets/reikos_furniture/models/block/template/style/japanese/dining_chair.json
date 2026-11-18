@@ -1,0 +1,285 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "paper": "reikos_furniture:block/style/washi",
+    "tatami": "reikos_furniture:block/style/tatami",
+    "iron": "minecraft:block/anvil",
+    "cushion": "reikos_furniture:block/fabric/blue"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        1.5,
+        14
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#planks",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            2,
+            14.5,
+            14,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            2,
+            14.5,
+            14,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            2,
+            14.5,
+            14,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            2,
+            14.5,
+            14,
+            16
+          ],
+          "texture": "#planks"
+        }
+      }
+    },
+    {
+      "from": [
+        2.5,
+        1.5,
+        2.5
+      ],
+      "to": [
+        13.5,
+        4,
+        11.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.5,
+            4.5,
+            13.5,
+            13.5
+          ],
+          "texture": "#cushion"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            2.5,
+            13.5,
+            11.5
+          ],
+          "texture": "#cushion"
+        },
+        "north": {
+          "uv": [
+            2.5,
+            12,
+            13.5,
+            14.5
+          ],
+          "texture": "#cushion"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            12,
+            13.5,
+            14.5
+          ],
+          "texture": "#cushion"
+        },
+        "west": {
+          "uv": [
+            2.5,
+            12,
+            11.5,
+            14.5
+          ],
+          "texture": "#cushion"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            12,
+            13.5,
+            14.5
+          ],
+          "texture": "#cushion"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        1.5,
+        11.5
+      ],
+      "to": [
+        14,
+        12,
+        13.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            2.5,
+            14,
+            4.5
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            2,
+            11.5,
+            14,
+            13.5
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            2,
+            4,
+            14,
+            14.5
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            14,
+            14.5
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            11.5,
+            4,
+            13.5,
+            14.5
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            2.5,
+            4,
+            4.5,
+            14.5
+          ],
+          "texture": "#planks"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        4,
+        11
+      ],
+      "to": [
+        13,
+        10.5,
+        11.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3,
+            4.5,
+            13,
+            5
+          ],
+          "texture": "#cushion"
+        },
+        "up": {
+          "uv": [
+            3,
+            11,
+            13,
+            11.5
+          ],
+          "texture": "#cushion"
+        },
+        "north": {
+          "uv": [
+            3,
+            5.5,
+            13,
+            12
+          ],
+          "texture": "#cushion"
+        },
+        "south": {
+          "uv": [
+            3,
+            5.5,
+            13,
+            12
+          ],
+          "texture": "#cushion"
+        },
+        "west": {
+          "uv": [
+            11,
+            5.5,
+            11.5,
+            12
+          ],
+          "texture": "#cushion"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            5.5,
+            5,
+            12
+          ],
+          "texture": "#cushion"
+        }
+      }
+    }
+  ]
+}

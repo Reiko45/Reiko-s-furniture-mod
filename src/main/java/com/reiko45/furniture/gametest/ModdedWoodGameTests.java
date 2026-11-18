@@ -4,6 +4,9 @@ import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.styles.StyleFurniture;
+import com.reiko45.furniture.core.config.FurnitureConfig;
+import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
 import com.reiko45.furniture.core.display.DisplayBlockEntity;
 import com.reiko45.furniture.core.modded.WoodResources;
@@ -91,6 +94,16 @@ public class ModdedWoodGameTests {
         helper.setBlock(pos.east(2), MusicFurniture.RECORD_PLAYER.get(wood).get());
         helper.assertTrue(helper.getBlockEntity(pos.east(2)) instanceof JukeboxBlockEntity, "record player jukebox");
         helper.assertTrue(FurnitureRegistry.moddedItems().size() >= FurnitureWood.modded().size(), "items in the creative tab");
+
+        // Style pieces too (unless the startup config turns them off), crafted from the modded classic piece.
+        if (FurnitureConfig.moddedWoodStyles()) {
+            Block wardrobe = StyleFurniture.get(Style.JAPANESE).wardrobe().get(wood).get();
+            String name = BuiltInRegistries.BLOCK.getKey(wardrobe).getPath();
+            helper.assertValueEqual(name, wood.id() + "_japanese_wardrobe", "style block name");
+            helper.assertTrue(helper.getLevel().getRecipeManager().byKey(ReikosFurniture.id(name)).isPresent(), name + " has a recipe");
+            helper.setBlock(pos.east(3), wardrobe);
+            helper.assertTrue(helper.getBlockEntity(pos.east(3)) instanceof FurnitureStorageBlockEntity, "style wardrobe storage");
+        }
         helper.succeed();
     }
 }

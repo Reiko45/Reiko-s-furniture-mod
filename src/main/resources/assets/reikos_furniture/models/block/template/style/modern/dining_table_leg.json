@@ -1,0 +1,79 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "metal": "minecraft:block/black_concrete",
+    "body": "minecraft:block/white_concrete"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        2.5,
+        15,
+        2.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            13.5,
+            2.5,
+            15
+          ],
+          "texture": "#metal",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            2.5,
+            2.5
+          ],
+          "texture": "#metal"
+        },
+        "north": {
+          "uv": [
+            13.5,
+            1,
+            15,
+            16
+          ],
+          "texture": "#metal"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            2.5,
+            16
+          ],
+          "texture": "#metal"
+        },
+        "west": {
+          "uv": [
+            1,
+            1,
+            2.5,
+            16
+          ],
+          "texture": "#metal"
+        },
+        "east": {
+          "uv": [
+            13.5,
+            1,
+            15,
+            16
+          ],
+          "texture": "#metal"
+        }
+      }
+    }
+  ]
+}

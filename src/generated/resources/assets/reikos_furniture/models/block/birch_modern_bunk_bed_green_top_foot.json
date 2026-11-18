@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/style/modern/bunk_bed_top_foot",
+  "textures": {
+    "log": "minecraft:block/birch_log",
+    "planks": "minecraft:block/birch_planks",
+    "stripped_log": "minecraft:block/stripped_birch_log",
+    "wool": "reikos_furniture:block/fabric/green"
+  }
+}

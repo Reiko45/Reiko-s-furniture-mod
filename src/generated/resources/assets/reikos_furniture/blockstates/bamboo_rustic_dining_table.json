@@ -1,0 +1,48 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "reikos_furniture:block/bamboo_rustic_dining_table_top"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/bamboo_rustic_dining_table_leg"
+      },
+      "when": {
+        "north": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/bamboo_rustic_dining_table_leg",
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/bamboo_rustic_dining_table_leg",
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "south": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/bamboo_rustic_dining_table_leg",
+        "y": 270
+      },
+      "when": {
+        "south": "false",
+        "west": "false"
+      }
+    }
+  ]
+}

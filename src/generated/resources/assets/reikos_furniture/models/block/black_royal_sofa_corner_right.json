@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/style/royal/sofa_corner_right",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/black"
+  }
+}

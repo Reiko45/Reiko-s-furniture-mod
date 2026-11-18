@@ -3,6 +3,7 @@ package com.reiko45.furniture.core.modded;
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.config.FurnitureConfig;
 import java.util.ArrayList;
@@ -53,12 +54,23 @@ public final class ModdedWoods {
         int count = 0;
         for (FurnitureWood wood : FurnitureWood.modded()) {
             for (WoodSet<?> set : FurnitureRegistry.woodSets()) {
+                if (!includes(set.piece())) {
+                    continue;
+                }
                 FurnitureRegistry.registerModded(set, wood, (name, item) -> event.register(Registries.ITEM, ReikosFurniture.id(name), () -> item));
                 count++;
             }
         }
         ReikosFurniture.LOGGER.info("Added {} furniture blocks for {} woods from other mods: {}", count, FurnitureWood.modded().size(),
                 FurnitureWood.modded());
+    }
+
+    /**
+     * Whether a piece ({@code nightstand}, {@code rustic_bed}, ...) is made in modded woods. Style pieces
+     * are left out when the startup config turns them off.
+     */
+    public static boolean includes(String piece) {
+        return Style.of(piece) == null || FurnitureConfig.moddedWoodStyles();
     }
 
     /** Looks through every registered block for other mods' woods. */
@@ -108,6 +120,9 @@ public final class ModdedWoods {
             return;
         }
         for (WoodSet<?> set : FurnitureRegistry.woodSets()) {
+            if (!includes(set.piece())) {
+                continue;
+            }
             BlockState oak = set.get(FurnitureWood.OAK).get().defaultBlockState();
             Block[] modded = FurnitureWood.modded().stream().map(wood -> (Block) set.get(wood).get()).toArray(Block[]::new);
             event.modify((key, type) -> type.isValid(oak), modded);
