@@ -58,6 +58,8 @@ public class FurnitureLanguageProvider extends LanguageProvider {
         ModSounds.SUBTITLES.forEach((name, text) -> add("subtitles.reikos_furniture." + name, text));
         add("container.reikos_furniture.furniture_workbench", "Furniture Workbench");
         add("container.reikos_furniture.furniture_workbench.cost", "Needs %s planks");
+        add("entity.minecraft.villager.reikos_furniture.furniture_maker", "Furniture Maker");
+        add("entity.minecraft.villager.furniture_maker", "Furniture Maker");
 
         DataGenerators.ROOMS.forEach(room -> room.translations(this::add));
     }

@@ -24,6 +24,7 @@ import com.reiko45.furniture.music.MusicFurniture;
 import com.reiko45.furniture.office.OfficeFurniture;
 import com.reiko45.furniture.outdoor.OutdoorFurniture;
 import com.reiko45.furniture.pets.PetFurniture;
+import com.reiko45.furniture.villager.FurnitureMaker;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.resources.ResourceLocation;
@@ -76,12 +77,15 @@ public class ReikosFurniture {
         ModSounds.SOUNDS.register(modBus);
         ModRecipes.TYPES.register(modBus);
         ModRecipes.SERIALIZERS.register(modBus);
+        FurnitureMaker.POI_TYPES.register(modBus);
+        FurnitureMaker.PROFESSIONS.register(modBus);
 
         modBus.addListener(this::commonSetup);
         modBus.addListener(ReikosFurniture::registerCapabilities);
         modBus.addListener(DataGenerators::gatherData);
         modBus.addListener(ReikosFurniture::addBlockEntityBlocks);
         NeoForge.EVENT_BUS.addListener(PetFurniture::onEntityJoin);
+        NeoForge.EVENT_BUS.addListener(FurnitureMaker::addTrades);
     }
 
     /** Record players use the vanilla jukebox block entity, so music discs and comparators work as usual. */

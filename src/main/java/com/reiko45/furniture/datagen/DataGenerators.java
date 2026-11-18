@@ -57,5 +57,6 @@ public final class DataGenerators {
                 lookup));
         generator.addProvider(event.includeServer(), new FurnitureRecipeProvider(output, lookup));
         generator.addProvider(event.includeServer(), new FurnitureBlockTagsProvider(output, lookup, files));
+        generator.addProvider(event.includeServer(), new FurniturePoiTagsProvider(output, lookup, files));
     }
 }

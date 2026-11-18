@@ -90,6 +90,7 @@ public class PetGameTests {
     }
 
     @GameTest(template = CoreGameTests.EMPTY, timeoutTicks = 400)
+    @SuppressWarnings("removal") // the only way to have a real owner in the level on 1.21.1
     public static void tamedWolvesRestOnPetBeds(GameTestHelper helper) {
         floor(helper);
         BlockPos bed = new BlockPos(6, 1, 6);

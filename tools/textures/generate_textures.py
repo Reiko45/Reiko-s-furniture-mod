@@ -383,7 +383,62 @@ def piano_keys():
     save(img, "block/piano_keys.png")
 
 
+def villager_profession():
+    """Furniture maker work clothes, drawn over the villager (64x64, same layout as vanilla professions):
+    a leather apron with a pocket and a ruler, a bib strap, and a pencil behind the ear."""
+    img = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
+    px = img.load()
+    rnd = random.Random("furniture-maker")
+    leather = (0xC4, 0x9A, 0x62)  # tan canvas, stands out on the brown plains robe
+
+    def put(x, y, c):
+        px[x, y] = c + (255,)
+
+    def leather_px(x, y):
+        put(x, y, shade(leather, 0.92 + rnd.random() * 0.16))
+
+    # Robe (jacket box at 0,38: 8 wide, 20 tall, 6 deep). Front face is x 6-13, y 44-63.
+    for y in range(47, 62):
+        for x in range(6, 14):
+            leather_px(x, y)
+    for x in range(6, 14):  # stitched hem
+        put(x, 61, shade(leather, 0.7))
+    for y in range(44, 47):  # bib above the waist
+        for x in range(8, 12):
+            leather_px(x, y)
+    # Waist ties around the sides and back.
+    for x in list(range(0, 6)) + list(range(14, 28)):
+        put(x, 47, shade(leather, 0.75))
+    # Neck strap on the robe's top face (x 6-13, y 38-43).
+    for y in range(38, 44):
+        put(8, y, shade(leather, 0.8))
+        put(11, y, shade(leather, 0.8))
+    # Pocket with a folding ruler and a pencil sticking out.
+    for x in range(7, 13):
+        put(x, 53, shade(leather, 0.65))
+    for y in range(53, 58):
+        put(7, y, shade(leather, 0.65))
+        put(12, y, shade(leather, 0.65))
+    for x in range(7, 13):
+        put(x, 57, shade(leather, 0.65))
+    for y in range(50, 53):
+        put(9, y, (0xE8, 0xC0, 0x40))
+    put(9, 50, (0x30, 0x30, 0x30))
+    for y in range(51, 53):
+        put(11, y, (0xD8, 0xD8, 0xD0))
+
+    # Pencil behind the right ear: on the hat layer's side face (x 32-39, y 8-17).
+    for x in range(33, 39):
+        put(x, 12, (0xF0, 0xC8, 0x30))
+    put(33, 12, (0xF0, 0xD8, 0xA8))
+    put(32, 12, (0x30, 0x30, 0x30))
+
+    save(img, "entity/villager/profession/furniture_maker.png")
+    save(img, "entity/zombie_villager/profession/furniture_maker.png")
+
+
 if __name__ == "__main__":
+    villager_profession()
     food_items()
     dartboard()
     piano_keys()

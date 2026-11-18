@@ -691,6 +691,8 @@
   "container.reikos_furniture.furniture_workbench.cost": "Needs %s planks",
   "container.reikos_furniture.microwave": "Microwave",
   "container.reikos_furniture.stove": "Stove",
+  "entity.minecraft.villager.furniture_maker": "Furniture Maker",
+  "entity.minecraft.villager.reikos_furniture.furniture_maker": "Furniture Maker",
   "item.reikos_furniture.coffee": "Coffee",
   "item.reikos_furniture.fruit_smoothie": "Fruit Smoothie",
   "item.reikos_furniture.hot_cocoa": "Hot Cocoa",
