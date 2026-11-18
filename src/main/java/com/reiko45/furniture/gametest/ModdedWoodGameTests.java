@@ -57,7 +57,10 @@ public class ModdedWoodGameTests {
         helper.assertFalse(swappedRecipe.contains("oak"), "no oak left: " + swappedRecipe);
 
         helper.assertValueEqual(WoodResources.rename("oak_wardrobe_lower_open.json", FIR), "somemod_fir_wardrobe_lower_open.json", "file");
-        helper.assertValueEqual(WoodResources.rename("Oak Nightstand", "Fir"), "Fir Nightstand", "name");
+        helper.assertValueEqual(WoodResources.rename("Oak Nightstand", "Oak", "Fir"), "Fir Nightstand", "name");
+        helper.assertValueEqual(WoodResources.rename("Mesita de noche de roble", "roble", "Fir"), "Mesita de noche de Fir", "Spanish name");
+        helper.assertValueEqual(WoodResources.rename("Rustikales Eichenholz-Bett", "Eichenholz", "Fir"), "Rustikales Fir-Bett",
+                "German name");
         helper.assertValueEqual(WoodResources.translate("{\"name\": \"reikos_furniture:blocks/oak_desk\"}", FIR),
                 "{\"name\": \"reikos_furniture:blocks/somemod_fir_desk\"}", "loot table id");
         helper.succeed();

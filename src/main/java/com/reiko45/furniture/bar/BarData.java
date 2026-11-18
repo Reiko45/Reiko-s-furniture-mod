@@ -21,6 +21,7 @@ import com.reiko45.furniture.kitchen.appliance.ApplianceType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.DyeColor;
@@ -95,5 +96,11 @@ public class BarData implements RoomData {
     private static void appliance(RecipeOutput output, String name, Item result, int time, Ingredient... ingredients) {
         output.accept(ReikosFurniture.id("appliance/" + name),
                 new ApplianceRecipe(ApplianceType.ESPRESSO_MACHINE.id(), List.of(ingredients), new ItemStack(result), time), null);
+    }
+
+    @Override
+    public void translations(BiConsumer<String, String> add) {
+        add.accept(ESPRESSO.get().getDescriptionId(), "Espresso");
+        add.accept(LATTE.get().getDescriptionId(), "Latte");
     }
 }

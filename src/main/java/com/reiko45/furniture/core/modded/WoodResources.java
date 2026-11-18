@@ -30,12 +30,14 @@ import net.neoforged.neoforgespi.language.IModFileInfo;
  * Makes the resources for modded woods by copying the oak ones shipped in the jar: every file named
  * {@code oak_*} (blockstates, models, loot tables, recipes, workbench recipes, recipe advancements),
  * with the oak ids, ingredients and textures swapped for the modded wood's. Tags that list oak pieces
- * and the English names get matching entries too.
+ * and the names in every language get matching entries too.
  */
 public final class WoodResources {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     private static final Pattern OWN_OAK_ID = Pattern.compile("reikos_furniture:((?:block/|item/|blocks/|carpentry/)?)oak_");
     private static final String OAK_PREFIX = "oak_";
+    /** The lang key with the language's word for oak (see FurnitureLanguageProvider.OAK_WORD_KEY). */
+    static final String OAK_WORD_KEY = "reikos_furniture.wood.oak";
 
     private WoodResources() {
     }
@@ -76,9 +78,10 @@ public final class WoodResources {
         return swap.woodId() + "_" + fileName.substring(OAK_PREFIX.length());
     }
 
-    /** "Oak Nightstand" becomes "Fir Nightstand". */
-    public static String rename(String oakName, String displayName) {
-        return oakName.startsWith("Oak ") ? displayName + oakName.substring(3) : displayName + " " + oakName;
+    /** "Oak Nightstand" becomes "Fir Nightstand": the first {@code oakWord} is replaced (or the name is prefixed). */
+    public static String rename(String oakName, String oakWord, String displayName) {
+        int at = oakName.indexOf(oakWord);
+        return at < 0 ? displayName + " " + oakName : oakName.substring(0, at) + displayName + oakName.substring(at + oakWord.length());
     }
 
     /** Builds every file of the pack for one side (client resources or server data). */
@@ -115,7 +118,7 @@ public final class WoodResources {
                     if (tag != null) {
                         files.put(ResourceLocation.fromNamespaceAndPath(namespace, path), tag);
                     }
-                } else if (client && namespace.equals(ReikosFurniture.MODID) && path.equals("lang/en_us.json")) {
+                } else if (client && namespace.equals(ReikosFurniture.MODID) && path.startsWith("lang/")) {
                     files.put(ResourceLocation.fromNamespaceAndPath(namespace, path), lang(Files.readString(file, StandardCharsets.UTF_8), swaps));
                 }
             }
@@ -147,16 +150,21 @@ public final class WoodResources {
         return GSON.toJson(out).getBytes(StandardCharsets.UTF_8);
     }
 
-    /** English names for the modded pieces, from the oak ones. */
+    /**
+     * Names for the modded pieces in one language, from the oak ones: the language's word for oak
+     * (stored under {@link #OAK_WORD_KEY}) is swapped for the modded wood's name, so "Oak Nightstand"
+     * becomes "Fir Nightstand" and "Mesita de noche de roble" becomes "Mesita de noche de Fir".
+     */
     static byte[] lang(String json, List<Swap> swaps) {
         JsonObject names = JsonParser.parseString(json).getAsJsonObject();
         JsonObject out = new JsonObject();
         String oak = "block.reikos_furniture." + OAK_PREFIX;
+        String oakWord = names.has(OAK_WORD_KEY) ? names.get(OAK_WORD_KEY).getAsString() : "Oak";
         for (Map.Entry<String, JsonElement> entry : names.entrySet()) {
             if (entry.getKey().startsWith(oak) && ModdedWoods.includes(entry.getKey().substring(oak.length()))) {
                 for (Swap swap : swaps) {
                     out.addProperty("block.reikos_furniture." + swap.woodId() + "_" + entry.getKey().substring(oak.length()),
-                            rename(entry.getValue().getAsString(), swap.displayName()));
+                            rename(entry.getValue().getAsString(), oakWord, swap.displayName()));
                 }
             }
         }

@@ -9,6 +9,7 @@ import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.registry.ModSounds;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -23,13 +24,29 @@ public class FurnitureLanguageProvider extends LanguageProvider {
     /** Words that should not just be capitalized. */
     private static final Map<String, String> SPECIAL_WORDS = Map.of("tv", "TV");
 
+    /** Key holding the word for oak as it appears in names; modded woods swap it for their own name. */
+    public static final String OAK_WORD_KEY = "reikos_furniture.wood.oak";
+
     public FurnitureLanguageProvider(PackOutput output) {
         super(output, ReikosFurniture.MODID, "en_us");
+    }
+
+    /** Every English key and text, in the order they are added (the other languages are checked against these). */
+    public static Map<String, String> english(PackOutput output) {
+        Map<String, String> english = new LinkedHashMap<>();
+        new FurnitureLanguageProvider(output) {
+            @Override
+            public void add(String key, String value) {
+                english.put(key, value);
+            }
+        }.addTranslations();
+        return english;
     }
 
     @Override
     protected void addTranslations() {
         add("itemGroup.reikos_furniture", "Reiko's Furniture");
+        add(OAK_WORD_KEY, "Oak");
         for (Room room : Room.values()) {
             add(room.translationKey(), room.displayName());
         }

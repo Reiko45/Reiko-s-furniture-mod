@@ -16,6 +16,12 @@ import com.reiko45.furniture.livingroom.LivingRoomData;
 import com.reiko45.furniture.music.MusicData;
 import com.reiko45.furniture.nursery.NurseryData;
 import com.reiko45.furniture.styles.StyleData;
+import com.reiko45.furniture.datagen.lang.French;
+import com.reiko45.furniture.datagen.lang.German;
+import com.reiko45.furniture.datagen.lang.Grammar;
+import com.reiko45.furniture.datagen.lang.Portuguese;
+import com.reiko45.furniture.datagen.lang.Spanish;
+import com.reiko45.furniture.datagen.lang.TranslatedLanguageProvider;
 import com.reiko45.furniture.core.catalog.CatalogData;
 import com.reiko45.furniture.core.advancement.FurnitureAdvancements;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
@@ -74,6 +80,9 @@ public final class DataGenerators {
 
         generator.addProvider(event.includeClient(), new FurnitureBlockStateProvider(output, files));
         generator.addProvider(event.includeClient(), new FurnitureLanguageProvider(output));
+        for (Grammar language : List.of(new Spanish(), new French(), new German(), new Portuguese())) {
+            generator.addProvider(event.includeClient(), new TranslatedLanguageProvider(output, language));
+        }
         generator.addProvider(event.includeClient(), new FurnitureSoundsProvider(output, files));
         generator.addProvider(event.includeServer(), new LootTableProvider(output, Set.of(),
                 List.of(new LootTableProvider.SubProviderEntry(FurnitureBlockLoot::new, LootContextParamSets.BLOCK)),
