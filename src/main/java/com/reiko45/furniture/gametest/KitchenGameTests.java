@@ -44,6 +44,41 @@ public class KitchenGameTests {
         helper.succeed();
     }
 
+    @GameTest(template = CoreGameTests.EMPTY, timeoutTicks = 300)
+    public static void coffeeMachineMakesCoffee(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(2, 1, 2);
+        helper.setBlock(pos, KitchenFurniture.COFFEE_MACHINE.get());
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.COCOA_BEANS));
+        helper.useBlock(pos, player);
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.GLASS_BOTTLE));
+        helper.useBlock(pos, player);
+        helper.assertBlockProperty(pos, com.reiko45.furniture.kitchen.appliance.ApplianceBlock.RUNNING, true);
+        helper.succeedWhen(() -> helper.assertItemEntityPresent(KitchenFurniture.COFFEE.get(), pos, 2.0));
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY, timeoutTicks = 300)
+    public static void toasterIgnoresWrongItemsAndToastsBread(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(2, 1, 2);
+        helper.setBlock(pos, KitchenFurniture.TOASTER.get());
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.STICK));
+        helper.useBlock(pos, player);
+        helper.assertValueEqual(player.getMainHandItem().getCount(), 1, "a stick is not accepted");
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.BREAD));
+        helper.useBlock(pos, player);
+        helper.succeedWhen(() -> helper.assertItemEntityPresent(KitchenFurniture.TOAST.get(), pos, 2.0));
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void coffeeGivesSpeed(GameTestHelper helper) {
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        ItemStack left = new ItemStack(KitchenFurniture.COFFEE.get()).finishUsingItem(helper.getLevel(), player);
+        helper.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED), "coffee gives speed");
+        helper.assertTrue(left.is(Items.GLASS_BOTTLE), "the bottle is given back");
+        helper.succeed();
+    }
+
     @GameTest(template = CoreGameTests.EMPTY)
     public static void sinkFillsBucket(GameTestHelper helper) {
         BlockPos pos = new BlockPos(1, 1, 1);

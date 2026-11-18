@@ -1,6 +1,13 @@
 package com.reiko45.furniture.kitchen;
 
+import static com.reiko45.furniture.kitchen.KitchenFurniture.BLENDER;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.COFFEE;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.COFFEE_MACHINE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.COUNTER;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.FRUIT_SMOOTHIE;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.HOT_COCOA;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.TOAST;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.TOASTER;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.CUTTING_BOARD;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.PENDANT_LAMP;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.TRASH_CAN;
@@ -12,7 +19,12 @@ import static com.reiko45.furniture.kitchen.KitchenFurniture.SINK;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.STOVE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.UPPER_CABINET;
 
+import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.Room;
+import com.reiko45.furniture.kitchen.appliance.ApplianceBlock;
+import com.reiko45.furniture.kitchen.appliance.ApplianceRecipe;
+import com.reiko45.furniture.kitchen.appliance.ApplianceType;
+import net.minecraft.world.item.ItemStack;
 import com.reiko45.furniture.datagen.FurnitureBlockStateProvider;
 import com.reiko45.furniture.datagen.FurnitureRecipeProvider;
 import com.reiko45.furniture.datagen.RoomData;
@@ -53,6 +65,16 @@ public class KitchenData implements RoomData {
         models.woodFacing(CUTTING_BOARD, "cutting_board");
         models.colorFacingLit(PENDANT_LAMP, "pendant_lamp");
         models.singleFacingOpenable(TRASH_CAN.get(), ROOM, "trash_can");
+        for (var appliance : List.of(COFFEE_MACHINE, TOASTER, BLENDER)) {
+            String name = appliance.getId().getPath();
+            ModelFile off = models.existingTemplate(ROOM, name);
+            ModelFile on = models.existingTemplate(ROOM, name + "_on");
+            models.facingBlock(appliance.get(), state -> state.getValue(ApplianceBlock.RUNNING) ? on : off);
+            models.blockItem(appliance.get(), models.template(ROOM, name));
+        }
+        for (var food : List.of(COFFEE, HOT_COCOA, FRUIT_SMOOTHIE, TOAST)) {
+            models.itemModels().basicItem(food.get());
+        }
 
         models.tallOpenableBlock(FRIDGE.get(), models.existingTemplate(ROOM, "fridge_lower"), models.existingTemplate(ROOM, "fridge_upper"),
                 models.existingTemplate(ROOM, "fridge_lower_open"), models.existingTemplate(ROOM, "fridge_upper_open"));
@@ -112,14 +134,45 @@ public class KitchenData implements RoomData {
         recipes.shaped(TRASH_CAN.get(), 1, "INI", "I I", "III")
                 .define('I', Items.IRON_INGOT).define('N', Items.IRON_NUGGET)
                 .unlockedBy("has_iron_ingot", FurnitureRecipeProvider.hasItem(Items.IRON_INGOT)).save(output);
+        appliances(output);
+        recipes.shaped(COFFEE_MACHINE.get(), 1, "III", "IBG", "III")
+                .define('I', Items.IRON_INGOT).define('B', Items.BUCKET).define('G', Items.GLASS_PANE)
+                .unlockedBy("has_cocoa_beans", FurnitureRecipeProvider.hasItem(Items.COCOA_BEANS)).save(output);
+        recipes.shaped(TOASTER.get(), 1, "I I", "IRI")
+                .define('I', Items.IRON_INGOT).define('R', Items.REDSTONE)
+                .unlockedBy("has_bread", FurnitureRecipeProvider.hasItem(Items.BREAD)).save(output);
+        recipes.shaped(BLENDER.get(), 1, "G G", "G G", "IRI")
+                .define('G', Items.GLASS_PANE).define('I', Items.IRON_INGOT).define('R', Items.REDSTONE)
+                .unlockedBy("has_glass_pane", FurnitureRecipeProvider.hasItem(Items.GLASS_PANE)).save(output);
         recipes.shaped(FRIDGE.get(), 1, "III", "ICI", "III")
                 .define('I', Items.IRON_INGOT).define('C', Items.CHEST)
                 .unlockedBy("has_iron_ingot", FurnitureRecipeProvider.hasItem(Items.IRON_INGOT))
                 .save(output);
     }
 
+    /** What the coffee machine, toaster and blender make. */
+    private static void appliances(RecipeOutput output) {
+        Ingredient bottle = Ingredient.of(Items.GLASS_BOTTLE);
+        Ingredient fruit = Ingredient.of(Items.APPLE, Items.SWEET_BERRIES, Items.GLOW_BERRIES, Items.MELON_SLICE);
+        appliance(output, "coffee", ApplianceType.COFFEE_MACHINE, COFFEE.get(), 100, Ingredient.of(Items.COCOA_BEANS), bottle);
+        appliance(output, "hot_cocoa", ApplianceType.COFFEE_MACHINE, HOT_COCOA.get(), 120,
+                Ingredient.of(Items.COCOA_BEANS), Ingredient.of(Items.MILK_BUCKET), bottle);
+        appliance(output, "toast", ApplianceType.TOASTER, TOAST.get(), 80, Ingredient.of(Items.BREAD));
+        appliance(output, "fruit_smoothie", ApplianceType.BLENDER, FRUIT_SMOOTHIE.get(), 100, fruit, fruit, bottle);
+    }
+
+    private static void appliance(RecipeOutput output, String name, ApplianceType type, Item result, int time,
+                                  Ingredient... ingredients) {
+        output.accept(ReikosFurniture.id("appliance/" + name),
+                new ApplianceRecipe(type.id(), List.of(ingredients), new ItemStack(result), time), null);
+    }
+
     @Override
     public void translations(BiConsumer<String, String> add) {
+        add.accept(COFFEE.get().getDescriptionId(), "Coffee");
+        add.accept(HOT_COCOA.get().getDescriptionId(), "Hot Cocoa");
+        add.accept(FRUIT_SMOOTHIE.get().getDescriptionId(), "Fruit Smoothie");
+        add.accept(TOAST.get().getDescriptionId(), "Toast");
         add.accept("container.reikos_furniture.stove", "Stove");
         add.accept("container.reikos_furniture.microwave", "Microwave");
     }

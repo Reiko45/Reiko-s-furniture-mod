@@ -1,0 +1,42 @@
+{
+  "type": "reikos_furniture:appliance",
+  "appliance": "blender",
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:apple"
+      },
+      {
+        "item": "minecraft:sweet_berries"
+      },
+      {
+        "item": "minecraft:glow_berries"
+      },
+      {
+        "item": "minecraft:melon_slice"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:apple"
+      },
+      {
+        "item": "minecraft:sweet_berries"
+      },
+      {
+        "item": "minecraft:glow_berries"
+      },
+      {
+        "item": "minecraft:melon_slice"
+      }
+    ],
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:fruit_smoothie"
+  },
+  "time": 100
+}

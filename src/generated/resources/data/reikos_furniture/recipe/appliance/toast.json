@@ -1,0 +1,14 @@
+{
+  "type": "reikos_furniture:appliance",
+  "appliance": "toaster",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:toast"
+  },
+  "time": 80
+}

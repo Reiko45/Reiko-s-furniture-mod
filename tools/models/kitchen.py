@@ -233,3 +233,49 @@ def trash_can(opened):
 TRASH = {"metal": "reikos_furniture:block/appliance/steel", "rim": "minecraft:block/iron_block", "dark": "minecraft:block/black_concrete"}
 write(ROOM, "trash_can", trash_can(False), TRASH, particle="reikos_furniture:block/appliance/steel")
 write(ROOM, "trash_can_open", trash_can(True), TRASH, particle="reikos_furniture:block/appliance/steel")
+
+# ---- 1.2: coffee machine, toaster, blender ----
+
+APPLIANCE = {"steel": "reikos_furniture:block/appliance/steel", "black": "minecraft:block/black_concrete",
+             "glass": "minecraft:block/glass", "coffee": "minecraft:block/brown_concrete",
+             "light_off": "minecraft:block/gray_concrete", "light_on": "minecraft:block/redstone_lamp_on",
+             "glow": "minecraft:block/ochre_froglight_side", "fruit": "minecraft:block/pink_concrete_powder"}
+
+
+def coffee_machine(running):
+    return [
+        Box((3, 0, 5), (13, 1, 13), "#black"),
+        Box((3, 1, 9), (13, 14, 13), "#black"),
+        Box((3, 10, 3), (13, 14, 9), "#steel"),
+        Box((5, 1, 4), (11, 7, 8), "#glass"),
+        Box((5.5, 1, 4.5), (10.5, 4 if running else 2, 7.5), "#coffee"),
+        Box((10.5, 11.5, 2.5), (12, 12.5, 3), "#light_on" if running else "#light_off", glow=running),
+    ]
+
+
+def toaster(running):
+    lever_y = 1.5 if running else 4.5
+    return [
+        Box((3, 0, 5), (13, 7, 11), "#steel"),
+        Box((4.5, 6.9, 6.5), (11.5, 7.05, 7.5), "#glow" if running else "#black", glow=running),
+        Box((4.5, 6.9, 8.5), (11.5, 7.05, 9.5), "#glow" if running else "#black", glow=running),
+        Box((13, lever_y, 7.5), (14, lever_y + 1, 8.5), "#black"),
+        Box((2, 2, 7.5), (3, 4, 8.5), "#black"),
+    ]
+
+
+def blender(running):
+    return [
+        Box((5, 0, 5), (11, 4, 11), "#black"),
+        Box((6.5, 2, 4.5), (9.5, 3, 5), "#light_on" if running else "#light_off", glow=running),
+        Box((6, 4, 6), (10, 7 if running else 5, 10), "#fruit"),
+        Box((5.5, 4, 5.5), (10.5, 12, 10.5), "#jar"),
+        Box((5.25, 12, 5.25), (10.75, 13, 10.75), "#black"),
+    ]
+
+
+APPLIANCE["jar"] = "minecraft:block/white_stained_glass"
+for name, fn, render in (("coffee_machine", coffee_machine, "minecraft:cutout"), ("toaster", toaster, "minecraft:cutout"),
+                         ("blender", blender, "minecraft:translucent")):
+    write(ROOM, name, fn(False), APPLIANCE, particle="reikos_furniture:block/appliance/steel", render_type=render)
+    write(ROOM, name + "_on", fn(True), APPLIANCE, particle="reikos_furniture:block/appliance/steel", render_type=render)

@@ -1,0 +1,17 @@
+{
+  "type": "reikos_furniture:appliance",
+  "appliance": "coffee_machine",
+  "ingredients": [
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:coffee"
+  },
+  "time": 100
+}

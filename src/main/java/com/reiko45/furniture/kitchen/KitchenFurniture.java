@@ -14,6 +14,17 @@ import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
+import com.reiko45.furniture.core.registry.ModItems;
+import com.reiko45.furniture.kitchen.appliance.ApplianceBlock;
+import com.reiko45.furniture.kitchen.appliance.ApplianceBlockEntity;
+import com.reiko45.furniture.kitchen.appliance.ApplianceType;
+import com.reiko45.furniture.kitchen.appliance.DrinkItem;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -110,6 +121,43 @@ public final class KitchenFurniture {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TrashCanBlockEntity>> TRASH_CAN_BLOCK_ENTITY =
             ModBlockEntities.BLOCK_ENTITIES.register("trash_can",
                     () -> BlockEntityType.Builder.of(TrashCanBlockEntity::new, TRASH_CAN.get()).build(null));
+
+    private static BlockBehaviour.Properties appliance() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.5F).sound(SoundType.METAL).noOcclusion();
+    }
+
+    /** Makes coffee and hot cocoa. */
+    public static final DeferredBlock<ApplianceBlock> COFFEE_MACHINE = FurnitureRegistry.register("coffee_machine", ROOM,
+            () -> new ApplianceBlock(appliance(), boxes(box(3, 0, 2.5, 13, 14, 13)), ApplianceType.COFFEE_MACHINE));
+
+    /** Toasts bread. */
+    public static final DeferredBlock<ApplianceBlock> TOASTER = FurnitureRegistry.register("toaster", ROOM,
+            () -> new ApplianceBlock(appliance(), boxes(box(2, 0, 5, 14, 7.5, 11)), ApplianceType.TOASTER));
+
+    /** Blends fruit into smoothies. */
+    public static final DeferredBlock<ApplianceBlock> BLENDER = FurnitureRegistry.register("blender", ROOM,
+            () -> new ApplianceBlock(appliance(), boxes(box(5, 0, 4.5, 11, 13, 11)), ApplianceType.BLENDER));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ApplianceBlockEntity>> APPLIANCE_BLOCK_ENTITY =
+            ModBlockEntities.BLOCK_ENTITIES.register("appliance", () -> BlockEntityType.Builder.of(ApplianceBlockEntity::new,
+                    COFFEE_MACHINE.get(), TOASTER.get(), BLENDER.get()).build(null));
+
+    // Food and drink made by the appliances.
+    public static final DeferredItem<DrinkItem> COFFEE = ModItems.ITEMS.register("coffee", () -> new DrinkItem(
+            new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.3F)
+                    .alwaysEdible().usingConvertsTo(Items.GLASS_BOTTLE)
+                    .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0), 1.0F).build())));
+    public static final DeferredItem<DrinkItem> HOT_COCOA = ModItems.ITEMS.register("hot_cocoa", () -> new DrinkItem(
+            new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.5F)
+                    .alwaysEdible().usingConvertsTo(Items.GLASS_BOTTLE)
+                    .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 600, 0), 1.0F).build())));
+    public static final DeferredItem<DrinkItem> FRUIT_SMOOTHIE = ModItems.ITEMS.register("fruit_smoothie", () -> new DrinkItem(
+            new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.6F)
+                    .alwaysEdible().usingConvertsTo(Items.GLASS_BOTTLE)
+                    .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100, 0), 1.0F).build())));
+    public static final DeferredItem<Item> TOAST = ModItems.ITEMS.register("toast", () -> new Item(
+            new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(0.8F).build())));
 
     private KitchenFurniture() {
     }

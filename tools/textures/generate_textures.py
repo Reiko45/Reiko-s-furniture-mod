@@ -271,7 +271,81 @@ def arcade_screen():
     save(frames(4, game), "block/screen/arcade.png", frametime=4)
 
 
+# ---- Food and drink items ------------------------------------------------------------------
+
+def item_canvas():
+    return Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+
+
+def mug(name, drink, foam=None):
+    """A white mug (handle on the right) filled with a drink."""
+    img = item_canvas()
+    body = (0xF2, 0xF2, 0xEE)
+    edge = (0x9A, 0x9A, 0x96)
+    rect(img, 3, 5, 11, 14, body)
+    for y in range(5, 14):
+        img.load()[3, y] = edge + (255,)
+        img.load()[10, y] = shade(body, 0.85) + (255,)
+    rect(img, 4, 13, 10, 14, shade(body, 0.85))
+    rect(img, 3, 4, 11, 5, edge)
+    rect(img, 4, 5, 10, 7, drink)
+    if foam:
+        rect(img, 5, 5, 9, 6, foam)
+    for y in (7, 8, 9, 10):
+        img.load()[12, y] = edge + (255,)
+    img.load()[11, 7] = edge + (255,)
+    img.load()[11, 10] = edge + (255,)
+    # steam
+    for x, y in ((5, 2), (6, 1), (8, 2), (9, 1)):
+        img.load()[x, y] = (0xDD, 0xDD, 0xDD, 160)
+    img.save(os.path.join(ROOT, "item", name + ".png"))
+
+
+def toast():
+    img = item_canvas()
+    crust = (0x9A, 0x5A, 0x22)
+    inside = (0xE0, 0xA8, 0x55)
+    rect(img, 3, 3, 13, 14, crust)
+    rect(img, 4, 4, 12, 13, inside)
+    rect(img, 4, 2, 12, 3, crust)
+    rect(img, 5, 1, 11, 2, crust)
+    rnd = random.Random("toast")
+    for _ in range(10):
+        x, y = rnd.randint(4, 11), rnd.randint(4, 12)
+        img.load()[x, y] = shade(inside, 0.85) + (255,)
+    img.save(os.path.join(ROOT, "item", "toast.png"))
+
+
+def smoothie():
+    """A glass with a pink smoothie, a straw and a slice of fruit."""
+    img = item_canvas()
+    glass = (0xD8, 0xEE, 0xF2)
+    pink = (0xE8, 0x6A, 0x9A)
+    for y in range(4, 15):
+        inset = 0 if y < 13 else 1
+        for x in range(4 + inset, 12 - inset):
+            img.load()[x, y] = (pink if y >= 6 else glass) + (255,)
+        img.load()[4 + inset, y] = glass + (255,)
+        img.load()[11 - inset, y] = glass + (255,)
+    for y in range(6, 15):
+        img.load()[6, y] = shade(pink, 1.15) + (255,)
+    for i, (x, y) in enumerate(((9, 1), (9, 2), (9, 3), (9, 4), (9, 5))):
+        img.load()[x, y] = (0x40, 0xB0, 0xE0, 255)
+    rect(img, 10, 3, 13, 5, (0x7C, 0xC8, 0x3C))
+    img.load()[11, 3] = (0xF4, 0xE9, 0x8C, 255)
+    img.save(os.path.join(ROOT, "item", "fruit_smoothie.png"))
+
+
+def food_items():
+    os.makedirs(os.path.join(ROOT, "item"), exist_ok=True)
+    mug("coffee", (0x4A, 0x2A, 0x14), foam=(0xB0, 0x80, 0x50))
+    mug("hot_cocoa", (0x6B, 0x3A, 0x1E), foam=(0xFA, 0xF5, 0xEC))
+    toast()
+    smoothie()
+
+
 if __name__ == "__main__":
+    food_items()
     for name, rgb in DYES.items():
         fabric(name, rgb)
     appliance_textures()
