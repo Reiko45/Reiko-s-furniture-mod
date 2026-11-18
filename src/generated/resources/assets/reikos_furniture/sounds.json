@@ -35,6 +35,12 @@
     ],
     "subtitle": "subtitles.reikos_furniture.microwave_ding"
   },
+  "sliding_door": {
+    "sounds": [
+      "reikos_furniture:sliding_door"
+    ],
+    "subtitle": "subtitles.reikos_furniture.sliding_door"
+  },
   "toaster_pop": {
     "sounds": [
       "reikos_furniture:toaster_pop"

@@ -1,0 +1,80 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks"
+  },
+  "render_type": "minecraft:translucent",
+  "elements": [
+    {
+      "from": [
+        0,
+        14.5,
+        6.5
+      ],
+      "to": [
+        16,
+        16,
+        9.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            6.5,
+            16,
+            9.5
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            0,
+            6.5,
+            16,
+            9.5
+          ],
+          "texture": "#planks",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            6.5,
+            0,
+            9.5,
+            1.5
+          ],
+          "texture": "#planks",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            6.5,
+            0,
+            9.5,
+            1.5
+          ],
+          "texture": "#planks",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

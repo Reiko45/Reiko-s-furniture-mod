@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=east,half=lower,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south"
+    },
+    "facing=east,half=lower,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north",
+      "y": 90
+    },
+    "facing=east,half=lower,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north"
+    },
+    "facing=east,half=lower,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south",
+      "y": 270
+    },
+    "facing=east,half=upper,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top"
+    },
+    "facing=east,half=upper,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 90
+    },
+    "facing=east,half=upper,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top"
+    },
+    "facing=east,half=upper,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 270
+    },
+    "facing=north,half=lower,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south",
+      "y": 270
+    },
+    "facing=north,half=lower,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north"
+    },
+    "facing=north,half=lower,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north",
+      "y": 270
+    },
+    "facing=north,half=lower,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south",
+      "y": 180
+    },
+    "facing=north,half=upper,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 270
+    },
+    "facing=north,half=upper,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top"
+    },
+    "facing=north,half=upper,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 270
+    },
+    "facing=north,half=upper,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 180
+    },
+    "facing=south,half=lower,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south",
+      "y": 90
+    },
+    "facing=south,half=lower,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north",
+      "y": 180
+    },
+    "facing=south,half=lower,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north",
+      "y": 90
+    },
+    "facing=south,half=lower,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south"
+    },
+    "facing=south,half=upper,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 90
+    },
+    "facing=south,half=upper,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 180
+    },
+    "facing=south,half=upper,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 90
+    },
+    "facing=south,half=upper,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top"
+    },
+    "facing=west,half=lower,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south",
+      "y": 180
+    },
+    "facing=west,half=lower,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north",
+      "y": 270
+    },
+    "facing=west,half=lower,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_north",
+      "y": 180
+    },
+    "facing=west,half=lower,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_bottom_handle_south",
+      "y": 90
+    },
+    "facing=west,half=upper,hinge=left,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 180
+    },
+    "facing=west,half=upper,hinge=left,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 270
+    },
+    "facing=west,half=upper,hinge=right,open=false": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 180
+    },
+    "facing=west,half=upper,hinge=right,open=true": {
+      "model": "reikos_furniture:block/jungle_french_door_top",
+      "y": 90
+    }
+  }
+}

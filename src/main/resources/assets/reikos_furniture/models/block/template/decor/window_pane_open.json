@@ -1,0 +1,242 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "glass": "reikos_furniture:block/window_glass",
+    "metal": "minecraft:block/iron_block"
+  },
+  "render_type": "minecraft:translucent",
+  "elements": [
+    {
+      "from": [
+        1.5,
+        1.5,
+        7.75
+      ],
+      "to": [
+        14.5,
+        14.5,
+        8.25
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1.5,
+            7.75,
+            14.5,
+            8.25
+          ],
+          "texture": "#glass"
+        },
+        "up": {
+          "uv": [
+            1.5,
+            7.75,
+            14.5,
+            8.25
+          ],
+          "texture": "#glass"
+        },
+        "north": {
+          "uv": [
+            1.5,
+            1.5,
+            14.5,
+            14.5
+          ],
+          "texture": "#glass"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            1.5,
+            14.5,
+            14.5
+          ],
+          "texture": "#glass"
+        },
+        "west": {
+          "uv": [
+            7.75,
+            1.5,
+            8.25,
+            14.5
+          ],
+          "texture": "#glass"
+        },
+        "east": {
+          "uv": [
+            7.75,
+            1.5,
+            8.25,
+            14.5
+          ],
+          "texture": "#glass"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          1.5,
+          8
+        ],
+        "axis": "x",
+        "angle": -22.5
+      }
+    },
+    {
+      "from": [
+        1.5,
+        1.5,
+        7.5
+      ],
+      "to": [
+        14.5,
+        2.5,
+        8.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1.5,
+            7.5,
+            14.5,
+            8.5
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            1.5,
+            7.5,
+            14.5,
+            8.5
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            1.5,
+            13.5,
+            14.5,
+            14.5
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            13.5,
+            14.5,
+            14.5
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            13.5,
+            8.5,
+            14.5
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            13.5,
+            8.5,
+            14.5
+          ],
+          "texture": "#planks"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          1.5,
+          8
+        ],
+        "axis": "x",
+        "angle": -22.5
+      }
+    },
+    {
+      "from": [
+        1.5,
+        13.5,
+        7.5
+      ],
+      "to": [
+        14.5,
+        14.5,
+        8.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1.5,
+            7.5,
+            14.5,
+            8.5
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            1.5,
+            7.5,
+            14.5,
+            8.5
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            1.5,
+            1.5,
+            14.5,
+            2.5
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            1.5,
+            14.5,
+            2.5
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            1.5,
+            8.5,
+            2.5
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            1.5,
+            8.5,
+            2.5
+          ],
+          "texture": "#planks"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          1.5,
+          8
+        ],
+        "axis": "x",
+        "angle": -22.5
+      }
+    }
+  ]
+}

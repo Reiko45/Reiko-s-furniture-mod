@@ -1,0 +1,238 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane"
+      },
+      "when": {
+        "facing": "north",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane_open"
+      },
+      "when": {
+        "facing": "north",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_right"
+      },
+      "when": {
+        "facing": "north",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_left"
+      },
+      "when": {
+        "facing": "north",
+        "left": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_bottom"
+      },
+      "when": {
+        "down": "false",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_top"
+      },
+      "when": {
+        "facing": "north",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane_open",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_right",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_left",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "left": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_bottom",
+        "y": 90
+      },
+      "when": {
+        "down": "false",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_top",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane_open",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_right",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_left",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "left": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_bottom",
+        "y": 180
+      },
+      "when": {
+        "down": "false",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_top",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_pane_open",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_right",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_left",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "left": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_bottom",
+        "y": 270
+      },
+      "when": {
+        "down": "false",
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cherry_window_frame_top",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "up": "false"
+      }
+    }
+  ]
+}

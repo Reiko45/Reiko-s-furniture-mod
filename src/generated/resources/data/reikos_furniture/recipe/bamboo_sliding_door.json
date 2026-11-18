@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "L": {
+      "item": "minecraft:bamboo_block"
+    }
+  },
+  "pattern": [
+    "LG",
+    "LG",
+    "LG"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reikos_furniture:bamboo_sliding_door"
+  }
+}

@@ -548,7 +548,19 @@ def tiles():
     save(img, "block/tiles/marble.png")
 
 
+def window_glass():
+    """Clear glass for windows and glass doors: faint blue tint, two diagonal highlights, no border."""
+    img = Image.new("RGBA", (16, 16), (0xD6, 0xEA, 0xF2, 70))
+    px = img.load()
+    for i in range(16):
+        for x, y, a in ((i, 11 - i, 150), (i + 1, 11 - i, 110), (i, 15 - i, 120)):
+            if 0 <= x < 16 and 0 <= y < 16:
+                px[x, y] = (0xF4, 0xFA, 0xFF, a)
+    save(img, "block/window_glass.png")
+
+
 if __name__ == "__main__":
+    window_glass()
     for name, rgb in DYES.items():
         wallpaper(name, rgb)
     tiles()

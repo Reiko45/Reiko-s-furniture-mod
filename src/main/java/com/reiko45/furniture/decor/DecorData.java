@@ -2,10 +2,13 @@ package com.reiko45.furniture.decor;
 
 import static com.reiko45.furniture.decor.DecorFurniture.BASEBOARD;
 import static com.reiko45.furniture.decor.DecorFurniture.CROWN_MOLDING;
+import static com.reiko45.furniture.decor.DecorFurniture.FRENCH_DOOR;
 import static com.reiko45.furniture.decor.DecorFurniture.PARQUET;
 import static com.reiko45.furniture.decor.DecorFurniture.PARQUET_SLAB;
+import static com.reiko45.furniture.decor.DecorFurniture.SLIDING_DOOR;
 import static com.reiko45.furniture.decor.DecorFurniture.TILES;
 import static com.reiko45.furniture.decor.DecorFurniture.WALLPAPER;
+import static com.reiko45.furniture.decor.DecorFurniture.WINDOW;
 
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.FurnitureWood;
@@ -17,7 +20,9 @@ import com.reiko45.furniture.datagen.FurnitureBlockTagsProvider;
 import com.reiko45.furniture.datagen.FurnitureRecipeProvider;
 import com.reiko45.furniture.datagen.RoomData;
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -29,10 +34,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 
-/** Models, recipes and tags for the decor section. P = planks, S = wooden slab, D = dye, W = paper. */
+/** Models, recipes and tags for the decor section. P = planks, L = log, S = wooden slab, D = dye, W = paper, G = glass. */
 public class DecorData implements RoomData {
     private static final Room ROOM = Room.DECOR;
 
@@ -56,6 +66,75 @@ public class DecorData implements RoomData {
         }
         trims(models, BASEBOARD, "baseboard");
         trims(models, CROWN_MOLDING, "crown_molding");
+        for (FurnitureWood wood : FurnitureWood.values()) {
+            frenchDoor(models, FRENCH_DOOR.get(wood).get(), wood);
+            slidingDoor(models, SLIDING_DOOR.get(wood).get(), wood);
+            window(models, WINDOW.get(wood).get(), wood);
+        }
+    }
+
+    /**
+     * French doors follow the vanilla door layout: the closed model is turned by facing, and opening turns
+     * it a further quarter. The handle is on the edge away from the hinge.
+     */
+    private static void frenchDoor(FurnitureBlockStateProvider models, DoorBlock door, FurnitureWood wood) {
+        String name = name(door);
+        ModelFile handleNorth = models.woodModel(name + "_bottom_handle_north", models.template(ROOM, "french_door_bottom_handle_north"), wood);
+        ModelFile handleSouth = models.woodModel(name + "_bottom_handle_south", models.template(ROOM, "french_door_bottom_handle_south"), wood);
+        ModelFile top = models.woodModel(name + "_top", models.template(ROOM, "french_door_top"), wood);
+        models.getVariantBuilder(door).forAllStatesExcept(state -> {
+            Direction facing = state.getValue(DoorBlock.FACING);
+            boolean open = state.getValue(DoorBlock.OPEN);
+            boolean leftHinge = state.getValue(DoorBlock.HINGE) == DoorHingeSide.LEFT;
+            int y = switch (facing) {
+                case SOUTH -> 90;
+                case WEST -> 180;
+                case NORTH -> 270;
+                default -> 0;
+            };
+            if (open) {
+                y = (y + (leftHinge ? 90 : 270)) % 360;
+            }
+            ModelFile model = state.getValue(DoorBlock.HALF) == DoubleBlockHalf.UPPER ? top : (leftHinge != open ? handleSouth : handleNorth);
+            return ConfiguredModel.builder().modelFile(model).rotationY(y).build();
+        }, DoorBlock.POWERED);
+        models.woodItem(door, ROOM, "french_door_item", wood);
+    }
+
+    private static void slidingDoor(FurnitureBlockStateProvider models, SlidingDoorBlock door, FurnitureWood wood) {
+        String name = name(door);
+        Map<String, ModelFile> files = new HashMap<>();
+        for (String half : new String[] {"lower", "upper"}) {
+            for (String open : new String[] {"", "_open"}) {
+                files.put(half + open, models.woodModel(name + "_" + half + open, models.template(ROOM, "sliding_door_" + half + open), wood));
+            }
+        }
+        models.facingBlock(door, state -> files.get((state.getValue(SlidingDoorBlock.HALF) == DoubleBlockHalf.UPPER ? "upper" : "lower")
+                + (state.getValue(SlidingDoorBlock.OPEN) ? "_open" : "")));
+        models.woodItem(door, ROOM, "sliding_door_item", wood);
+    }
+
+    /** The pane (closed or tilted open) plus a frame bar on each side that doesn't join another window. */
+    private static void window(FurnitureBlockStateProvider models, FramedWindowBlock window, FurnitureWood wood) {
+        String name = name(window);
+        ModelFile pane = models.woodModel(name + "_pane", models.template(ROOM, "window_pane"), wood);
+        ModelFile paneOpen = models.woodModel(name + "_pane_open", models.template(ROOM, "window_pane_open"), wood);
+        Map<BooleanProperty, ModelFile> frames = Map.of(
+                FramedWindowBlock.UP, models.woodModel(name + "_frame_top", models.template(ROOM, "window_frame_top"), wood),
+                FramedWindowBlock.DOWN, models.woodModel(name + "_frame_bottom", models.template(ROOM, "window_frame_bottom"), wood),
+                FramedWindowBlock.LEFT, models.woodModel(name + "_frame_left", models.template(ROOM, "window_frame_left"), wood),
+                FramedWindowBlock.RIGHT, models.woodModel(name + "_frame_right", models.template(ROOM, "window_frame_right"), wood));
+        var builder = models.getMultipartBuilder(window);
+        for (Direction facing : Direction.Plane.HORIZONTAL) {
+            int y = FurnitureBlockStateProvider.yRot(facing);
+            builder.part().modelFile(pane).rotationY(y).addModel()
+                    .condition(FramedWindowBlock.FACING, facing).condition(FramedWindowBlock.OPEN, false).end();
+            builder.part().modelFile(paneOpen).rotationY(y).addModel()
+                    .condition(FramedWindowBlock.FACING, facing).condition(FramedWindowBlock.OPEN, true).end();
+            frames.forEach((side, frame) -> builder.part().modelFile(frame).rotationY(y).addModel()
+                    .condition(FramedWindowBlock.FACING, facing).condition(side, false).end());
+        }
+        models.woodItem(window, ROOM, "window_item", wood);
     }
 
     private static void cube(FurnitureBlockStateProvider models, Block block, ResourceLocation texture) {
@@ -104,6 +183,9 @@ public class DecorData implements RoomData {
         recipes.woodShaped(output, PARQUET_SLAB, 6, wood -> Map.of('Q', Ingredient.of(PARQUET.get(wood).get())), "QQQ");
         recipes.woodShaped(output, BASEBOARD, 6, wood -> Map.of(), "SSS");
         recipes.woodShaped(output, CROWN_MOLDING, 6, wood -> Map.of(), "S", "S", "S");
+        recipes.woodShaped(output, FRENCH_DOOR, 3, wood -> Map.of('G', Ingredient.of(Items.GLASS_PANE)), "PG", "PG", "PG");
+        recipes.woodShaped(output, SLIDING_DOOR, 2, wood -> Map.of('G', Ingredient.of(Items.GLASS_PANE)), "LG", "LG", "LG");
+        recipes.woodShaped(output, WINDOW, 2, wood -> Map.of('G', Ingredient.of(Items.GLASS)), "SGS");
     }
 
     /** Four tiles from a 2x2 of two materials (the same one twice for single-color tiles). */
@@ -115,6 +197,8 @@ public class DecorData implements RoomData {
 
     @Override
     public void tags(FurnitureBlockTagsProvider tags) {
+        // Villagers open wooden doors.
+        FRENCH_DOOR.all().forEach(door -> tags.tagFor(BlockTags.WOODEN_DOORS).add(door.get()));
         PARQUET_SLAB.all().forEach(slab -> {
             tags.tagFor(BlockTags.SLABS).add(slab.get());
             tags.tagFor(BlockTags.WOODEN_SLABS).add(slab.get());

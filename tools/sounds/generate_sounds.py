@@ -61,7 +61,9 @@ def write(name, samples, volume=0.8):
             w.setsampwidth(2)
             w.setframerate(RATE)
             w.writeframes(pcm.tobytes())
+        # bitexact: no random Ogg stream serial, so running the script again gives identical files.
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", wav_path, "-c:a", "libvorbis", "-q:a", "4",
+                        "-fflags", "+bitexact", "-flags:a", "+bitexact",
                         os.path.join(OUT, name + ".ogg")], check=True)
 
 
@@ -163,6 +165,17 @@ def arcade_blip():
     return np.concatenate(parts)
 
 
+def sliding_door(rnd):
+    n = int(RATE * 0.7)
+    tt = t(0.7)
+    roll = lowpass(rnd.standard_normal(n), 400 + 300 * np.sin(np.pi * tt / 0.7)) * np.sin(np.pi * tt / 0.7)
+    rumble = 0.3 * np.sin(2 * np.pi * 55 * tt) * np.sin(np.pi * tt / 0.7)
+    stop = np.zeros(n)
+    k = int(RATE * 0.58)
+    stop[k:] = np.sin(2 * np.pi * 140 * t(0.7)[: n - k]) * np.exp(-t(0.7)[: n - k] * 40)
+    return (roll * 2.5 + rumble + stop * 0.8) * env(n, 0.03, 0.05)
+
+
 if __name__ == "__main__":
     rnd = np.random.default_rng(45)
     write("microwave_ding", microwave_ding(), 0.6)
@@ -176,4 +189,5 @@ if __name__ == "__main__":
     write("blender", blender(rnd), 0.6)
     write("workbench_saw", saw(rnd), 0.6)
     write("arcade_blip", arcade_blip(), 0.5)
+    write("sliding_door", sliding_door(rnd), 0.6)
     print("sounds written to", os.path.normpath(OUT))

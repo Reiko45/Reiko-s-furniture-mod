@@ -24,6 +24,7 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> BLENDER = register("blender");
     public static final DeferredHolder<SoundEvent, SoundEvent> WORKBENCH_SAW = register("workbench_saw");
     public static final DeferredHolder<SoundEvent, SoundEvent> ARCADE_BLIP = register("arcade_blip");
+    public static final DeferredHolder<SoundEvent, SoundEvent> SLIDING_DOOR = register("sliding_door");
 
     /** English subtitles, keyed by sound name. */
     public static final java.util.Map<String, String> SUBTITLES = java.util.Map.ofEntries(
@@ -37,7 +38,8 @@ public final class ModSounds {
             java.util.Map.entry("toaster_pop", "Toaster pops"),
             java.util.Map.entry("blender", "Blender whirs"),
             java.util.Map.entry("workbench_saw", "Saw cuts"),
-            java.util.Map.entry("arcade_blip", "Arcade bleeps"));
+            java.util.Map.entry("arcade_blip", "Arcade bleeps"),
+            java.util.Map.entry("sliding_door", "Sliding door slides"));
 
     private ModSounds() {
     }

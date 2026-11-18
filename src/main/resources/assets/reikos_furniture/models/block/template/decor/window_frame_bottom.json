@@ -1,0 +1,149 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks"
+  },
+  "render_type": "minecraft:translucent",
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        6.5
+      ],
+      "to": [
+        16,
+        1.5,
+        9.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            6.5,
+            16,
+            9.5
+          ],
+          "texture": "#planks",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            6.5,
+            16,
+            9.5
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            0,
+            14.5,
+            16,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            0,
+            14.5,
+            16,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            6.5,
+            14.5,
+            9.5,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            6.5,
+            14.5,
+            9.5,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        -0.5,
+        0,
+        4.5
+      ],
+      "to": [
+        16.5,
+        1,
+        11.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            4.5,
+            16,
+            11.5
+          ],
+          "texture": "#stripped_log",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            4.5,
+            16,
+            11.5
+          ],
+          "texture": "#stripped_log"
+        },
+        "north": {
+          "uv": [
+            0,
+            15,
+            16,
+            16
+          ],
+          "texture": "#stripped_log"
+        },
+        "south": {
+          "uv": [
+            0,
+            15,
+            16,
+            16
+          ],
+          "texture": "#stripped_log"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            15,
+            11.5,
+            16
+          ],
+          "texture": "#stripped_log"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            15,
+            11.5,
+            16
+          ],
+          "texture": "#stripped_log"
+        }
+      }
+    }
+  ]
+}
