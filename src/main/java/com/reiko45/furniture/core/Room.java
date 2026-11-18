@@ -16,7 +16,9 @@ public enum Room {
     PET_CORNER("pets", "Pet Corner"),
     DECOR("decor", "Decor"),
     GARAGE("garage", "Garage"),
-    LIBRARY("library", "Library");
+    LIBRARY("library", "Library"),
+    BAR("bar", "Home Bar"),
+    NURSERY("nursery", "Nursery & Hobby Room");
 
     private final String id;
     private final String displayName;

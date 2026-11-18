@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,shape=inner": {
+      "model": "reikos_furniture:block/cherry_bar_counter_inner",
+      "y": 90
+    },
+    "facing=east,shape=outer_left": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_left",
+      "y": 90
+    },
+    "facing=east,shape=outer_right": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_right",
+      "y": 90
+    },
+    "facing=east,shape=straight": {
+      "model": "reikos_furniture:block/cherry_bar_counter",
+      "y": 90
+    },
+    "facing=north,shape=inner": {
+      "model": "reikos_furniture:block/cherry_bar_counter_inner"
+    },
+    "facing=north,shape=outer_left": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_left"
+    },
+    "facing=north,shape=outer_right": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_right"
+    },
+    "facing=north,shape=straight": {
+      "model": "reikos_furniture:block/cherry_bar_counter"
+    },
+    "facing=south,shape=inner": {
+      "model": "reikos_furniture:block/cherry_bar_counter_inner",
+      "y": 180
+    },
+    "facing=south,shape=outer_left": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_left",
+      "y": 180
+    },
+    "facing=south,shape=outer_right": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_right",
+      "y": 180
+    },
+    "facing=south,shape=straight": {
+      "model": "reikos_furniture:block/cherry_bar_counter",
+      "y": 180
+    },
+    "facing=west,shape=inner": {
+      "model": "reikos_furniture:block/cherry_bar_counter_inner",
+      "y": 270
+    },
+    "facing=west,shape=outer_left": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_left",
+      "y": 270
+    },
+    "facing=west,shape=outer_right": {
+      "model": "reikos_furniture:block/cherry_bar_counter_outer_right",
+      "y": 270
+    },
+    "facing=west,shape=straight": {
+      "model": "reikos_furniture:block/cherry_bar_counter",
+      "y": 270
+    }
+  }
+}

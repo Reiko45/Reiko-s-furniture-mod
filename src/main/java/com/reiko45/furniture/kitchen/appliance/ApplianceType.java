@@ -9,7 +9,8 @@ import org.jetbrains.annotations.Nullable;
 public enum ApplianceType {
     COFFEE_MACHINE("coffee_machine", () -> ModSounds.COFFEE_BREWING.get(), null),
     TOASTER("toaster", null, () -> ModSounds.TOASTER_POP.get()),
-    BLENDER("blender", () -> ModSounds.BLENDER.get(), null);
+    BLENDER("blender", () -> ModSounds.BLENDER.get(), null),
+    ESPRESSO_MACHINE("espresso_machine", () -> ModSounds.COFFEE_BREWING.get(), null);
 
     private final String id;
     @Nullable

@@ -20,15 +20,6 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_left"
-      },
-      "when": {
-        "facing": "north",
-        "left": "false"
-      }
-    },
-    {
-      "apply": {
         "model": "reikos_furniture:block/warped_window_frame_bottom"
       },
       "when": {
@@ -38,11 +29,11 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_top"
+        "model": "reikos_furniture:block/warped_window_frame_left"
       },
       "when": {
         "facing": "north",
-        "up": "false"
+        "left": "false"
       }
     },
     {
@@ -52,6 +43,15 @@
       "when": {
         "facing": "north",
         "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warped_window_frame_top"
+      },
+      "when": {
+        "facing": "north",
+        "up": "false"
       }
     },
     {
@@ -72,16 +72,6 @@
       "when": {
         "facing": "east",
         "open": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_left",
-        "y": 90
-      },
-      "when": {
-        "facing": "east",
-        "left": "false"
       }
     },
     {
@@ -96,12 +86,12 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_top",
+        "model": "reikos_furniture:block/warped_window_frame_left",
         "y": 90
       },
       "when": {
         "facing": "east",
-        "up": "false"
+        "left": "false"
       }
     },
     {
@@ -112,6 +102,16 @@
       "when": {
         "facing": "east",
         "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warped_window_frame_top",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "up": "false"
       }
     },
     {
@@ -132,16 +132,6 @@
       "when": {
         "facing": "south",
         "open": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_left",
-        "y": 180
-      },
-      "when": {
-        "facing": "south",
-        "left": "false"
       }
     },
     {
@@ -156,12 +146,12 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_top",
+        "model": "reikos_furniture:block/warped_window_frame_left",
         "y": 180
       },
       "when": {
         "facing": "south",
-        "up": "false"
+        "left": "false"
       }
     },
     {
@@ -172,6 +162,16 @@
       "when": {
         "facing": "south",
         "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warped_window_frame_top",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "up": "false"
       }
     },
     {
@@ -196,16 +196,6 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_left",
-        "y": 270
-      },
-      "when": {
-        "facing": "west",
-        "left": "false"
-      }
-    },
-    {
-      "apply": {
         "model": "reikos_furniture:block/warped_window_frame_bottom",
         "y": 270
       },
@@ -216,12 +206,12 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/warped_window_frame_top",
+        "model": "reikos_furniture:block/warped_window_frame_left",
         "y": 270
       },
       "when": {
         "facing": "west",
-        "up": "false"
+        "left": "false"
       }
     },
     {
@@ -232,6 +222,16 @@
       "when": {
         "facing": "west",
         "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warped_window_frame_top",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "up": "false"
       }
     }
   ]

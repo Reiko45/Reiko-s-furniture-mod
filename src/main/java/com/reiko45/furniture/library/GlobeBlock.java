@@ -4,6 +4,7 @@ import com.reiko45.furniture.core.block.FurnitureBlock;
 import com.reiko45.furniture.core.registry.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
@@ -37,9 +38,13 @@ public class GlobeBlock extends FurnitureBlock {
         if (!level.isClientSide) {
             level.setBlock(pos, state.setValue(SPEED, 3), Block.UPDATE_ALL);
             level.scheduleTick(pos, this, 2);
-            level.playSound(null, pos, ModSounds.GLOBE_SPIN.get(), SoundSource.BLOCKS, 0.7F, 0.9F + level.random.nextFloat() * 0.2F);
+            level.playSound(null, pos, spinSound(), SoundSource.BLOCKS, 0.7F, 0.9F + level.random.nextFloat() * 0.2F);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    protected SoundEvent spinSound() {
+        return ModSounds.GLOBE_SPIN.get();
     }
 
     @Override

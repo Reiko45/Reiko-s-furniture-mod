@@ -31,7 +31,7 @@ public final class RecipeViewers {
     /** The appliance blocks, which are the catalysts / workstations of the appliance category. */
     public static List<ItemStack> appliances() {
         return List.of(new ItemStack(KitchenFurniture.COFFEE_MACHINE.get()), new ItemStack(KitchenFurniture.TOASTER.get()),
-                new ItemStack(KitchenFurniture.BLENDER.get()));
+                new ItemStack(KitchenFurniture.BLENDER.get()), new ItemStack(com.reiko45.furniture.bar.BarFurniture.ESPRESSO_MACHINE.get()));
     }
 
     /** "Takes 5 s" */

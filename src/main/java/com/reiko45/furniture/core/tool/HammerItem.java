@@ -64,7 +64,8 @@ public class HammerItem extends Item {
                 || !state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) {
             return Result.NOT_FURNITURE;
         }
-        if (state.getBlock() instanceof BedBlock || state.getBlock() instanceof DoorBlock || state.getBlock() instanceof BathtubBlock) {
+        if (state.getBlock() instanceof BedBlock || state.getBlock() instanceof DoorBlock || state.getBlock() instanceof BathtubBlock
+                || state.getBlock() instanceof net.minecraft.world.level.block.SignBlock) {
             return Result.CANNOT_TURN;
         }
         if (level.isClientSide) {

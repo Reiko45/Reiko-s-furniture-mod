@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/pink_bar_stool",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/pink_bar_stool"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/pink_bar_stool",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/pink_bar_stool",
+      "y": 270
+    }
+  }
+}

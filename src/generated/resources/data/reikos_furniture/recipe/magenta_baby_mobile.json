@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "T": {
+      "item": "minecraft:string"
+    },
+    "W": {
+      "item": "minecraft:magenta_wool"
+    }
+  },
+  "pattern": [
+    " N ",
+    "TWT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:magenta_baby_mobile"
+  }
+}

@@ -852,7 +852,53 @@ def garage_and_library():
     save(img, "block/globe.png")
 
 
+def bar_and_nursery():
+    """Espresso and latte, the chalkboard (sign texture and item), aquarium water."""
+    mug("espresso", (0x2C, 0x16, 0x0A), foam=(0x9A, 0x62, 0x34))
+    mug("latte", (0xC4, 0x94, 0x64), foam=(0xF8, 0xF4, 0xEC))
+
+    # Chalkboard, in the vanilla sign texture layout (64x32): the board's front is at (2, 2), 24x12.
+    rnd = random.Random("chalkboard")
+    slate, wood, wood_dark = (0x26, 0x32, 0x2C), (0x9A, 0x6A, 0x3A), (0x70, 0x4C, 0x28)
+    img = Image.new("RGBA", (64, 32), (0, 0, 0, 0))
+    px = img.load()
+    for y in range(0, 14):
+        for x in range(0, 52):
+            px[x, y] = wood + (255,)
+    for (x0, y0, x1, y1) in ((2, 2, 26, 14), (28, 2, 52, 14)):
+        for y in range(y0, y1):
+            for x in range(x0, x1):
+                edge = x in (x0, x1 - 1) or y in (y0, y1 - 1)
+                c = wood_dark if edge else shade(slate, 0.92 + rnd.random() * 0.14)
+                px[x, y] = c + (255,)
+        for _ in range(6):  # chalk dust
+            x, y = rnd.randint(x0 + 2, x1 - 3), rnd.randint(y0 + 2, y1 - 3)
+            px[x, y] = (0x5A, 0x66, 0x60, 255)
+    os.makedirs(os.path.join(ROOT, "entity", "signs"), exist_ok=True)
+    save(img, "entity/signs/chalkboard.png")
+
+    item = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    ip = item.load()
+    for y in range(2, 13):
+        for x in range(1, 15):
+            edge = x in (1, 14) or y in (2, 12)
+            ip[x, y] = (wood_dark if edge else slate) + (255,)
+    for x, y in ((3, 5), (4, 5), (5, 5), (7, 5), (8, 5), (3, 8), (4, 8), (6, 8), (7, 8), (8, 8), (10, 8)):
+        ip[x, y] = (0xEE, 0xEE, 0xE6, 255)
+    for x, y in ((4, 13), (4, 14), (11, 13), (11, 14)):
+        ip[x, y] = wood + (255,)
+    save(item, "item/chalkboard.png")
+
+    water = Image.new("RGBA", (16, 16), (0x4A, 0x9C, 0xD8, 110))
+    wp = water.load()
+    for x in range(16):
+        wp[x, 0] = (0xB8, 0xE0, 0xF8, 160)
+        wp[x, 1] = (0x7A, 0xC0, 0xEC, 130)
+    save(water, "block/aquarium_water.png")
+
+
 if __name__ == "__main__":
+    bar_and_nursery()
     garage_and_library()
     paintings()
     tool_items()

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/template/nursery/bird_cage",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/template/nursery/bird_cage"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/template/nursery/bird_cage",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/template/nursery/bird_cage",
+      "y": 270
+    }
+  }
+}

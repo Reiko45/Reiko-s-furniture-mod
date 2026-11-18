@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/spruce_crib",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/spruce_crib"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/spruce_crib",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/spruce_crib",
+      "y": 270
+    }
+  }
+}

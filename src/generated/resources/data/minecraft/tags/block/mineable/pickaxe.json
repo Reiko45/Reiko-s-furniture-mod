@@ -82,6 +82,9 @@
     "reikos_furniture:red_oil_drum",
     "reikos_furniture:black_oil_drum",
     "reikos_furniture:metal_shelving",
-    "reikos_furniture:reading_lamp"
+    "reikos_furniture:reading_lamp",
+    "reikos_furniture:espresso_machine",
+    "reikos_furniture:aquarium",
+    "reikos_furniture:bird_cage"
   ]
 }

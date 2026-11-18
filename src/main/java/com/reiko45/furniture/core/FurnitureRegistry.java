@@ -120,6 +120,15 @@ public final class FurnitureRegistry {
         return block;
     }
 
+    /** Registers a single block with a custom item (e.g. one that opens a screen after placing). */
+    public static <B extends Block> DeferredBlock<B> register(String name, Room room, Supplier<B> factory,
+                                                              java.util.function.BiFunction<B, Room, Item> item) {
+        DeferredBlock<B> block = ModBlocks.BLOCKS.register(name, factory);
+        ModItems.ITEMS.register(name, () -> item.apply(block.get(), room));
+        ROOMS.put(block, room);
+        return block;
+    }
+
     /** Every block with the room it belongs to (null for the workbench), in registration order. */
     public static Map<DeferredBlock<?>, Room> rooms() {
         return Collections.unmodifiableMap(ROOMS);

@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "angle=0": {
+      "model": "reikos_furniture:block/cyan_baby_mobile"
+    },
+    "angle=1": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_22"
+    },
+    "angle=10": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_45",
+      "y": 180
+    },
+    "angle=11": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_m22",
+      "y": 270
+    },
+    "angle=12": {
+      "model": "reikos_furniture:block/cyan_baby_mobile",
+      "y": 270
+    },
+    "angle=13": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_22",
+      "y": 270
+    },
+    "angle=14": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_45",
+      "y": 270
+    },
+    "angle=15": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_m22"
+    },
+    "angle=2": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_45"
+    },
+    "angle=3": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_m22",
+      "y": 90
+    },
+    "angle=4": {
+      "model": "reikos_furniture:block/cyan_baby_mobile",
+      "y": 90
+    },
+    "angle=5": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_22",
+      "y": 90
+    },
+    "angle=6": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_45",
+      "y": 90
+    },
+    "angle=7": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_m22",
+      "y": 180
+    },
+    "angle=8": {
+      "model": "reikos_furniture:block/cyan_baby_mobile",
+      "y": 180
+    },
+    "angle=9": {
+      "model": "reikos_furniture:block/cyan_baby_mobile_22",
+      "y": 180
+    }
+  }
+}

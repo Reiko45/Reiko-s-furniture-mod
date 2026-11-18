@@ -1,0 +1,23 @@
+{
+  "type": "reikos_furniture:appliance",
+  "appliance": "espresso_machine",
+  "ingredients": [
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:latte"
+  },
+  "time": 120
+}

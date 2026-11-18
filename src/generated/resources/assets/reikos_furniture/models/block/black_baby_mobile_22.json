@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/nursery/baby_mobile_22",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/black"
+  }
+}

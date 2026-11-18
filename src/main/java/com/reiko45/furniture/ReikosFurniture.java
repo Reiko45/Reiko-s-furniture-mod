@@ -1,6 +1,7 @@
 package com.reiko45.furniture;
 
 import com.mojang.logging.LogUtils;
+import com.reiko45.furniture.bar.BarFurniture;
 import com.reiko45.furniture.bathroom.BathroomFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
@@ -29,6 +30,7 @@ import com.reiko45.furniture.kitchen.KitchenFurniture;
 import com.reiko45.furniture.laundry.LaundryFurniture;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.music.MusicFurniture;
+import com.reiko45.furniture.nursery.NurseryFurniture;
 import com.reiko45.furniture.office.OfficeFurniture;
 import com.reiko45.furniture.outdoor.OutdoorFurniture;
 import com.reiko45.furniture.pets.PetFurniture;
@@ -80,6 +82,8 @@ public class ReikosFurniture {
         DecorFurniture.init();
         GarageFurniture.init();
         LibraryFurniture.init();
+        BarFurniture.init();
+        NurseryFurniture.init();
         Workbench.init();
         Tools.init();
 
@@ -111,6 +115,8 @@ public class ReikosFurniture {
     /** Record players use the vanilla jukebox block entity, so music discs and comparators work as usual. */
     private static void addBlockEntityBlocks(BlockEntityTypeAddBlocksEvent event) {
         event.modify(BlockEntityType.JUKEBOX, MusicFurniture.RECORD_PLAYER.all().stream().map(block -> (Block) block.get()).toArray(Block[]::new));
+        // The chalkboard is a sign with its own look.
+        event.modify(BlockEntityType.SIGN, BarFurniture.CHALKBOARD.get());
     }
 
     /** Lets hoppers and pipes from other mods move items in and out of storage furniture (not the safe). */

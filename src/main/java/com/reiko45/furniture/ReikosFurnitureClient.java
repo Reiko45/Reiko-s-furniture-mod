@@ -16,6 +16,11 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import com.reiko45.furniture.bar.ChalkboardBlock;
+import com.reiko45.furniture.nursery.AquariumRenderer;
+import com.reiko45.furniture.nursery.BirdCageRenderer;
+import com.reiko45.furniture.nursery.NurseryFurniture;
+import net.minecraft.client.renderer.Sheets;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraft.client.renderer.item.ItemProperties;
 import com.reiko45.furniture.core.registry.ModDataComponents;
@@ -49,6 +54,8 @@ public class ReikosFurnitureClient {
     }
 
     private static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(NurseryFurniture.AQUARIUM_BLOCK_ENTITY.get(), AquariumRenderer::new);
+        event.registerBlockEntityRenderer(NurseryFurniture.BIRD_CAGE_BLOCK_ENTITY.get(), BirdCageRenderer::new);
         // The seat entity is invisible; players just appear to sit on the block.
         event.registerEntityRenderer(ModEntities.SEAT.get(), NoopRenderer::new);
         // Food lying on the grill.
@@ -60,7 +67,11 @@ public class ReikosFurnitureClient {
 
     /** The moving dolly shows a crate on it while it carries furniture. */
     private static void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> ItemProperties.register(Tools.MOVING_DOLLY.get(), ReikosFurniture.id("loaded"),
-                (stack, level, entity, seed) -> stack.has(ModDataComponents.CARRIED_FURNITURE.get()) ? 1.0F : 0.0F));
+        event.enqueueWork(() -> {
+            ItemProperties.register(Tools.MOVING_DOLLY.get(), ReikosFurniture.id("loaded"),
+                    (stack, level, entity, seed) -> stack.has(ModDataComponents.CARRIED_FURNITURE.get()) ? 1.0F : 0.0F);
+            // The chalkboard's sign texture.
+            Sheets.addWoodType(ChalkboardBlock.TYPE);
+        });
     }
 }
