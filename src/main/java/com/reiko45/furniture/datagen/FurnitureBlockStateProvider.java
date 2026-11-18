@@ -8,7 +8,7 @@ import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
-import com.reiko45.furniture.core.block.TallStorageFurnitureBlock;
+import com.reiko45.furniture.core.block.TallBlockHelper;
 import java.util.function.Function;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -92,7 +92,7 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
 
     /** A two-block-tall block with a model for each half. */
     public void tallBlock(Block block, ModelFile lower, ModelFile upper) {
-        facingBlock(block, state -> state.getValue(TallStorageFurnitureBlock.HALF) == DoubleBlockHalf.UPPER ? upper : lower);
+        facingBlock(block, state -> state.getValue(TallBlockHelper.HALF) == DoubleBlockHalf.UPPER ? upper : lower);
     }
 
     /** A {@link ConnectingTableBlock}: the top is always shown, legs only on open corners. */
@@ -142,6 +142,27 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
             ModelFile lower = woodModel(name + "_lower", template(set.room(), template + "_lower"), wood);
             ModelFile upper = woodModel(name + "_upper", template(set.room(), template + "_upper"), wood);
             tallBlock(block, lower, upper);
+            woodTextures(itemModels().withExistingParent(name, template(set.room(), template + "_item")), wood);
+        }
+    }
+
+    /**
+     * Two-block-tall wooden piece that switches on and off: {@code <template>_lower},
+     * {@code <template>_upper}, {@code <template>_upper_on} and {@code <template>_item}.
+     */
+    public void woodTallLit(WoodSet<?> set, String template) {
+        for (FurnitureWood wood : FurnitureWood.values()) {
+            Block block = set.get(wood).get();
+            String name = name(block);
+            ModelFile lower = woodModel(name + "_lower", template(set.room(), template + "_lower"), wood);
+            ModelFile upper = woodModel(name + "_upper", template(set.room(), template + "_upper"), wood);
+            ModelFile upperOn = woodModel(name + "_upper_on", template(set.room(), template + "_upper_on"), wood);
+            facingBlock(block, state -> {
+                if (state.getValue(TallBlockHelper.HALF) == DoubleBlockHalf.LOWER) {
+                    return lower;
+                }
+                return state.getValue(SwitchableFurnitureBlock.LIT) ? upperOn : upper;
+            });
             woodTextures(itemModels().withExistingParent(name, template(set.room(), template + "_item")), wood);
         }
     }

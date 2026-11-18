@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "W",
+    "T",
+    "L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:dark_oak_floor_lamp"
+  }
+}

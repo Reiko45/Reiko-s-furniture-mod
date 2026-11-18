@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:birch_log"
+    },
+    "S": {
+      "item": "minecraft:birch_slab"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:birch_coffee_table"
+  }
+}

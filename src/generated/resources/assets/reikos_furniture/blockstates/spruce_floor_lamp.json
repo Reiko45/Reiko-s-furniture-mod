@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,half=lower,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower",
+      "y": 90
+    },
+    "facing=east,half=lower,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower",
+      "y": 90
+    },
+    "facing=east,half=upper,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper",
+      "y": 90
+    },
+    "facing=east,half=upper,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper_on",
+      "y": 90
+    },
+    "facing=north,half=lower,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower"
+    },
+    "facing=north,half=lower,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower"
+    },
+    "facing=north,half=upper,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper"
+    },
+    "facing=north,half=upper,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper_on"
+    },
+    "facing=south,half=lower,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower",
+      "y": 180
+    },
+    "facing=south,half=lower,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower",
+      "y": 180
+    },
+    "facing=south,half=upper,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper",
+      "y": 180
+    },
+    "facing=south,half=upper,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper_on",
+      "y": 180
+    },
+    "facing=west,half=lower,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower",
+      "y": 270
+    },
+    "facing=west,half=lower,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_lower",
+      "y": 270
+    },
+    "facing=west,half=upper,lit=false": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper",
+      "y": 270
+    },
+    "facing=west,half=upper,lit=true": {
+      "model": "reikos_furniture:block/spruce_floor_lamp_upper_on",
+      "y": 270
+    }
+  }
+}

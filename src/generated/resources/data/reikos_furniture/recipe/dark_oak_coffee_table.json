@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "S": {
+      "item": "minecraft:dark_oak_slab"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:dark_oak_coffee_table"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_base"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_left"
+      },
+      "when": {
+        "facing": "north",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_right"
+      },
+      "when": {
+        "facing": "north",
+        "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_base",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_left",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_right",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_base",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_left",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_right",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_base",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_left",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/light_gray_sofa_arm_right",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "part": "single|right"
+      }
+    }
+  ]
+}

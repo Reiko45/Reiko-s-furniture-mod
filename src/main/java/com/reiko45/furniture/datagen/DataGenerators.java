@@ -3,6 +3,7 @@ package com.reiko45.furniture.datagen;
 import com.reiko45.furniture.bedroom.BedroomData;
 import com.reiko45.furniture.dining.DiningData;
 import com.reiko45.furniture.kitchen.KitchenData;
+import com.reiko45.furniture.livingroom.LivingRoomData;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -20,7 +21,8 @@ public final class DataGenerators {
     static final List<RoomData> ROOMS = List.of(
             new BedroomData(),
             new KitchenData(),
-            new DiningData());
+            new DiningData(),
+            new LivingRoomData());
 
     private DataGenerators() {
     }
