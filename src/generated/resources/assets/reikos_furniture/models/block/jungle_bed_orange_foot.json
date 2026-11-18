@@ -4,6 +4,6 @@
     "log": "minecraft:block/jungle_log",
     "planks": "minecraft:block/jungle_planks",
     "stripped_log": "minecraft:block/stripped_jungle_log",
-    "wool": "minecraft:block/orange_wool"
+    "wool": "reikos_furniture:block/fabric/orange"
   }
 }

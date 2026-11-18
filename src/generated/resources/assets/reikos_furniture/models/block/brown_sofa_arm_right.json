@@ -1,6 +1,6 @@
 {
   "parent": "reikos_furniture:block/template/livingroom/sofa_arm_right",
   "textures": {
-    "wool": "minecraft:block/brown_wool"
+    "wool": "reikos_furniture:block/fabric/brown"
   }
 }

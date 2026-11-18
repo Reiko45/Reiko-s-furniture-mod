@@ -1,0 +1,68 @@
+{
+  "arcade_blip": {
+    "sounds": [
+      "reikos_furniture:arcade_blip"
+    ],
+    "subtitle": "subtitles.reikos_furniture.arcade_blip"
+  },
+  "blender": {
+    "sounds": [
+      "reikos_furniture:blender"
+    ],
+    "subtitle": "subtitles.reikos_furniture.blender"
+  },
+  "coffee_brewing": {
+    "sounds": [
+      "reikos_furniture:coffee_brewing"
+    ],
+    "subtitle": "subtitles.reikos_furniture.coffee_brewing"
+  },
+  "doorbell": {
+    "sounds": [
+      "reikos_furniture:doorbell"
+    ],
+    "subtitle": "subtitles.reikos_furniture.doorbell"
+  },
+  "dryer_running": {
+    "sounds": [
+      "reikos_furniture:dryer_running"
+    ],
+    "subtitle": "subtitles.reikos_furniture.dryer_running"
+  },
+  "microwave_ding": {
+    "sounds": [
+      "reikos_furniture:microwave_ding"
+    ],
+    "subtitle": "subtitles.reikos_furniture.microwave_ding"
+  },
+  "toaster_pop": {
+    "sounds": [
+      "reikos_furniture:toaster_pop"
+    ],
+    "subtitle": "subtitles.reikos_furniture.toaster_pop"
+  },
+  "toilet_flush": {
+    "sounds": [
+      "reikos_furniture:toilet_flush"
+    ],
+    "subtitle": "subtitles.reikos_furniture.toilet_flush"
+  },
+  "tv_static": {
+    "sounds": [
+      "reikos_furniture:tv_static"
+    ],
+    "subtitle": "subtitles.reikos_furniture.tv_static"
+  },
+  "washer_running": {
+    "sounds": [
+      "reikos_furniture:washer_running"
+    ],
+    "subtitle": "subtitles.reikos_furniture.washer_running"
+  },
+  "workbench_saw": {
+    "sounds": [
+      "reikos_furniture:workbench_saw"
+    ],
+    "subtitle": "subtitles.reikos_furniture.workbench_saw"
+  }
+}

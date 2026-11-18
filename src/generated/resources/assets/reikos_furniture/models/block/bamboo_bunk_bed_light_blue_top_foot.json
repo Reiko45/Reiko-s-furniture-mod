@@ -4,6 +4,6 @@
     "log": "minecraft:block/bamboo_block",
     "planks": "minecraft:block/bamboo_planks",
     "stripped_log": "minecraft:block/stripped_bamboo_block",
-    "wool": "minecraft:block/light_blue_wool"
+    "wool": "reikos_furniture:block/fabric/light_blue"
   }
 }

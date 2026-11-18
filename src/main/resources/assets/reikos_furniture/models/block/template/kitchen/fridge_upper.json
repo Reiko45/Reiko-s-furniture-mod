@@ -2,8 +2,8 @@
   "parent": "minecraft:block/block",
   "textures": {
     "particle": "minecraft:block/white_concrete",
-    "body": "minecraft:block/white_concrete",
-    "door": "minecraft:block/quartz_block_side",
+    "body": "reikos_furniture:block/appliance/fridge_body",
+    "door": "reikos_furniture:block/appliance/fridge_door",
     "handle": "minecraft:block/light_gray_concrete",
     "inside": "minecraft:block/quartz_block_bottom"
   },

@@ -43,6 +43,7 @@ public final class DataGenerators {
 
         generator.addProvider(event.includeClient(), new FurnitureBlockStateProvider(output, files));
         generator.addProvider(event.includeClient(), new FurnitureLanguageProvider(output));
+        generator.addProvider(event.includeClient(), new FurnitureSoundsProvider(output, files));
         generator.addProvider(event.includeServer(), new LootTableProvider(output, Set.of(),
                 List.of(new LootTableProvider.SubProviderEntry(FurnitureBlockLoot::new, LootContextParamSets.BLOCK)),
                 lookup));

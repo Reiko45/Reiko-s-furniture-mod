@@ -1,10 +1,10 @@
 package com.reiko45.furniture.core.workbench;
 
 import com.reiko45.furniture.core.registry.ModMenus;
+import com.reiko45.furniture.core.registry.ModSounds;
 import com.reiko45.furniture.core.registry.ModRecipes;
 import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -79,7 +79,7 @@ public class WorkbenchMenu extends AbstractContainerMenu {
                 access.execute((lvl, pos) -> {
                     long time = lvl.getGameTime();
                     if (lastSoundTime != time) {
-                        lvl.playSound(null, pos, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        lvl.playSound(null, pos, ModSounds.WORKBENCH_SAW.get(), SoundSource.BLOCKS, 0.7F, 1.0F);
                         lastSoundTime = time;
                     }
                 });

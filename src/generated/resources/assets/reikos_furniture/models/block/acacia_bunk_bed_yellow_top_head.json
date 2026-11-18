@@ -4,6 +4,6 @@
     "log": "minecraft:block/acacia_log",
     "planks": "minecraft:block/acacia_planks",
     "stripped_log": "minecraft:block/stripped_acacia_log",
-    "wool": "minecraft:block/yellow_wool"
+    "wool": "reikos_furniture:block/fabric/yellow"
   }
 }

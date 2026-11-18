@@ -484,5 +484,16 @@
   "room.reikos_furniture.kitchen": "Kitchen",
   "room.reikos_furniture.livingroom": "Living Room",
   "room.reikos_furniture.office": "Office",
-  "room.reikos_furniture.outdoor": "Outdoor"
+  "room.reikos_furniture.outdoor": "Outdoor",
+  "subtitles.reikos_furniture.arcade_blip": "Arcade bleeps",
+  "subtitles.reikos_furniture.blender": "Blender whirs",
+  "subtitles.reikos_furniture.coffee_brewing": "Coffee brews",
+  "subtitles.reikos_furniture.doorbell": "Doorbell rings",
+  "subtitles.reikos_furniture.dryer_running": "Dryer tumbles",
+  "subtitles.reikos_furniture.microwave_ding": "Microwave beeps",
+  "subtitles.reikos_furniture.toaster_pop": "Toaster pops",
+  "subtitles.reikos_furniture.toilet_flush": "Toilet flushes",
+  "subtitles.reikos_furniture.tv_static": "TV crackles",
+  "subtitles.reikos_furniture.washer_running": "Washing machine runs",
+  "subtitles.reikos_furniture.workbench_saw": "Saw cuts"
 }

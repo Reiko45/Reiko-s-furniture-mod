@@ -75,8 +75,9 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         return woodTextures(models().withExistingParent(name, template), wood);
     }
 
+    /** The mod's woven upholstery texture for a color (drawn by tools/textures). */
     public static ResourceLocation woolTexture(DyeColor color) {
-        return ResourceLocation.withDefaultNamespace("block/" + color.getName() + "_wool");
+        return ReikosFurniture.id("block/fabric/" + color.getName());
     }
 
     /** Blockstate y-rotation for a model whose front faces north. */

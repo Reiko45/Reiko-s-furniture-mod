@@ -2,6 +2,8 @@ package com.reiko45.furniture.kitchen;
 
 import com.mojang.serialization.MapCodec;
 import com.reiko45.furniture.core.ShapeUtil;
+import com.reiko45.furniture.core.registry.ModSounds;
+import net.minecraft.sounds.SoundSource;
 import java.util.Map;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -52,8 +54,12 @@ public class MicrowaveBlock extends AbstractFurnaceBlock {
         }
         // Run the furnace logic twice per tick: everything happens twice as fast.
         return createTickerHelper(type, KitchenFurniture.MICROWAVE_BLOCK_ENTITY.get(), (lvl, pos, st, microwave) -> {
+            int before = microwave.getItem(2).getCount();
             AbstractFurnaceBlockEntity.serverTick(lvl, pos, st, microwave);
             AbstractFurnaceBlockEntity.serverTick(lvl, pos, lvl.getBlockState(pos), microwave);
+            if (microwave.getItem(2).getCount() > before) {
+                lvl.playSound(null, pos, ModSounds.MICROWAVE_DING.get(), SoundSource.BLOCKS, 0.8F, 1.0F);
+            }
         });
     }
 

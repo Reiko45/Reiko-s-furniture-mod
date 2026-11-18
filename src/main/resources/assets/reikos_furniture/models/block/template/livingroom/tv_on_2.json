@@ -3,7 +3,7 @@
   "textures": {
     "particle": "minecraft:block/black_concrete",
     "frame": "minecraft:block/black_concrete",
-    "screen": "minecraft:block/lava_still"
+    "screen": "reikos_furniture:block/screen/tv_channel_2"
   },
   "elements": [
     {
@@ -245,10 +245,10 @@
         },
         "north": {
           "uv": [
-            0.75,
-            3.75,
-            15.25,
-            12.25
+            0,
+            0,
+            16,
+            16
           ],
           "texture": "#screen"
         },

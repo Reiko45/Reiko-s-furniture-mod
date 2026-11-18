@@ -1,6 +1,6 @@
 {
   "parent": "reikos_furniture:block/template/livingroom/curtains",
   "textures": {
-    "wool": "minecraft:block/pink_wool"
+    "wool": "reikos_furniture:block/fabric/pink"
   }
 }

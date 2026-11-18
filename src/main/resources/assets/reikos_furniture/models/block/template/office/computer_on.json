@@ -5,7 +5,7 @@
     "metal": "minecraft:block/iron_block",
     "dark": "minecraft:block/gray_concrete",
     "black": "minecraft:block/black_concrete",
-    "screen": "minecraft:block/command_block_front",
+    "screen": "reikos_furniture:block/screen/computer",
     "keys": "minecraft:block/gray_concrete_powder"
   },
   "elements": [
@@ -246,10 +246,10 @@
         },
         "north": {
           "uv": [
-            2.5,
-            4.5,
-            13.5,
-            12.5
+            0,
+            0,
+            16,
+            16
           ],
           "texture": "#screen"
         },

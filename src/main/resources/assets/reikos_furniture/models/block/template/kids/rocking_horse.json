@@ -2,7 +2,7 @@
   "parent": "minecraft:block/block",
   "textures": {
     "particle": "#planks",
-    "saddle": "minecraft:block/red_wool"
+    "saddle": "reikos_furniture:block/fabric/red"
   },
   "elements": [
     {

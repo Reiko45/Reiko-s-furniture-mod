@@ -1,6 +1,6 @@
 {
   "parent": "reikos_furniture:block/template/livingroom/curtains_open",
   "textures": {
-    "wool": "minecraft:block/white_wool"
+    "wool": "reikos_furniture:block/fabric/white"
   }
 }

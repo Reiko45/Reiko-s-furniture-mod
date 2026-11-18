@@ -4,6 +4,6 @@
     "log": "minecraft:block/crimson_stem",
     "planks": "minecraft:block/crimson_planks",
     "stripped_log": "minecraft:block/stripped_crimson_stem",
-    "wool": "minecraft:block/black_wool"
+    "wool": "reikos_furniture:block/fabric/black"
   }
 }

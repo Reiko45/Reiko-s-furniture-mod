@@ -41,3 +41,6 @@ repo/
 
 # Data generation run folder
 run-data/
+
+# Python caches from tools/
+__pycache__/

@@ -3,7 +3,7 @@
   "textures": {
     "particle": "#planks",
     "sheet": "minecraft:block/white_wool",
-    "wool": "minecraft:block/red_wool"
+    "wool": "reikos_furniture:block/fabric/red"
   },
   "display": {
     "gui": {

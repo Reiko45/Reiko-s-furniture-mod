@@ -1,10 +1,10 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "minecraft:block/white_concrete",
-    "body": "minecraft:block/white_concrete",
+    "particle": "reikos_furniture:block/appliance/fridge_body",
+    "body": "reikos_furniture:block/appliance/fridge_body",
     "panel": "minecraft:block/gray_concrete",
-    "window": "minecraft:block/ochre_froglight_side"
+    "front": "reikos_furniture:block/appliance/microwave_front_on"
   },
   "elements": [
     {
@@ -40,12 +40,12 @@
         },
         "north": {
           "uv": [
-            1.5,
-            8,
-            14.5,
+            0,
+            0,
+            16,
             16
           ],
-          "texture": "#body"
+          "texture": "#front"
         },
         "south": {
           "uv": [
@@ -73,147 +73,6 @@
             16
           ],
           "texture": "#body"
-        }
-      }
-    },
-    {
-      "from": [
-        2,
-        1,
-        2.5
-      ],
-      "to": [
-        10.5,
-        7,
-        3
-      ],
-      "faces": {
-        "down": {
-          "uv": [
-            2,
-            13,
-            10.5,
-            13.5
-          ],
-          "texture": "#window"
-        },
-        "up": {
-          "uv": [
-            2,
-            2.5,
-            10.5,
-            3
-          ],
-          "texture": "#window"
-        },
-        "north": {
-          "uv": [
-            5.5,
-            9,
-            14,
-            15
-          ],
-          "texture": "#window"
-        },
-        "south": {
-          "uv": [
-            2,
-            9,
-            10.5,
-            15
-          ],
-          "texture": "#window"
-        },
-        "west": {
-          "uv": [
-            2.5,
-            9,
-            3,
-            15
-          ],
-          "texture": "#window"
-        },
-        "east": {
-          "uv": [
-            13,
-            9,
-            13.5,
-            15
-          ],
-          "texture": "#window"
-        }
-      },
-      "shade": false,
-      "neoforge_data": {
-        "block_light": 15,
-        "sky_light": 15
-      }
-    },
-    {
-      "from": [
-        11,
-        1,
-        2.5
-      ],
-      "to": [
-        14,
-        7,
-        3
-      ],
-      "faces": {
-        "down": {
-          "uv": [
-            11,
-            13,
-            14,
-            13.5
-          ],
-          "texture": "#panel"
-        },
-        "up": {
-          "uv": [
-            11,
-            2.5,
-            14,
-            3
-          ],
-          "texture": "#panel"
-        },
-        "north": {
-          "uv": [
-            2,
-            9,
-            5,
-            15
-          ],
-          "texture": "#panel"
-        },
-        "south": {
-          "uv": [
-            11,
-            9,
-            14,
-            15
-          ],
-          "texture": "#panel"
-        },
-        "west": {
-          "uv": [
-            2.5,
-            9,
-            3,
-            15
-          ],
-          "texture": "#panel"
-        },
-        "east": {
-          "uv": [
-            13,
-            9,
-            13.5,
-            15
-          ],
-          "texture": "#panel"
         }
       }
     },
@@ -221,29 +80,29 @@
       "from": [
         9.75,
         2,
-        2
+        2.5
       ],
       "to": [
         10.25,
         6,
-        2.5
+        3
       ],
       "faces": {
         "down": {
           "uv": [
             9.75,
-            13.5,
+            13,
             10.25,
-            14
+            13.5
           ],
           "texture": "#panel"
         },
         "up": {
           "uv": [
             9.75,
-            2,
+            2.5,
             10.25,
-            2.5
+            3
           ],
           "texture": "#panel"
         },
@@ -267,18 +126,18 @@
         },
         "west": {
           "uv": [
-            2,
-            10,
             2.5,
+            10,
+            3,
             14
           ],
           "texture": "#panel"
         },
         "east": {
           "uv": [
-            13.5,
+            13,
             10,
-            14,
+            13.5,
             14
           ],
           "texture": "#panel"

@@ -1,6 +1,6 @@
 {
   "parent": "reikos_furniture:block/template/livingroom/rug_center",
   "textures": {
-    "wool": "minecraft:block/gray_wool"
+    "wool": "reikos_furniture:block/fabric/gray"
   }
 }

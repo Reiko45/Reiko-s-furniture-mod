@@ -4,6 +4,6 @@
     "log": "minecraft:block/oak_log",
     "planks": "minecraft:block/oak_planks",
     "stripped_log": "minecraft:block/stripped_oak_log",
-    "wool": "minecraft:block/pink_wool"
+    "wool": "reikos_furniture:block/fabric/pink"
   }
 }

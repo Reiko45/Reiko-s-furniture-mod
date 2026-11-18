@@ -58,7 +58,7 @@ public class SwitchableFurnitureBlock extends FurnitureBlock {
         if (!level.isClientSide) {
             BlockState switched = nextState(state);
             setSwitched(level, pos, state, switched);
-            playClick(level, pos, switched.getValue(LIT));
+            playSwitchSound(level, pos, state, switched);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
@@ -90,12 +90,13 @@ public class SwitchableFurnitureBlock extends FurnitureBlock {
             BlockState switched = state.setValue(POWERED, powered).setValue(LIT, powered);
             setSwitched(level, pos, state, switched);
             if (switched.getValue(LIT) != state.getValue(LIT)) {
-                playClick(level, pos, powered);
+                playSwitchSound(level, pos, state, switched);
             }
         }
     }
 
-    protected static void playClick(Level level, BlockPos pos, boolean on) {
-        level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, on ? 0.6F : 0.5F);
+    /** Sound when switched; a click by default. */
+    protected void playSwitchSound(Level level, BlockPos pos, BlockState before, BlockState after) {
+        level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, after.getValue(LIT) ? 0.6F : 0.5F);
     }
 }

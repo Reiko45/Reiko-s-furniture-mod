@@ -11,6 +11,7 @@ import com.reiko45.furniture.core.registry.ModEntities;
 import com.reiko45.furniture.core.registry.ModItems;
 import com.reiko45.furniture.core.registry.ModMenus;
 import com.reiko45.furniture.core.registry.ModRecipes;
+import com.reiko45.furniture.core.registry.ModSounds;
 import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.datagen.DataGenerators;
 import com.reiko45.furniture.dining.DiningFurniture;
@@ -57,6 +58,7 @@ public class ReikosFurniture {
         ModEntities.ENTITIES.register(modBus);
         ModCreativeTab.TABS.register(modBus);
         ModMenus.MENUS.register(modBus);
+        ModSounds.SOUNDS.register(modBus);
         ModRecipes.TYPES.register(modBus);
         ModRecipes.SERIALIZERS.register(modBus);
 

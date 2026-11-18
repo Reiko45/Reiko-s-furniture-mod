@@ -6,6 +6,7 @@ import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.WoodSet;
+import com.reiko45.furniture.core.registry.ModSounds;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -54,6 +55,7 @@ public class FurnitureLanguageProvider extends LanguageProvider {
             }
         }
 
+        ModSounds.SUBTITLES.forEach((name, text) -> add("subtitles.reikos_furniture." + name, text));
         add("container.reikos_furniture.furniture_workbench", "Furniture Workbench");
         add("container.reikos_furniture.furniture_workbench.cost", "Needs %s planks");
 

@@ -1,10 +1,10 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "minecraft:block/iron_block",
-    "side": "minecraft:block/iron_block",
+    "particle": "reikos_furniture:block/appliance/steel",
+    "side": "reikos_furniture:block/appliance/steel",
     "top": "minecraft:block/black_concrete",
-    "front": "minecraft:block/blast_furnace_front_on",
+    "front": "reikos_furniture:block/appliance/oven_front_on",
     "burner": "minecraft:block/magma"
   },
   "elements": [
@@ -42,7 +42,7 @@
         "north": {
           "uv": [
             0,
-            2,
+            0,
             16,
             16
           ],
