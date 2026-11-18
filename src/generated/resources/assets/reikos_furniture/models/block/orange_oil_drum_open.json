@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/garage/oil_drum_open",
+  "textures": {
+    "paint": "minecraft:block/orange_concrete"
+  }
+}

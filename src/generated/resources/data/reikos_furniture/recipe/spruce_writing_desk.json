@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "P": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "pattern": [
+    "  F",
+    "PPP",
+    "PCP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:spruce_writing_desk"
+  }
+}

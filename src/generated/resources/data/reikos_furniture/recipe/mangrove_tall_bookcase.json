@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "P": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "pattern": [
+    "PBP",
+    "PBP",
+    "PBP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:mangrove_tall_bookcase"
+  }
+}

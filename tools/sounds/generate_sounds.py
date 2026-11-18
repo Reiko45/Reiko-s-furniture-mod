@@ -176,6 +176,28 @@ def sliding_door(rnd):
     return (roll * 2.5 + rumble + stop * 0.8) * env(n, 0.03, 0.05)
 
 
+def globe_spin(rnd):
+    n = int(RATE * 1.2)
+    tt = t(1.2)
+    speed = np.exp(-tt * 2.0)
+    whir = lowpass(rnd.standard_normal(n), 300 + 900 * speed) * speed
+    ticks = np.zeros(n)
+    phase = np.cumsum(speed * 18 / RATE)
+    ticks[np.where(np.diff(np.floor(phase), prepend=0) > 0)] = 1.0
+    ticks = lowpass(ticks, 2500) * 6
+    return (whir * 2 + ticks) * env(n, 0.01, 0.2)
+
+
+def toolbox_latch():
+    tt = t(0.25)
+    click = np.zeros(len(tt))
+    for start in (0.0, 0.07):
+        k = int(RATE * start)
+        m = len(tt) - k
+        click[k:] += (np.sin(2 * np.pi * 2300 * tt[:m]) + 0.5 * np.sin(2 * np.pi * 3700 * tt[:m])) * np.exp(-tt[:m] * 70)
+    return click * env(len(tt), 0.001, 0.02)
+
+
 if __name__ == "__main__":
     rnd = np.random.default_rng(45)
     write("microwave_ding", microwave_ding(), 0.6)
@@ -190,4 +212,6 @@ if __name__ == "__main__":
     write("workbench_saw", saw(rnd), 0.6)
     write("arcade_blip", arcade_blip(), 0.5)
     write("sliding_door", sliding_door(rnd), 0.6)
+    write("globe_spin", globe_spin(rnd), 0.5)
+    write("toolbox_latch", toolbox_latch(), 0.6)
     print("sounds written to", os.path.normpath(OUT))

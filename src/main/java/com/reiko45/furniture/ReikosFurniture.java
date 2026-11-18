@@ -22,6 +22,8 @@ import com.reiko45.furniture.datagen.DataGenerators;
 import com.reiko45.furniture.decor.DecorFurniture;
 import com.reiko45.furniture.dining.DiningFurniture;
 import com.reiko45.furniture.gameroom.GameRoomFurniture;
+import com.reiko45.furniture.garage.GarageFurniture;
+import com.reiko45.furniture.library.LibraryFurniture;
 import com.reiko45.furniture.kids.KidsFurniture;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
 import com.reiko45.furniture.laundry.LaundryFurniture;
@@ -76,6 +78,8 @@ public class ReikosFurniture {
         GameRoomFurniture.init();
         PetFurniture.init();
         DecorFurniture.init();
+        GarageFurniture.init();
+        LibraryFurniture.init();
         Workbench.init();
         Tools.init();
 

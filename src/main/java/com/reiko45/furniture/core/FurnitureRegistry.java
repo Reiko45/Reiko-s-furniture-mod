@@ -94,11 +94,18 @@ public final class FurnitureRegistry {
 
     /** Registers {@code <color>_<piece>} for every dye color. These burn like wool. */
     public static <B extends Block> ColorSet<B> colorSet(String piece, Room room, Function<DyeColor, B> factory) {
+        return colorSet(piece, room, factory, true);
+    }
+
+    /** Like {@link #colorSet(String, Room, Function)}; painted metal pieces pass {@code flammable = false}. */
+    public static <B extends Block> ColorSet<B> colorSet(String piece, Room room, Function<DyeColor, B> factory, boolean flammable) {
         Map<DyeColor, DeferredBlock<B>> blocks = new EnumMap<>(DyeColor.class);
         for (DyeColor color : DyeColor.values()) {
             DeferredBlock<B> block = register(color.getName() + "_" + piece, room, () -> factory.apply(color));
             blocks.put(color, block);
-            FLAMMABLE.put(block, new int[] {30, 60});
+            if (flammable) {
+                FLAMMABLE.put(block, new int[] {30, 60});
+            }
         }
         ColorSet<B> set = new ColorSet<>(piece, room, Collections.unmodifiableMap(blocks));
         COLOR_SETS.add(set);

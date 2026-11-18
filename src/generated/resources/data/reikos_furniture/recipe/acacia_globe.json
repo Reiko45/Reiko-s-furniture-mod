@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:map"
+    },
+    "P": {
+      "item": "minecraft:acacia_planks"
+    },
+    "S": {
+      "item": "minecraft:acacia_slab"
+    }
+  },
+  "pattern": [
+    "M",
+    "S",
+    "P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:acacia_globe"
+  }
+}

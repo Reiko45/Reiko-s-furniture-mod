@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/garage/toolbox_open",
+  "textures": {
+    "paint": "minecraft:block/light_blue_concrete"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "S": {
+      "item": "minecraft:oak_slab"
+    }
+  },
+  "pattern": [
+    "B",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:oak_book_stand"
+  }
+}

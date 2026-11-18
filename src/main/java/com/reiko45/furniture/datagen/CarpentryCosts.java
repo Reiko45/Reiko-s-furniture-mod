@@ -45,7 +45,10 @@ final class CarpentryCosts {
             // Decor
             Map.entry("parquet", 1),
             Map.entry("baseboard", 1),
-            Map.entry("crown_molding", 1));
+            Map.entry("crown_molding", 1),
+            // Garage and library
+            Map.entry("pegboard", 3),
+            Map.entry("library_ladder", 2));
 
     private CarpentryCosts() {
     }

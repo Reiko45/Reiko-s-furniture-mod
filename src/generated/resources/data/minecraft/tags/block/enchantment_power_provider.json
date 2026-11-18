@@ -10,6 +10,17 @@
     "reikos_furniture:cherry_bookshelf",
     "reikos_furniture:bamboo_bookshelf",
     "reikos_furniture:crimson_bookshelf",
-    "reikos_furniture:warped_bookshelf"
+    "reikos_furniture:warped_bookshelf",
+    "reikos_furniture:oak_tall_bookcase",
+    "reikos_furniture:spruce_tall_bookcase",
+    "reikos_furniture:birch_tall_bookcase",
+    "reikos_furniture:jungle_tall_bookcase",
+    "reikos_furniture:acacia_tall_bookcase",
+    "reikos_furniture:dark_oak_tall_bookcase",
+    "reikos_furniture:mangrove_tall_bookcase",
+    "reikos_furniture:cherry_tall_bookcase",
+    "reikos_furniture:bamboo_tall_bookcase",
+    "reikos_furniture:crimson_tall_bookcase",
+    "reikos_furniture:warped_tall_bookcase"
   ]
 }

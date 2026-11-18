@@ -821,7 +821,39 @@ def paintings():
     done(img, "sailboat")
 
 
+def garage_and_library():
+    """Pegboard (brown board with a grid of holes) and the globe's world map."""
+    import math
+    rnd = random.Random("pegboard")
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            c = shade((0xA8, 0x80, 0x56), 0.95 + rnd.random() * 0.08)
+            if x % 4 == 2 and y % 4 == 2:
+                c = (0x3A, 0x2A, 0x1C)
+            px[x, y] = c + (255,)
+    save(img, "block/pegboard.png")
+
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            # Tileable blobs: land where a sum of sine waves is high.
+            v = (math.sin(2 * math.pi * x / 16 * 2 + 1.3) + math.sin(2 * math.pi * y / 16 * 1 + 0.4)
+                 + 0.8 * math.sin(2 * math.pi * (x + y) / 16 * 3))
+            if v > 0.9:
+                c = (0x6E, 0xA0, 0x48) if v < 1.8 else (0xC8, 0xB0, 0x78)
+            else:
+                c = (0x3A, 0x6C, 0xB8) if (x + y) % 5 else (0x46, 0x7A, 0xC4)
+            if y in (0, 15):
+                c = (0xEC, 0xF2, 0xF8)
+            px[x, y] = c + (255,)
+    save(img, "block/globe.png")
+
+
 if __name__ == "__main__":
+    garage_and_library()
     paintings()
     tool_items()
     window_glass()

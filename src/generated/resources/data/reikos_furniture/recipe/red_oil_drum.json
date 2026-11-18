@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:red_dye"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "IDI",
+    "I I",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:red_oil_drum"
+  }
+}

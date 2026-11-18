@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "P": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "pattern": [
+    "PBP",
+    "PBP",
+    "PBP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:cherry_tall_bookcase"
+  }
+}

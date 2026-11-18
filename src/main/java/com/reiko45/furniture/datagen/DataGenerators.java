@@ -6,6 +6,8 @@ import com.reiko45.furniture.core.tool.ToolsData;
 import com.reiko45.furniture.decor.DecorData;
 import com.reiko45.furniture.dining.DiningData;
 import com.reiko45.furniture.gameroom.GameRoomData;
+import com.reiko45.furniture.garage.GarageData;
+import com.reiko45.furniture.library.LibraryData;
 import com.reiko45.furniture.kids.KidsData;
 import com.reiko45.furniture.kitchen.KitchenData;
 import com.reiko45.furniture.laundry.LaundryData;
@@ -47,6 +49,8 @@ public final class DataGenerators {
             new GameRoomData(),
             new PetData(),
             new DecorData(),
+            new GarageData(),
+            new LibraryData(),
             new ToolsData());
 
     private DataGenerators() {

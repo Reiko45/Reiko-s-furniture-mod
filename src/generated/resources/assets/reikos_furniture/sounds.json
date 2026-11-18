@@ -29,6 +29,12 @@
     ],
     "subtitle": "subtitles.reikos_furniture.dryer_running"
   },
+  "globe_spin": {
+    "sounds": [
+      "reikos_furniture:globe_spin"
+    ],
+    "subtitle": "subtitles.reikos_furniture.globe_spin"
+  },
   "microwave_ding": {
     "sounds": [
       "reikos_furniture:microwave_ding"
@@ -52,6 +58,12 @@
       "reikos_furniture:toilet_flush"
     ],
     "subtitle": "subtitles.reikos_furniture.toilet_flush"
+  },
+  "toolbox_latch": {
+    "sounds": [
+      "reikos_furniture:toolbox_latch"
+    ],
+    "subtitle": "subtitles.reikos_furniture.toolbox_latch"
   },
   "tv_static": {
     "sounds": [
