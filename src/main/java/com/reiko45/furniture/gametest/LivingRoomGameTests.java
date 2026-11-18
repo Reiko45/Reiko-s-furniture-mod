@@ -53,6 +53,21 @@ public class LivingRoomGameTests {
     }
 
     @GameTest(template = CoreGameTests.EMPTY)
+    public static void sofasFormLShape(GameTestHelper helper) {
+        // Corner C faces north; row A continues east of it; row B continues north of it, facing east.
+        BlockPos corner = new BlockPos(1, 1, 2);
+        Block red = LivingRoomFurniture.SOFA.get(DyeColor.RED).get();
+        CoreGameTests.placeFacing(helper, corner, red, Direction.NORTH);
+        CoreGameTests.placeFacing(helper, corner.east(), red, Direction.NORTH);
+        CoreGameTests.placeFacing(helper, corner.north(), red, Direction.EAST);
+
+        helper.assertBlockProperty(corner, SofaBlock.PART, SofaBlock.Part.CORNER_LEFT);
+        helper.assertBlockProperty(corner.east(), SofaBlock.PART, SofaBlock.Part.RIGHT);
+        helper.assertBlockProperty(corner.north(), SofaBlock.PART, SofaBlock.Part.LEFT);
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
     public static void bookshelfPowersEnchanting(GameTestHelper helper) {
         BlockPos pos = new BlockPos(1, 1, 1);
         helper.setBlock(pos, LivingRoomFurniture.BOOKSHELF.get(FurnitureWood.DARK_OAK).get());

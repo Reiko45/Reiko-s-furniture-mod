@@ -13,7 +13,9 @@ import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.TallStorageFurnitureBlock;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
 import java.util.List;
+import com.reiko45.furniture.core.block.FurnitureBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -29,6 +31,14 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 @PrefixGameTestTemplate(false)
 public class CoreGameTests {
     static final String EMPTY = "empty";
+
+    /** Places a block facing a direction and lets it look at its neighbours, like a block placed by a player. */
+    static void placeFacing(GameTestHelper helper, BlockPos pos, Block block, Direction facing) {
+        BlockState state = block.defaultBlockState().setValue(FurnitureBlock.FACING, facing);
+        BlockPos absolute = helper.absolutePos(pos);
+        helper.getLevel().setBlock(absolute, Block.updateFromNeighbourShapes(state, helper.getLevel(), absolute),
+                Block.UPDATE_ALL);
+    }
 
     @GameTest(template = EMPTY)
     public static void everyBlockDropsItself(GameTestHelper helper) {

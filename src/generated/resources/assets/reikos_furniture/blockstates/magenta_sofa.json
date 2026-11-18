@@ -28,6 +28,24 @@
     },
     {
       "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_left"
+      },
+      "when": {
+        "facing": "north",
+        "part": "corner_left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_right"
+      },
+      "when": {
+        "facing": "north",
+        "part": "corner_right"
+      }
+    },
+    {
+      "apply": {
         "model": "reikos_furniture:block/magenta_sofa_base",
         "y": 90
       },
@@ -53,6 +71,26 @@
       "when": {
         "facing": "east",
         "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_left",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "part": "corner_left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_right",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "part": "corner_right"
       }
     },
     {
@@ -86,6 +124,26 @@
     },
     {
       "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_left",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "part": "corner_left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_right",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "part": "corner_right"
+      }
+    },
+    {
+      "apply": {
         "model": "reikos_furniture:block/magenta_sofa_base",
         "y": 270
       },
@@ -111,6 +169,26 @@
       "when": {
         "facing": "west",
         "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_left",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "part": "corner_left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/magenta_sofa_corner_right",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "part": "corner_right"
       }
     }
   ]

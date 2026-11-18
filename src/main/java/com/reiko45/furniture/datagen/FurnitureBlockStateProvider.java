@@ -63,7 +63,8 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
                 .texture("stripped_log", wood.strippedLogTexture());
     }
 
-    private BlockModelBuilder woodModel(String name, ResourceLocation template, FurnitureWood wood) {
+    /** Creates {@code name} from a template, filling in the wood's textures. */
+    public BlockModelBuilder woodModel(String name, ResourceLocation template, FurnitureWood wood) {
         return woodTextures(models().withExistingParent(name, template), wood);
     }
 

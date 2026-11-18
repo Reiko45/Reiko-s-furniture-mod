@@ -21,7 +21,8 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * A sofa you can sit on. Sofas facing the same way join side by side into one long sofa:
- * only the two ends keep their armrests. Any colors can be joined.
+ * only the two ends keep their armrests. Two rows at a right angle join into an L-shaped sofa,
+ * with a corner piece that has a backrest on two sides. Any colors can be joined.
  */
 public class SofaBlock extends SeatBlock {
     public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
@@ -29,6 +30,8 @@ public class SofaBlock extends SeatBlock {
     private static final VoxelShape BASE = ShapeUtil.boxes(ShapeUtil.box(0, 0, 1, 16, 8, 16), ShapeUtil.box(0, 8, 11.5, 16, 15, 16));
     private static final VoxelShape LEFT_ARM = ShapeUtil.boxes(ShapeUtil.box(0, 8, 1, 2.5, 11, 11.5));
     private static final VoxelShape RIGHT_ARM = ShapeUtil.boxes(ShapeUtil.box(13.5, 8, 1, 16, 11, 11.5));
+    private static final VoxelShape LEFT_BACK = ShapeUtil.boxes(ShapeUtil.box(0, 8, 0, 4.5, 15, 11.5));
+    private static final VoxelShape RIGHT_BACK = ShapeUtil.boxes(ShapeUtil.box(11.5, 8, 0, 16, 15, 11.5));
 
     private final Map<Part, Map<Direction, VoxelShape>> shapes = new EnumMap<>(Part.class);
 
@@ -41,6 +44,12 @@ public class SofaBlock extends SeatBlock {
             }
             if (part.hasRightArm()) {
                 shape = Shapes.or(shape, RIGHT_ARM);
+            }
+            if (part == Part.CORNER_LEFT) {
+                shape = Shapes.or(shape, LEFT_BACK);
+            }
+            if (part == Part.CORNER_RIGHT) {
+                shape = Shapes.or(shape, RIGHT_BACK);
             }
             shapes.put(part, ShapeUtil.horizontal(shape.optimize()));
         }
@@ -72,12 +81,22 @@ public class SofaBlock extends SeatBlock {
         return shapes.get(state.getValue(PART)).get(state.getValue(FACING));
     }
 
-    /** Works out which part of a long sofa this block is, from the sofas on its left and right. */
+    /** Works out which part of a long or L-shaped sofa this block is, from the sofas around it. */
     private static Part partFor(BlockState state, BlockGetter level, BlockPos pos) {
         Direction facing = state.getValue(FACING);
+        // A sofa right in front, turned sideways, makes this the inner corner of an L.
+        BlockState front = level.getBlockState(pos.relative(facing));
+        if (front.getBlock() instanceof SofaBlock) {
+            if (front.getValue(FACING) == facing.getClockWise()) {
+                return Part.CORNER_LEFT;
+            }
+            if (front.getValue(FACING) == facing.getCounterClockWise()) {
+                return Part.CORNER_RIGHT;
+            }
+        }
         // Seen by someone sitting on the sofa (who faces the same way as the sofa).
-        boolean left = isSofaFacing(level.getBlockState(pos.relative(facing.getCounterClockWise())), facing);
-        boolean right = isSofaFacing(level.getBlockState(pos.relative(facing.getClockWise())), facing);
+        boolean left = connects(level.getBlockState(pos.relative(facing.getCounterClockWise())), facing.getClockWise(), facing);
+        boolean right = connects(level.getBlockState(pos.relative(facing.getClockWise())), facing.getCounterClockWise(), facing);
         if (left && right) {
             return Part.MIDDLE;
         }
@@ -90,8 +109,16 @@ public class SofaBlock extends SeatBlock {
         return Part.SINGLE;
     }
 
-    private static boolean isSofaFacing(BlockState state, Direction facing) {
-        return state.getBlock() instanceof SofaBlock && state.getValue(FACING) == facing;
+    /**
+     * A neighbour on the left or right joins if it faces the same way, or if it is the corner of an L
+     * (it then faces {@code cornerFacing}, and this sofa is the one in front of it).
+     */
+    private static boolean connects(BlockState neighbor, Direction cornerFacing, Direction facing) {
+        if (!(neighbor.getBlock() instanceof SofaBlock)) {
+            return false;
+        }
+        Direction other = neighbor.getValue(FACING);
+        return other == facing || other == cornerFacing;
     }
 
     /** Which part of a (long) sofa a block is. The left end keeps its left armrest, and so on. */
@@ -99,7 +126,11 @@ public class SofaBlock extends SeatBlock {
         SINGLE("single"),
         LEFT("left"),
         MIDDLE("middle"),
-        RIGHT("right");
+        RIGHT("right"),
+        /** Inner corner of an L with the extra backrest on the left. */
+        CORNER_LEFT("corner_left"),
+        /** Inner corner of an L with the extra backrest on the right. */
+        CORNER_RIGHT("corner_right");
 
         private final String name;
 

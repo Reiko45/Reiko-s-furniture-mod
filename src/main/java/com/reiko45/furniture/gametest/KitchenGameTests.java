@@ -2,7 +2,10 @@ package com.reiko45.furniture.gametest;
 
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.kitchen.CounterBlock;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Block;
 import com.reiko45.furniture.kitchen.StoveBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -22,6 +25,24 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder(ReikosFurniture.MODID)
 @PrefixGameTestTemplate(false)
 public class KitchenGameTests {
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void countersFormCorners(GameTestHelper helper) {
+        Block counter = KitchenFurniture.COUNTER.get(FurnitureWood.OAK).get();
+        // Inner corner: the counter in front of it is turned sideways.
+        BlockPos inner = new BlockPos(1, 1, 2);
+        CoreGameTests.placeFacing(helper, inner, counter, Direction.NORTH);
+        CoreGameTests.placeFacing(helper, inner.north(), counter, Direction.EAST);
+        helper.assertBlockProperty(inner, CounterBlock.SHAPE, CounterBlock.Shape.INNER);
+        helper.assertBlockProperty(inner.north(), CounterBlock.SHAPE, CounterBlock.Shape.STRAIGHT);
+
+        // Outer corner: the counter behind it faces west, so this one has doors on its left side too.
+        BlockPos outer = new BlockPos(4, 1, 2);
+        CoreGameTests.placeFacing(helper, outer, counter, Direction.NORTH);
+        CoreGameTests.placeFacing(helper, outer.south(), counter, Direction.WEST);
+        helper.assertBlockProperty(outer, CounterBlock.SHAPE, CounterBlock.Shape.OUTER_LEFT);
+        helper.succeed();
+    }
+
     @GameTest(template = CoreGameTests.EMPTY)
     public static void sinkFillsBucket(GameTestHelper helper) {
         BlockPos pos = new BlockPos(1, 1, 1);

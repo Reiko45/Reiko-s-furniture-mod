@@ -10,7 +10,11 @@ import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.datagen.FurnitureBlockStateProvider;
 import com.reiko45.furniture.datagen.FurnitureRecipeProvider;
 import com.reiko45.furniture.datagen.RoomData;
+import com.reiko45.furniture.core.FurnitureWood;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import java.util.function.BiConsumer;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.world.item.Items;
@@ -25,7 +29,7 @@ public class KitchenData implements RoomData {
 
     @Override
     public void models(FurnitureBlockStateProvider models) {
-        models.woodFacingOpenable(COUNTER, "counter");
+        counters(models);
         models.woodFacingOpenable(UPPER_CABINET, "upper_cabinet");
         models.woodFacing(SINK, "sink");
 
@@ -35,6 +39,29 @@ public class KitchenData implements RoomData {
         models.tallOpenableBlock(FRIDGE.get(), models.existingTemplate(ROOM, "fridge_lower"), models.existingTemplate(ROOM, "fridge_upper"),
                 models.existingTemplate(ROOM, "fridge_lower_open"), models.existingTemplate(ROOM, "fridge_upper_open"));
         models.blockItem(FRIDGE.get(), models.template(ROOM, "fridge_item"));
+    }
+
+    /** Counters have a model for every corner shape, closed and open. */
+    private static void counters(FurnitureBlockStateProvider models) {
+        for (FurnitureWood wood : FurnitureWood.values()) {
+            CounterBlock block = COUNTER.get(wood).get();
+            String name = wood.id() + "_counter";
+            Map<String, ModelFile> files = new HashMap<>();
+            for (String variant : List.of("", "_open", "_inner", "_outer_left", "_outer_left_open",
+                    "_outer_right", "_outer_right_open")) {
+                files.put(variant, models.woodModel(name + variant, models.template(ROOM, "counter" + variant), wood));
+            }
+            models.facingBlock(block, state -> {
+                boolean open = state.getValue(CounterBlock.OPEN);
+                return switch (state.getValue(CounterBlock.SHAPE)) {
+                    case STRAIGHT -> files.get(open ? "_open" : "");
+                    case INNER -> files.get("_inner");
+                    case OUTER_LEFT -> files.get(open ? "_outer_left_open" : "_outer_left");
+                    case OUTER_RIGHT -> files.get(open ? "_outer_right_open" : "_outer_right");
+                };
+            });
+            models.blockItem(block, models.modLoc("block/" + name));
+        }
     }
 
     @Override

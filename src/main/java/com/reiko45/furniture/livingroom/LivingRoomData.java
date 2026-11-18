@@ -54,12 +54,14 @@ public class LivingRoomData implements RoomData {
         models.blockItem(TV.get(), models.template(ROOM, "tv"));
     }
 
-    /** The base is always shown; each armrest only on the open ends of a long sofa. */
+    /** The base is always shown; each armrest only on the open ends; an extra backrest on corners. */
     private static void sofa(FurnitureBlockStateProvider models, Block block, DyeColor color) {
         String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
         ModelFile base = models.woolModel(name + "_base", models.template(ROOM, "sofa_base"), color);
         ModelFile left = models.woolModel(name + "_arm_left", models.template(ROOM, "sofa_arm_left"), color);
         ModelFile right = models.woolModel(name + "_arm_right", models.template(ROOM, "sofa_arm_right"), color);
+        ModelFile cornerLeft = models.woolModel(name + "_corner_left", models.template(ROOM, "sofa_corner_left"), color);
+        ModelFile cornerRight = models.woolModel(name + "_corner_right", models.template(ROOM, "sofa_corner_right"), color);
 
         var builder = models.getMultipartBuilder(block);
         for (Direction facing : Direction.Plane.HORIZONTAL) {
@@ -72,6 +74,12 @@ public class LivingRoomData implements RoomData {
             builder.part().modelFile(right).rotationY(y).addModel()
                     .condition(FurnitureBlock.FACING, facing)
                     .condition(SofaBlock.PART, SofaBlock.Part.SINGLE, SofaBlock.Part.RIGHT).end();
+            builder.part().modelFile(cornerLeft).rotationY(y).addModel()
+                    .condition(FurnitureBlock.FACING, facing)
+                    .condition(SofaBlock.PART, SofaBlock.Part.CORNER_LEFT).end();
+            builder.part().modelFile(cornerRight).rotationY(y).addModel()
+                    .condition(FurnitureBlock.FACING, facing)
+                    .condition(SofaBlock.PART, SofaBlock.Part.CORNER_RIGHT).end();
         }
     }
 

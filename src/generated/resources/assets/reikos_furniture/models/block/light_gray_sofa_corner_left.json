@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/livingroom/sofa_corner_left",
+  "textures": {
+    "wool": "minecraft:block/light_gray_wool"
+  }
+}

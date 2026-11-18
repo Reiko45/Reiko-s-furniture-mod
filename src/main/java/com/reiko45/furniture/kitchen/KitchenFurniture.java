@@ -28,9 +28,9 @@ public final class KitchenFurniture {
     private static final VoxelShape FULL = boxes(box(0, 0, 0, 16, 16, 16));
     private static final VoxelShape UPPER_CABINET_SHAPE = boxes(box(0, 4, 7.5, 16, 16, 16));
 
-    /** Kitchen counter with a stone top and three rows of storage. */
-    public static final WoodSet<FurnitureStorageBlock> COUNTER = FurnitureRegistry.woodSet("counter", ROOM,
-            wood -> new FurnitureStorageBlock(wood.properties(), 3, FULL));
+    /** Kitchen counter with a stone top and three rows of storage. Forms corners like stairs. */
+    public static final WoodSet<CounterBlock> COUNTER = FurnitureRegistry.woodSet("counter", ROOM,
+            wood -> new CounterBlock(wood.properties(), 3, FULL));
 
     /** Wall cabinet that hangs at the top of the block, two rows of storage. */
     public static final WoodSet<FurnitureStorageBlock> UPPER_CABINET = FurnitureRegistry.woodSet("upper_cabinet", ROOM,
