@@ -4,6 +4,7 @@ import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.WoodSet;
+import com.reiko45.furniture.core.config.FurnitureConfig;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -41,6 +42,10 @@ public final class ModdedWoods {
             return;
         }
         detected = true;
+        if (!FurnitureConfig.moddedWoods()) {
+            ReikosFurniture.LOGGER.info("Furniture in other mods' woods is turned off in the startup config");
+            return;
+        }
         detect();
         if (FurnitureWood.modded().isEmpty()) {
             return;

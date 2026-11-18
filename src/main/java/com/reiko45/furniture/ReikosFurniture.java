@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.reiko45.furniture.bathroom.BathroomFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
+import com.reiko45.furniture.core.config.FurnitureConfig;
 import com.reiko45.furniture.core.modded.ModdedWoodPack;
 import com.reiko45.furniture.core.modded.ModdedWoods;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
@@ -55,6 +56,9 @@ public class ReikosFurniture {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ReikosFurniture(IEventBus modBus, ModContainer container) {
+        // Settings first: the startup file decides whether modded woods are registered.
+        FurnitureConfig.register(container);
+
         // Room sections, in the order they appear in the creative tab.
         BedroomFurniture.init();
         KitchenFurniture.init();

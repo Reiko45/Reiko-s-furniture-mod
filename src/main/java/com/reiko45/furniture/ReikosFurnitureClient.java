@@ -14,7 +14,10 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
@@ -22,7 +25,9 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 /** Client-only setup. */
 @Mod(value = ReikosFurniture.MODID, dist = Dist.CLIENT)
 public class ReikosFurnitureClient {
-    public ReikosFurnitureClient(IEventBus modBus) {
+    public ReikosFurnitureClient(IEventBus modBus, ModContainer container) {
+        // Settings screen in the Mods list.
+        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
         modBus.addListener(ReikosFurnitureClient::registerRenderers);
         modBus.addListener(ReikosFurnitureClient::registerScreens);
         modBus.addListener(ReikosFurnitureClient::registerBlockColors);

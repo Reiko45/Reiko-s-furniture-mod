@@ -1,6 +1,7 @@
 package com.reiko45.furniture.laundry;
 
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
+import com.reiko45.furniture.core.config.FurnitureConfig;
 import com.reiko45.furniture.core.registry.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * (or dries) everything inside.
  */
 public class LaundryMachineBlockEntity extends FurnitureStorageBlockEntity {
+    /** The default cycle length; the real one comes from the config ({@code laundry_cycle_seconds}). */
     public static final int CYCLE_TICKS = 100;
     private int timer;
 
@@ -81,7 +83,7 @@ public class LaundryMachineBlockEntity extends FurnitureStorageBlockEntity {
     /** Starts a cycle if anything inside can be washed (or dried). */
     private void startIfNeeded() {
         if (level != null && !level.isClientSide && anythingToDo()) {
-            timer = CYCLE_TICKS;
+            timer = FurnitureConfig.laundryCycleTicks();
             level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(LaundryMachineBlock.RUNNING, true), Block.UPDATE_ALL);
             level.playSound(null, worldPosition, kind().sound(), SoundSource.BLOCKS, 0.7F, 1.0F);
             setChanged();

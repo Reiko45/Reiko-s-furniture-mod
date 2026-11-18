@@ -1,5 +1,6 @@
 package com.reiko45.furniture.kitchen.appliance;
 
+import com.reiko45.furniture.core.config.FurnitureConfig;
 import com.reiko45.furniture.core.registry.ModRecipes;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
 import java.util.List;
@@ -93,7 +94,7 @@ public class ApplianceBlockEntity extends BlockEntity {
     private void tryStart(Level level) {
         recipe(level).ifPresent(recipe -> {
             progress = 0;
-            total = recipe.time();
+            total = FurnitureConfig.applianceTicks(recipe.time());
             level.setBlock(worldPosition, getBlockState().setValue(ApplianceBlock.RUNNING, true), Block.UPDATE_ALL);
             playSound(level, type().runningSound());
         });

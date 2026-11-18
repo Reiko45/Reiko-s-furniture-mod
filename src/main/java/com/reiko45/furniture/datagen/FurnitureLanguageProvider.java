@@ -3,6 +3,7 @@ package com.reiko45.furniture.datagen;
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.ColorSet;
 import com.reiko45.furniture.core.FurnitureRegistry;
+import com.reiko45.furniture.core.config.FurnitureConfig;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.WoodSet;
@@ -62,6 +63,8 @@ public class FurnitureLanguageProvider extends LanguageProvider {
         add("container.reikos_furniture.furniture_workbench", "Furniture Workbench");
         add("container.reikos_furniture.furniture_workbench.cost", "Needs %s planks");
         add("entity.minecraft.villager.reikos_furniture.furniture_maker", "Furniture Maker");
+        FurnitureConfig.NAMES.forEach((name, text) -> add(FurnitureConfig.key(name), text));
+        add("reikos_furniture.configuration.title", "Reiko's Furniture Settings");
         // Recipe viewer categories (JEI uses the first key, EMI the second).
         add("recipe_category.reikos_furniture.carpentry", "Furniture Workbench");
         add("recipe_category.reikos_furniture.appliance", "Kitchen Appliances");

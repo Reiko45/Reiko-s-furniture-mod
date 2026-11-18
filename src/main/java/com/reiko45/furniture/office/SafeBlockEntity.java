@@ -1,5 +1,6 @@
 package com.reiko45.furniture.office;
 
+import com.reiko45.furniture.core.config.FurnitureConfig;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
@@ -28,7 +29,7 @@ public class SafeBlockEntity extends FurnitureStorageBlockEntity {
     }
 
     public boolean canAccess(Player player) {
-        return owner == null || owner.equals(player.getUUID()) || player.isCreative();
+        return !FurnitureConfig.safeOwnerOnly() || owner == null || owner.equals(player.getUUID()) || player.isCreative();
     }
 
     public String ownerName() {
