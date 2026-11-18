@@ -1,5 +1,47 @@
 # Changelog
 
+## 1.2.0
+
+677 furniture items in twelve rooms (up from 462 in eight), four new foods and drinks, and
+furniture in other mods' woods.
+
+### New rooms
+- **Laundry room:** a washing machine that takes the dye out of leather armor, wool, carpet,
+  banners and shulker boxes, a dryer that dries wet sponges, and laundry baskets.
+- **Music room:** a piano you can play (the note follows where you click), a piano bench, a record
+  player that works like a jukebox, and a drum kit.
+- **Game room:** pool tables that join together, an arcade cabinet with a glowing screen and high
+  scores, a dartboard that scores throws and gives a redstone signal when hit by arrows, and gaming
+  chairs in 16 colors.
+- **Pet corner:** pet beds that cats sit on and tamed wolves lie down on, cat trees, and feeding bowls
+  that heal hurt tamed pets.
+
+### Food and drink
+- **Coffee machine, toaster and blender** for the kitchen, making coffee (Speed), hot cocoa
+  (Absorption), fruit smoothies (Regeneration) and toast. Their recipes are data files, so datapacks
+  can add more.
+
+### New pieces in existing rooms
+- **Item display:** wall shelves (three items), plates and cutting boards show what you put on them.
+- **Lighting:** ceiling light, chandelier, pendant lamps in 16 colors and wall lamps.
+- **Windows:** blinds in 16 colors and wooden shutters; both keep the light out when closed.
+- **Practical pieces:** trash can, a safe only its owner can open, a wall clock that shows the time,
+  and a doorbell.
+
+### Other mods
+- **Other mods' woods:** with a mod like Biomes O' Plenty installed, every wooden piece is also made
+  in its woods, with that mod's textures, recipes and names.
+- **JEI and EMI:** recipe pages for the furniture workbench and the kitchen appliances.
+
+### Polish
+- **Furniture maker villager:** the furniture workbench is a job site. Furniture makers trade
+  planks, logs and wool for furniture.
+- **Own textures and sounds:** woven fabrics for upholstered pieces, appliance fronts, animated TV,
+  computer and arcade screens; sounds for the microwave, toilet, TV, doorbell, washer, dryer,
+  coffee machine, toaster, blender, workbench and arcade.
+- The scripts that make the model templates, textures and sounds are in `tools/`.
+- Full shelves no longer hand an item back when you right-click them with an item.
+
 ## 1.1.0
 
 462 items in eight rooms (up from 195 in four).
