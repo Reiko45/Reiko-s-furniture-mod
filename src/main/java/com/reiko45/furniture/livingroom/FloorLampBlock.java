@@ -6,9 +6,6 @@ import com.reiko45.furniture.core.block.TallBlockHelper;
 import java.util.Map;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -21,12 +18,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-/** Two-block-tall floor lamp. Right-click either half to switch it; the shade on top gives the light. */
+/**
+ * Two-block-tall floor lamp. Right-click either half, or power either half with redstone, to switch it.
+ * The shade on top gives the light.
+ */
 public class FloorLampBlock extends SwitchableFurnitureBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = TallBlockHelper.HALF;
 
@@ -57,25 +56,31 @@ public class FloorLampBlock extends SwitchableFurnitureBlock {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
-                                               BlockHitResult hit) {
-        if (!level.isClientSide) {
-            boolean lit = !state.getValue(LIT);
-            BlockPos otherPos = TallBlockHelper.otherHalf(state, pos);
-            BlockState other = level.getBlockState(otherPos);
-            level.setBlock(pos, state.setValue(LIT, lit), Block.UPDATE_ALL);
-            if (other.is(this)) {
-                level.setBlock(otherPos, other.setValue(LIT, lit), Block.UPDATE_ALL);
-            }
-            level.playSound(null, pos, SoundEvents.LEVER_CLICK, SoundSource.BLOCKS, 0.3F, lit ? 0.6F : 0.5F);
+    protected void setSwitched(Level level, BlockPos pos, BlockState oldState, BlockState newState) {
+        level.setBlock(pos, newState, Block.UPDATE_ALL);
+        BlockPos otherPos = TallBlockHelper.otherHalf(oldState, pos);
+        BlockState other = level.getBlockState(otherPos);
+        if (other.is(this)) {
+            level.setBlock(otherPos, other.setValue(LIT, newState.getValue(LIT))
+                    .setValue(POWERED, newState.getValue(POWERED)), Block.UPDATE_ALL);
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    protected boolean isPowered(Level level, BlockPos pos, BlockState state) {
+        return level.hasNeighborSignal(pos) || level.hasNeighborSignal(TallBlockHelper.otherHalf(state, pos));
     }
 
     @Override
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return TallBlockHelper.placementState(super.getStateForPlacement(context), context);
+        BlockState state = TallBlockHelper.placementState(super.getStateForPlacement(context), context);
+        if (state == null) {
+            return null;
+        }
+        boolean powered = context.getLevel().hasNeighborSignal(context.getClickedPos())
+                || context.getLevel().hasNeighborSignal(context.getClickedPos().above());
+        return state.setValue(POWERED, powered).setValue(LIT, powered);
     }
 
     @Override

@@ -11,6 +11,7 @@ import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.gametest.GameTestHolder;
@@ -31,6 +32,23 @@ public class BedroomGameTests {
                 15, "light level when on");
 
         helper.useBlock(pos, player);
+        helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, false);
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void tableLampFollowsRedstone(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 1, 1);
+        helper.setBlock(pos, BedroomFurniture.TABLE_LAMP.get(FurnitureWood.OAK).get());
+
+        helper.setBlock(pos.west(), Blocks.REDSTONE_BLOCK);
+        helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, true);
+
+        // Right-clicking still works while powered, and power loss turns it off.
+        helper.useBlock(pos, helper.makeMockPlayer(GameType.SURVIVAL));
+        helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, false);
+        helper.useBlock(pos, helper.makeMockPlayer(GameType.SURVIVAL));
+        helper.setBlock(pos.west(), Blocks.AIR);
         helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, false);
         helper.succeed();
     }

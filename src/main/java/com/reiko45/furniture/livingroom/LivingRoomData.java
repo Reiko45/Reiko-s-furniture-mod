@@ -45,7 +45,12 @@ public class LivingRoomData implements RoomData {
         models.woodFacing(TV_STAND, "tv_stand");
         models.woodTallLit(FLOOR_LAMP, "floor_lamp");
 
-        models.facingLitBlock(TV.get(), models.existingTemplate(ROOM, "tv"), models.existingTemplate(ROOM, "tv_on"));
+        ModelFile tvOff = models.existingTemplate(ROOM, "tv");
+        ModelFile[] tvChannels = new ModelFile[TvBlock.CHANNELS + 1];
+        for (int channel = 1; channel <= TvBlock.CHANNELS; channel++) {
+            tvChannels[channel] = models.existingTemplate(ROOM, "tv_on_" + channel);
+        }
+        models.facingBlock(TV.get(), state -> state.getValue(TvBlock.LIT) ? tvChannels[state.getValue(TvBlock.CHANNEL)] : tvOff);
         models.blockItem(TV.get(), models.template(ROOM, "tv"));
     }
 

@@ -8,6 +8,7 @@ import com.reiko45.furniture.core.block.TallBlockHelper;
 import com.reiko45.furniture.livingroom.FloorLampBlock;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.livingroom.SofaBlock;
+import com.reiko45.furniture.livingroom.TvBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.gametest.framework.GameTest;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.gametest.GameTestHolder;
@@ -67,6 +69,38 @@ public class LivingRoomGameTests {
         helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, true);
         helper.assertValueEqual(helper.getBlockState(pos).getLightEmission(helper.getLevel(), helper.absolutePos(pos)),
                 10, "TV light level");
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void tvCyclesThroughChannels(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 1, 1);
+        helper.setBlock(pos, LivingRoomFurniture.TV.get());
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        for (int channel = 1; channel <= TvBlock.CHANNELS; channel++) {
+            helper.useBlock(pos, player);
+            helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, true);
+            helper.assertBlockProperty(pos, TvBlock.CHANNEL, channel);
+        }
+        helper.useBlock(pos, player);
+        helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, false);
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void floorLampFollowsRedstoneOnTopHalf(GameTestHelper helper) {
+        BlockPos lower = new BlockPos(1, 1, 1);
+        FloorLampBlock lamp = LivingRoomFurniture.FLOOR_LAMP.get(FurnitureWood.BIRCH).get();
+        helper.setBlock(lower, lamp.defaultBlockState());
+        helper.setBlock(lower.above(), lamp.defaultBlockState().setValue(TallBlockHelper.HALF, DoubleBlockHalf.UPPER));
+
+        helper.setBlock(lower.above().east(), Blocks.REDSTONE_BLOCK);
+        helper.assertBlockProperty(lower, SwitchableFurnitureBlock.LIT, true);
+        helper.assertBlockProperty(lower.above(), SwitchableFurnitureBlock.LIT, true);
+
+        helper.setBlock(lower.above().east(), Blocks.AIR);
+        helper.assertBlockProperty(lower, SwitchableFurnitureBlock.LIT, false);
+        helper.assertBlockProperty(lower.above(), SwitchableFurnitureBlock.LIT, false);
         helper.succeed();
     }
 

@@ -77,12 +77,12 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
 
     // ---- Block state shapes ------------------------------------------------------------------
 
-    /** A block that only rotates with {@link FurnitureBlock#FACING}. */
+    /** A block that rotates with {@link FurnitureBlock#FACING}. Waterlogging and redstone power don't change the model. */
     public void facingBlock(Block block, Function<BlockState, ModelFile> model) {
         getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder()
                 .modelFile(model.apply(state))
                 .rotationY(yRot(state.getValue(FurnitureBlock.FACING)))
-                .build(), FurnitureBlock.WATERLOGGED);
+                .build(), FurnitureBlock.WATERLOGGED, SwitchableFurnitureBlock.POWERED);
     }
 
     /** A rotating block with an off model and an on model ({@link SwitchableFurnitureBlock#LIT}). */

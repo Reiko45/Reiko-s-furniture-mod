@@ -55,9 +55,9 @@ public final class LivingRoomFurniture {
             wood -> new FloorLampBlock(wood.properties().lightLevel(FloorLampBlock::lightLevel),
                     FLOOR_LAMP_LOWER, FLOOR_LAMP_UPPER));
 
-    /** Flat-screen TV. Right-click to switch it on; the screen lights up. */
-    public static final DeferredBlock<SwitchableFurnitureBlock> TV = FurnitureRegistry.register("tv", ROOM,
-            () -> new SwitchableFurnitureBlock(BlockBehaviour.Properties.of()
+    /** Flat-screen TV with four channels. Right-click to switch channel; redstone switches it on and off. */
+    public static final DeferredBlock<TvBlock> TV = FurnitureRegistry.register("tv", ROOM,
+            () -> new TvBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .strength(1.5F)
                     .sound(SoundType.METAL)
