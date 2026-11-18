@@ -152,5 +152,5 @@ Names, loot tables and mining tags are generated automatically.
 
 ## License
 
-All Rights Reserved. To change the license, edit `mod_license` in `gradle.properties` and add a
-`LICENSE` file.
+[MIT](LICENSE). You may use, change and share the code, and include the mod in modpacks, as long as
+the copyright notice is kept.

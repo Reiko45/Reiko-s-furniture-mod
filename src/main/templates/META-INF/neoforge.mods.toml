@@ -9,6 +9,7 @@ version="${mod_version}"
 displayName="${mod_name}"
 displayURL="https://github.com/Reiko45/Reiko-s-furniture-mod"
 authors="${mod_authors}"
+logoFile="logo.png"
 description='''${mod_description}'''
 
 [[dependencies.${mod_id}]]
