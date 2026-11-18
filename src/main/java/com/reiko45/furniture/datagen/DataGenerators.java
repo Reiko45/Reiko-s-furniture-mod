@@ -1,6 +1,7 @@
 package com.reiko45.furniture.datagen;
 
 import com.reiko45.furniture.bedroom.BedroomData;
+import com.reiko45.furniture.kitchen.KitchenData;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -16,7 +17,8 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 public final class DataGenerators {
     /** Data for each room section, in creative tab order. */
     static final List<RoomData> ROOMS = List.of(
-            new BedroomData());
+            new BedroomData(),
+            new KitchenData());
 
     private DataGenerators() {
     }
