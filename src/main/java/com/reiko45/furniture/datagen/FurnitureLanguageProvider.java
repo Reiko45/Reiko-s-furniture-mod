@@ -59,6 +59,12 @@ public class FurnitureLanguageProvider extends LanguageProvider {
         add("container.reikos_furniture.furniture_workbench", "Furniture Workbench");
         add("container.reikos_furniture.furniture_workbench.cost", "Needs %s planks");
         add("entity.minecraft.villager.reikos_furniture.furniture_maker", "Furniture Maker");
+        // Recipe viewer categories (JEI uses the first key, EMI the second).
+        add("recipe_category.reikos_furniture.carpentry", "Furniture Workbench");
+        add("recipe_category.reikos_furniture.appliance", "Kitchen Appliances");
+        add("emi.category.reikos_furniture.carpentry", "Furniture Workbench");
+        add("emi.category.reikos_furniture.appliance", "Kitchen Appliances");
+        add("recipe.reikos_furniture.appliance_time", "Takes %s s");
         add("entity.minecraft.villager.furniture_maker", "Furniture Maker");
 
         DataGenerators.ROOMS.forEach(room -> room.translations(this::add));
