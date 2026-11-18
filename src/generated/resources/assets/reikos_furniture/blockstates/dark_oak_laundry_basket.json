@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,open=false": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket",
+      "y": 90
+    },
+    "facing=east,open=true": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket",
+      "y": 90
+    },
+    "facing=north,open=false": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket"
+    },
+    "facing=north,open=true": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket"
+    },
+    "facing=south,open=false": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket",
+      "y": 180
+    },
+    "facing=south,open=true": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket",
+      "y": 180
+    },
+    "facing=west,open=false": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket",
+      "y": 270
+    },
+    "facing=west,open=true": {
+      "model": "reikos_furniture:block/dark_oak_laundry_basket",
+      "y": 270
+    }
+  }
+}

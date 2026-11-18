@@ -7,7 +7,8 @@ import os
 import runpy
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOMS = ["bedroom", "kitchen", "dining", "livingroom", "bathroom", "office", "outdoor", "kids", "workbench"]
+ROOMS = ["bedroom", "kitchen", "dining", "livingroom", "bathroom", "office", "outdoor", "kids", "laundry", "music",
+         "gameroom", "pets", "workbench"]
 
 if __name__ == "__main__":
     os.chdir(HERE)

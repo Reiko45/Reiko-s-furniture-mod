@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,running=false": {
+      "model": "reikos_furniture:block/template/laundry/dryer",
+      "y": 90
+    },
+    "facing=east,running=true": {
+      "model": "reikos_furniture:block/template/laundry/dryer_on",
+      "y": 90
+    },
+    "facing=north,running=false": {
+      "model": "reikos_furniture:block/template/laundry/dryer"
+    },
+    "facing=north,running=true": {
+      "model": "reikos_furniture:block/template/laundry/dryer_on"
+    },
+    "facing=south,running=false": {
+      "model": "reikos_furniture:block/template/laundry/dryer",
+      "y": 180
+    },
+    "facing=south,running=true": {
+      "model": "reikos_furniture:block/template/laundry/dryer_on",
+      "y": 180
+    },
+    "facing=west,running=false": {
+      "model": "reikos_furniture:block/template/laundry/dryer",
+      "y": 270
+    },
+    "facing=west,running=true": {
+      "model": "reikos_furniture:block/template/laundry/dryer_on",
+      "y": 270
+    }
+  }
+}

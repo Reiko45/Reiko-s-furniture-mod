@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "minecraft:wool_carpets"
+    },
+    "L": {
+      "item": "minecraft:birch_log"
+    }
+  },
+  "pattern": [
+    "CLC",
+    " L ",
+    "CLC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:birch_cat_tree"
+  }
+}

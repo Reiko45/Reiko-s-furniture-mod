@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_nugget"
+    },
+    "N": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "pattern": [
+    "GNG",
+    "NNN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:drum_kit"
+  }
+}

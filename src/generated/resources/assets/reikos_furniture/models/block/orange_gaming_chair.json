@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/gameroom/gaming_chair",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/orange"
+  }
+}

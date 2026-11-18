@@ -1,0 +1,210 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "minecraft:block/black_concrete",
+    "body": "minecraft:block/black_concrete",
+    "art": "minecraft:block/purple_concrete",
+    "red": "minecraft:block/red_concrete",
+    "yellow": "minecraft:block/yellow_concrete",
+    "screen": "minecraft:block/black_concrete_powder",
+    "marquee": "minecraft:block/magenta_concrete"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        4
+      ],
+      "to": [
+        15,
+        15,
+        15
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            1,
+            4,
+            15,
+            15
+          ],
+          "texture": "#body"
+        },
+        "north": {
+          "uv": [
+            1,
+            1,
+            15,
+            16
+          ],
+          "texture": "#body"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            15,
+            16
+          ],
+          "texture": "#body"
+        },
+        "west": {
+          "uv": [
+            4,
+            1,
+            15,
+            16
+          ],
+          "texture": "#art"
+        },
+        "east": {
+          "uv": [
+            1,
+            1,
+            12,
+            16
+          ],
+          "texture": "#art"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        2,
+        3.75
+      ],
+      "to": [
+        14,
+        12,
+        4
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            12,
+            14,
+            12.25
+          ],
+          "texture": "#screen"
+        },
+        "up": {
+          "uv": [
+            2,
+            3.75,
+            14,
+            4
+          ],
+          "texture": "#screen"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#screen"
+        },
+        "south": {
+          "uv": [
+            2,
+            4,
+            14,
+            14
+          ],
+          "texture": "#screen"
+        },
+        "west": {
+          "uv": [
+            3.75,
+            4,
+            4,
+            14
+          ],
+          "texture": "#screen"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            12.25,
+            14
+          ],
+          "texture": "#screen"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        12,
+        2
+      ],
+      "to": [
+        15,
+        16,
+        4
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            12,
+            15,
+            14
+          ],
+          "texture": "#marquee"
+        },
+        "up": {
+          "uv": [
+            1,
+            2,
+            15,
+            4
+          ],
+          "texture": "#marquee",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            1,
+            0,
+            15,
+            4
+          ],
+          "texture": "#marquee"
+        },
+        "south": {
+          "uv": [
+            1,
+            0,
+            15,
+            4
+          ],
+          "texture": "#marquee"
+        },
+        "west": {
+          "uv": [
+            2,
+            0,
+            4,
+            4
+          ],
+          "texture": "#marquee"
+        },
+        "east": {
+          "uv": [
+            12,
+            0,
+            14,
+            4
+          ],
+          "texture": "#marquee"
+        }
+      }
+    }
+  ]
+}

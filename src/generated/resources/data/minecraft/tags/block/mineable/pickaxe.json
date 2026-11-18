@@ -21,6 +21,25 @@
     "reikos_furniture:desk_lamp",
     "reikos_furniture:safe",
     "reikos_furniture:grill",
-    "reikos_furniture:doorbell"
+    "reikos_furniture:doorbell",
+    "reikos_furniture:washing_machine",
+    "reikos_furniture:dryer",
+    "reikos_furniture:arcade_cabinet",
+    "reikos_furniture:white_feeding_bowl",
+    "reikos_furniture:orange_feeding_bowl",
+    "reikos_furniture:magenta_feeding_bowl",
+    "reikos_furniture:light_blue_feeding_bowl",
+    "reikos_furniture:yellow_feeding_bowl",
+    "reikos_furniture:lime_feeding_bowl",
+    "reikos_furniture:pink_feeding_bowl",
+    "reikos_furniture:gray_feeding_bowl",
+    "reikos_furniture:light_gray_feeding_bowl",
+    "reikos_furniture:cyan_feeding_bowl",
+    "reikos_furniture:purple_feeding_bowl",
+    "reikos_furniture:blue_feeding_bowl",
+    "reikos_furniture:brown_feeding_bowl",
+    "reikos_furniture:green_feeding_bowl",
+    "reikos_furniture:red_feeding_bowl",
+    "reikos_furniture:black_feeding_bowl"
   ]
 }

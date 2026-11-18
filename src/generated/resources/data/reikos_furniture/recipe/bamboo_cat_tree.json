@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "minecraft:wool_carpets"
+    },
+    "L": {
+      "item": "minecraft:bamboo_block"
+    }
+  },
+  "pattern": [
+    "CLC",
+    " L ",
+    "CLC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:bamboo_cat_tree"
+  }
+}

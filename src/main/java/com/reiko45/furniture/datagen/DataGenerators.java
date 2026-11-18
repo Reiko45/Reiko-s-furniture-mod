@@ -3,11 +3,15 @@ package com.reiko45.furniture.datagen;
 import com.reiko45.furniture.bathroom.BathroomData;
 import com.reiko45.furniture.bedroom.BedroomData;
 import com.reiko45.furniture.dining.DiningData;
+import com.reiko45.furniture.gameroom.GameRoomData;
 import com.reiko45.furniture.kids.KidsData;
 import com.reiko45.furniture.kitchen.KitchenData;
+import com.reiko45.furniture.laundry.LaundryData;
 import com.reiko45.furniture.livingroom.LivingRoomData;
+import com.reiko45.furniture.music.MusicData;
 import com.reiko45.furniture.office.OfficeData;
 import com.reiko45.furniture.outdoor.OutdoorData;
+import com.reiko45.furniture.pets.PetData;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -30,7 +34,11 @@ public final class DataGenerators {
             new BathroomData(),
             new OfficeData(),
             new OutdoorData(),
-            new KidsData());
+            new KidsData(),
+            new LaundryData(),
+            new MusicData(),
+            new GameRoomData(),
+            new PetData());
 
     private DataGenerators() {
     }

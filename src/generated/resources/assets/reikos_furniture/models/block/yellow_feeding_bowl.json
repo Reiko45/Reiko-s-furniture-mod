@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/pets/feeding_bowl",
+  "textures": {
+    "wool": "minecraft:block/yellow_concrete"
+  }
+}

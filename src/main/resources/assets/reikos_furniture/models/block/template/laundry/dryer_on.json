@@ -1,0 +1,149 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "reikos_furniture:block/appliance/fridge_body",
+    "body": "reikos_furniture:block/appliance/fridge_body",
+    "top": "reikos_furniture:block/appliance/steel",
+    "front": "reikos_furniture:block/appliance/dryer_front_on"
+  },
+  "elements": [
+    {
+      "from": [
+        0.5,
+        0,
+        1
+      ],
+      "to": [
+        15.5,
+        15,
+        15.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.5,
+            15.5,
+            15
+          ],
+          "texture": "#body",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            1,
+            15.5,
+            15.5
+          ],
+          "texture": "#body"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#front"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            1,
+            15.5,
+            16
+          ],
+          "texture": "#body"
+        },
+        "west": {
+          "uv": [
+            1,
+            1,
+            15.5,
+            16
+          ],
+          "texture": "#body"
+        },
+        "east": {
+          "uv": [
+            0.5,
+            1,
+            15,
+            16
+          ],
+          "texture": "#body"
+        }
+      }
+    },
+    {
+      "from": [
+        0.5,
+        15,
+        1
+      ],
+      "to": [
+        15.5,
+        16,
+        15.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.5,
+            15.5,
+            15
+          ],
+          "texture": "#top"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            1,
+            15.5,
+            15.5
+          ],
+          "texture": "#top",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            0.5,
+            0,
+            15.5,
+            1
+          ],
+          "texture": "#top"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            0,
+            15.5,
+            1
+          ],
+          "texture": "#top"
+        },
+        "west": {
+          "uv": [
+            1,
+            0,
+            15.5,
+            1
+          ],
+          "texture": "#top"
+        },
+        "east": {
+          "uv": [
+            0.5,
+            0,
+            15,
+            1
+          ],
+          "texture": "#top"
+        }
+      }
+    }
+  ]
+}

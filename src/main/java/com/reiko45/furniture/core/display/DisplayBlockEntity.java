@@ -36,19 +36,48 @@ public class DisplayBlockEntity extends BlockEntity {
     }
 
     public boolean hasSpace() {
-        return items.stream().anyMatch(ItemStack::isEmpty);
+        return items.stream().anyMatch(stack -> stack.isEmpty() || stack.getCount() < maxPerSlot());
     }
 
-    /** Puts one item from the stack on the first free spot. */
-    public boolean insert(ItemStack stack, @Nullable LivingEntity entity) {
+    private int maxPerSlot() {
+        return getBlockState().getBlock() instanceof DisplayFurnitureBlock display ? display.maxPerSlot() : 1;
+    }
+
+    /** The slot one more of this item would go in (topping up a matching stack first), or -1 if it doesn't fit. */
+    private int slotFor(ItemStack stack) {
         for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).isEmpty()) {
-                items.set(i, stack.consumeAndReturn(1, entity));
-                changed();
-                return true;
+            ItemStack existing = items.get(i);
+            if (!existing.isEmpty() && existing.getCount() < maxPerSlot() && ItemStack.isSameItemSameComponents(existing, stack)) {
+                return i;
             }
         }
-        return false;
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).isEmpty()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /** Whether one more of this item fits. Works on the client too (the items are synced). */
+    public boolean canInsert(ItemStack stack) {
+        return slotFor(stack) >= 0;
+    }
+
+    /** Puts one item from the stack down: on a matching stack if there's room, otherwise on the first free spot. */
+    public boolean insert(ItemStack stack, @Nullable LivingEntity entity) {
+        int slot = slotFor(stack);
+        if (slot < 0) {
+            return false;
+        }
+        if (items.get(slot).isEmpty()) {
+            items.set(slot, stack.consumeAndReturn(1, entity));
+        } else {
+            stack.consume(1, entity);
+            items.get(slot).grow(1);
+        }
+        changed();
+        return true;
     }
 
     /** Takes the last item that was put down. */

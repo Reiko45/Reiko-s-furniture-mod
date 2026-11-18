@@ -344,8 +344,49 @@ def food_items():
     smoothie()
 
 
+def dartboard():
+    """Classic dartboard rings: black/cream sectors, red/green rings, bullseye."""
+    img = new(color=(0x18, 0x18, 0x18))
+    import math
+    for y in range(16):
+        for x in range(16):
+            dx, dy = x - 7.5, y - 7.5
+            r = (dx * dx + dy * dy) ** 0.5
+            sector = int((math.atan2(dy, dx) + math.pi) / (2 * math.pi) * 10) % 2
+            if r > 7.6:
+                c = (0x18, 0x18, 0x18)
+            elif r > 6.6:
+                c = (0xC8, 0x20, 0x20) if sector else (0x20, 0x90, 0x30)
+            elif r > 4.2:
+                c = (0x10, 0x10, 0x10) if sector else (0xF0, 0xE0, 0xC0)
+            elif r > 3.3:
+                c = (0xC8, 0x20, 0x20) if sector else (0x20, 0x90, 0x30)
+            elif r > 1.4:
+                c = (0x10, 0x10, 0x10) if sector else (0xF0, 0xE0, 0xC0)
+            elif r > 0.8:
+                c = (0x20, 0x90, 0x30)
+            else:
+                c = (0xC8, 0x20, 0x20)
+            img.load()[x, y] = c + (255,)
+    save(img, "block/dartboard.png")
+
+
+def piano_keys():
+    """Piano keyboard seen from above: white keys with black keys at the back."""
+    img = new(color=(0xF4, 0xF4, 0xF0))
+    for x in range(0, 16, 2):
+        for y in range(16):
+            img.load()[x, y] = (0xC8, 0xC8, 0xC2, 255)
+    for x in (1, 3, 7, 9, 11, 15):
+        for y in range(0, 9):
+            img.load()[x, y] = (0x15, 0x15, 0x18, 255)
+    save(img, "block/piano_keys.png")
+
+
 if __name__ == "__main__":
     food_items()
+    dartboard()
+    piano_keys()
     for name, rgb in DYES.items():
         fabric(name, rgb)
     appliance_textures()

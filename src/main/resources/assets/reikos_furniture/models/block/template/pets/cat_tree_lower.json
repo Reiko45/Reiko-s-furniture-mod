@@ -1,0 +1,278 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "carpet": "reikos_furniture:block/fabric/light_gray",
+    "rope": "minecraft:block/hay_block_side"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#carpet"
+        },
+        "north": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        2,
+        6
+      ],
+      "to": [
+        10,
+        16,
+        10
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            6,
+            6,
+            10,
+            10
+          ],
+          "texture": "#rope"
+        },
+        "north": {
+          "uv": [
+            6,
+            0,
+            10,
+            14
+          ],
+          "texture": "#rope"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            10,
+            14
+          ],
+          "texture": "#rope"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            10,
+            14
+          ],
+          "texture": "#rope"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            10,
+            14
+          ],
+          "texture": "#rope"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        10,
+        1
+      ],
+      "to": [
+        8,
+        12,
+        8
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            8,
+            8,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            8,
+            8
+          ],
+          "texture": "#carpet"
+        },
+        "north": {
+          "uv": [
+            8,
+            4,
+            15,
+            6
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            1,
+            4,
+            8,
+            6
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            1,
+            4,
+            8,
+            6
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            8,
+            4,
+            15,
+            6
+          ],
+          "texture": "#planks"
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        2,
+        3
+      ],
+      "to": [
+        5,
+        10,
+        5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3,
+            11,
+            5,
+            13
+          ],
+          "texture": "#rope"
+        },
+        "up": {
+          "uv": [
+            3,
+            3,
+            5,
+            5
+          ],
+          "texture": "#rope"
+        },
+        "north": {
+          "uv": [
+            11,
+            6,
+            13,
+            14
+          ],
+          "texture": "#rope"
+        },
+        "south": {
+          "uv": [
+            3,
+            6,
+            5,
+            14
+          ],
+          "texture": "#rope"
+        },
+        "west": {
+          "uv": [
+            3,
+            6,
+            5,
+            14
+          ],
+          "texture": "#rope"
+        },
+        "east": {
+          "uv": [
+            11,
+            6,
+            13,
+            14
+          ],
+          "texture": "#rope"
+        }
+      }
+    }
+  ]
+}

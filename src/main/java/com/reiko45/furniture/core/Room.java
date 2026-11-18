@@ -9,7 +9,11 @@ public enum Room {
     BATHROOM("bathroom", "Bathroom"),
     OFFICE("office", "Office"),
     OUTDOOR("outdoor", "Outdoor"),
-    KIDS_ROOM("kids", "Kids' Room");
+    KIDS_ROOM("kids", "Kids' Room"),
+    LAUNDRY("laundry", "Laundry Room"),
+    MUSIC("music", "Music Room"),
+    GAME_ROOM("gameroom", "Game Room"),
+    PET_CORNER("pets", "Pet Corner");
 
     private final String id;
     private final String displayName;

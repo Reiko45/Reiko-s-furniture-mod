@@ -15,11 +15,17 @@ import com.reiko45.furniture.core.registry.ModSounds;
 import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.datagen.DataGenerators;
 import com.reiko45.furniture.dining.DiningFurniture;
+import com.reiko45.furniture.gameroom.GameRoomFurniture;
 import com.reiko45.furniture.kids.KidsFurniture;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
+import com.reiko45.furniture.laundry.LaundryFurniture;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
+import com.reiko45.furniture.music.MusicFurniture;
 import com.reiko45.furniture.office.OfficeFurniture;
 import com.reiko45.furniture.outdoor.OutdoorFurniture;
+import com.reiko45.furniture.pets.PetFurniture;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -27,6 +33,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import org.slf4j.Logger;
 
@@ -53,6 +61,10 @@ public class ReikosFurniture {
         OfficeFurniture.init();
         OutdoorFurniture.init();
         KidsFurniture.init();
+        LaundryFurniture.init();
+        MusicFurniture.init();
+        GameRoomFurniture.init();
+        PetFurniture.init();
         Workbench.init();
 
         ModBlocks.BLOCKS.register(modBus);
@@ -68,12 +80,20 @@ public class ReikosFurniture {
         modBus.addListener(this::commonSetup);
         modBus.addListener(ReikosFurniture::registerCapabilities);
         modBus.addListener(DataGenerators::gatherData);
+        modBus.addListener(ReikosFurniture::addBlockEntityBlocks);
+        NeoForge.EVENT_BUS.addListener(PetFurniture::onEntityJoin);
+    }
+
+    /** Record players use the vanilla jukebox block entity, so music discs and comparators work as usual. */
+    private static void addBlockEntityBlocks(BlockEntityTypeAddBlocksEvent event) {
+        event.modify(BlockEntityType.JUKEBOX, MusicFurniture.RECORD_PLAYER.all().stream().map(block -> (Block) block.get()).toArray(Block[]::new));
     }
 
     /** Lets hoppers and pipes from other mods move items in and out of storage furniture (not the safe). */
     private static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ModBlockEntities.STORAGE.get(), (storage, side) -> new InvWrapper(storage));
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, KitchenFurniture.TRASH_CAN_BLOCK_ENTITY.get(), (trash, side) -> new InvWrapper(trash));
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, LaundryFurniture.LAUNDRY_MACHINE_BLOCK_ENTITY.get(), (machine, side) -> new InvWrapper(machine));
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

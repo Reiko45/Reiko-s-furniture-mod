@@ -37,7 +37,11 @@ final class CarpentryCosts {
             Map.entry("toy_chest", 15),
             Map.entry("kids_table", 3),
             Map.entry("kids_chair", 2),
-            Map.entry("rocking_horse", 6));
+            Map.entry("rocking_horse", 6),
+            // Laundry room
+            Map.entry("laundry_basket", 3),
+            // Music room
+            Map.entry("piano_bench", 4));
 
     private CarpentryCosts() {
     }

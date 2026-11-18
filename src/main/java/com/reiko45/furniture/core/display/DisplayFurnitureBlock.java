@@ -34,6 +34,11 @@ public class DisplayFurnitureBlock extends FurnitureBlock implements EntityBlock
         return slots;
     }
 
+    /** How many items each slot holds (1 for shelves and plates). */
+    public int maxPerSlot() {
+        return 1;
+    }
+
     /** Which items may be put on it. Everything by default. */
     public boolean accepts(ItemStack stack) {
         return true;
@@ -49,11 +54,14 @@ public class DisplayFurnitureBlock extends FurnitureBlock implements EntityBlock
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                               Player player, InteractionHand hand, BlockHitResult hit) {
         if (!stack.isEmpty() && accepts(stack) && level.getBlockEntity(pos) instanceof DisplayBlockEntity display) {
+            if (!display.canInsert(stack)) {
+                // Full: use the item as normal instead (don't take things off while holding something).
+                return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+            }
             if (!level.isClientSide && display.insert(stack, player)) {
                 level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 0.8F, 1.0F);
-                return ItemInteractionResult.SUCCESS;
             }
-            return display.hasSpace() ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hit);
     }
