@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/livingroom/blinds",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/orange"
+  }
+}

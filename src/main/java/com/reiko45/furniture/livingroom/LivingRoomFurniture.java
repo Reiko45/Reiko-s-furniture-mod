@@ -11,6 +11,14 @@ import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SeatBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
+import com.reiko45.furniture.core.block.WindowCoveringBlock;
+import com.reiko45.furniture.core.display.DisplayFurnitureBlock;
+import com.reiko45.furniture.core.display.DisplaySlot;
+import com.reiko45.furniture.core.registry.ModBlockEntities;
+import java.util.List;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -85,6 +93,34 @@ public final class LivingRoomFurniture {
             () -> new FireplaceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)
                     .noOcclusion()
                     .lightLevel(SwitchableFurnitureBlock.lightWhenOn(15)), FULL));
+
+    /** Wall shelf for three items. */
+    public static final WoodSet<DisplayFurnitureBlock> WALL_SHELF = FurnitureRegistry.woodSet("wall_shelf", ROOM,
+            wood -> new DisplayFurnitureBlock(wood.properties(), boxes(box(0, 4, 9, 16, 8, 16)), List.of(
+                    new DisplaySlot(3.5F, 8, 12.5F, false, 0.35F),
+                    new DisplaySlot(8, 8, 12.5F, false, 0.35F),
+                    new DisplaySlot(12.5F, 8, 12.5F, false, 0.35F))));
+
+    /** Flat ceiling light; switch it with a right-click or redstone. */
+    public static final DeferredBlock<SwitchableFurnitureBlock> CEILING_LIGHT = FurnitureRegistry.register("ceiling_light", ROOM,
+            () -> new SwitchableFurnitureBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.5F)
+                    .sound(SoundType.GLASS).noOcclusion().lightLevel(SwitchableFurnitureBlock.lightWhenOn(15)),
+                    boxes(box(3, 14.5, 3, 13, 16, 13))));
+
+    /** Hang in front of a window; when closed they block all light. */
+    public static final ColorSet<WindowCoveringBlock> BLINDS = FurnitureRegistry.colorSet("blinds", ROOM,
+            color -> new WindowCoveringBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                    .mapColor(color.getMapColor()).strength(0.5F).noOcclusion(),
+                    boxes(box(0, 0, 13.5, 16, 16, 15.5)), boxes(box(0, 12.5, 13.5, 16, 16, 15.5)), SoundEvents.WOOL_PLACE));
+
+    /** Wall clock that shows the time of day. */
+    public static final WoodSet<WallClockBlock> WALL_CLOCK = FurnitureRegistry.woodSet("wall_clock", ROOM,
+            wood -> new WallClockBlock(wood.properties(), boxes(box(3, 3, 14, 13, 13, 16))));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WallClockBlockEntity>> WALL_CLOCK_BLOCK_ENTITY =
+            ModBlockEntities.BLOCK_ENTITIES.register("wall_clock", () -> BlockEntityType.Builder.of(WallClockBlockEntity::new,
+                    WALL_CLOCK.all().stream().map(DeferredBlock::get).toArray(net.minecraft.world.level.block.Block[]::new)).build(null));
 
     private LivingRoomFurniture() {
     }

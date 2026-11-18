@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "L": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "W": {
+      "item": "minecraft:lime_wool"
+    }
+  },
+  "pattern": [
+    " C ",
+    "WLW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:lime_pendant_lamp"
+  }
+}

@@ -1,6 +1,9 @@
 package com.reiko45.furniture.kitchen;
 
 import static com.reiko45.furniture.kitchen.KitchenFurniture.COUNTER;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.CUTTING_BOARD;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.PENDANT_LAMP;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.TRASH_CAN;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.FRIDGE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.GLASS_UPPER_CABINET;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.KITCHEN_ISLAND;
@@ -19,7 +22,11 @@ import java.util.List;
 import java.util.Map;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import java.util.function.BiConsumer;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -43,6 +50,9 @@ public class KitchenData implements RoomData {
         models.blockItem(MICROWAVE.get(), models.template(ROOM, "microwave"));
         models.woodFacingOpenable(KITCHEN_ISLAND, "kitchen_island");
         models.woodFacingOpenable(GLASS_UPPER_CABINET, "glass_upper_cabinet");
+        models.woodFacing(CUTTING_BOARD, "cutting_board");
+        models.colorFacingLit(PENDANT_LAMP, "pendant_lamp");
+        models.singleFacingOpenable(TRASH_CAN.get(), ROOM, "trash_can");
 
         models.tallOpenableBlock(FRIDGE.get(), models.existingTemplate(ROOM, "fridge_lower"), models.existingTemplate(ROOM, "fridge_upper"),
                 models.existingTemplate(ROOM, "fridge_lower_open"), models.existingTemplate(ROOM, "fridge_upper_open"));
@@ -92,6 +102,16 @@ public class KitchenData implements RoomData {
                 .define('I', Items.IRON_INGOT).define('G', Items.GLASS_PANE).define('R', Items.REDSTONE)
                 .unlockedBy("has_redstone", FurnitureRecipeProvider.hasItem(Items.REDSTONE))
                 .save(output);
+        recipes.woodShaped(output, CUTTING_BOARD, 2, wood -> Map.of(), "PS");
+        for (DyeColor color : DyeColor.values()) {
+            Item wool = BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(color.getName() + "_wool"));
+            recipes.shaped(PENDANT_LAMP.get(color).get(), 1, " C ", "WLW")
+                    .define('C', Items.CHAIN).define('W', wool).define('L', Items.GLOWSTONE_DUST)
+                    .unlockedBy("has_glowstone_dust", FurnitureRecipeProvider.hasItem(Items.GLOWSTONE_DUST)).save(output);
+        }
+        recipes.shaped(TRASH_CAN.get(), 1, "INI", "I I", "III")
+                .define('I', Items.IRON_INGOT).define('N', Items.IRON_NUGGET)
+                .unlockedBy("has_iron_ingot", FurnitureRecipeProvider.hasItem(Items.IRON_INGOT)).save(output);
         recipes.shaped(FRIDGE.get(), 1, "III", "ICI", "III")
                 .define('I', Items.IRON_INGOT).define('C', Items.CHEST)
                 .unlockedBy("has_iron_ingot", FurnitureRecipeProvider.hasItem(Items.IRON_INGOT))

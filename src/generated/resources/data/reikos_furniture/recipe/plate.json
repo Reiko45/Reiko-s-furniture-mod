@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Q": {
+      "item": "minecraft:white_terracotta"
+    }
+  },
+  "pattern": [
+    "QQ"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reikos_furniture:plate"
+  }
+}

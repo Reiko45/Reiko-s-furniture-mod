@@ -1,0 +1,10 @@
+{
+  "type": "reikos_furniture:carpentry",
+  "ingredient": {
+    "item": "minecraft:dark_oak_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:dark_oak_cutting_board"
+  }
+}

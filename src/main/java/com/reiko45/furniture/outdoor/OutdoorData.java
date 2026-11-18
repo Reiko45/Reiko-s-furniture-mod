@@ -1,6 +1,8 @@
 package com.reiko45.furniture.outdoor;
 
+import static com.reiko45.furniture.outdoor.OutdoorFurniture.DOORBELL;
 import static com.reiko45.furniture.outdoor.OutdoorFurniture.GARDEN_BENCH;
+import static com.reiko45.furniture.outdoor.OutdoorFurniture.SHUTTERS;
 import static com.reiko45.furniture.outdoor.OutdoorFurniture.GRILL;
 import static com.reiko45.furniture.outdoor.OutdoorFurniture.PATIO_CHAIR;
 import static com.reiko45.furniture.outdoor.OutdoorFurniture.PATIO_TABLE;
@@ -26,8 +28,16 @@ public class OutdoorData implements RoomData {
         models.woodFacing(PATIO_CHAIR, "patio_chair");
         models.woodFacing(GARDEN_BENCH, "garden_bench");
         models.woodSimple(PLANTER_BOX, "planter_box");
+        models.woodFacingOpenable(SHUTTERS, "shutters");
+        models.buttonBlock(DOORBELL.get(), models.existingTemplate(ROOM, "doorbell"), models.existingTemplate(ROOM, "doorbell_pressed"));
+        models.blockItem(DOORBELL.get(), models.template(ROOM, "doorbell"));
         models.facingLitBlock(GRILL.get(), models.existingTemplate(ROOM, "grill"), models.existingTemplate(ROOM, "grill_on"));
         models.blockItem(GRILL.get(), models.template(ROOM, "grill"));
+    }
+
+    @Override
+    public void tags(com.reiko45.furniture.datagen.FurnitureBlockTagsProvider tags) {
+        tags.tagFor(net.minecraft.tags.BlockTags.BUTTONS).add(DOORBELL.get());
     }
 
     @Override
@@ -36,6 +46,10 @@ public class OutdoorData implements RoomData {
         recipes.woodShaped(output, PATIO_CHAIR, 2, wood -> Map.of(), "S  ", "SSS", "L L");
         recipes.woodShaped(output, GARDEN_BENCH, 1, wood -> Map.of(), "S S", "SSS", "L L");
         recipes.woodShaped(output, PLANTER_BOX, 2, wood -> Map.of('D', Ingredient.of(Items.DIRT)), "P P", "PDP", "PPP");
+        recipes.woodShaped(output, SHUTTERS, 1, wood -> Map.of(), "S S", "S S");
+        recipes.shaped(DOORBELL.get(), 1, "N", "B")
+                .define('N', Items.IRON_NUGGET).define('B', Items.STONE_BUTTON)
+                .unlockedBy("has_stone_button", FurnitureRecipeProvider.hasItem(Items.STONE_BUTTON)).save(output);
         recipes.shaped(GRILL.get(), 1, "III", "ICI", "I I")
                 .define('I', Items.IRON_INGOT).define('C', ItemTags.COALS)
                 .unlockedBy("has_iron_ingot", FurnitureRecipeProvider.hasItem(Items.IRON_INGOT)).save(output);

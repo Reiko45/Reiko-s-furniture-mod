@@ -4,6 +4,7 @@ import static com.reiko45.furniture.bedroom.BedroomFurniture.BED;
 import static com.reiko45.furniture.bedroom.BedroomFurniture.DESK;
 import static com.reiko45.furniture.bedroom.BedroomFurniture.MIRROR;
 import static com.reiko45.furniture.bedroom.BedroomFurniture.VANITY;
+import static com.reiko45.furniture.bedroom.BedroomFurniture.WALL_LAMP;
 import static com.reiko45.furniture.bedroom.BedroomFurniture.DRESSER;
 import static com.reiko45.furniture.bedroom.BedroomFurniture.NIGHTSTAND;
 import static com.reiko45.furniture.bedroom.BedroomFurniture.TABLE_LAMP;
@@ -38,6 +39,7 @@ public class BedroomData implements RoomData {
         beds(models);
         models.woodFacing(MIRROR, "mirror");
         models.woodFacingOpenable(VANITY, "vanity");
+        models.woodFacingLit(WALL_LAMP, "wall_lamp");
     }
 
     /** Beds have a head and a foot model for every wood and blanket color. */
@@ -72,6 +74,7 @@ public class BedroomData implements RoomData {
         recipes.woodShaped(output, BED, 1, wood -> Map.of('W', Ingredient.of(ItemTags.WOOL)), "WWW", "PPP", "L L");
         var glass = Map.of('G', Ingredient.of(Items.GLASS_PANE), 'C', Ingredient.of(Items.CHEST));
         recipes.woodShaped(output, MIRROR, 1, wood -> glass, "PPP", "PGP", "PPP");
+        recipes.woodShaped(output, WALL_LAMP, 1, wood -> lamp, "PW", "PT");
         recipes.woodShaped(output, VANITY, 1, wood -> glass, "PGP", "PCP", "P P");
     }
 }

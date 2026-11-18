@@ -197,3 +197,39 @@ GLASS = {"glass": "minecraft:block/glass"}
 write(ROOM, "glass_upper_cabinet", glass_upper_cabinet(False), GLASS, render_type="minecraft:cutout")
 write(ROOM, "glass_upper_cabinet_open", glass_upper_cabinet(True), GLASS, render_type="minecraft:cutout")
 
+
+# ---- 1.2: cutting board, pendant lamp, trash can ----
+
+write(ROOM, "cutting_board", [
+    Box((2, 0, 4), (13, 1, 12), P),
+    Box((13, 0, 7), (15, 1, 9), P),
+])
+
+
+def pendant(on):
+    return [
+        Box((7.75, 8, 7.75), (8.25, 16, 8.25), "#cord"),
+        Box((7, 7.5, 7), (9, 8, 9), "#cord"),
+        Box((4, 4, 4), (12, 7.5, 12), "#wool", skip=("down",)),
+        Box((6, 3.5, 6), (10, 4, 10), "#bulb", glow=on),
+    ]
+
+write(ROOM, "pendant_lamp", pendant(False), {"cord": "minecraft:block/black_concrete", "bulb": "minecraft:block/white_concrete"},
+      particle="#wool")
+write(ROOM, "pendant_lamp_on", pendant(True), {"cord": "minecraft:block/black_concrete", "bulb": "minecraft:block/ochre_froglight_side"},
+      particle="#wool")
+
+
+def trash_can(opened):
+    parts = [Box((4, 0, 4), (12, 11, 12), "#metal"), Box((3.5, 10, 3.5), (12.5, 11, 12.5), "#rim")]
+    if opened:
+        parts.append(Box((3.5, 11, 12), (12.5, 20, 13), "#rim"))
+        parts.append(Box((4.5, 10.9, 4.5), (11.5, 11, 11.5), "#dark"))
+    else:
+        parts.append(Box((3.5, 11, 3.5), (12.5, 12, 12.5), "#rim"))
+        parts.append(Box((7, 12, 7), (9, 12.5, 9), "#dark"))
+    return parts
+
+TRASH = {"metal": "reikos_furniture:block/appliance/steel", "rim": "minecraft:block/iron_block", "dark": "minecraft:block/black_concrete"}
+write(ROOM, "trash_can", trash_can(False), TRASH, particle="reikos_furniture:block/appliance/steel")
+write(ROOM, "trash_can_open", trash_can(True), TRASH, particle="reikos_furniture:block/appliance/steel")

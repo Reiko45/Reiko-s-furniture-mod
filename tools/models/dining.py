@@ -108,3 +108,33 @@ lo, up = cupboard(True)
 write(ROOM, "glass_cupboard_lower_open", lo, GLASS, render_type="minecraft:cutout")
 write(ROOM, "glass_cupboard_upper_open", up, GLASS, render_type="minecraft:cutout")
 
+
+# ---- 1.2: plate, chandelier ----
+
+# Plate: a white ceramic plate; one item lies on it.
+write(ROOM, "plate", [
+    Box((4, 0, 4), (12, 0.5, 12), "#plate"),
+    Box((3, 0.5, 3), (13, 1, 4), "#plate"), Box((3, 0.5, 12), (13, 1, 13), "#plate"),
+    Box((3, 0.5, 4), (4, 1, 12), "#plate"), Box((12, 0.5, 4), (13, 1, 12), "#plate"),
+], {"plate": "minecraft:block/white_concrete"}, particle="minecraft:block/white_concrete")
+
+
+# Chandelier: hangs from the ceiling; four candles that glow when lit.
+def chandelier(lit):
+    parts = [
+        Box((7.5, 11, 7.5), (8.5, 16, 8.5), "#chain"),
+        Box((6.5, 9, 6.5), (9.5, 11, 9.5), "#gold"),
+        Box((2, 9, 7.5), (14, 10, 8.5), "#gold"),
+        Box((7.5, 9, 2), (8.5, 10, 14), "#gold"),
+    ]
+    for x, z in ((2, 7), (13, 7), (7, 2), (7, 13)):
+        parts.append(Box((x, 10, z), (x + 1, 12.5, z + 2) if x in (2, 13) else (x + 2, 12.5, z + 1), "#candle"))
+        cx, cz = (x, z + 0.5) if x in (2, 13) else (x + 0.5, z)
+        parts.append(Box((cx + 0.25, 12.5, cz + 0.25), (cx + 0.75, 13.5, cz + 0.75), "#flame", glow=lit))
+    return parts
+
+CHANDELIER = {"chain": "minecraft:block/chain", "gold": "minecraft:block/gold_block", "candle": "minecraft:block/white_concrete"}
+write(ROOM, "chandelier", chandelier(False), {**CHANDELIER, "flame": "minecraft:block/white_concrete"},
+      particle="minecraft:block/gold_block", render_type="minecraft:cutout")
+write(ROOM, "chandelier_on", chandelier(True), {**CHANDELIER, "flame": "minecraft:block/ochre_froglight_side"},
+      particle="minecraft:block/gold_block", render_type="minecraft:cutout")

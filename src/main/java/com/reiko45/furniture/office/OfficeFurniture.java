@@ -10,6 +10,9 @@ import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SeatBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
+import com.reiko45.furniture.core.registry.ModBlockEntities;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -47,6 +50,16 @@ public final class OfficeFurniture {
     /** Small adjustable lamp. Right-click or use redstone to switch it on. */
     public static final DeferredBlock<SwitchableFurnitureBlock> DESK_LAMP = FurnitureRegistry.register("desk_lamp", ROOM,
             () -> new SwitchableFurnitureBlock(metal().lightLevel(SwitchableFurnitureBlock.lightWhenOn(13)), DESK_LAMP_SHAPE));
+
+    /** Only the player who placed it can open or break it. */
+    public static final DeferredBlock<SafeBlock> SAFE = FurnitureRegistry.register("safe", ROOM,
+            () -> new SafeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(5.0F, 1200.0F)
+                    .sound(SoundType.METAL).noOcclusion(), boxes(box(1, 0, 1.5, 15, 14, 15))));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SafeBlockEntity>> SAFE_BLOCK_ENTITY =
+            ModBlockEntities.BLOCK_ENTITIES.register("safe",
+                    () -> BlockEntityType.Builder.of(SafeBlockEntity::new, SAFE.get()).build(null));
 
     private OfficeFurniture() {
     }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "pattern": [
+    "III",
+    "GLG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:ceiling_light"
+  }
+}

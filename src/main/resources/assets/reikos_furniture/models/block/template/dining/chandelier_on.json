@@ -1,0 +1,850 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "minecraft:block/gold_block",
+    "chain": "minecraft:block/chain",
+    "gold": "minecraft:block/gold_block",
+    "candle": "minecraft:block/white_concrete",
+    "flame": "minecraft:block/ochre_froglight_side"
+  },
+  "render_type": "minecraft:cutout",
+  "elements": [
+    {
+      "from": [
+        7.5,
+        11,
+        7.5
+      ],
+      "to": [
+        8.5,
+        16,
+        8.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.5,
+            7.5,
+            8.5,
+            8.5
+          ],
+          "texture": "#chain"
+        },
+        "up": {
+          "uv": [
+            7.5,
+            7.5,
+            8.5,
+            8.5
+          ],
+          "texture": "#chain",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            5
+          ],
+          "texture": "#chain"
+        },
+        "south": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            5
+          ],
+          "texture": "#chain"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            5
+          ],
+          "texture": "#chain"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            5
+          ],
+          "texture": "#chain"
+        }
+      }
+    },
+    {
+      "from": [
+        6.5,
+        9,
+        6.5
+      ],
+      "to": [
+        9.5,
+        11,
+        9.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            6.5,
+            6.5,
+            9.5,
+            9.5
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            6.5,
+            6.5,
+            9.5,
+            9.5
+          ],
+          "texture": "#gold"
+        },
+        "north": {
+          "uv": [
+            6.5,
+            5,
+            9.5,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            6.5,
+            5,
+            9.5,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            6.5,
+            5,
+            9.5,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            6.5,
+            5,
+            9.5,
+            7
+          ],
+          "texture": "#gold"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        9,
+        7.5
+      ],
+      "to": [
+        14,
+        10,
+        8.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            7.5,
+            14,
+            8.5
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            2,
+            7.5,
+            14,
+            8.5
+          ],
+          "texture": "#gold"
+        },
+        "north": {
+          "uv": [
+            2,
+            6,
+            14,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            2,
+            6,
+            14,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            6,
+            8.5,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            6,
+            8.5,
+            7
+          ],
+          "texture": "#gold"
+        }
+      }
+    },
+    {
+      "from": [
+        7.5,
+        9,
+        2
+      ],
+      "to": [
+        8.5,
+        10,
+        14
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.5,
+            2,
+            8.5,
+            14
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            7.5,
+            2,
+            8.5,
+            14
+          ],
+          "texture": "#gold"
+        },
+        "north": {
+          "uv": [
+            7.5,
+            6,
+            8.5,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            7.5,
+            6,
+            8.5,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            2,
+            6,
+            14,
+            7
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            2,
+            6,
+            14,
+            7
+          ],
+          "texture": "#gold"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        10,
+        7
+      ],
+      "to": [
+        3,
+        12.5,
+        9
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            7,
+            3,
+            9
+          ],
+          "texture": "#candle"
+        },
+        "up": {
+          "uv": [
+            2,
+            7,
+            3,
+            9
+          ],
+          "texture": "#candle"
+        },
+        "north": {
+          "uv": [
+            13,
+            3.5,
+            14,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "south": {
+          "uv": [
+            2,
+            3.5,
+            3,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "west": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "east": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        }
+      }
+    },
+    {
+      "from": [
+        2.25,
+        12.5,
+        7.75
+      ],
+      "to": [
+        2.75,
+        13.5,
+        8.25
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.25,
+            7.75,
+            2.75,
+            8.25
+          ],
+          "texture": "#flame"
+        },
+        "up": {
+          "uv": [
+            2.25,
+            7.75,
+            2.75,
+            8.25
+          ],
+          "texture": "#flame"
+        },
+        "north": {
+          "uv": [
+            13.25,
+            2.5,
+            13.75,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "south": {
+          "uv": [
+            2.25,
+            2.5,
+            2.75,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "west": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "east": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        }
+      },
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    },
+    {
+      "from": [
+        13,
+        10,
+        7
+      ],
+      "to": [
+        14,
+        12.5,
+        9
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            13,
+            7,
+            14,
+            9
+          ],
+          "texture": "#candle"
+        },
+        "up": {
+          "uv": [
+            13,
+            7,
+            14,
+            9
+          ],
+          "texture": "#candle"
+        },
+        "north": {
+          "uv": [
+            2,
+            3.5,
+            3,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "south": {
+          "uv": [
+            13,
+            3.5,
+            14,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "west": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "east": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        }
+      }
+    },
+    {
+      "from": [
+        13.25,
+        12.5,
+        7.75
+      ],
+      "to": [
+        13.75,
+        13.5,
+        8.25
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            13.25,
+            7.75,
+            13.75,
+            8.25
+          ],
+          "texture": "#flame"
+        },
+        "up": {
+          "uv": [
+            13.25,
+            7.75,
+            13.75,
+            8.25
+          ],
+          "texture": "#flame"
+        },
+        "north": {
+          "uv": [
+            2.25,
+            2.5,
+            2.75,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "south": {
+          "uv": [
+            13.25,
+            2.5,
+            13.75,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "west": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "east": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        }
+      },
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    },
+    {
+      "from": [
+        7,
+        10,
+        2
+      ],
+      "to": [
+        9,
+        12.5,
+        3
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7,
+            13,
+            9,
+            14
+          ],
+          "texture": "#candle"
+        },
+        "up": {
+          "uv": [
+            7,
+            2,
+            9,
+            3
+          ],
+          "texture": "#candle"
+        },
+        "north": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "south": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "west": {
+          "uv": [
+            2,
+            3.5,
+            3,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "east": {
+          "uv": [
+            13,
+            3.5,
+            14,
+            6
+          ],
+          "texture": "#candle"
+        }
+      }
+    },
+    {
+      "from": [
+        7.75,
+        12.5,
+        2.25
+      ],
+      "to": [
+        8.25,
+        13.5,
+        2.75
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.75,
+            13.25,
+            8.25,
+            13.75
+          ],
+          "texture": "#flame"
+        },
+        "up": {
+          "uv": [
+            7.75,
+            2.25,
+            8.25,
+            2.75
+          ],
+          "texture": "#flame"
+        },
+        "north": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "south": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "west": {
+          "uv": [
+            2.25,
+            2.5,
+            2.75,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "east": {
+          "uv": [
+            13.25,
+            2.5,
+            13.75,
+            3.5
+          ],
+          "texture": "#flame"
+        }
+      },
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    },
+    {
+      "from": [
+        7,
+        10,
+        13
+      ],
+      "to": [
+        9,
+        12.5,
+        14
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7,
+            2,
+            9,
+            3
+          ],
+          "texture": "#candle"
+        },
+        "up": {
+          "uv": [
+            7,
+            13,
+            9,
+            14
+          ],
+          "texture": "#candle"
+        },
+        "north": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "south": {
+          "uv": [
+            7,
+            3.5,
+            9,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "west": {
+          "uv": [
+            13,
+            3.5,
+            14,
+            6
+          ],
+          "texture": "#candle"
+        },
+        "east": {
+          "uv": [
+            2,
+            3.5,
+            3,
+            6
+          ],
+          "texture": "#candle"
+        }
+      }
+    },
+    {
+      "from": [
+        7.75,
+        12.5,
+        13.25
+      ],
+      "to": [
+        8.25,
+        13.5,
+        13.75
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.75,
+            2.25,
+            8.25,
+            2.75
+          ],
+          "texture": "#flame"
+        },
+        "up": {
+          "uv": [
+            7.75,
+            13.25,
+            8.25,
+            13.75
+          ],
+          "texture": "#flame"
+        },
+        "north": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "south": {
+          "uv": [
+            7.75,
+            2.5,
+            8.25,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "west": {
+          "uv": [
+            13.25,
+            2.5,
+            13.75,
+            3.5
+          ],
+          "texture": "#flame"
+        },
+        "east": {
+          "uv": [
+            2.25,
+            2.5,
+            2.75,
+            3.5
+          ],
+          "texture": "#flame"
+        }
+      },
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  ]
+}

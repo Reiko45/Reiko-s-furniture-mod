@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "minecraft:mangrove_planks"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "PW",
+    "PT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:mangrove_wall_lamp"
+  }
+}

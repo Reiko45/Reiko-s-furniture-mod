@@ -1,6 +1,10 @@
 package com.reiko45.furniture.livingroom;
 
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.ARMCHAIR;
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.BLINDS;
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.CEILING_LIGHT;
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.WALL_CLOCK;
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.WALL_SHELF;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.BOOKSHELF;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.CURTAINS;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.FIREPLACE;
@@ -51,6 +55,10 @@ public class LivingRoomData implements RoomData {
         models.woodTallLit(FLOOR_LAMP, "floor_lamp");
 
         models.colorFacing(ARMCHAIR, "armchair");
+        models.woodFacing(WALL_SHELF, "wall_shelf");
+        models.singleFacingLit(CEILING_LIGHT.get(), ROOM, "ceiling_light");
+        models.colorFacingOpenable(BLINDS, "blinds");
+        models.woodFacing(WALL_CLOCK, "wall_clock");
         models.colorFacingOpenable(CURTAINS, "curtains");
         for (DyeColor color : DyeColor.values()) {
             rug(models, RUG.get(color).get(), color);
@@ -133,6 +141,17 @@ public class LivingRoomData implements RoomData {
                     .define('S', Items.STICK).define('W', wool)
                     .unlockedBy("has_wool", FurnitureRecipeProvider.hasItem(wool)).save(output);
         }
+        for (DyeColor color : DyeColor.values()) {
+            Item carpet = BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(color.getName() + "_carpet"));
+            recipes.shaped(BLINDS.get(color).get(), 1, "SSS", "CCC")
+                    .define('S', Items.STICK).define('C', carpet)
+                    .unlockedBy("has_carpet", FurnitureRecipeProvider.hasItem(carpet)).save(output);
+        }
+        recipes.woodShaped(output, WALL_SHELF, 2, wood -> Map.of('T', Ingredient.of(Items.STICK)), "PPP", "T T");
+        recipes.woodShaped(output, WALL_CLOCK, 1, wood -> Map.of('K', Ingredient.of(Items.CLOCK)), "PPP", "PKP", "PPP");
+        recipes.shaped(CEILING_LIGHT.get(), 1, "III", "GLG")
+                .define('I', Items.IRON_INGOT).define('G', Items.GLASS_PANE).define('L', Items.GLOWSTONE_DUST)
+                .unlockedBy("has_glowstone_dust", FurnitureRecipeProvider.hasItem(Items.GLOWSTONE_DUST)).save(output);
         recipes.shaped(FIREPLACE.get(), 1, "BBB", "B B", "BBB")
                 .define('B', Items.BRICKS)
                 .unlockedBy("has_bricks", FurnitureRecipeProvider.hasItem(Items.BRICKS)).save(output);
@@ -146,6 +165,11 @@ public class LivingRoomData implements RoomData {
                 .define('I', Items.IRON_INGOT).define('G', Items.GLASS_PANE).define('R', Items.REDSTONE)
                 .unlockedBy("has_redstone", FurnitureRecipeProvider.hasItem(Items.REDSTONE))
                 .save(output);
+    }
+
+    @Override
+    public void translations(java.util.function.BiConsumer<String, String> add) {
+        add.accept("message.reikos_furniture.clock_time", "It's %s");
     }
 
     @Override

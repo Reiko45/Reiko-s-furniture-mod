@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "K": {
+      "item": "minecraft:clock"
+    },
+    "P": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PKP",
+    "PPP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:acacia_wall_clock"
+  }
+}

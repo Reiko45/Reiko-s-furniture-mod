@@ -3,7 +3,12 @@ package com.reiko45.furniture.kitchen;
 import static com.reiko45.furniture.core.ShapeUtil.box;
 import static com.reiko45.furniture.core.ShapeUtil.boxes;
 
+import com.reiko45.furniture.core.ColorSet;
 import com.reiko45.furniture.core.FurnitureRegistry;
+import com.reiko45.furniture.core.display.DisplayFurnitureBlock;
+import com.reiko45.furniture.core.display.DisplaySlot;
+import java.util.List;
+import net.minecraft.world.level.block.Blocks;
 import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
@@ -84,6 +89,27 @@ public final class KitchenFurniture {
     /** Wall cabinet with glass doors, two rows of storage. */
     public static final WoodSet<FurnitureStorageBlock> GLASS_UPPER_CABINET = FurnitureRegistry.woodSet("glass_upper_cabinet", ROOM,
             wood -> new FurnitureStorageBlock(wood.properties(), 2, UPPER_CABINET_SHAPE));
+
+    /** Board for a single item, like a loaf of bread or a melon. */
+    public static final WoodSet<DisplayFurnitureBlock> CUTTING_BOARD = FurnitureRegistry.woodSet("cutting_board", ROOM,
+            wood -> new DisplayFurnitureBlock(wood.properties(), boxes(box(2, 0, 4, 15, 1, 12)),
+                    List.of(new DisplaySlot(7.5F, 1, 8, true, 0.45F))));
+
+    /** Hanging lamp with a fabric shade. */
+    public static final ColorSet<SwitchableFurnitureBlock> PENDANT_LAMP = FurnitureRegistry.colorSet("pendant_lamp", ROOM,
+            color -> new SwitchableFurnitureBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                    .mapColor(color.getMapColor()).strength(0.5F).noOcclusion()
+                    .lightLevel(SwitchableFurnitureBlock.lightWhenOn(14)), boxes(box(4, 3.5, 4, 12, 16, 12))));
+
+    /** Whatever is inside is destroyed when the lid closes. */
+    public static final DeferredBlock<TrashCanBlock> TRASH_CAN = FurnitureRegistry.register("trash_can", ROOM,
+            () -> new TrashCanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.0F)
+                    .sound(SoundType.METAL).noOcclusion(), boxes(box(3.5, 0, 3.5, 12.5, 12, 12.5))));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TrashCanBlockEntity>> TRASH_CAN_BLOCK_ENTITY =
+            ModBlockEntities.BLOCK_ENTITIES.register("trash_can",
+                    () -> BlockEntityType.Builder.of(TrashCanBlockEntity::new, TRASH_CAN.get()).build(null));
 
     private KitchenFurniture() {
     }

@@ -9,7 +9,15 @@ import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SeatBlock;
+import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.block.TallStorageFurnitureBlock;
+import com.reiko45.furniture.core.display.DisplayFurnitureBlock;
+import com.reiko45.furniture.core.display.DisplaySlot;
+import java.util.List;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
@@ -45,6 +53,18 @@ public final class DiningFurniture {
     /** Two-block-tall cupboard with glass doors on top, six rows of storage. */
     public static final WoodSet<TallStorageFurnitureBlock> GLASS_CUPBOARD = FurnitureRegistry.woodSet("glass_cupboard", ROOM,
             wood -> new TallStorageFurnitureBlock(wood.properties(), 6, CUPBOARD_LOWER, CUPBOARD_UPPER));
+
+    /** A plate for one item, to put on a table. */
+    public static final DeferredBlock<DisplayFurnitureBlock> PLATE = FurnitureRegistry.register("plate", ROOM,
+            () -> new DisplayFurnitureBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.5F)
+                    .sound(SoundType.STONE).noOcclusion(), boxes(box(3, 0, 3, 13, 1, 13)),
+                    List.of(new DisplaySlot(8, 1, 8, true, 0.5F))));
+
+    /** Gold chandelier with four candles; switch it with a right-click or redstone. */
+    public static final DeferredBlock<SwitchableFurnitureBlock> CHANDELIER = FurnitureRegistry.register("chandelier", ROOM,
+            () -> new SwitchableFurnitureBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(1.5F)
+                    .sound(SoundType.CHAIN).noOcclusion().lightLevel(SwitchableFurnitureBlock.lightWhenOn(15)),
+                    boxes(box(2, 8, 2, 14, 16, 14))));
 
     private DiningFurniture() {
     }

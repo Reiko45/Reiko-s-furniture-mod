@@ -66,3 +66,22 @@ def desk_lamp(on):
 write(ROOM, "desk_lamp", desk_lamp(False), {**MET, "bulb": "minecraft:block/white_concrete"}, particle="minecraft:block/gray_concrete")
 write(ROOM, "desk_lamp_on", desk_lamp(True), {**MET, "bulb": "minecraft:block/ochre_froglight_side"}, particle="minecraft:block/gray_concrete")
 
+
+# ---- 1.2: safe ----
+
+def safe(opened):
+    parts = [Box((1, 0, 2), (15, 14, 15), "#steel")]
+    if opened:
+        parts.append(Box((14, 0.5, -11), (15, 13.5, 1.5), "#door"))
+        parts.append(Box((1.5, 0.5, 1.9), (14.5, 13.5, 2), "#dark"))
+        parts.append(Box((1.5, 7, 1.5), (14.5, 7.5, 2), "#steel"))
+    else:
+        parts.append(Box((1.5, 0.5, 1.5), (14.5, 13.5, 2), "#door"))
+        parts.append(Box((6, 6, 1), (10, 10, 1.5), "#dark"))
+        parts.append(Box((11.5, 6.5, 1), (12.5, 9.5, 1.5), "#metal"))
+    return parts
+
+SAFE = {"steel": "minecraft:block/gray_concrete", "door": "reikos_furniture:block/appliance/steel",
+        "dark": "minecraft:block/black_concrete", "metal": "minecraft:block/gold_block"}
+write(ROOM, "safe", safe(False), SAFE, particle="minecraft:block/gray_concrete")
+write(ROOM, "safe_open", safe(True), SAFE, particle="minecraft:block/gray_concrete")

@@ -1,0 +1,10 @@
+{
+  "type": "reikos_furniture:carpentry",
+  "ingredient": {
+    "item": "minecraft:mangrove_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:mangrove_cutting_board"
+  }
+}

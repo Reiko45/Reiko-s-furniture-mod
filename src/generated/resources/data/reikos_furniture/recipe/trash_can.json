@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "INI",
+    "I I",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:trash_can"
+  }
+}

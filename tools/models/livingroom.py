@@ -155,3 +155,49 @@ FIRE = {"brick": "minecraft:block/bricks", "hearth": "minecraft:block/smooth_sto
 write(ROOM, "fireplace", fireplace(False), FIRE, particle="minecraft:block/bricks", render_type="minecraft:cutout")
 write(ROOM, "fireplace_on", fireplace(True), FIRE, particle="minecraft:block/bricks", render_type="minecraft:cutout")
 
+
+# ---- 1.2: wall shelf, ceiling light, blinds, wall clock ----
+
+# Wall shelf: a board on two brackets; three items stand on it (drawn by the display renderer).
+write(ROOM, "wall_shelf", [
+    Box((0, 7, 9), (16, 8, 16), P),
+    Box((2, 4, 15), (3, 7, 16), L), Box((13, 4, 15), (14, 7, 16), L),
+    Box((2, 4, 12), (3, 5, 15), L), Box((13, 4, 12), (14, 5, 15), L),
+])
+
+
+# Ceiling light: a flat round-ish panel under the ceiling.
+def ceiling_light(on):
+    return [
+        Box((3, 15, 3), (13, 16, 13), "#frame"),
+        Box((4, 14.5, 4), (12, 15, 12), "#panel", glow=on),
+    ]
+
+CEILING = {"frame": "minecraft:block/white_concrete"}
+write(ROOM, "ceiling_light", ceiling_light(False), {**CEILING, "panel": "minecraft:block/white_concrete_powder"},
+      particle="minecraft:block/white_concrete")
+write(ROOM, "ceiling_light_on", ceiling_light(True), {**CEILING, "panel": "minecraft:block/pearlescent_froglight_top"},
+      particle="minecraft:block/white_concrete")
+
+
+# Blinds: slats hanging in front of a window; open = rolled up under the headrail.
+def blinds(opened):
+    parts = [Box((0, 15, 13.5), (16, 16, 15.5), "#rail")]
+    if opened:
+        parts.append(Box((0.5, 12.5, 13.75), (15.5, 15, 15.25), W))
+    else:
+        parts += [Box((0.5, y, 14), (15.5, y + 1.5, 15), W) for y in range(1, 15, 2)]
+        parts.append(Box((7.75, 0.5, 14.75), (8.25, 15, 15.25), "#rail"))
+    return parts
+
+RAIL = {"rail": "minecraft:block/white_concrete"}
+write(ROOM, "blinds", blinds(False), RAIL, particle=W)
+write(ROOM, "blinds_open", blinds(True), RAIL, particle=W)
+
+# Wall clock: a wooden frame on the wall; the dial is the vanilla clock, drawn by a renderer.
+write(ROOM, "wall_clock", [
+    Box((3, 3, 15), (13, 13, 16), P),
+    Box((3, 3, 14), (13, 4, 15), S), Box((3, 12, 14), (13, 13, 15), S),
+    Box((3, 4, 14), (4, 12, 15), S), Box((12, 4, 14), (13, 12, 15), S),
+    Box((4, 4, 14.75), (12, 12, 15), "#face"),
+], {"face": "minecraft:block/white_concrete"})

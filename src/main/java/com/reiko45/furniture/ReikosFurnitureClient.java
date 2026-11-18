@@ -1,7 +1,11 @@
 package com.reiko45.furniture;
 
 import com.reiko45.furniture.bathroom.BathroomFurniture;
+import com.reiko45.furniture.core.display.DisplayRenderer;
+import com.reiko45.furniture.core.registry.ModBlockEntities;
 import com.reiko45.furniture.core.registry.ModEntities;
+import com.reiko45.furniture.livingroom.LivingRoomFurniture;
+import com.reiko45.furniture.livingroom.WallClockRenderer;
 import com.reiko45.furniture.core.registry.ModMenus;
 import com.reiko45.furniture.core.workbench.WorkbenchScreen;
 import com.reiko45.furniture.outdoor.GrillRenderer;
@@ -39,5 +43,8 @@ public class ReikosFurnitureClient {
         event.registerEntityRenderer(ModEntities.SEAT.get(), NoopRenderer::new);
         // Food lying on the grill.
         event.registerBlockEntityRenderer(OutdoorFurniture.GRILL_BLOCK_ENTITY.get(), GrillRenderer::new);
+        // Items on shelves, plates and cutting boards, and the wall clock dial.
+        event.registerBlockEntityRenderer(ModBlockEntities.DISPLAY.get(), DisplayRenderer::new);
+        event.registerBlockEntityRenderer(LivingRoomFurniture.WALL_CLOCK_BLOCK_ENTITY.get(), WallClockRenderer::new);
     }
 }

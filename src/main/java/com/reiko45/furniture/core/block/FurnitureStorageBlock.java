@@ -54,6 +54,11 @@ public class FurnitureStorageBlock extends FurnitureBlock implements EntityBlock
         return rows;
     }
 
+    /** Whether this piece uses the shared storage block entity type (the trash can and safe have their own). */
+    public boolean usesSharedStorage() {
+        return true;
+    }
+
     public SoundEvent openSound() {
         return SoundEvents.BARREL_OPEN;
     }

@@ -1,0 +1,284 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "reikos_furniture:block/appliance/steel",
+    "metal": "reikos_furniture:block/appliance/steel",
+    "rim": "minecraft:block/iron_block",
+    "dark": "minecraft:block/black_concrete"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        11,
+        12
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#metal",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#metal"
+        },
+        "north": {
+          "uv": [
+            4,
+            5,
+            12,
+            16
+          ],
+          "texture": "#metal"
+        },
+        "south": {
+          "uv": [
+            4,
+            5,
+            12,
+            16
+          ],
+          "texture": "#metal"
+        },
+        "west": {
+          "uv": [
+            4,
+            5,
+            12,
+            16
+          ],
+          "texture": "#metal"
+        },
+        "east": {
+          "uv": [
+            4,
+            5,
+            12,
+            16
+          ],
+          "texture": "#metal"
+        }
+      }
+    },
+    {
+      "from": [
+        3.5,
+        10,
+        3.5
+      ],
+      "to": [
+        12.5,
+        11,
+        12.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3.5,
+            3.5,
+            12.5,
+            12.5
+          ],
+          "texture": "#rim"
+        },
+        "up": {
+          "uv": [
+            3.5,
+            3.5,
+            12.5,
+            12.5
+          ],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [
+            3.5,
+            5,
+            12.5,
+            6
+          ],
+          "texture": "#rim"
+        },
+        "south": {
+          "uv": [
+            3.5,
+            5,
+            12.5,
+            6
+          ],
+          "texture": "#rim"
+        },
+        "west": {
+          "uv": [
+            3.5,
+            5,
+            12.5,
+            6
+          ],
+          "texture": "#rim"
+        },
+        "east": {
+          "uv": [
+            3.5,
+            5,
+            12.5,
+            6
+          ],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [
+        3.5,
+        11,
+        12
+      ],
+      "to": [
+        12.5,
+        20,
+        13
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            3.5,
+            3,
+            12.5,
+            4
+          ],
+          "texture": "#rim"
+        },
+        "up": {
+          "uv": [
+            3.5,
+            12,
+            12.5,
+            13
+          ],
+          "texture": "#rim"
+        },
+        "north": {
+          "uv": [
+            3.5,
+            0,
+            12.5,
+            5
+          ],
+          "texture": "#rim"
+        },
+        "south": {
+          "uv": [
+            3.5,
+            0,
+            12.5,
+            5
+          ],
+          "texture": "#rim"
+        },
+        "west": {
+          "uv": [
+            12,
+            0,
+            13,
+            5
+          ],
+          "texture": "#rim"
+        },
+        "east": {
+          "uv": [
+            3,
+            0,
+            4,
+            5
+          ],
+          "texture": "#rim"
+        }
+      }
+    },
+    {
+      "from": [
+        4.5,
+        10.9,
+        4.5
+      ],
+      "to": [
+        11.5,
+        11,
+        11.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            4.5,
+            11.5,
+            11.5
+          ],
+          "texture": "#dark"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            11.5,
+            11.5
+          ],
+          "texture": "#dark"
+        },
+        "north": {
+          "uv": [
+            4.5,
+            5,
+            11.5,
+            5.1
+          ],
+          "texture": "#dark"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            5,
+            11.5,
+            5.1
+          ],
+          "texture": "#dark"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            5,
+            11.5,
+            5.1
+          ],
+          "texture": "#dark"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            5,
+            11.5,
+            5.1
+          ],
+          "texture": "#dark"
+        }
+      }
+    }
+  ]
+}

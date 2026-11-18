@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "minecraft:cherry_planks"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    },
+    "W": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "PW",
+    "PT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:cherry_wall_lamp"
+  }
+}

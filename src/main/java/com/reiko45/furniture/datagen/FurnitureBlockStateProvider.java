@@ -263,6 +263,37 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         }
     }
 
+    /** Colored piece that switches on and off: {@code <template>} and {@code <template>_on}. */
+    public void colorFacingLit(ColorSet<?> set, String template) {
+        for (DyeColor color : DyeColor.values()) {
+            Block block = set.get(color).get();
+            String name = name(block);
+            ModelFile off = woolModel(name, template(set.room(), template), color);
+            ModelFile on = woolModel(name + "_on", template(set.room(), template + "_on"), color);
+            facingLitBlock(block, off, on);
+            itemModels().withExistingParent(name, modLoc("block/" + name));
+        }
+    }
+
+    /** A single block with one template and an item using it. */
+    public void singleFacing(Block block, Room room, String template) {
+        ModelFile model = existingTemplate(room, template);
+        facingBlock(block, state -> model);
+        blockItem(block, template(room, template));
+    }
+
+    /** A single switchable block: {@code <template>} and {@code <template>_on}. */
+    public void singleFacingLit(Block block, Room room, String template) {
+        facingLitBlock(block, existingTemplate(room, template), existingTemplate(room, template + "_on"));
+        blockItem(block, template(room, template));
+    }
+
+    /** A single block that opens: {@code <template>} and {@code <template>_open}. */
+    public void singleFacingOpenable(Block block, Room room, String template) {
+        facingOpenableBlock(block, existingTemplate(room, template), existingTemplate(room, template + "_open"));
+        blockItem(block, template(room, template));
+    }
+
     /** Colored piece that opens and closes ({@code OPEN}): {@code <template>} and {@code <template>_open}. */
     public void colorFacingOpenable(ColorSet<?> set, String template) {
         for (DyeColor color : DyeColor.values()) {

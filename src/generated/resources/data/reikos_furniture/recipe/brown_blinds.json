@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:brown_carpet"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:brown_blinds"
+  }
+}

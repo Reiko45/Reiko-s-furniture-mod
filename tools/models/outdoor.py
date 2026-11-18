@@ -65,3 +65,30 @@ write(ROOM, "grill", grill(False), {**GRILL, "coal": "minecraft:block/coal_block
 write(ROOM, "grill_on", grill(True), {**GRILL, "coal": "minecraft:block/magma"},
       particle="minecraft:block/black_concrete", render_type="minecraft:cutout")
 
+
+# ---- 1.2: shutters, doorbell ----
+
+def shutter_panel(x1, x2):
+    """A louvered panel between x1 and x2 (closed, in front of the window)."""
+    parts = [Box((x1, 0, 14), (x2, 1, 15.5), P), Box((x1, 15, 14), (x2, 16, 15.5), P),
+             Box((x1, 1, 14), (x1 + 1, 15, 15.5), P), Box((x2 - 1, 1, 14), (x2, 15, 15.5), P)]
+    parts += [Box((x1 + 1, y, 14.4), (x2 - 1, y + 1, 15.1), S) for y in range(2, 15, 2)]
+    return parts
+
+
+write(ROOM, "shutters", shutter_panel(0, 8) + shutter_panel(8, 16))
+# Open: the panels fold out to the sides, flat against the wall.
+write(ROOM, "shutters_open", [b.moved(dx=-8) for b in shutter_panel(0, 8)] + [b.moved(dx=8) for b in shutter_panel(8, 16)],
+      cull=False)
+
+
+# Doorbell: a small plate with a gold button (floor orientation, like vanilla buttons).
+def doorbell(pressed):
+    return [
+        Box((5, 0, 5), (11, 1, 11), "#plate"),
+        Box((6.5, 1, 6.5), (9.5, 1.5 if pressed else 2, 9.5), "#button"),
+    ]
+
+BELL = {"plate": "minecraft:block/iron_block", "button": "minecraft:block/gold_block"}
+write(ROOM, "doorbell", doorbell(False), BELL, particle="minecraft:block/iron_block")
+write(ROOM, "doorbell_pressed", doorbell(True), BELL, particle="minecraft:block/iron_block")

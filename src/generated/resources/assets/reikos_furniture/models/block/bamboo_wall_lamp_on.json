@@ -1,0 +1,8 @@
+{
+  "parent": "reikos_furniture:block/template/bedroom/wall_lamp_on",
+  "textures": {
+    "log": "minecraft:block/bamboo_block",
+    "planks": "minecraft:block/bamboo_planks",
+    "stripped_log": "minecraft:block/stripped_bamboo_block"
+  }
+}

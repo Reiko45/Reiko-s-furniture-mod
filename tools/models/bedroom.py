@@ -175,3 +175,15 @@ def vanity(opened):
 write(ROOM, "vanity", vanity(False), MIRROR)
 write(ROOM, "vanity_open", vanity(True), MIRROR)
 
+
+# ---- 1.2: wall lamp ----
+
+def wall_lamp(on):
+    return [
+        Box((6, 4, 15), (10, 10, 16), P),
+        Box((7.5, 6, 12), (8.5, 7, 15), L),
+        Box((5, 7, 9), (11, 12, 13), "#shade", glow=on),
+    ]
+
+write(ROOM, "wall_lamp", wall_lamp(False), {"shade": "minecraft:block/white_wool"})
+write(ROOM, "wall_lamp_on", wall_lamp(True), {"shade": "minecraft:block/ochre_froglight_side"})

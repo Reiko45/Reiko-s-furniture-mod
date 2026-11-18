@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "minecraft:chain"
+    },
+    "T": {
+      "tag": "minecraft:candles"
+    }
+  },
+  "pattern": [
+    " N ",
+    "GNG",
+    "T T"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:chandelier"
+  }
+}

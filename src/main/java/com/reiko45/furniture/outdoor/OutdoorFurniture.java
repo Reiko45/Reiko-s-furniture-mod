@@ -9,6 +9,9 @@ import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.SeatBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
+import com.reiko45.furniture.core.block.WindowCoveringBlock;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.Blocks;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -59,6 +62,15 @@ public final class OutdoorFurniture {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GrillBlockEntity>> GRILL_BLOCK_ENTITY =
             ModBlockEntities.BLOCK_ENTITIES.register("grill",
                     () -> BlockEntityType.Builder.of(GrillBlockEntity::new, GRILL.get()).build(null));
+
+    /** Louvered shutters for the outside of a window; when closed they block all light. */
+    public static final WoodSet<WindowCoveringBlock> SHUTTERS = FurnitureRegistry.woodSet("shutters", ROOM,
+            wood -> new WindowCoveringBlock(wood.properties(), boxes(box(0, 0, 14, 16, 16, 15.5)),
+                    boxes(box(0, 0, 14, 1, 16, 15.5), box(15, 0, 14, 16, 16, 15.5)), SoundEvents.WOODEN_TRAPDOOR_OPEN));
+
+    /** Rings when pressed and gives a short redstone pulse, like a button. */
+    public static final DeferredBlock<DoorbellBlock> DOORBELL = FurnitureRegistry.register("doorbell", ROOM,
+            () -> new DoorbellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BUTTON)));
 
     private OutdoorFurniture() {
     }

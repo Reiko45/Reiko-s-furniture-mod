@@ -3,8 +3,12 @@
     "reikos_furniture:stove",
     "reikos_furniture:fridge",
     "reikos_furniture:microwave",
+    "reikos_furniture:trash_can",
+    "reikos_furniture:plate",
+    "reikos_furniture:chandelier",
     "reikos_furniture:tv",
     "reikos_furniture:fireplace",
+    "reikos_furniture:ceiling_light",
     "reikos_furniture:toilet",
     "reikos_furniture:bathtub",
     "reikos_furniture:shower",
@@ -12,6 +16,8 @@
     "reikos_furniture:bathroom_cabinet",
     "reikos_furniture:computer",
     "reikos_furniture:desk_lamp",
-    "reikos_furniture:grill"
+    "reikos_furniture:safe",
+    "reikos_furniture:grill",
+    "reikos_furniture:doorbell"
   ]
 }

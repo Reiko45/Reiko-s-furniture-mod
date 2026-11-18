@@ -25,6 +25,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
 import org.slf4j.Logger;
 
 /**
@@ -63,7 +66,14 @@ public class ReikosFurniture {
         ModRecipes.SERIALIZERS.register(modBus);
 
         modBus.addListener(this::commonSetup);
+        modBus.addListener(ReikosFurniture::registerCapabilities);
         modBus.addListener(DataGenerators::gatherData);
+    }
+
+    /** Lets hoppers and pipes from other mods move items in and out of storage furniture (not the safe). */
+    private static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ModBlockEntities.STORAGE.get(), (storage, side) -> new InvWrapper(storage));
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, KitchenFurniture.TRASH_CAN_BLOCK_ENTITY.get(), (trash, side) -> new InvWrapper(trash));
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

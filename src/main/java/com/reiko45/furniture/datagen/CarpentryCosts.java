@@ -16,6 +16,7 @@ final class CarpentryCosts {
             Map.entry("desk", 5),
             // Kitchen
             Map.entry("upper_cabinet", 12),
+            Map.entry("cutting_board", 1),
             // Dining room
             Map.entry("dining_table", 7),
             Map.entry("dining_chair", 3),
@@ -24,12 +25,14 @@ final class CarpentryCosts {
             // Living room
             Map.entry("coffee_table", 4),
             Map.entry("tv_stand", 15),
+            Map.entry("wall_shelf", 2),
             // Office
             Map.entry("filing_cabinet", 23),
             // Outdoor
             Map.entry("patio_table", 6),
             Map.entry("patio_chair", 3),
             Map.entry("garden_bench", 5),
+            Map.entry("shutters", 2),
             // Kids' room
             Map.entry("toy_chest", 15),
             Map.entry("kids_table", 3),

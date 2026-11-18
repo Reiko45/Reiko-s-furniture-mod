@@ -3,6 +3,8 @@ package com.reiko45.furniture.core.registry;
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
+import com.reiko45.furniture.core.display.DisplayBlockEntity;
+import com.reiko45.furniture.core.display.DisplayFurnitureBlock;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
@@ -21,13 +23,26 @@ public final class ModBlockEntities {
             BLOCK_ENTITIES.register("storage", () -> BlockEntityType.Builder.of(
                     FurnitureStorageBlockEntity::new, storageBlocks()).build(null));
 
+    /** Shared by every block that shows items (shelves, plates, cutting boards, feeding bowls). */
+    @SuppressWarnings("DataFlowIssue")
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DisplayBlockEntity>> DISPLAY =
+            BLOCK_ENTITIES.register("display", () -> BlockEntityType.Builder.of(
+                    DisplayBlockEntity::new, blocksOfType(DisplayFurnitureBlock.class)).build(null));
+
     private ModBlockEntities() {
+    }
+
+    private static Block[] blocksOfType(Class<?> type) {
+        return ModBlocks.BLOCKS.getEntries().stream()
+                .map(Holder::value)
+                .filter(type::isInstance)
+                .toArray(Block[]::new);
     }
 
     private static Block[] storageBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream()
                 .map(Holder::value)
-                .filter(block -> block instanceof FurnitureStorageBlock)
+                .filter(block -> block instanceof FurnitureStorageBlock storage && storage.usesSharedStorage())
                 .toArray(Block[]::new);
     }
 }

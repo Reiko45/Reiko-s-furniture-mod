@@ -1,0 +1,148 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#wool",
+    "rail": "minecraft:block/white_concrete"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        15,
+        13.5
+      ],
+      "to": [
+        16,
+        16,
+        15.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0.5,
+            16,
+            2.5
+          ],
+          "texture": "#rail"
+        },
+        "up": {
+          "uv": [
+            0,
+            13.5,
+            16,
+            15.5
+          ],
+          "texture": "#rail",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#rail"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            1
+          ],
+          "texture": "#rail"
+        },
+        "west": {
+          "uv": [
+            13.5,
+            0,
+            15.5,
+            1
+          ],
+          "texture": "#rail",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0.5,
+            0,
+            2.5,
+            1
+          ],
+          "texture": "#rail",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        0.5,
+        12.5,
+        13.75
+      ],
+      "to": [
+        15.5,
+        15,
+        15.25
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.75,
+            15.5,
+            2.25
+          ],
+          "texture": "#wool"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            13.75,
+            15.5,
+            15.25
+          ],
+          "texture": "#wool"
+        },
+        "north": {
+          "uv": [
+            0.5,
+            1,
+            15.5,
+            3.5
+          ],
+          "texture": "#wool"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            1,
+            15.5,
+            3.5
+          ],
+          "texture": "#wool"
+        },
+        "west": {
+          "uv": [
+            13.75,
+            1,
+            15.25,
+            3.5
+          ],
+          "texture": "#wool"
+        },
+        "east": {
+          "uv": [
+            0.75,
+            1,
+            2.25,
+            3.5
+          ],
+          "texture": "#wool"
+        }
+      }
+    }
+  ]
+}

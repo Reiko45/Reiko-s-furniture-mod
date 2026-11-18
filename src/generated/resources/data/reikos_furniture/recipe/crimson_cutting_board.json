@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "minecraft:crimson_planks"
+    },
+    "S": {
+      "item": "minecraft:crimson_slab"
+    }
+  },
+  "pattern": [
+    "PS"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reikos_furniture:crimson_cutting_board"
+  }
+}

@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -45,6 +46,7 @@ public class FurnitureStorageBlockEntity extends RandomizableContainerBlockEntit
                 playSound(storage.closeSound());
             }
             setOpen(level, pos, state, false);
+            onClosed();
         }
 
         @Override
@@ -58,8 +60,22 @@ public class FurnitureStorageBlockEntity extends RandomizableContainerBlockEntit
     };
 
     public FurnitureStorageBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.STORAGE.get(), pos, state);
+        this(ModBlockEntities.STORAGE.get(), pos, state);
+    }
+
+    /** For storage pieces with their own behaviour (trash can, safe) and their own block entity type. */
+    protected FurnitureStorageBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
         this.items = NonNullList.withSize(rowsFor(state) * 9, ItemStack.EMPTY);
+    }
+
+    /** Called when the last player closes the inventory. */
+    protected void onClosed() {
+    }
+
+    /** How many players have the inventory open right now. */
+    protected int openerCount() {
+        return openersCounter.getOpenerCount();
     }
 
     private static int rowsFor(BlockState state) {

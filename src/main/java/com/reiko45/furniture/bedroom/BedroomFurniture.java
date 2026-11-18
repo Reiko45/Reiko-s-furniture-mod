@@ -64,6 +64,11 @@ public final class BedroomFurniture {
     public static final WoodSet<FurnitureStorageBlock> VANITY = FurnitureRegistry.woodSet("vanity", ROOM,
             wood -> new FurnitureStorageBlock(wood.properties(), 1, VANITY_SHAPE));
 
+    /** Wall-mounted lamp; switch it with a right-click or redstone. */
+    public static final WoodSet<SwitchableFurnitureBlock> WALL_LAMP = FurnitureRegistry.woodSet("wall_lamp", ROOM,
+            wood -> new SwitchableFurnitureBlock(wood.properties().lightLevel(SwitchableFurnitureBlock.lightWhenOn(13)),
+                    boxes(box(5, 4, 9, 11, 12, 16))));
+
     private BedroomFurniture() {
     }
 

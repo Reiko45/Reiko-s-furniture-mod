@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/kitchen/pendant_lamp",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/black"
+  }
+}
