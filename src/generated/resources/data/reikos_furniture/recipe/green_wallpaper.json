@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:green_dye"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "W": {
+      "item": "minecraft:paper"
+    }
+  },
+  "pattern": [
+    "WPW",
+    "PDP",
+    "WPW"
+  ],
+  "result": {
+    "count": 8,
+    "id": "reikos_furniture:green_wallpaper"
+  }
+}

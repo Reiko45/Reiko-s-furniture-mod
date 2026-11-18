@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "reikos_furniture:block/tiles/checkered"
+  }
+}

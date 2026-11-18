@@ -1,0 +1,219 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks"
+  },
+  "elements": [
+    {
+      "from": [
+        14,
+        14,
+        14
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            14,
+            14,
+            16,
+            16
+          ],
+          "texture": "#planks",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#planks",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            14,
+            0,
+            16,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ],
+          "texture": "#planks",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        14.75,
+        13,
+        14.75
+      ],
+      "to": [
+        16,
+        14,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            14.75,
+            0,
+            16,
+            1.25
+          ],
+          "texture": "#stripped_log"
+        },
+        "up": {
+          "uv": [
+            14.75,
+            14.75,
+            16,
+            16
+          ],
+          "texture": "#stripped_log"
+        },
+        "north": {
+          "uv": [
+            0,
+            2,
+            1.25,
+            3
+          ],
+          "texture": "#stripped_log"
+        },
+        "south": {
+          "uv": [
+            14.75,
+            2,
+            16,
+            3
+          ],
+          "texture": "#stripped_log",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            14.75,
+            2,
+            16,
+            3
+          ],
+          "texture": "#stripped_log"
+        },
+        "east": {
+          "uv": [
+            0,
+            2,
+            1.25,
+            3
+          ],
+          "texture": "#stripped_log",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        15.25,
+        12.5,
+        15.25
+      ],
+      "to": [
+        16,
+        13,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            15.25,
+            0,
+            16,
+            0.75
+          ],
+          "texture": "#stripped_log"
+        },
+        "up": {
+          "uv": [
+            15.25,
+            15.25,
+            16,
+            16
+          ],
+          "texture": "#stripped_log"
+        },
+        "north": {
+          "uv": [
+            0,
+            3,
+            0.75,
+            3.5
+          ],
+          "texture": "#stripped_log"
+        },
+        "south": {
+          "uv": [
+            15.25,
+            3,
+            16,
+            3.5
+          ],
+          "texture": "#stripped_log",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            15.25,
+            3,
+            16,
+            3.5
+          ],
+          "texture": "#stripped_log"
+        },
+        "east": {
+          "uv": [
+            0,
+            3,
+            0.75,
+            3.5
+          ],
+          "texture": "#stripped_log",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

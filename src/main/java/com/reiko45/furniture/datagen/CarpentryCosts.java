@@ -41,7 +41,11 @@ final class CarpentryCosts {
             // Laundry room
             Map.entry("laundry_basket", 3),
             // Music room
-            Map.entry("piano_bench", 4));
+            Map.entry("piano_bench", 4),
+            // Decor
+            Map.entry("parquet", 1),
+            Map.entry("baseboard", 1),
+            Map.entry("crown_molding", 1));
 
     private CarpentryCosts() {
     }

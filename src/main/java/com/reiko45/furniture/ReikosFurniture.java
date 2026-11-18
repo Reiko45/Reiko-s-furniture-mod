@@ -17,6 +17,7 @@ import com.reiko45.furniture.core.registry.ModRecipes;
 import com.reiko45.furniture.core.registry.ModSounds;
 import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.datagen.DataGenerators;
+import com.reiko45.furniture.decor.DecorFurniture;
 import com.reiko45.furniture.dining.DiningFurniture;
 import com.reiko45.furniture.gameroom.GameRoomFurniture;
 import com.reiko45.furniture.kids.KidsFurniture;
@@ -72,6 +73,7 @@ public class ReikosFurniture {
         MusicFurniture.init();
         GameRoomFurniture.init();
         PetFurniture.init();
+        DecorFurniture.init();
         Workbench.init();
 
         ModBlocks.BLOCKS.register(modBus);

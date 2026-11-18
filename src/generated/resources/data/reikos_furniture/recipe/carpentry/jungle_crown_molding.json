@@ -1,0 +1,10 @@
+{
+  "type": "reikos_furniture:carpentry",
+  "ingredient": {
+    "item": "minecraft:jungle_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:jungle_crown_molding"
+  }
+}

@@ -437,7 +437,121 @@ def villager_profession():
     save(img, "entity/zombie_villager/profession/furniture_maker.png")
 
 
+# ---- Decor: wallpaper and tiles ---------------------------------------------------------------
+
+def wallpaper(name, dye):
+    """Damask-style wallpaper: a soft diamond lattice with a small motif in each diamond, tileable."""
+    rnd = random.Random("wallpaper-" + name)
+    base = mix(dye, (0xF4, 0xF0, 0xE6), 0.35) if sum(dye) < 600 else mix(dye, (0xE0, 0xDC, 0xD0), 0.25)
+    dark = shade(base, 0.82)
+    light = mix(base, (255, 255, 255), 0.25)
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            c = shade(base, 0.97 + rnd.random() * 0.06)
+            if (x + y) % 8 == 0 or (x - y) % 8 == 0:
+                c = dark
+            px[x, y] = c + (255,)
+    # Motif: a small cross in the middle of each diamond.
+    for cx, cy in ((4, 0), (12, 8), (4, 8), (12, 0)):
+        for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
+            px[(cx + dx) % 16, (cy + 4 + dy) % 16] = light + (255,)
+    # Paper grain: faint vertical stripes.
+    for x in range(0, 16, 4):
+        for y in range(16):
+            r, g, b, a = px[x, y]
+            px[x, y] = shade((r, g, b), 0.98) + (255,)
+    save(img, f"block/wallpaper/{name}.png")
+
+
+def tiles():
+    """Eight tile blocks: square, checkered, small, subway, hexagon and marble patterns."""
+    import math
+    grout_light, grout_dark = (0xC8, 0xC6, 0xC0), (0x50, 0x50, 0x54)
+
+    def squares(name, face, grout, size=8, glaze=0.06):
+        rnd = random.Random("tiles-" + name)
+        img = new()
+        px = img.load()
+        for y in range(16):
+            for x in range(16):
+                if x % size == 0 or y % size == 0:
+                    c = grout
+                else:
+                    c = shade(face, 1 - glaze + rnd.random() * glaze)
+                    if x % size == 1 or y % size == 1:
+                        c = mix(c, (255, 255, 255), 0.18)
+                px[x, y] = c + (255,)
+        return img
+
+    save(squares("white", (0xF2, 0xF2, 0xEE), grout_light), "block/tiles/white.png")
+    save(squares("black", (0x22, 0x22, 0x26), grout_dark), "block/tiles/black.png")
+    save(squares("blue", (0x2E, 0x5C, 0xB8), (0xE8, 0xE8, 0xE4), size=4), "block/tiles/blue.png")
+    save(squares("terracotta", (0xB8, 0x62, 0x3C), (0xD8, 0xC8, 0xB0)), "block/tiles/terracotta.png")
+
+    # Checkered: 8x8 black and white squares.
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            white = ((x // 8) + (y // 8)) % 2 == 0
+            c = (0xEE, 0xEE, 0xEA) if white else (0x24, 0x24, 0x28)
+            px[x, y] = c + (255,)
+    save(img, "block/tiles/checkered.png")
+
+    # Green subway tiles: 8x4 bricks, every other row offset by 4.
+    rnd = random.Random("tiles-green")
+    img = new()
+    px = img.load()
+    green = (0x3E, 0x8E, 0x5A)
+    for y in range(16):
+        for x in range(16):
+            off = 4 if (y // 4) % 2 else 0
+            if y % 4 == 0 or (x + off) % 8 == 0:
+                c = (0xDA, 0xDA, 0xD4)
+            else:
+                c = shade(green, 0.94 + rnd.random() * 0.08)
+                if y % 4 == 1:
+                    c = mix(c, (255, 255, 255), 0.2)
+            px[x, y] = c + (255,)
+    save(img, "block/tiles/green.png")
+
+    # Hexagon mosaic: hexagons around a grid of centers (rows offset by half a tile), grout on the cell borders.
+    img = new()
+    px = img.load()
+    centers = [(cx + 16 * i, cy + 16 * j) for i in (-1, 0, 1) for j in (-1, 0, 1)
+               for cx, cy in ((4, 4), (12, 4), (0, 12), (8, 12), (16, 12))]
+    for y in range(16):
+        for x in range(16):
+            # Squashing y by 0.866 makes the offset grid a regular hexagonal lattice, whose nearest-center
+            # cells are hexagons.
+            d = sorted(math.hypot(x + 0.5 - cx, (y + 0.5 - cy) * 0.866) for cx, cy in centers)
+            c = (0xC4, 0xC4, 0xC0) if d[1] - d[0] < 0.7 else (0xF6, 0xF6, 0xF2)
+            px[x, y] = c + (255,)
+    save(img, "block/tiles/hexagon.png")
+
+    # Marble: white with gray veins from tileable sine waves.
+    rnd = random.Random("tiles-marble")
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            t = math.sin(2 * math.pi * (x / 16 + 2 * y / 16) + 1.7 * math.sin(2 * math.pi * (2 * x / 16 - y / 16)))
+            v = abs(t)
+            c = shade((0xEE, 0xEC, 0xE8), 0.97 + rnd.random() * 0.04)
+            if v < 0.12:
+                c = (0x8C, 0x8A, 0x8C)
+            elif v < 0.3:
+                c = mix(c, (0xB4, 0xB2, 0xB4), 0.6)
+            px[x, y] = c + (255,)
+    save(img, "block/tiles/marble.png")
+
+
 if __name__ == "__main__":
+    for name, rgb in DYES.items():
+        wallpaper(name, rgb)
+    tiles()
     villager_profession()
     food_items()
     dartboard()

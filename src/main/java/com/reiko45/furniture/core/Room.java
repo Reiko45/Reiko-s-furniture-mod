@@ -13,7 +13,8 @@ public enum Room {
     LAUNDRY("laundry", "Laundry Room"),
     MUSIC("music", "Music Room"),
     GAME_ROOM("gameroom", "Game Room"),
-    PET_CORNER("pets", "Pet Corner");
+    PET_CORNER("pets", "Pet Corner"),
+    DECOR("decor", "Decor");
 
     private final String id;
     private final String displayName;

@@ -40,6 +40,14 @@
     "reikos_furniture:brown_feeding_bowl",
     "reikos_furniture:green_feeding_bowl",
     "reikos_furniture:red_feeding_bowl",
-    "reikos_furniture:black_feeding_bowl"
+    "reikos_furniture:black_feeding_bowl",
+    "reikos_furniture:white_tiles",
+    "reikos_furniture:black_tiles",
+    "reikos_furniture:checkered_tiles",
+    "reikos_furniture:blue_tiles",
+    "reikos_furniture:green_tiles",
+    "reikos_furniture:terracotta_tiles",
+    "reikos_furniture:marble_tiles",
+    "reikos_furniture:hexagon_tiles"
   ]
 }

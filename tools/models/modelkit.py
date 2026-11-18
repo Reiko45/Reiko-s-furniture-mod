@@ -42,13 +42,14 @@ def cull(face, f, t):
 
 
 class Box:
-    def __init__(self, f, t, tex, faces=None, glow=False, skip=(), uvs=None, tint=False):
+    def __init__(self, f, t, tex, faces=None, glow=False, skip=(), uvs=None, tint=False, rot=None):
         self.f, self.t, self.tex, self.faces, self.glow, self.skip = list(f), list(t), tex, faces or {}, glow, set(skip)
         self.uvs = uvs or {}
         self.tint = tint
+        self.rot = rot or {}  # texture rotation per face (0, 90, 180, 270)
 
     def moved(self, dx=0, dy=0, dz=0):
-        b = Box(self.f, self.t, self.tex, self.faces, self.glow, self.skip, self.uvs, self.tint)
+        b = Box(self.f, self.t, self.tex, self.faces, self.glow, self.skip, self.uvs, self.tint, self.rot)
         b.f = [self.f[0] + dx, self.f[1] + dy, self.f[2] + dz]
         b.t = [self.t[0] + dx, self.t[1] + dy, self.t[2] + dz]
         b._uv_from = (self.f, self.t)
@@ -66,6 +67,8 @@ class Box:
                 entry["cullface"] = face
             if self.tint:
                 entry["tintindex"] = 0
+            if self.rot.get(face):
+                entry["rotation"] = self.rot[face]
             faces[face] = entry
         el = {"from": [_r(v) for v in self.f], "to": [_r(v) for v in self.t], "faces": faces}
         if self.f[2] == self.t[2] or self.f[0] == self.t[0]:

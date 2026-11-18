@@ -1,0 +1,10 @@
+{
+  "type": "reikos_furniture:carpentry",
+  "ingredient": {
+    "item": "minecraft:oak_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:oak_baseboard"
+  }
+}

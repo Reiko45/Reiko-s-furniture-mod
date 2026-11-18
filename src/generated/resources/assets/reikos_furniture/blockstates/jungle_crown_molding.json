@@ -1,0 +1,79 @@
+{
+  "variants": {
+    "facing=east,shape=inner_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_left",
+      "y": 90
+    },
+    "facing=east,shape=inner_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_right",
+      "y": 90
+    },
+    "facing=east,shape=outer_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_left",
+      "y": 90
+    },
+    "facing=east,shape=outer_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_right",
+      "y": 90
+    },
+    "facing=east,shape=straight": {
+      "model": "reikos_furniture:block/jungle_crown_molding",
+      "y": 90
+    },
+    "facing=north,shape=inner_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_left"
+    },
+    "facing=north,shape=inner_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_right"
+    },
+    "facing=north,shape=outer_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_left"
+    },
+    "facing=north,shape=outer_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_right"
+    },
+    "facing=north,shape=straight": {
+      "model": "reikos_furniture:block/jungle_crown_molding"
+    },
+    "facing=south,shape=inner_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_left",
+      "y": 180
+    },
+    "facing=south,shape=inner_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_right",
+      "y": 180
+    },
+    "facing=south,shape=outer_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_left",
+      "y": 180
+    },
+    "facing=south,shape=outer_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_right",
+      "y": 180
+    },
+    "facing=south,shape=straight": {
+      "model": "reikos_furniture:block/jungle_crown_molding",
+      "y": 180
+    },
+    "facing=west,shape=inner_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_left",
+      "y": 270
+    },
+    "facing=west,shape=inner_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_inner_right",
+      "y": 270
+    },
+    "facing=west,shape=outer_left": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_left",
+      "y": 270
+    },
+    "facing=west,shape=outer_right": {
+      "model": "reikos_furniture:block/jungle_crown_molding_outer_right",
+      "y": 270
+    },
+    "facing=west,shape=straight": {
+      "model": "reikos_furniture:block/jungle_crown_molding",
+      "y": 270
+    }
+  }
+}

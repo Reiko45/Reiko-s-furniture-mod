@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reikos_furniture:block/bamboo_parquet_slab"
+    },
+    "type=double": {
+      "model": "reikos_furniture:block/bamboo_parquet"
+    },
+    "type=top": {
+      "model": "reikos_furniture:block/bamboo_parquet_slab_top"
+    }
+  }
+}
