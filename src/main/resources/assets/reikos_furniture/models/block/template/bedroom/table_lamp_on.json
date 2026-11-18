@@ -2,7 +2,7 @@
   "parent": "minecraft:block/block",
   "textures": {
     "particle": "#planks",
-    "shade": "minecraft:block/white_wool"
+    "shade": "minecraft:block/ochre_froglight_side"
   },
   "elements": [
     {
