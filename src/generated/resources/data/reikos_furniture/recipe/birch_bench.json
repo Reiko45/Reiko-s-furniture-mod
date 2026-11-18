@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:birch_log"
+    },
+    "P": {
+      "item": "minecraft:birch_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "L L"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reikos_furniture:birch_bench"
+  }
+}

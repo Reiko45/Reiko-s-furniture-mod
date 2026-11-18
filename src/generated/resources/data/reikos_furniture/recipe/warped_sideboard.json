@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "L": {
+      "item": "minecraft:warped_stem"
+    },
+    "P": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PCP",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:warped_sideboard"
+  }
+}

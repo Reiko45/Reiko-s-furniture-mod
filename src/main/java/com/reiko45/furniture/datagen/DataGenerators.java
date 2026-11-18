@@ -1,6 +1,7 @@
 package com.reiko45.furniture.datagen;
 
 import com.reiko45.furniture.bedroom.BedroomData;
+import com.reiko45.furniture.dining.DiningData;
 import com.reiko45.furniture.kitchen.KitchenData;
 import java.util.List;
 import java.util.Set;
@@ -18,7 +19,8 @@ public final class DataGenerators {
     /** Data for each room section, in creative tab order. */
     static final List<RoomData> ROOMS = List.of(
             new BedroomData(),
-            new KitchenData());
+            new KitchenData(),
+            new DiningData());
 
     private DataGenerators() {
     }

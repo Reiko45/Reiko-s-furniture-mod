@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "L": {
+      "item": "minecraft:bamboo_block"
+    },
+    "P": {
+      "item": "minecraft:bamboo_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PCP",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:bamboo_sideboard"
+  }
+}

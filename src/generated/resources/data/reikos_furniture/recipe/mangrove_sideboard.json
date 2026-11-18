@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "L": {
+      "item": "minecraft:mangrove_log"
+    },
+    "P": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PCP",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:mangrove_sideboard"
+  }
+}

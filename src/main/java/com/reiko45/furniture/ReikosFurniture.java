@@ -9,6 +9,7 @@ import com.reiko45.furniture.core.registry.ModCreativeTab;
 import com.reiko45.furniture.core.registry.ModEntities;
 import com.reiko45.furniture.core.registry.ModItems;
 import com.reiko45.furniture.datagen.DataGenerators;
+import com.reiko45.furniture.dining.DiningFurniture;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
@@ -34,6 +35,7 @@ public class ReikosFurniture {
         // Room sections, in the order they appear in the creative tab.
         BedroomFurniture.init();
         KitchenFurniture.init();
+        DiningFurniture.init();
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
