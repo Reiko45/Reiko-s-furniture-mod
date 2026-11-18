@@ -10,11 +10,13 @@ import com.reiko45.furniture.core.modded.ModdedWoods;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
 import com.reiko45.furniture.core.registry.ModBlocks;
 import com.reiko45.furniture.core.registry.ModCreativeTab;
+import com.reiko45.furniture.core.registry.ModDataComponents;
 import com.reiko45.furniture.core.registry.ModEntities;
 import com.reiko45.furniture.core.registry.ModItems;
 import com.reiko45.furniture.core.registry.ModMenus;
 import com.reiko45.furniture.core.registry.ModRecipes;
 import com.reiko45.furniture.core.registry.ModSounds;
+import com.reiko45.furniture.core.tool.Tools;
 import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.datagen.DataGenerators;
 import com.reiko45.furniture.decor.DecorFurniture;
@@ -75,6 +77,7 @@ public class ReikosFurniture {
         PetFurniture.init();
         DecorFurniture.init();
         Workbench.init();
+        Tools.init();
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
@@ -85,6 +88,7 @@ public class ReikosFurniture {
         ModSounds.SOUNDS.register(modBus);
         ModRecipes.TYPES.register(modBus);
         ModRecipes.SERIALIZERS.register(modBus);
+        ModDataComponents.COMPONENTS.register(modBus);
         FurnitureMaker.POI_TYPES.register(modBus);
         FurnitureMaker.PROFESSIONS.register(modBus);
 

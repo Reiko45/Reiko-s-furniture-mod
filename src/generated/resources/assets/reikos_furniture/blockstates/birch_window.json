@@ -20,24 +20,6 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_right"
-      },
-      "when": {
-        "facing": "north",
-        "right": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_left"
-      },
-      "when": {
-        "facing": "north",
-        "left": "false"
-      }
-    },
-    {
-      "apply": {
         "model": "reikos_furniture:block/birch_window_frame_bottom"
       },
       "when": {
@@ -52,6 +34,24 @@
       "when": {
         "facing": "north",
         "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_right"
+      },
+      "when": {
+        "facing": "north",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_left"
+      },
+      "when": {
+        "facing": "north",
+        "left": "false"
       }
     },
     {
@@ -72,26 +72,6 @@
       "when": {
         "facing": "east",
         "open": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_right",
-        "y": 90
-      },
-      "when": {
-        "facing": "east",
-        "right": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_left",
-        "y": 90
-      },
-      "when": {
-        "facing": "east",
-        "left": "false"
       }
     },
     {
@@ -116,6 +96,26 @@
     },
     {
       "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_right",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_left",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "left": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "reikos_furniture:block/birch_window_pane",
         "y": 180
       },
@@ -132,26 +132,6 @@
       "when": {
         "facing": "south",
         "open": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_right",
-        "y": 180
-      },
-      "when": {
-        "facing": "south",
-        "right": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_left",
-        "y": 180
-      },
-      "when": {
-        "facing": "south",
-        "left": "false"
       }
     },
     {
@@ -176,6 +156,26 @@
     },
     {
       "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_right",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_left",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "left": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "reikos_furniture:block/birch_window_pane",
         "y": 270
       },
@@ -196,26 +196,6 @@
     },
     {
       "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_right",
-        "y": 270
-      },
-      "when": {
-        "facing": "west",
-        "right": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "reikos_furniture:block/birch_window_frame_left",
-        "y": 270
-      },
-      "when": {
-        "facing": "west",
-        "left": "false"
-      }
-    },
-    {
-      "apply": {
         "model": "reikos_furniture:block/birch_window_frame_bottom",
         "y": 270
       },
@@ -232,6 +212,26 @@
       "when": {
         "facing": "west",
         "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_right",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "right": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/birch_window_frame_left",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "left": "false"
       }
     }
   ]

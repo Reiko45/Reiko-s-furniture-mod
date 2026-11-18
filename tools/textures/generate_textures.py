@@ -559,7 +559,56 @@ def window_glass():
     save(img, "block/window_glass.png")
 
 
+def tool_items():
+    """Furniture hammer, and the moving dolly empty and loaded with a crate."""
+    wood, wood_dark = (0x9A, 0x6A, 0x3A), (0x6E, 0x48, 0x24)
+    iron, iron_dark, iron_light = (0xC8, 0xC8, 0xCC), (0x80, 0x80, 0x88), (0xEE, 0xEE, 0xF2)
+
+    def put(img, x, y, c):
+        if 0 <= x < 16 and 0 <= y < 16:
+            img.load()[x, y] = c + (255,)
+
+    # Hammer: diagonal handle from bottom left, head at the top right.
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    for i in range(10):
+        put(img, 2 + i, 13 - i, wood if i % 3 else wood_dark)
+        put(img, 3 + i, 13 - i, wood_dark)
+    for x, y in ((9, 1), (10, 2), (11, 3), (12, 4), (13, 5), (8, 2), (9, 3), (10, 4), (11, 5), (12, 6), (14, 6), (13, 7)):
+        put(img, x, y, iron)
+    for x, y in ((10, 1), (11, 2), (12, 3), (13, 4), (14, 5)):
+        put(img, x, y, iron_light)
+    for x, y in ((8, 3), (9, 4), (10, 5), (11, 6), (12, 7)):
+        put(img, x, y, iron_dark)
+    save(img, "item/hammer.png")
+
+    def dolly(loaded):
+        img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+        for y in range(1, 14):  # the upright frame
+            put(img, 4, y, iron_dark)
+            put(img, 5, y, iron)
+        put(img, 6, 1, iron)
+        put(img, 7, 1, iron_dark)
+        for x in range(4, 13):  # toe plate
+            put(img, x, 13, iron_dark)
+            put(img, x, 12, iron)
+        for x, y in ((3, 14), (4, 14), (5, 14), (3, 15), (4, 15), (5, 15)):  # wheel
+            put(img, x, y, (0x30, 0x30, 0x34))
+        put(img, 4, 14, (0x60, 0x60, 0x66))
+        if loaded:
+            for y in range(4, 12):
+                for x in range(6, 14):
+                    edge = x in (6, 13) or y in (4, 11)
+                    put(img, x, y, wood_dark if edge else wood)
+            for x in range(7, 13):
+                put(img, x, 7, wood_dark)
+        return img
+
+    save(dolly(False), "item/moving_dolly.png")
+    save(dolly(True), "item/moving_dolly_loaded.png")
+
+
 if __name__ == "__main__":
+    tool_items()
     window_glass()
     for name, rgb in DYES.items():
         wallpaper(name, rgb)

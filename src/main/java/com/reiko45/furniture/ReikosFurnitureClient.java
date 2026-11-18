@@ -16,6 +16,10 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraft.client.renderer.item.ItemProperties;
+import com.reiko45.furniture.core.registry.ModDataComponents;
+import com.reiko45.furniture.core.tool.Tools;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
@@ -29,6 +33,7 @@ public class ReikosFurnitureClient {
         // Settings screen in the Mods list.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
         modBus.addListener(ReikosFurnitureClient::registerRenderers);
+        modBus.addListener(ReikosFurnitureClient::clientSetup);
         modBus.addListener(ReikosFurnitureClient::registerScreens);
         modBus.addListener(ReikosFurnitureClient::registerBlockColors);
     }
@@ -51,5 +56,11 @@ public class ReikosFurnitureClient {
         // Items on shelves, plates and cutting boards, and the wall clock dial.
         event.registerBlockEntityRenderer(ModBlockEntities.DISPLAY.get(), DisplayRenderer::new);
         event.registerBlockEntityRenderer(LivingRoomFurniture.WALL_CLOCK_BLOCK_ENTITY.get(), WallClockRenderer::new);
+    }
+
+    /** The moving dolly shows a crate on it while it carries furniture. */
+    private static void clientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> ItemProperties.register(Tools.MOVING_DOLLY.get(), ReikosFurniture.id("loaded"),
+                (stack, level, entity, seed) -> stack.has(ModDataComponents.CARRIED_FURNITURE.get()) ? 1.0F : 0.0F));
     }
 }
