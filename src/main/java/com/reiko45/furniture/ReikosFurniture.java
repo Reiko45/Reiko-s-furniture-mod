@@ -1,6 +1,7 @@
 package com.reiko45.furniture;
 
 import com.mojang.logging.LogUtils;
+import com.reiko45.furniture.bathroom.BathroomFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
@@ -41,6 +42,7 @@ public class ReikosFurniture {
         KitchenFurniture.init();
         DiningFurniture.init();
         LivingRoomFurniture.init();
+        BathroomFurniture.init();
         Workbench.init();
 
         ModBlocks.BLOCKS.register(modBus);

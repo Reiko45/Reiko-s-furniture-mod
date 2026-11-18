@@ -1,0 +1,149 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "minecraft:block/white_concrete",
+    "ceramic": "minecraft:block/white_concrete",
+    "seat": "minecraft:block/quartz_block_bottom",
+    "metal": "minecraft:block/iron_block"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        2
+      ],
+      "to": [
+        2,
+        10,
+        14
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            2,
+            2,
+            14
+          ],
+          "texture": "#ceramic",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            2,
+            2,
+            14
+          ],
+          "texture": "#ceramic"
+        },
+        "north": {
+          "uv": [
+            14,
+            6,
+            16,
+            16
+          ],
+          "texture": "#ceramic"
+        },
+        "south": {
+          "uv": [
+            0,
+            6,
+            2,
+            16
+          ],
+          "texture": "#ceramic"
+        },
+        "west": {
+          "uv": [
+            2,
+            6,
+            14,
+            16
+          ],
+          "texture": "#ceramic",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            2,
+            6,
+            14,
+            16
+          ],
+          "texture": "#ceramic"
+        }
+      }
+    },
+    {
+      "from": [
+        -0.5,
+        9.5,
+        2
+      ],
+      "to": [
+        2,
+        10.5,
+        14
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            2,
+            2,
+            14
+          ],
+          "texture": "#seat"
+        },
+        "up": {
+          "uv": [
+            0,
+            2,
+            2,
+            14
+          ],
+          "texture": "#seat"
+        },
+        "north": {
+          "uv": [
+            14,
+            5.5,
+            16,
+            6.5
+          ],
+          "texture": "#seat"
+        },
+        "south": {
+          "uv": [
+            0,
+            5.5,
+            2,
+            6.5
+          ],
+          "texture": "#seat"
+        },
+        "west": {
+          "uv": [
+            2,
+            5.5,
+            14,
+            6.5
+          ],
+          "texture": "#seat"
+        },
+        "east": {
+          "uv": [
+            2,
+            5.5,
+            14,
+            6.5
+          ],
+          "texture": "#seat"
+        }
+      }
+    }
+  ]
+}

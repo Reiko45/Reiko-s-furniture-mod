@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "Q": {
+      "item": "minecraft:white_terracotta"
+    }
+  },
+  "pattern": [
+    " I ",
+    "GBG",
+    "QQQ"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:shower"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "W": {
+      "item": "minecraft:gray_wool"
+    }
+  },
+  "pattern": [
+    "NNN",
+    "WWW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:gray_towel_rack"
+  }
+}

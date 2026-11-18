@@ -1,0 +1,285 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "minecraft:block/white_concrete",
+    "ceramic": "minecraft:block/white_concrete",
+    "seat": "minecraft:block/quartz_block_bottom",
+    "metal": "minecraft:block/iron_block",
+    "mirror": "minecraft:block/light_blue_stained_glass"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        2,
+        11
+      ],
+      "to": [
+        14,
+        14,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            0,
+            14,
+            5
+          ],
+          "texture": "#ceramic"
+        },
+        "up": {
+          "uv": [
+            2,
+            11,
+            14,
+            16
+          ],
+          "texture": "#ceramic"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#ceramic"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#ceramic",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            11,
+            2,
+            16,
+            14
+          ],
+          "texture": "#ceramic"
+        },
+        "east": {
+          "uv": [
+            0,
+            2,
+            5,
+            14
+          ],
+          "texture": "#ceramic"
+        }
+      }
+    },
+    {
+      "from": [
+        2.5,
+        2.5,
+        -0.5
+      ],
+      "to": [
+        3,
+        13.5,
+        10.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.5,
+            5.5,
+            3,
+            16
+          ],
+          "texture": "#mirror"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            0,
+            3,
+            10.5
+          ],
+          "texture": "#mirror"
+        },
+        "north": {
+          "uv": [
+            13,
+            2.5,
+            13.5,
+            13.5
+          ],
+          "texture": "#mirror"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            2.5,
+            3,
+            13.5
+          ],
+          "texture": "#mirror"
+        },
+        "west": {
+          "uv": [
+            0,
+            2.5,
+            10.5,
+            13.5
+          ],
+          "texture": "#mirror"
+        },
+        "east": {
+          "uv": [
+            5.5,
+            2.5,
+            16,
+            13.5
+          ],
+          "texture": "#mirror"
+        }
+      }
+    },
+    {
+      "from": [
+        2.5,
+        2.5,
+        10.9
+      ],
+      "to": [
+        13.5,
+        13.5,
+        11
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.5,
+            5,
+            13.5,
+            5.1
+          ],
+          "texture": "#seat"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            10.9,
+            13.5,
+            11
+          ],
+          "texture": "#seat"
+        },
+        "north": {
+          "uv": [
+            2.5,
+            2.5,
+            13.5,
+            13.5
+          ],
+          "texture": "#seat"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            2.5,
+            13.5,
+            13.5
+          ],
+          "texture": "#seat"
+        },
+        "west": {
+          "uv": [
+            10.9,
+            2.5,
+            11,
+            13.5
+          ],
+          "texture": "#seat"
+        },
+        "east": {
+          "uv": [
+            5,
+            2.5,
+            5.1,
+            13.5
+          ],
+          "texture": "#seat"
+        }
+      }
+    },
+    {
+      "from": [
+        2.5,
+        7.75,
+        10.5
+      ],
+      "to": [
+        13.5,
+        8.25,
+        11
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.5,
+            5,
+            13.5,
+            5.5
+          ],
+          "texture": "#ceramic"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            10.5,
+            13.5,
+            11
+          ],
+          "texture": "#ceramic"
+        },
+        "north": {
+          "uv": [
+            2.5,
+            7.75,
+            13.5,
+            8.25
+          ],
+          "texture": "#ceramic"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            7.75,
+            13.5,
+            8.25
+          ],
+          "texture": "#ceramic"
+        },
+        "west": {
+          "uv": [
+            10.5,
+            7.75,
+            11,
+            8.25
+          ],
+          "texture": "#ceramic"
+        },
+        "east": {
+          "uv": [
+            5,
+            7.75,
+            5.5,
+            8.25
+          ],
+          "texture": "#ceramic"
+        }
+      }
+    }
+  ]
+}

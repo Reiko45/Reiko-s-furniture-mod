@@ -1,5 +1,6 @@
 package com.reiko45.furniture.datagen;
 
+import com.reiko45.furniture.bathroom.BathroomData;
 import com.reiko45.furniture.bedroom.BedroomData;
 import com.reiko45.furniture.dining.DiningData;
 import com.reiko45.furniture.kitchen.KitchenData;
@@ -22,7 +23,8 @@ public final class DataGenerators {
             new BedroomData(),
             new KitchenData(),
             new DiningData(),
-            new LivingRoomData());
+            new LivingRoomData(),
+            new BathroomData());
 
     private DataGenerators() {
     }

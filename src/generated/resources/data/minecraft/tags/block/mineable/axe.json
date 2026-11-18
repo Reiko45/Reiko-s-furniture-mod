@@ -306,6 +306,22 @@
     "reikos_furniture:green_curtains",
     "reikos_furniture:red_curtains",
     "reikos_furniture:black_curtains",
+    "reikos_furniture:white_towel_rack",
+    "reikos_furniture:orange_towel_rack",
+    "reikos_furniture:magenta_towel_rack",
+    "reikos_furniture:light_blue_towel_rack",
+    "reikos_furniture:yellow_towel_rack",
+    "reikos_furniture:lime_towel_rack",
+    "reikos_furniture:pink_towel_rack",
+    "reikos_furniture:gray_towel_rack",
+    "reikos_furniture:light_gray_towel_rack",
+    "reikos_furniture:cyan_towel_rack",
+    "reikos_furniture:purple_towel_rack",
+    "reikos_furniture:blue_towel_rack",
+    "reikos_furniture:brown_towel_rack",
+    "reikos_furniture:green_towel_rack",
+    "reikos_furniture:red_towel_rack",
+    "reikos_furniture:black_towel_rack",
     "reikos_furniture:furniture_workbench"
   ]
 }

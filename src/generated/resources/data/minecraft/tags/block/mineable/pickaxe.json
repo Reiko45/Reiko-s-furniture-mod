@@ -4,6 +4,11 @@
     "reikos_furniture:fridge",
     "reikos_furniture:microwave",
     "reikos_furniture:tv",
-    "reikos_furniture:fireplace"
+    "reikos_furniture:fireplace",
+    "reikos_furniture:toilet",
+    "reikos_furniture:bathtub",
+    "reikos_furniture:shower",
+    "reikos_furniture:bathroom_sink",
+    "reikos_furniture:bathroom_cabinet"
   ]
 }

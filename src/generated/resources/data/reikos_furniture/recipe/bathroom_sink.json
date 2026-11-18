@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "Q": {
+      "item": "minecraft:white_terracotta"
+    }
+  },
+  "pattern": [
+    "QBQ",
+    " Q ",
+    " Q "
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:bathroom_sink"
+  }
+}

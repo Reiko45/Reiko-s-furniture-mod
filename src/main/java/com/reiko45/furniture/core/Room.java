@@ -5,7 +5,11 @@ public enum Room {
     BEDROOM("bedroom", "Bedroom"),
     KITCHEN("kitchen", "Kitchen"),
     DINING_ROOM("dining", "Dining Room"),
-    LIVING_ROOM("livingroom", "Living Room");
+    LIVING_ROOM("livingroom", "Living Room"),
+    BATHROOM("bathroom", "Bathroom"),
+    OFFICE("office", "Office"),
+    OUTDOOR("outdoor", "Outdoor"),
+    KIDS_ROOM("kids", "Kids' Room");
 
     private final String id;
     private final String displayName;

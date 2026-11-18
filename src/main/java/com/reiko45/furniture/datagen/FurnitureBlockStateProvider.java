@@ -108,6 +108,11 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         facingBlock(block, state -> state.getValue(TallBlockHelper.HALF) == DoubleBlockHalf.UPPER ? upper : lower);
     }
 
+    /** A rotating block with a closed and an open ({@code OPEN}) model. */
+    public void facingOpenableBlock(Block block, ModelFile closed, ModelFile open) {
+        facingBlock(block, state -> state.getValue(BlockStateProperties.OPEN) ? open : closed);
+    }
+
     /** A two-block-tall storage block with closed and open ({@link FurnitureStorageBlock#OPEN}) models for each half. */
     public void tallOpenableBlock(Block block, ModelFile lower, ModelFile upper, ModelFile lowerOpen, ModelFile upperOpen) {
         facingBlock(block, state -> {

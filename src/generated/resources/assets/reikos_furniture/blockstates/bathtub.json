@@ -1,0 +1,156 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_base"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_left"
+      },
+      "when": {
+        "facing": "north",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_right"
+      },
+      "when": {
+        "facing": "north",
+        "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_water"
+      },
+      "when": {
+        "facing": "north",
+        "filled": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_base",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_left",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_right",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_water",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "filled": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_base",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_left",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_right",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_water",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "filled": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_base",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_left",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "part": "single|left"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_end_right",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "part": "single|right"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/bathroom/bathtub_water",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "filled": "true"
+      }
+    }
+  ]
+}

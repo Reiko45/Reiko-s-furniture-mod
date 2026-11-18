@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Q": {
+      "item": "minecraft:white_terracotta"
+    }
+  },
+  "pattern": [
+    "Q Q",
+    "QQQ"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:bathtub"
+  }
+}
