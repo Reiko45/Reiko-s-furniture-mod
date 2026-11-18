@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "minecraft:crimson_planks"
+    },
+    "S": {
+      "item": "minecraft:crimson_slab"
+    }
+  },
+  "pattern": [
+    "P  ",
+    "PPP",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:crimson_rocking_horse"
+  }
+}

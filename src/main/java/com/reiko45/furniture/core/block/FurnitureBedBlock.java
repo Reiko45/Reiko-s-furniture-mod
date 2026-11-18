@@ -62,11 +62,16 @@ public class FurnitureBedBlock extends BedBlock {
                 if (other.is(this)) {
                     level.setBlock(otherPos, other.setValue(COLOR, color), Block.UPDATE_ALL);
                 }
+                onRecolor(level, pos, otherPos, color);
                 stack.consume(1, player);
                 level.playSound(null, pos, SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hit);
+    }
+
+    /** Called after both halves were dyed. Bunk beds use this to recolor the top bunk too. */
+    protected void onRecolor(Level level, BlockPos pos, BlockPos otherPos, DyeColor color) {
     }
 }

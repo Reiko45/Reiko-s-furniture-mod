@@ -14,6 +14,7 @@ import com.reiko45.furniture.core.registry.ModRecipes;
 import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.datagen.DataGenerators;
 import com.reiko45.furniture.dining.DiningFurniture;
+import com.reiko45.furniture.kids.KidsFurniture;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.office.OfficeFurniture;
@@ -47,6 +48,7 @@ public class ReikosFurniture {
         BathroomFurniture.init();
         OfficeFurniture.init();
         OutdoorFurniture.init();
+        KidsFurniture.init();
         Workbench.init();
 
         ModBlocks.BLOCKS.register(modBus);

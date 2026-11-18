@@ -29,7 +29,12 @@ final class CarpentryCosts {
             // Outdoor
             Map.entry("patio_table", 6),
             Map.entry("patio_chair", 3),
-            Map.entry("garden_bench", 5));
+            Map.entry("garden_bench", 5),
+            // Kids' room
+            Map.entry("toy_chest", 15),
+            Map.entry("kids_table", 3),
+            Map.entry("kids_chair", 2),
+            Map.entry("rocking_horse", 6));
 
     private CarpentryCosts() {
     }

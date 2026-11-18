@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/kids/bunk_bed_lower_head",
+  "textures": {
+    "log": "minecraft:block/oak_log",
+    "planks": "minecraft:block/oak_planks",
+    "stripped_log": "minecraft:block/stripped_oak_log",
+    "wool": "minecraft:block/yellow_wool"
+  }
+}

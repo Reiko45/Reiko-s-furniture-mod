@@ -1,0 +1,484 @@
+{
+  "variants": {
+    "color=black,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_foot",
+      "y": 90
+    },
+    "color=black,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_head",
+      "y": 90
+    },
+    "color=black,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_foot"
+    },
+    "color=black,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_head"
+    },
+    "color=black,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_foot",
+      "y": 180
+    },
+    "color=black,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_head",
+      "y": 180
+    },
+    "color=black,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_foot",
+      "y": 270
+    },
+    "color=black,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_black_lower_head",
+      "y": 270
+    },
+    "color=blue,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_foot",
+      "y": 90
+    },
+    "color=blue,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_head",
+      "y": 90
+    },
+    "color=blue,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_foot"
+    },
+    "color=blue,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_head"
+    },
+    "color=blue,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_foot",
+      "y": 180
+    },
+    "color=blue,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_head",
+      "y": 180
+    },
+    "color=blue,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_foot",
+      "y": 270
+    },
+    "color=blue,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_blue_lower_head",
+      "y": 270
+    },
+    "color=brown,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_foot",
+      "y": 90
+    },
+    "color=brown,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_head",
+      "y": 90
+    },
+    "color=brown,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_foot"
+    },
+    "color=brown,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_head"
+    },
+    "color=brown,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_foot",
+      "y": 180
+    },
+    "color=brown,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_head",
+      "y": 180
+    },
+    "color=brown,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_foot",
+      "y": 270
+    },
+    "color=brown,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_brown_lower_head",
+      "y": 270
+    },
+    "color=cyan,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_foot",
+      "y": 90
+    },
+    "color=cyan,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_head",
+      "y": 90
+    },
+    "color=cyan,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_foot"
+    },
+    "color=cyan,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_head"
+    },
+    "color=cyan,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_foot",
+      "y": 180
+    },
+    "color=cyan,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_head",
+      "y": 180
+    },
+    "color=cyan,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_foot",
+      "y": 270
+    },
+    "color=cyan,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_cyan_lower_head",
+      "y": 270
+    },
+    "color=gray,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_foot",
+      "y": 90
+    },
+    "color=gray,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_head",
+      "y": 90
+    },
+    "color=gray,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_foot"
+    },
+    "color=gray,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_head"
+    },
+    "color=gray,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_foot",
+      "y": 180
+    },
+    "color=gray,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_head",
+      "y": 180
+    },
+    "color=gray,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_foot",
+      "y": 270
+    },
+    "color=gray,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_gray_lower_head",
+      "y": 270
+    },
+    "color=green,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_foot",
+      "y": 90
+    },
+    "color=green,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_head",
+      "y": 90
+    },
+    "color=green,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_foot"
+    },
+    "color=green,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_head"
+    },
+    "color=green,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_foot",
+      "y": 180
+    },
+    "color=green,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_head",
+      "y": 180
+    },
+    "color=green,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_foot",
+      "y": 270
+    },
+    "color=green,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_green_lower_head",
+      "y": 270
+    },
+    "color=light_blue,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_foot",
+      "y": 90
+    },
+    "color=light_blue,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_head",
+      "y": 90
+    },
+    "color=light_blue,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_foot"
+    },
+    "color=light_blue,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_head"
+    },
+    "color=light_blue,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_foot",
+      "y": 180
+    },
+    "color=light_blue,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_head",
+      "y": 180
+    },
+    "color=light_blue,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_foot",
+      "y": 270
+    },
+    "color=light_blue,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_blue_lower_head",
+      "y": 270
+    },
+    "color=light_gray,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_foot",
+      "y": 90
+    },
+    "color=light_gray,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_head",
+      "y": 90
+    },
+    "color=light_gray,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_foot"
+    },
+    "color=light_gray,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_head"
+    },
+    "color=light_gray,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_foot",
+      "y": 180
+    },
+    "color=light_gray,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_head",
+      "y": 180
+    },
+    "color=light_gray,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_foot",
+      "y": 270
+    },
+    "color=light_gray,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_light_gray_lower_head",
+      "y": 270
+    },
+    "color=lime,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_foot",
+      "y": 90
+    },
+    "color=lime,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_head",
+      "y": 90
+    },
+    "color=lime,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_foot"
+    },
+    "color=lime,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_head"
+    },
+    "color=lime,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_foot",
+      "y": 180
+    },
+    "color=lime,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_head",
+      "y": 180
+    },
+    "color=lime,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_foot",
+      "y": 270
+    },
+    "color=lime,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_lime_lower_head",
+      "y": 270
+    },
+    "color=magenta,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_foot",
+      "y": 90
+    },
+    "color=magenta,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_head",
+      "y": 90
+    },
+    "color=magenta,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_foot"
+    },
+    "color=magenta,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_head"
+    },
+    "color=magenta,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_foot",
+      "y": 180
+    },
+    "color=magenta,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_head",
+      "y": 180
+    },
+    "color=magenta,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_foot",
+      "y": 270
+    },
+    "color=magenta,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_magenta_lower_head",
+      "y": 270
+    },
+    "color=orange,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_foot",
+      "y": 90
+    },
+    "color=orange,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_head",
+      "y": 90
+    },
+    "color=orange,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_foot"
+    },
+    "color=orange,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_head"
+    },
+    "color=orange,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_foot",
+      "y": 180
+    },
+    "color=orange,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_head",
+      "y": 180
+    },
+    "color=orange,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_foot",
+      "y": 270
+    },
+    "color=orange,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_orange_lower_head",
+      "y": 270
+    },
+    "color=pink,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_foot",
+      "y": 90
+    },
+    "color=pink,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_head",
+      "y": 90
+    },
+    "color=pink,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_foot"
+    },
+    "color=pink,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_head"
+    },
+    "color=pink,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_foot",
+      "y": 180
+    },
+    "color=pink,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_head",
+      "y": 180
+    },
+    "color=pink,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_foot",
+      "y": 270
+    },
+    "color=pink,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_pink_lower_head",
+      "y": 270
+    },
+    "color=purple,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_foot",
+      "y": 90
+    },
+    "color=purple,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_head",
+      "y": 90
+    },
+    "color=purple,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_foot"
+    },
+    "color=purple,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_head"
+    },
+    "color=purple,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_foot",
+      "y": 180
+    },
+    "color=purple,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_head",
+      "y": 180
+    },
+    "color=purple,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_foot",
+      "y": 270
+    },
+    "color=purple,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_purple_lower_head",
+      "y": 270
+    },
+    "color=red,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_foot",
+      "y": 90
+    },
+    "color=red,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_head",
+      "y": 90
+    },
+    "color=red,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_foot"
+    },
+    "color=red,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_head"
+    },
+    "color=red,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_foot",
+      "y": 180
+    },
+    "color=red,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_head",
+      "y": 180
+    },
+    "color=red,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_foot",
+      "y": 270
+    },
+    "color=red,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_red_lower_head",
+      "y": 270
+    },
+    "color=white,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_foot",
+      "y": 90
+    },
+    "color=white,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_head",
+      "y": 90
+    },
+    "color=white,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_foot"
+    },
+    "color=white,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_head"
+    },
+    "color=white,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_foot",
+      "y": 180
+    },
+    "color=white,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_head",
+      "y": 180
+    },
+    "color=white,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_foot",
+      "y": 270
+    },
+    "color=white,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_white_lower_head",
+      "y": 270
+    },
+    "color=yellow,facing=east,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_foot",
+      "y": 90
+    },
+    "color=yellow,facing=east,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_head",
+      "y": 90
+    },
+    "color=yellow,facing=north,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_foot"
+    },
+    "color=yellow,facing=north,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_head"
+    },
+    "color=yellow,facing=south,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_foot",
+      "y": 180
+    },
+    "color=yellow,facing=south,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_head",
+      "y": 180
+    },
+    "color=yellow,facing=west,part=foot": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_foot",
+      "y": 270
+    },
+    "color=yellow,facing=west,part=head": {
+      "model": "reikos_furniture:block/mangrove_bunk_bed_yellow_lower_head",
+      "y": 270
+    }
+  }
+}
