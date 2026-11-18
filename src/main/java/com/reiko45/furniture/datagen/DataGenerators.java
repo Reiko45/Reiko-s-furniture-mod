@@ -14,14 +14,19 @@ import com.reiko45.furniture.music.MusicData;
 import com.reiko45.furniture.office.OfficeData;
 import com.reiko45.furniture.outdoor.OutdoorData;
 import com.reiko45.furniture.pets.PetData;
+import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.decor.Paintings;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -62,5 +67,10 @@ public final class DataGenerators {
         generator.addProvider(event.includeServer(), new FurnitureRecipeProvider(output, lookup));
         generator.addProvider(event.includeServer(), new FurnitureBlockTagsProvider(output, lookup, files));
         generator.addProvider(event.includeServer(), new FurniturePoiTagsProvider(output, lookup, files));
+        // Painting variants are data (a datapack registry), with a tag so paintings place them.
+        DatapackBuiltinEntriesProvider paintings = new DatapackBuiltinEntriesProvider(output, lookup,
+                new RegistrySetBuilder().add(Registries.PAINTING_VARIANT, Paintings::bootstrap), Set.of(ReikosFurniture.MODID));
+        generator.addProvider(event.includeServer(), paintings);
+        generator.addProvider(event.includeServer(), new FurniturePaintingTagsProvider(output, paintings.getRegistryProvider(), files));
     }
 }

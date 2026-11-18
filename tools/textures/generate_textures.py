@@ -607,7 +607,222 @@ def tool_items():
     save(dolly(True), "item/moving_dolly_loaded.png")
 
 
+# ---- Paintings ---------------------------------------------------------------------------------
+
+PAINTINGS = {  # name: (width, height) in blocks
+    "sunset": (2, 1), "mountains": (2, 1), "meadow": (1, 1), "still_life": (1, 1), "shapes": (1, 1),
+    "cat": (1, 1), "city_lights": (4, 2), "lighthouse": (1, 2), "big_wave": (2, 2), "night_hills": (2, 2),
+    "fruit_bowl": (2, 1), "sailboat": (1, 1),
+}
+
+
+def paintings():
+    """Twelve paintings for the vanilla painting item, each with a thin dark frame."""
+    from PIL import ImageDraw
+    import math
+
+    def canvas(name):
+        w, h = PAINTINGS[name]
+        return Image.new("RGBA", (w * 16, h * 16), (0, 0, 0, 255))
+
+    def gradient(img, top, bottom, y0=0, y1=None):
+        y1 = img.height if y1 is None else y1
+        for y in range(y0, y1):
+            c = mix(top, bottom, (y - y0) / max(1, y1 - y0 - 1))
+            for x in range(img.width):
+                img.load()[x, y] = c + (255,)
+
+    def frame(img):
+        d = ImageDraw.Draw(img)
+        d.rectangle([0, 0, img.width - 1, img.height - 1], outline=(0x4A, 0x32, 0x1E, 255))
+
+    def done(img, name):
+        frame(img)
+        save(img, f"painting/{name}.png")
+
+    rnd = random.Random("paintings")
+
+    # Sunset over the sea.
+    img = canvas("sunset")
+    gradient(img, (0x6A, 0x3C, 0x8C), (0xFF, 0xA8, 0x5A), 0, 10)
+    gradient(img, (0x2C, 0x40, 0x78), (0x16, 0x22, 0x48), 10, 16)
+    d = ImageDraw.Draw(img)
+    d.ellipse([11, 5, 20, 14], fill=(0xFF, 0xE0, 0x8C, 255))
+    gradient_sea = [(0x2C, 0x40, 0x78), (0x16, 0x22, 0x48)]
+    for y in range(10, 16):
+        for x in range(img.width):
+            img.load()[x, y] = mix(*gradient_sea, (y - 10) / 5) + (255,)
+        for x in range(13, 19):
+            if (x + y) % 2 == 0:
+                img.load()[x, y] = (0xFF, 0xB8, 0x6A, 255)
+    done(img, "sunset")
+
+    # Snowy mountains over a green valley.
+    img = canvas("mountains")
+    gradient(img, (0x6E, 0xA8, 0xE8), (0xC8, 0xE4, 0xFA), 0, 12)
+    d = ImageDraw.Draw(img)
+    d.polygon([(0, 13), (8, 3), (15, 13)], fill=(0x7A, 0x7A, 0x8C, 255))
+    d.polygon([(10, 13), (20, 2), (31, 13)], fill=(0x8C, 0x8C, 0x9E, 255))
+    d.polygon([(6, 5), (8, 3), (10, 5)], fill=(0xF6, 0xF6, 0xFA, 255))
+    d.polygon([(17, 5), (20, 2), (23, 5)], fill=(0xF6, 0xF6, 0xFA, 255))
+    d.rectangle([0, 12, 31, 15], fill=(0x4E, 0x8A, 0x3A, 255))
+    d.line([(0, 12), (31, 12)], fill=(0x62, 0x9E, 0x48, 255))
+    d.line([(5, 14), (12, 14)], fill=(0x5A, 0x9A, 0xD8, 255))
+    done(img, "mountains")
+
+    # Meadow with flowers.
+    img = canvas("meadow")
+    gradient(img, (0x8C, 0xC4, 0xFA), (0xD8, 0xEE, 0xFF), 0, 9)
+    for x in range(16):
+        top = 8 + round(1.5 * math.sin(x / 3))
+        for y in range(top, 16):
+            img.load()[x, y] = (0x5C if y > top + 2 else 0x6E, 0xA8 if y > top + 2 else 0xB8, 0x48, 255)
+    for x, y, c in ((3, 12, (0xE8, 0x40, 0x40)), (7, 13, (0xFF, 0xE0, 0x40)), (11, 11, (0xF8, 0xF8, 0xF8)),
+                    (13, 14, (0xE8, 0x40, 0x40)), (5, 14, (0xC8, 0x70, 0xE8))):
+        img.load()[x, y] = c + (255,)
+    for x in range(4, 8):
+        img.load()[x, 3] = (0xFF, 0xFF, 0xFF, 255)
+    done(img, "meadow")
+
+    # Still life: a vase of flowers on a table.
+    img = canvas("still_life")
+    gradient(img, (0xD8, 0xC0, 0x98), (0xC0, 0xA4, 0x7C))
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 12, 15, 15], fill=(0x7A, 0x4E, 0x2C, 255))
+    d.rectangle([6, 8, 9, 12], fill=(0x3C, 0x6C, 0xC0, 255))
+    d.line([(7, 4), (7, 8)], fill=(0x3E, 0x7A, 0x34, 255))
+    d.line([(9, 5), (8, 8)], fill=(0x3E, 0x7A, 0x34, 255))
+    for x, y, c in ((7, 3, (0xE8, 0x3C, 0x3C)), (6, 4, (0xE8, 0x3C, 0x3C)), (9, 4, (0xFF, 0xD8, 0x30)), (10, 5, (0xFF, 0xD8, 0x30))):
+        img.load()[x, y] = c + (255,)
+    done(img, "still_life")
+
+    # Shapes: an abstract composition.
+    img = canvas("shapes")
+    gradient(img, (0xF2, 0xEE, 0xE2), (0xE6, 0xE0, 0xD0))
+    d = ImageDraw.Draw(img)
+    d.ellipse([2, 2, 8, 8], fill=(0xD8, 0x3A, 0x3A, 255))
+    d.polygon([(8, 14), (14, 14), (11, 6)], fill=(0x2E, 0x5C, 0xC0, 255))
+    d.rectangle([2, 10, 6, 13], fill=(0xF0, 0xC0, 0x28, 255))
+    d.line([(1, 9), (14, 4)], fill=(0x20, 0x20, 0x24, 255))
+    done(img, "shapes")
+
+    # Cat portrait.
+    img = canvas("cat")
+    gradient(img, (0x3A, 0x8C, 0x8C), (0x2A, 0x6A, 0x6E))
+    d = ImageDraw.Draw(img)
+    orange, dark = (0xE8, 0x8C, 0x34, 255), (0xB8, 0x64, 0x20, 255)
+    d.polygon([(3, 6), (4, 2), (7, 5)], fill=orange)
+    d.polygon([(12, 6), (11, 2), (8, 5)], fill=orange)
+    d.ellipse([3, 4, 12, 13], fill=orange)
+    for x, y in ((5, 6), (10, 6), (7, 4), (8, 4)):
+        img.load()[x, y] = dark
+    img.load()[5, 8] = (0x40, 0xC0, 0x40, 255)
+    img.load()[10, 8] = (0x40, 0xC0, 0x40, 255)
+    img.load()[7, 10] = (0xF0, 0x90, 0xA0, 255)
+    img.load()[8, 10] = (0xF0, 0x90, 0xA0, 255)
+    for y in (10, 11):
+        img.load()[2, y] = (0xF0, 0xF0, 0xF0, 255)
+        img.load()[13, y] = (0xF0, 0xF0, 0xF0, 255)
+    done(img, "cat")
+
+    # City lights at night.
+    img = canvas("city_lights")
+    gradient(img, (0x0C, 0x10, 0x30), (0x2A, 0x24, 0x58), 0, 24)
+    gradient(img, (0x14, 0x18, 0x34), (0x0A, 0x0C, 0x1C), 24, 32)
+    d = ImageDraw.Draw(img)
+    d.ellipse([50, 3, 56, 9], fill=(0xF4, 0xF0, 0xD0, 255))
+    x = 1
+    while x < 63:
+        w = rnd.randint(4, 8)
+        top = rnd.randint(8, 18)
+        shade_c = rnd.choice([(0x1C, 0x20, 0x38), (0x24, 0x28, 0x44), (0x18, 0x1A, 0x2C)])
+        d.rectangle([x, top, min(62, x + w - 1), 24], fill=shade_c + (255,))
+        for wy in range(top + 2, 23, 2):
+            for wx in range(x + 1, min(62, x + w - 1), 2):
+                if rnd.random() < 0.45:
+                    img.load()[wx, wy] = (0xFF, 0xD8, 0x6A, 255)
+                    if 26 + (24 - wy) // 3 < 31:
+                        img.load()[wx, 26 + (24 - wy) // 3] = (0x8C, 0x78, 0x40, 255)
+        x += w + rnd.randint(0, 1)
+    done(img, "city_lights")
+
+    # Lighthouse on the rocks.
+    img = canvas("lighthouse")
+    gradient(img, (0x5A, 0x8C, 0xD8), (0xC8, 0xE0, 0xF4), 0, 24)
+    gradient(img, (0x2C, 0x5C, 0x9C), (0x1C, 0x3C, 0x6C), 24, 32)
+    d = ImageDraw.Draw(img)
+    d.polygon([(2, 31), (4, 24), (12, 23), (14, 31)], fill=(0x6C, 0x64, 0x5C, 255))
+    for y in range(8, 24):
+        for x in range(6, 10):
+            stripe = ((y - 8) // 3) % 2 == 0
+            img.load()[x, y] = ((0xD8, 0x30, 0x30) if stripe else (0xF4, 0xF4, 0xF0)) + (255,)
+    d.rectangle([5, 5, 10, 7], fill=(0x30, 0x30, 0x34, 255))
+    d.rectangle([6, 6, 9, 7], fill=(0xFF, 0xE8, 0x70, 255))
+    d.polygon([(5, 4), (8, 2), (10, 4)], fill=(0x30, 0x30, 0x34, 255))
+    for i in range(1, 5):
+        img.load()[10 + i, 6 - i // 2] = (0xFF, 0xF4, 0xB0, 255)
+    done(img, "lighthouse")
+
+    # A big curling wave.
+    img = canvas("big_wave")
+    gradient(img, (0xE8, 0xE2, 0xCC), (0xD8, 0xD2, 0xBC))
+    for y in range(32):
+        for x in range(32):
+            r = math.hypot(x - 18, y - 16)
+            a = math.atan2(y - 16, x - 18)
+            band = (r + 3 * a) % 6
+            if y > 12 + 3 * math.sin(x / 5) and r < 15 or y > 24:
+                c = (0x1E, 0x4A, 0x8C) if band < 3 else (0x2E, 0x6C, 0xB0)
+                if band < 0.8:
+                    c = (0xF0, 0xF6, 0xFA)
+                img.load()[x, y] = c + (255,)
+    done(img, "big_wave")
+
+    # Night over the hills, with a crescent moon and a lone tree.
+    img = canvas("night_hills")
+    gradient(img, (0x0A, 0x0E, 0x2C), (0x30, 0x3C, 0x7A), 0, 22)
+    d = ImageDraw.Draw(img)
+    for _ in range(26):
+        x, y = rnd.randint(1, 30), rnd.randint(1, 17)
+        img.load()[x, y] = (0xF8, 0xF4, 0xD0, 255) if rnd.random() < 0.7 else (0xA8, 0xB8, 0xF0, 255)
+    d.ellipse([20, 3, 27, 10], fill=(0xF4, 0xF0, 0xC8, 255))
+    d.ellipse([22, 2, 29, 9], fill=(0x10, 0x16, 0x38, 255))
+    for x in range(32):
+        top = 21 + round(3 * math.sin(x / 6 + 1))
+        for y in range(top, 32):
+            img.load()[x, y] = (0x10, 0x22, 0x18, 255) if y < top + 3 else (0x0A, 0x16, 0x10, 255)
+    d.line([(8, 21), (8, 15)], fill=(0x0A, 0x10, 0x0C, 255))
+    d.ellipse([5, 10, 11, 16], fill=(0x0C, 0x1A, 0x12, 255))
+    done(img, "night_hills")
+
+    # A bowl of fruit.
+    img = canvas("fruit_bowl")
+    gradient(img, (0x6E, 0x3A, 0x34), (0x52, 0x28, 0x26))
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 12, 31, 15], fill=(0x8C, 0x5E, 0x34, 255))
+    for cx, cy, c in ((11, 8, (0xD8, 0x2C, 0x2C)), (16, 7, (0xF0, 0x98, 0x28)), (21, 8, (0x80, 0xC0, 0x30)), (13, 6, (0xF0, 0x98, 0x28))):
+        d.ellipse([cx - 2, cy - 2, cx + 2, cy + 2], fill=c + (255,))
+    for gx, gy in ((18, 9), (19, 10), (20, 9), (19, 8)):
+        img.load()[gx, gy] = (0x6A, 0x2C, 0x8C, 255)
+    d.arc([9, 3, 24, 9], 200, 330, fill=(0xF8, 0xD8, 0x40, 255))
+    d.pieslice([8, 5, 24, 16], 0, 180, fill=(0xEE, 0xEE, 0xE6, 255))
+    done(img, "fruit_bowl")
+
+    # A sailboat at sea.
+    img = canvas("sailboat")
+    gradient(img, (0x7C, 0xB4, 0xEC), (0xD0, 0xE8, 0xFA), 0, 10)
+    gradient(img, (0x30, 0x6C, 0xB0), (0x1C, 0x48, 0x84), 10, 16)
+    d = ImageDraw.Draw(img)
+    d.polygon([(8, 2), (8, 10), (3, 10)], fill=(0xF8, 0xF8, 0xF4, 255))
+    d.polygon([(9, 4), (9, 10), (12, 10)], fill=(0xE8, 0x48, 0x48, 255))
+    d.polygon([(3, 11), (13, 11), (11, 13), (5, 13)], fill=(0x7A, 0x4A, 0x28, 255))
+    for x in range(1, 15, 3):
+        img.load()[x, 14] = (0x8C, 0xC0, 0xF0, 255)
+    done(img, "sailboat")
+
+
 if __name__ == "__main__":
+    paintings()
     tool_items()
     window_glass()
     for name, rgb in DYES.items():

@@ -4,13 +4,19 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import com.reiko45.furniture.core.block.FurnitureBlock;
 import java.util.List;
+import com.reiko45.furniture.decor.PictureFrameBlock;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.MapItem;
+import net.minecraft.world.level.saveddata.maps.MapId;
+import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 
 /** Draws the items on display blocks at the block's slot positions. Client only. */
 public class DisplayRenderer implements BlockEntityRenderer<DisplayBlockEntity> {
@@ -35,6 +41,10 @@ public class DisplayRenderer implements BlockEntityRenderer<DisplayBlockEntity> 
                 continue;
             }
             DisplaySlot slot = slots.get(i);
+            if (block instanceof PictureFrameBlock && stack.has(DataComponents.MAP_ID)) {
+                renderMap(display, stack.get(DataComponents.MAP_ID), facing, pose, buffers, light);
+                continue;
+            }
             pose.pushPose();
             // Rotate around the block centre so the slot positions follow the block's facing.
             pose.translate(0.5F, 0.0F, 0.5F);
@@ -51,5 +61,25 @@ public class DisplayRenderer implements BlockEntityRenderer<DisplayBlockEntity> 
             itemRenderer.renderStatic(stack, ItemDisplayContext.FIXED, light, overlay, pose, buffers, display.getLevel(), seed + i);
             pose.popPose();
         }
+    }
+
+    /** A map fills the frame's picture area, like a map in an item frame. */
+    private static void renderMap(DisplayBlockEntity display, MapId id, Direction facing, PoseStack pose, MultiBufferSource buffers, int light) {
+        MapItemSavedData data = MapItem.getSavedData(id, display.getLevel());
+        if (data == null) {
+            return;
+        }
+        pose.pushPose();
+        pose.translate(0.5F, 0.0F, 0.5F);
+        pose.mulPose(Axis.YP.rotationDegrees(-((facing.toYRot() + 180) % 360)));
+        // Just in front of the frame's backing, centred in the frame, facing out of the wall.
+        pose.translate(0.0F, 0.5F, 14.45F / 16F - 0.5F);
+        // Same as an item frame on a north wall: the map's front faces north, out of the wall.
+        pose.mulPose(Axis.ZP.rotationDegrees(180.0F));
+        float scale = PictureFrameBlock.PICTURE_SIZE / 16F / 128F;
+        pose.scale(scale, scale, scale);
+        pose.translate(-64.0F, -64.0F, 0.0F);
+        Minecraft.getInstance().gameRenderer.getMapRenderer().render(pose, buffers, id, data, true, light);
+        pose.popPose();
     }
 }

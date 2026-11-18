@@ -5,6 +5,7 @@ import static com.reiko45.furniture.decor.DecorFurniture.CROWN_MOLDING;
 import static com.reiko45.furniture.decor.DecorFurniture.FRENCH_DOOR;
 import static com.reiko45.furniture.decor.DecorFurniture.PARQUET;
 import static com.reiko45.furniture.decor.DecorFurniture.PARQUET_SLAB;
+import static com.reiko45.furniture.decor.DecorFurniture.PICTURE_FRAME;
 import static com.reiko45.furniture.decor.DecorFurniture.SLIDING_DOOR;
 import static com.reiko45.furniture.decor.DecorFurniture.TILES;
 import static com.reiko45.furniture.decor.DecorFurniture.WALLPAPER;
@@ -66,6 +67,7 @@ public class DecorData implements RoomData {
         }
         trims(models, BASEBOARD, "baseboard");
         trims(models, CROWN_MOLDING, "crown_molding");
+        models.woodFacing(PICTURE_FRAME, "picture_frame");
         for (FurnitureWood wood : FurnitureWood.values()) {
             frenchDoor(models, FRENCH_DOOR.get(wood).get(), wood);
             slidingDoor(models, SLIDING_DOOR.get(wood).get(), wood);
@@ -186,6 +188,7 @@ public class DecorData implements RoomData {
         recipes.woodShaped(output, FRENCH_DOOR, 3, wood -> Map.of('G', Ingredient.of(Items.GLASS_PANE)), "PG", "PG", "PG");
         recipes.woodShaped(output, SLIDING_DOOR, 2, wood -> Map.of('G', Ingredient.of(Items.GLASS_PANE)), "LG", "LG", "LG");
         recipes.woodShaped(output, WINDOW, 2, wood -> Map.of('G', Ingredient.of(Items.GLASS)), "SGS");
+        recipes.woodShaped(output, PICTURE_FRAME, 2, wood -> Map.of('W', Ingredient.of(Items.PAPER)), "SSS", "SWS", "SSS");
     }
 
     /** Four tiles from a 2x2 of two materials (the same one twice for single-color tiles). */
@@ -193,6 +196,14 @@ public class DecorData implements RoomData {
         recipes.shaped(TILES.get(pattern).get(), 4, "AB", "BA")
                 .define('A', a).define('B', b)
                 .unlockedBy("has_material", FurnitureRecipeProvider.hasItem(a)).save(output);
+    }
+
+    @Override
+    public void translations(java.util.function.BiConsumer<String, String> add) {
+        for (Paintings.Art art : Paintings.ALL) {
+            add.accept("painting.reikos_furniture." + art.name() + ".title", art.title());
+            add.accept("painting.reikos_furniture." + art.name() + ".author", "Reiko's Furniture");
+        }
     }
 
     @Override

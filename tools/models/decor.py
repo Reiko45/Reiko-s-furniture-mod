@@ -128,3 +128,11 @@ write(ROOM, "window_pane_open", pane_open, GLASS, render_type=TRANSLUCENT, cull=
 for side, boxes in frame.items():
     write(ROOM, "window_frame_" + side, boxes, render_type=TRANSLUCENT)
 write(ROOM, "window_item", pane + sum(frame.values(), []), GLASS, render_type=TRANSLUCENT)
+
+
+# Picture frame: a wooden frame around a light backing, on the wall (back of the block).
+write(ROOM, "picture_frame", [
+    Box((2, 2, 15.25), (14, 14, 16), "#backing"),
+    Box((1, 1, 14.5), (15, 2, 16), P), Box((1, 14, 14.5), (15, 15, 16), P),
+    Box((1, 2, 14.5), (2, 14, 16), P), Box((14, 2, 14.5), (15, 14, 16), P),
+], {"backing": "minecraft:block/white_concrete_powder"})

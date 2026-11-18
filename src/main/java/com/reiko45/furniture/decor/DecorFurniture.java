@@ -83,6 +83,10 @@ public final class DecorFurniture {
     public static final WoodSet<FramedWindowBlock> WINDOW = FurnitureRegistry.woodSet("window", ROOM,
             wood -> new FramedWindowBlock(wood.properties()));
 
+    /** Shows an item or a map on the wall. */
+    public static final WoodSet<PictureFrameBlock> PICTURE_FRAME = FurnitureRegistry.woodSet("picture_frame", ROOM,
+            wood -> new PictureFrameBlock(wood.properties()));
+
     private DecorFurniture() {
     }
 
