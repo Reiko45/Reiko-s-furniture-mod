@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "P": {
+      "item": "minecraft:bamboo_planks"
+    }
+  },
+  "pattern": [
+    "PGP",
+    "PGP",
+    "PCP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:bamboo_glass_cupboard"
+  }
+}

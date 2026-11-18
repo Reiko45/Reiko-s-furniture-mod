@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/livingroom/curtains_open",
+  "textures": {
+    "wool": "minecraft:block/purple_wool"
+  }
+}

@@ -19,7 +19,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
@@ -73,7 +75,7 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         return woodTextures(models().withExistingParent(name, template), wood);
     }
 
-    private static ResourceLocation woolTexture(DyeColor color) {
+    public static ResourceLocation woolTexture(DyeColor color) {
         return ResourceLocation.withDefaultNamespace("block/" + color.getName() + "_wool");
     }
 
@@ -85,11 +87,15 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
     // ---- Block state shapes ------------------------------------------------------------------
 
     /** A block that rotates with {@link FurnitureBlock#FACING}. Waterlogging and redstone power don't change the model. */
-    public void facingBlock(Block block, Function<BlockState, ModelFile> model) {
+    public void facingBlock(Block block, Function<BlockState, ModelFile> model, Property<?>... alsoIgnored) {
+        Property<?>[] ignored = new Property<?>[alsoIgnored.length + 2];
+        ignored[0] = FurnitureBlock.WATERLOGGED;
+        ignored[1] = SwitchableFurnitureBlock.POWERED;
+        System.arraycopy(alsoIgnored, 0, ignored, 2, alsoIgnored.length);
         getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder()
                 .modelFile(model.apply(state))
                 .rotationY(yRot(state.getValue(FurnitureBlock.FACING)))
-                .build(), FurnitureBlock.WATERLOGGED, SwitchableFurnitureBlock.POWERED);
+                .build(), ignored);
     }
 
     /** A rotating block with an off model and an on model ({@link SwitchableFurnitureBlock#LIT}). */
@@ -223,7 +229,35 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         }
     }
 
+    /** Item model for one wooden block from an item template, filling in the wood's textures. */
+    public void woodItem(Block block, Room room, String template, FurnitureWood wood) {
+        woodTextures(itemModels().withExistingParent(name(block), template(room, template)), wood);
+    }
+
     // ---- Color sets ------------------------------------------------------------------------
+
+    /** Colored piece with one template using {@code #wool}. */
+    public void colorFacing(ColorSet<?> set, String template) {
+        for (DyeColor color : DyeColor.values()) {
+            Block block = set.get(color).get();
+            String name = name(block);
+            ModelFile model = woolModel(name, template(set.room(), template), color);
+            facingBlock(block, state -> model);
+            itemModels().withExistingParent(name, modLoc("block/" + name));
+        }
+    }
+
+    /** Colored piece that opens and closes ({@code OPEN}): {@code <template>} and {@code <template>_open}. */
+    public void colorFacingOpenable(ColorSet<?> set, String template) {
+        for (DyeColor color : DyeColor.values()) {
+            Block block = set.get(color).get();
+            String name = name(block);
+            ModelFile closed = woolModel(name, template(set.room(), template), color);
+            ModelFile open = woolModel(name + "_open", template(set.room(), template + "_open"), color);
+            facingBlock(block, state -> state.getValue(BlockStateProperties.OPEN) ? open : closed);
+            itemModels().withExistingParent(name, modLoc("block/" + name));
+        }
+    }
 
     /** Creates {@code <color>_<suffix>} from a template, filling in {@code #wool}. */
     public BlockModelBuilder woolModel(String name, ResourceLocation template, DyeColor color) {

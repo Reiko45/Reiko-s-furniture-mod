@@ -9,6 +9,7 @@ import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
+import com.reiko45.furniture.core.block.SeatBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -18,8 +19,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
 /**
- * Living room section: sofas in every color; coffee table, bookshelf, TV stand and floor lamp in every
- * wood type; and a TV. Models are in {@code models/block/template/livingroom/}.
+ * Living room section: sofas, armchairs, rugs and curtains in every color; coffee table, bookshelf,
+ * TV stand and floor lamp in every wood type; a TV and a fireplace. Models are in {@code models/block/template/livingroom/}.
  */
 public final class LivingRoomFurniture {
     private static final Room ROOM = Room.LIVING_ROOM;
@@ -32,6 +33,7 @@ public final class LivingRoomFurniture {
     private static final VoxelShape TV_SHAPE = boxes(box(4, 0, 6, 12, 3, 10), box(0, 3, 6.75, 16, 13, 8.5));
     private static final VoxelShape FLOOR_LAMP_LOWER = boxes(box(5, 0, 5, 11, 1, 11), box(7.5, 1, 7.5, 8.5, 16, 8.5));
     private static final VoxelShape FLOOR_LAMP_UPPER = boxes(box(7.5, 0, 7.5, 8.5, 6, 8.5), box(3.5, 6, 3.5, 12.5, 14, 12.5));
+    private static final VoxelShape ARMCHAIR_SHAPE = boxes(box(1, 0, 1, 15, 10, 15), box(2.5, 10, 12, 13.5, 15, 15));
 
     /** Sit on it. Sofas facing the same way join into one long sofa. */
     public static final ColorSet<SofaBlock> SOFA = FurnitureRegistry.colorSet("sofa", ROOM,
@@ -63,6 +65,26 @@ public final class LivingRoomFurniture {
                     .sound(SoundType.METAL)
                     .noOcclusion()
                     .lightLevel(SwitchableFurnitureBlock.lightWhenOn(10)), TV_SHAPE));
+
+    /** Cushioned chair with wooden arms. Sit on it. */
+    public static final ColorSet<SeatBlock> ARMCHAIR = FurnitureRegistry.colorSet("armchair", ROOM,
+            color -> new SeatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                    .mapColor(color.getMapColor()).strength(0.8F).noOcclusion(), ARMCHAIR_SHAPE, 7));
+
+    /** Flat rug; rugs of the same color join into one big rug. */
+    public static final ColorSet<RugBlock> RUG = FurnitureRegistry.colorSet("rug", ROOM,
+            color -> new RugBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CARPET).mapColor(color.getMapColor())));
+
+    /** Right-click to open or close. */
+    public static final ColorSet<CurtainBlock> CURTAINS = FurnitureRegistry.colorSet("curtains", ROOM,
+            color -> new CurtainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL)
+                    .mapColor(color.getMapColor()).strength(0.5F).noOcclusion().noCollission()));
+
+    /** Brick fireplace; light it with flint and steel or a right-click. */
+    public static final DeferredBlock<FireplaceBlock> FIREPLACE = FurnitureRegistry.register("fireplace", ROOM,
+            () -> new FireplaceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)
+                    .noOcclusion()
+                    .lightLevel(SwitchableFurnitureBlock.lightWhenOn(15)), FULL));
 
     private LivingRoomFurniture() {
     }

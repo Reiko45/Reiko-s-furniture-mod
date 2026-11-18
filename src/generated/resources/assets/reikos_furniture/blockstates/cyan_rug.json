@@ -1,0 +1,44 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cyan_rug"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cyan_rug_border"
+      },
+      "when": {
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cyan_rug_border",
+        "y": 90
+      },
+      "when": {
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cyan_rug_border",
+        "y": 180
+      },
+      "when": {
+        "south": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/cyan_rug_border",
+        "y": 270
+      },
+      "when": {
+        "west": "false"
+      }
+    }
+  ]
+}

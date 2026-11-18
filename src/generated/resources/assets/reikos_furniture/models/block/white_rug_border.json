@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/livingroom/rug_border",
+  "textures": {
+    "wool": "minecraft:block/white_wool"
+  }
+}

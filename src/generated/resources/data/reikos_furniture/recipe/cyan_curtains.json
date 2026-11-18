@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:cyan_wool"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "W W",
+    "W W"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reikos_furniture:cyan_curtains"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,open=false": {
+      "model": "reikos_furniture:block/crimson_kitchen_island",
+      "y": 90
+    },
+    "facing=east,open=true": {
+      "model": "reikos_furniture:block/crimson_kitchen_island_open",
+      "y": 90
+    },
+    "facing=north,open=false": {
+      "model": "reikos_furniture:block/crimson_kitchen_island"
+    },
+    "facing=north,open=true": {
+      "model": "reikos_furniture:block/crimson_kitchen_island_open"
+    },
+    "facing=south,open=false": {
+      "model": "reikos_furniture:block/crimson_kitchen_island",
+      "y": 180
+    },
+    "facing=south,open=true": {
+      "model": "reikos_furniture:block/crimson_kitchen_island_open",
+      "y": 180
+    },
+    "facing=west,open=false": {
+      "model": "reikos_furniture:block/crimson_kitchen_island",
+      "y": 270
+    },
+    "facing=west,open=true": {
+      "model": "reikos_furniture:block/crimson_kitchen_island_open",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/livingroom/rug_item",
+  "textures": {
+    "wool": "minecraft:block/magenta_wool"
+  }
+}

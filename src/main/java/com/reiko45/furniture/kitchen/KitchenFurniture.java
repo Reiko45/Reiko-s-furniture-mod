@@ -18,7 +18,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 /**
- * Kitchen section: counter, upper cabinet and sink in every wood type, plus a stove and a fridge.
+ * Kitchen section: counter, upper cabinet, sink, kitchen island and glass upper cabinet in every wood
+ * type, plus a stove, a fridge and a microwave.
  * Models are in {@code models/block/template/kitchen/}.
  */
 public final class KitchenFurniture {
@@ -27,6 +28,7 @@ public final class KitchenFurniture {
     // Shapes for a north-facing block, in pixels.
     private static final VoxelShape FULL = boxes(box(0, 0, 0, 16, 16, 16));
     private static final VoxelShape UPPER_CABINET_SHAPE = boxes(box(0, 4, 7.5, 16, 16, 16));
+    private static final VoxelShape ISLAND_SHAPE = boxes(box(0, 0, 1.5, 16, 14, 14.5), box(0, 14, 0, 16, 16, 16));
 
     /** Kitchen counter with a stone top and three rows of storage. Forms corners like stairs. */
     public static final WoodSet<CounterBlock> COUNTER = FurnitureRegistry.woodSet("counter", ROOM,
@@ -60,6 +62,28 @@ public final class KitchenFurniture {
                     .strength(3.0F)
                     .sound(SoundType.METAL)
                     .noOcclusion(), 6, FULL, FULL));
+
+    /** Cooks food like the stove, twice as fast. */
+    public static final DeferredBlock<MicrowaveBlock> MICROWAVE = FurnitureRegistry.register("microwave", ROOM,
+            () -> new MicrowaveBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SNOW)
+                    .strength(2.0F)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()
+                    .lightLevel(SwitchableFurnitureBlock.lightWhenOn(7))));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MicrowaveBlockEntity>> MICROWAVE_BLOCK_ENTITY =
+            ModBlockEntities.BLOCK_ENTITIES.register("microwave",
+                    () -> BlockEntityType.Builder.of(MicrowaveBlockEntity::new, MICROWAVE.get()).build(null));
+
+    /** Free-standing counter with doors on both sides and three rows of storage. */
+    public static final WoodSet<FurnitureStorageBlock> KITCHEN_ISLAND = FurnitureRegistry.woodSet("kitchen_island", ROOM,
+            wood -> new FurnitureStorageBlock(wood.properties(), 3, ISLAND_SHAPE));
+
+    /** Wall cabinet with glass doors, two rows of storage. */
+    public static final WoodSet<FurnitureStorageBlock> GLASS_UPPER_CABINET = FurnitureRegistry.woodSet("glass_upper_cabinet", ROOM,
+            wood -> new FurnitureStorageBlock(wood.properties(), 2, UPPER_CABINET_SHAPE));
 
     private KitchenFurniture() {
     }

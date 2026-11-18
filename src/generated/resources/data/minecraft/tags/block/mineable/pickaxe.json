@@ -2,6 +2,8 @@
   "values": [
     "reikos_furniture:stove",
     "reikos_furniture:fridge",
-    "reikos_furniture:tv"
+    "reikos_furniture:microwave",
+    "reikos_furniture:tv",
+    "reikos_furniture:fireplace"
   ]
 }

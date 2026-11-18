@@ -4,6 +4,7 @@ import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.kitchen.CounterBlock;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
+import com.reiko45.furniture.kitchen.MicrowaveBlockEntity;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import com.reiko45.furniture.kitchen.StoveBlockEntity;
@@ -83,6 +84,26 @@ public class KitchenGameTests {
         helper.succeedWhen(() -> {
             helper.assertTrue(stove.getItem(2).is(Items.COOKED_BEEF), "beef should be cooked");
             helper.assertBlockProperty(pos, AbstractFurnaceBlock.LIT, true);
+        });
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY, timeoutTicks = 200)
+    public static void microwaveCooksFasterThanStove(GameTestHelper helper) {
+        BlockPos stovePos = new BlockPos(1, 1, 1);
+        BlockPos microwavePos = new BlockPos(3, 1, 1);
+        helper.setBlock(stovePos, KitchenFurniture.STOVE.get());
+        helper.setBlock(microwavePos, KitchenFurniture.MICROWAVE.get());
+        StoveBlockEntity stove = helper.getBlockEntity(stovePos);
+        MicrowaveBlockEntity microwave = helper.getBlockEntity(microwavePos);
+        for (var oven : new net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity[] {stove, microwave}) {
+            oven.setItem(0, new ItemStack(Items.CHICKEN));
+            oven.setItem(1, new ItemStack(Items.COAL));
+        }
+        // Smoker recipes take 100 ticks; the microwave needs about half of that.
+        helper.runAfterDelay(70, () -> {
+            helper.assertTrue(microwave.getItem(2).is(Items.COOKED_CHICKEN), "microwave should be done");
+            helper.assertTrue(stove.getItem(2).isEmpty(), "stove should still be cooking");
+            helper.succeed();
         });
     }
 

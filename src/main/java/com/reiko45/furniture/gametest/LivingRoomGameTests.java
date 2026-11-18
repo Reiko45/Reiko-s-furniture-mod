@@ -5,7 +5,9 @@ import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.block.FurnitureBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.block.TallBlockHelper;
+import com.reiko45.furniture.livingroom.CurtainBlock;
 import com.reiko45.furniture.livingroom.FloorLampBlock;
+import com.reiko45.furniture.livingroom.RugBlock;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.livingroom.SofaBlock;
 import com.reiko45.furniture.livingroom.TvBlock;
@@ -64,6 +66,45 @@ public class LivingRoomGameTests {
         helper.assertBlockProperty(corner, SofaBlock.PART, SofaBlock.Part.CORNER_LEFT);
         helper.assertBlockProperty(corner.east(), SofaBlock.PART, SofaBlock.Part.RIGHT);
         helper.assertBlockProperty(corner.north(), SofaBlock.PART, SofaBlock.Part.LEFT);
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void curtainsOpenAndClose(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 1, 1);
+        helper.setBlock(pos, LivingRoomFurniture.CURTAINS.get(DyeColor.PURPLE).get());
+        helper.useBlock(pos, helper.makeMockPlayer(GameType.SURVIVAL));
+        helper.assertBlockProperty(pos, CurtainBlock.OPEN, true);
+        helper.useBlock(pos, helper.makeMockPlayer(GameType.SURVIVAL));
+        helper.assertBlockProperty(pos, CurtainBlock.OPEN, false);
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void fireplaceLightsWithFlintAndSteel(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 1, 1);
+        helper.setBlock(pos, LivingRoomFurniture.FIREPLACE.get());
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.FLINT_AND_STEEL));
+        helper.useBlock(pos, player);
+        helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, true);
+        helper.assertValueEqual(helper.getBlockState(pos).getLightEmission(helper.getLevel(), helper.absolutePos(pos)), 15, "light level");
+        helper.assertValueEqual(player.getMainHandItem().getDamageValue(), 1, "flint and steel damage");
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void rugsOfSameColorJoin(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(2, 1, 1);
+        for (int x = 0; x < 5; x++) {
+            helper.setBlock(new BlockPos(x, 0, 1), Blocks.STONE); // rugs need a floor
+        }
+        DiningGameTests.place(helper, pos, LivingRoomFurniture.RUG.get(DyeColor.RED).get());
+        DiningGameTests.place(helper, pos.east(), LivingRoomFurniture.RUG.get(DyeColor.RED).get());
+        DiningGameTests.place(helper, pos.west(), LivingRoomFurniture.RUG.get(DyeColor.BLUE).get());
+        helper.assertBlockProperty(pos, RugBlock.EAST, true);
+        helper.assertBlockProperty(pos.east(), RugBlock.WEST, true);
+        helper.assertBlockProperty(pos, RugBlock.WEST, false);
         helper.succeed();
     }
 

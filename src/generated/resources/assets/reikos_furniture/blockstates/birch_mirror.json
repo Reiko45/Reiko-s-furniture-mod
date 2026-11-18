@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/birch_mirror",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/birch_mirror"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/birch_mirror",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/birch_mirror",
+      "y": 270
+    }
+  }
+}

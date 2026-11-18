@@ -1,0 +1,418 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "glass": "minecraft:block/light_blue_stained_glass"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        1,
+        15
+      ],
+      "to": [
+        15,
+        15,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            0,
+            15,
+            1
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            1,
+            15,
+            15,
+            16
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture": "#planks",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            15,
+            1,
+            16,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            0,
+            1,
+            1,
+            15
+          ],
+          "texture": "#planks"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        2,
+        14.5
+      ],
+      "to": [
+        14,
+        14,
+        15
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            1,
+            14,
+            1.5
+          ],
+          "texture": "#glass"
+        },
+        "up": {
+          "uv": [
+            2,
+            14.5,
+            14,
+            15
+          ],
+          "texture": "#glass"
+        },
+        "north": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#glass"
+        },
+        "south": {
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "texture": "#glass"
+        },
+        "west": {
+          "uv": [
+            14.5,
+            2,
+            15,
+            14
+          ],
+          "texture": "#glass"
+        },
+        "east": {
+          "uv": [
+            1,
+            2,
+            1.5,
+            14
+          ],
+          "texture": "#glass"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        1,
+        14
+      ],
+      "to": [
+        15,
+        2,
+        15
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            1,
+            15,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            1,
+            14,
+            15,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            1,
+            14,
+            15,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            1,
+            14,
+            15,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            14,
+            14,
+            15,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            1,
+            14,
+            2,
+            15
+          ],
+          "texture": "#planks"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        14,
+        14
+      ],
+      "to": [
+        15,
+        15,
+        15
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            1,
+            15,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            1,
+            14,
+            15,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            1,
+            1,
+            15,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            1,
+            1,
+            15,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            14,
+            1,
+            15,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "texture": "#planks"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        2,
+        14
+      ],
+      "to": [
+        2,
+        14,
+        15
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            1,
+            14,
+            2,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            14,
+            2,
+            15,
+            14
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            1,
+            2,
+            2,
+            14
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            14,
+            2,
+            15,
+            14
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            1,
+            2,
+            2,
+            14
+          ],
+          "texture": "#planks"
+        }
+      }
+    },
+    {
+      "from": [
+        14,
+        2,
+        14
+      ],
+      "to": [
+        15,
+        14,
+        15
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            14,
+            1,
+            15,
+            2
+          ],
+          "texture": "#planks"
+        },
+        "up": {
+          "uv": [
+            14,
+            14,
+            15,
+            15
+          ],
+          "texture": "#planks"
+        },
+        "north": {
+          "uv": [
+            1,
+            2,
+            2,
+            14
+          ],
+          "texture": "#planks"
+        },
+        "south": {
+          "uv": [
+            14,
+            2,
+            15,
+            14
+          ],
+          "texture": "#planks"
+        },
+        "west": {
+          "uv": [
+            14,
+            2,
+            15,
+            14
+          ],
+          "texture": "#planks"
+        },
+        "east": {
+          "uv": [
+            1,
+            2,
+            2,
+            14
+          ],
+          "texture": "#planks"
+        }
+      }
+    }
+  ]
+}

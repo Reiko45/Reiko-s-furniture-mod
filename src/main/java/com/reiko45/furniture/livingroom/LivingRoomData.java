@@ -1,6 +1,10 @@
 package com.reiko45.furniture.livingroom;
 
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.ARMCHAIR;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.BOOKSHELF;
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.CURTAINS;
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.FIREPLACE;
+import static com.reiko45.furniture.livingroom.LivingRoomFurniture.RUG;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.COFFEE_TABLE;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.FLOOR_LAMP;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.SOFA;
@@ -8,6 +12,7 @@ import static com.reiko45.furniture.livingroom.LivingRoomFurniture.TV;
 import static com.reiko45.furniture.livingroom.LivingRoomFurniture.TV_STAND;
 
 import com.reiko45.furniture.core.Room;
+import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureBlock;
 import com.reiko45.furniture.datagen.FurnitureBlockStateProvider;
 import com.reiko45.furniture.datagen.FurnitureBlockTagsProvider;
@@ -44,6 +49,15 @@ public class LivingRoomData implements RoomData {
         models.woodFacing(BOOKSHELF, "bookshelf");
         models.woodFacingOpenable(TV_STAND, "tv_stand");
         models.woodTallLit(FLOOR_LAMP, "floor_lamp");
+
+        models.colorFacing(ARMCHAIR, "armchair");
+        models.colorFacingOpenable(CURTAINS, "curtains");
+        for (DyeColor color : DyeColor.values()) {
+            rug(models, RUG.get(color).get(), color);
+            models.woolItem(RUG, color, "rug_item");
+        }
+        models.facingLitBlock(FIREPLACE.get(), models.existingTemplate(ROOM, "fireplace"), models.existingTemplate(ROOM, "fireplace_on"));
+        models.blockItem(FIREPLACE.get(), models.template(ROOM, "fireplace"));
 
         ModelFile tvOff = models.existingTemplate(ROOM, "tv");
         ModelFile[] tvChannels = new ModelFile[TvBlock.CHANNELS + 1];
@@ -83,6 +97,19 @@ public class LivingRoomData implements RoomData {
         }
     }
 
+    /** The rug is always drawn; a border strip is added on each side that doesn't join another rug. */
+    private static void rug(FurnitureBlockStateProvider models, Block block, DyeColor color) {
+        String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
+        ModelFile center = models.woolModel(name, models.template(ROOM, "rug_center"), color);
+        ModelFile border = models.woolModel(name + "_border", models.template(ROOM, "rug_border"), color);
+        var builder = models.getMultipartBuilder(block);
+        builder.part().modelFile(center).addModel().end();
+        for (Direction side : Direction.Plane.HORIZONTAL) {
+            builder.part().modelFile(border).rotationY(FurnitureBlockStateProvider.yRot(side)).addModel()
+                    .condition(ConnectingTableBlock.property(side), false).end();
+        }
+    }
+
     @Override
     public void recipes(FurnitureRecipeProvider recipes, RecipeOutput output) {
         for (DyeColor color : DyeColor.values()) {
@@ -93,6 +120,22 @@ public class LivingRoomData implements RoomData {
                     .unlockedBy("has_wool", FurnitureRecipeProvider.hasItem(wool))
                     .save(output);
         }
+        for (DyeColor color : DyeColor.values()) {
+            Item wool = BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(color.getName() + "_wool"));
+            Item carpet = BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(color.getName() + "_carpet"));
+            recipes.shaped(ARMCHAIR.get(color).get(), 1, "PWP", "PWP")
+                    .define('W', wool).define('P', ItemTags.PLANKS)
+                    .unlockedBy("has_wool", FurnitureRecipeProvider.hasItem(wool)).save(output);
+            recipes.shaped(RUG.get(color).get(), 2, "CC", "CC")
+                    .define('C', carpet)
+                    .unlockedBy("has_carpet", FurnitureRecipeProvider.hasItem(carpet)).save(output);
+            recipes.shaped(CURTAINS.get(color).get(), 2, "SSS", "W W", "W W")
+                    .define('S', Items.STICK).define('W', wool)
+                    .unlockedBy("has_wool", FurnitureRecipeProvider.hasItem(wool)).save(output);
+        }
+        recipes.shaped(FIREPLACE.get(), 1, "BBB", "B B", "BBB")
+                .define('B', Items.BRICKS)
+                .unlockedBy("has_bricks", FurnitureRecipeProvider.hasItem(Items.BRICKS)).save(output);
         recipes.woodShaped(output, COFFEE_TABLE, 1, wood -> Map.of(), "SSS", "L L");
         recipes.woodShaped(output, BOOKSHELF, 1,
                 wood -> Map.of('B', Ingredient.of(Items.BOOK), 'C', Ingredient.of(Items.CHEST)), "PPP", "BCB", "PPP");

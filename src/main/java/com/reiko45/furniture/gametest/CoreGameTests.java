@@ -21,7 +21,9 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -45,7 +47,11 @@ public class CoreGameTests {
         BlockPos pos = helper.absolutePos(new BlockPos(1, 1, 1));
         for (DeferredBlock<?> holder : FurnitureRegistry.rooms().keySet()) {
             Block block = holder.get();
-            List<ItemStack> drops = Block.getDrops(block.defaultBlockState(), helper.getLevel(), pos, null);
+            BlockState state = block.defaultBlockState();
+            if (state.hasProperty(BedBlock.PART)) {
+                state = state.setValue(BedBlock.PART, BedPart.HEAD); // beds drop from the head
+            }
+            List<ItemStack> drops = Block.getDrops(state, helper.getLevel(), pos, null);
             if (drops.stream().noneMatch(stack -> stack.is(block.asItem()))) {
                 helper.fail(BuiltInRegistries.BLOCK.getKey(block) + " does not drop itself, got " + drops);
             }

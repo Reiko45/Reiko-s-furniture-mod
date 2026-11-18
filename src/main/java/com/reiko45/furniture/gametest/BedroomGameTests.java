@@ -3,9 +3,17 @@ package com.reiko45.furniture.gametest;
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.core.block.FurnitureBedBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.block.TallStorageFurnitureBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.BedBlock;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.entity.player.Player;
@@ -50,6 +58,25 @@ public class BedroomGameTests {
         helper.useBlock(pos, helper.makeMockPlayer(GameType.SURVIVAL));
         helper.setBlock(pos.west(), Blocks.AIR);
         helper.assertBlockProperty(pos, SwitchableFurnitureBlock.LIT, false);
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void bedCanBeDyed(GameTestHelper helper) {
+        BlockPos foot = new BlockPos(1, 1, 2);
+        FurnitureBedBlock bed = BedroomFurniture.BED.get(FurnitureWood.OAK).get();
+        BlockState state = bed.defaultBlockState().setValue(BedBlock.FACING, Direction.NORTH);
+        helper.setBlock(foot, state);
+        helper.setBlock(foot.north(), state.setValue(BedBlock.PART, BedPart.HEAD));
+        helper.assertTrue(helper.getBlockState(foot).isBed(helper.getLevel(), helper.absolutePos(foot), null),
+                "players should be able to sleep in it");
+
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.BLUE_DYE, 2));
+        helper.useBlock(foot, player);
+        helper.assertBlockProperty(foot, FurnitureBedBlock.COLOR, DyeColor.BLUE);
+        helper.assertBlockProperty(foot.north(), FurnitureBedBlock.COLOR, DyeColor.BLUE);
+        helper.assertValueEqual(player.getMainHandItem().getCount(), 1, "dye used");
         helper.succeed();
     }
 

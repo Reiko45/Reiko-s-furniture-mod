@@ -2,6 +2,9 @@ package com.reiko45.furniture.kitchen;
 
 import static com.reiko45.furniture.kitchen.KitchenFurniture.COUNTER;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.FRIDGE;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.GLASS_UPPER_CABINET;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.KITCHEN_ISLAND;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.MICROWAVE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.SINK;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.STOVE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.UPPER_CABINET;
@@ -22,7 +25,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 /**
  * Models and recipes for the kitchen. P = planks, S = wooden slab, C = chest, T = smooth stone slab,
- * I = iron ingot, B = bucket, F = furnace.
+ * I = iron ingot, B = bucket, F = furnace, G = glass pane, R = redstone.
  */
 public class KitchenData implements RoomData {
     private static final Room ROOM = Room.KITCHEN;
@@ -35,6 +38,11 @@ public class KitchenData implements RoomData {
 
         models.facingLitBlock(STOVE.get(), models.existingTemplate(ROOM, "stove"), models.existingTemplate(ROOM, "stove_on"));
         models.blockItem(STOVE.get(), models.template(ROOM, "stove"));
+
+        models.facingLitBlock(MICROWAVE.get(), models.existingTemplate(ROOM, "microwave"), models.existingTemplate(ROOM, "microwave_on"));
+        models.blockItem(MICROWAVE.get(), models.template(ROOM, "microwave"));
+        models.woodFacingOpenable(KITCHEN_ISLAND, "kitchen_island");
+        models.woodFacingOpenable(GLASS_UPPER_CABINET, "glass_upper_cabinet");
 
         models.tallOpenableBlock(FRIDGE.get(), models.existingTemplate(ROOM, "fridge_lower"), models.existingTemplate(ROOM, "fridge_upper"),
                 models.existingTemplate(ROOM, "fridge_lower_open"), models.existingTemplate(ROOM, "fridge_upper_open"));
@@ -77,6 +85,13 @@ public class KitchenData implements RoomData {
                 .define('I', Items.IRON_INGOT).define('F', Items.FURNACE)
                 .unlockedBy("has_furnace", FurnitureRecipeProvider.hasItem(Items.FURNACE))
                 .save(output);
+        recipes.woodShaped(output, KITCHEN_ISLAND, 1, wood -> chest, "TTT", "CPC", "PPP");
+        recipes.woodShaped(output, GLASS_UPPER_CABINET, 1,
+                wood -> Map.of('G', Ingredient.of(Items.GLASS_PANE), 'C', Ingredient.of(Items.CHEST)), "SSS", "GCG");
+        recipes.shaped(MICROWAVE.get(), 1, "III", "GRI", "III")
+                .define('I', Items.IRON_INGOT).define('G', Items.GLASS_PANE).define('R', Items.REDSTONE)
+                .unlockedBy("has_redstone", FurnitureRecipeProvider.hasItem(Items.REDSTONE))
+                .save(output);
         recipes.shaped(FRIDGE.get(), 1, "III", "ICI", "III")
                 .define('I', Items.IRON_INGOT).define('C', Items.CHEST)
                 .unlockedBy("has_iron_ingot", FurnitureRecipeProvider.hasItem(Items.IRON_INGOT))
@@ -86,5 +101,6 @@ public class KitchenData implements RoomData {
     @Override
     public void translations(BiConsumer<String, String> add) {
         add.accept("container.reikos_furniture.stove", "Stove");
+        add.accept("container.reikos_furniture.microwave", "Microwave");
     }
 }
