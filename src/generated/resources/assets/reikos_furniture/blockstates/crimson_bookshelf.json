@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,open=false": {
       "model": "reikos_furniture:block/crimson_bookshelf",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,open=true": {
+      "model": "reikos_furniture:block/crimson_bookshelf",
+      "y": 90
+    },
+    "facing=north,open=false": {
       "model": "reikos_furniture:block/crimson_bookshelf"
     },
-    "facing=south": {
+    "facing=north,open=true": {
+      "model": "reikos_furniture:block/crimson_bookshelf"
+    },
+    "facing=south,open=false": {
       "model": "reikos_furniture:block/crimson_bookshelf",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,open=true": {
+      "model": "reikos_furniture:block/crimson_bookshelf",
+      "y": 180
+    },
+    "facing=west,open=false": {
+      "model": "reikos_furniture:block/crimson_bookshelf",
+      "y": 270
+    },
+    "facing=west,open=true": {
       "model": "reikos_furniture:block/crimson_bookshelf",
       "y": 270
     }

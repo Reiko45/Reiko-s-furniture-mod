@@ -1,6 +1,13 @@
 package com.reiko45.furniture.gametest;
 
 import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.bedroom.BedroomFurniture;
+import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.kitchen.KitchenFurniture;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.TallStorageFurnitureBlock;
@@ -47,6 +54,37 @@ public class CoreGameTests {
                         BuiltInRegistries.BLOCK.getKey(storage) + " slot count");
             }
         }
+        helper.succeed();
+    }
+
+    @GameTest(template = EMPTY)
+    public static void storageShowsOpenWhileOpened(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 1, 1);
+        helper.setBlock(pos, BedroomFurniture.DRESSER.get(FurnitureWood.OAK).get());
+        FurnitureStorageBlockEntity entity = helper.getBlockEntity(pos);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+
+        entity.startOpen(player);
+        helper.assertBlockProperty(pos, FurnitureStorageBlock.OPEN, true);
+        entity.stopOpen(player);
+        helper.assertBlockProperty(pos, FurnitureStorageBlock.OPEN, false);
+        helper.succeed();
+    }
+
+    @GameTest(template = EMPTY)
+    public static void tallStorageOpensBothHalves(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 1, 1);
+        BlockState lower = KitchenFurniture.FRIDGE.get().defaultBlockState();
+        helper.setBlock(pos, lower);
+        helper.setBlock(pos.above(), lower.setValue(TallStorageFurnitureBlock.HALF, DoubleBlockHalf.UPPER));
+        FurnitureStorageBlockEntity entity = helper.getBlockEntity(pos);
+        Player player = helper.makeMockPlayer(GameType.SURVIVAL);
+
+        entity.startOpen(player);
+        helper.assertBlockProperty(pos, FurnitureStorageBlock.OPEN, true);
+        helper.assertBlockProperty(pos.above(), FurnitureStorageBlock.OPEN, true);
+        entity.stopOpen(player);
+        helper.assertBlockProperty(pos.above(), FurnitureStorageBlock.OPEN, false);
         helper.succeed();
     }
 

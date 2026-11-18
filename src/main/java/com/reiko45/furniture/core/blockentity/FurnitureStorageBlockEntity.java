@@ -1,6 +1,7 @@
 package com.reiko45.furniture.core.blockentity;
 
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
+import com.reiko45.furniture.core.block.TallBlockHelper;
 import com.reiko45.furniture.core.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -10,6 +11,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -21,10 +25,37 @@ import net.minecraft.world.level.block.state.BlockState;
 
 /**
  * Inventory for every storage piece. The number of rows comes from the {@link FurnitureStorageBlock},
- * and the vanilla chest screen is used, so no custom screen is needed.
+ * and the vanilla chest screen is used, so no custom screen is needed. While anyone has it open, the
+ * block's {@link FurnitureStorageBlock#OPEN} property is set (on both halves of tall pieces).
  */
 public class FurnitureStorageBlockEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> items;
+    private final ContainerOpenersCounter openersCounter = new ContainerOpenersCounter() {
+        @Override
+        protected void onOpen(Level level, BlockPos pos, BlockState state) {
+            if (state.getBlock() instanceof FurnitureStorageBlock storage) {
+                playSound(storage.openSound());
+            }
+            setOpen(level, pos, state, true);
+        }
+
+        @Override
+        protected void onClose(Level level, BlockPos pos, BlockState state) {
+            if (state.getBlock() instanceof FurnitureStorageBlock storage) {
+                playSound(storage.closeSound());
+            }
+            setOpen(level, pos, state, false);
+        }
+
+        @Override
+        protected void openerCountChanged(Level level, BlockPos pos, BlockState state, int oldCount, int newCount) {
+        }
+
+        @Override
+        protected boolean isOwnContainer(Player player) {
+            return player.containerMenu instanceof ChestMenu menu && menu.getContainer() == FurnitureStorageBlockEntity.this;
+        }
+    };
 
     public FurnitureStorageBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.STORAGE.get(), pos, state);
@@ -94,15 +125,36 @@ public class FurnitureStorageBlockEntity extends RandomizableContainerBlockEntit
 
     @Override
     public void startOpen(Player player) {
-        if (!player.isSpectator() && getBlockState().getBlock() instanceof FurnitureStorageBlock storage) {
-            playSound(storage.openSound());
+        if (!remove && !player.isSpectator() && level != null) {
+            openersCounter.incrementOpeners(player, level, worldPosition, getBlockState());
         }
     }
 
     @Override
     public void stopOpen(Player player) {
-        if (!player.isSpectator() && getBlockState().getBlock() instanceof FurnitureStorageBlock storage) {
-            playSound(storage.closeSound());
+        if (!remove && !player.isSpectator() && level != null) {
+            openersCounter.decrementOpeners(player, level, worldPosition, getBlockState());
+        }
+    }
+
+    /** Closes the doors again if nobody has the inventory open any more (e.g. a player walked away). */
+    public void recheckOpen() {
+        if (!remove && level != null) {
+            openersCounter.recheckOpeners(level, worldPosition, getBlockState());
+        }
+    }
+
+    private static void setOpen(Level level, BlockPos pos, BlockState state, boolean open) {
+        if (!state.hasProperty(FurnitureStorageBlock.OPEN)) {
+            return;
+        }
+        level.setBlock(pos, state.setValue(FurnitureStorageBlock.OPEN, open), Block.UPDATE_ALL);
+        if (state.hasProperty(TallBlockHelper.HALF)) {
+            BlockPos otherPos = TallBlockHelper.otherHalf(state, pos);
+            BlockState other = level.getBlockState(otherPos);
+            if (other.is(state.getBlock())) {
+                level.setBlock(otherPos, other.setValue(FurnitureStorageBlock.OPEN, open), Block.UPDATE_ALL);
+            }
         }
     }
 

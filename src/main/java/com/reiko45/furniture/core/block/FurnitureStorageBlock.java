@@ -2,25 +2,34 @@ package com.reiko45.furniture.core.block;
 
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * Furniture with an inventory (drawers, cabinets, wardrobes, ...). Right-click opens a chest-style
- * screen with {@link #rows()} rows of 9 slots. Contents drop when the block is broken.
+ * screen with {@link #rows()} rows of 9 slots. While someone has it open, {@link #OPEN} is true so the
+ * model can show open doors or drawers. Contents drop when the block is broken.
  */
 public class FurnitureStorageBlock extends FurnitureBlock implements EntityBlock {
+    public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
+
     private final int rows;
 
     /**
@@ -32,6 +41,13 @@ public class FurnitureStorageBlock extends FurnitureBlock implements EntityBlock
             throw new IllegalArgumentException("Storage rows must be between 1 and 6, got " + rows);
         }
         this.rows = rows;
+        registerDefaultState(defaultBlockState().setValue(OPEN, false));
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(OPEN);
     }
 
     public int rows() {
@@ -65,6 +81,14 @@ public class FurnitureStorageBlock extends FurnitureBlock implements EntityBlock
             player.openMenu(storage);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        // Scheduled by the block entity to check whether anyone still has the inventory open.
+        if (level.getBlockEntity(pos) instanceof FurnitureStorageBlockEntity storage) {
+            storage.recheckOpen();
+        }
     }
 
     @Override

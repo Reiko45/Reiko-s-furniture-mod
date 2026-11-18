@@ -4,7 +4,8 @@
     "particle": "minecraft:block/white_concrete",
     "body": "minecraft:block/white_concrete",
     "door": "minecraft:block/quartz_block_side",
-    "handle": "minecraft:block/light_gray_concrete"
+    "handle": "minecraft:block/light_gray_concrete",
+    "inside": "minecraft:block/quartz_block_bottom"
   },
   "elements": [
     {

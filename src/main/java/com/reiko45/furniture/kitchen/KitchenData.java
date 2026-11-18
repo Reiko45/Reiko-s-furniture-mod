@@ -25,14 +25,15 @@ public class KitchenData implements RoomData {
 
     @Override
     public void models(FurnitureBlockStateProvider models) {
-        models.woodFacing(COUNTER, "counter");
-        models.woodFacing(UPPER_CABINET, "upper_cabinet");
+        models.woodFacingOpenable(COUNTER, "counter");
+        models.woodFacingOpenable(UPPER_CABINET, "upper_cabinet");
         models.woodFacing(SINK, "sink");
 
         models.facingLitBlock(STOVE.get(), models.existingTemplate(ROOM, "stove"), models.existingTemplate(ROOM, "stove_on"));
         models.blockItem(STOVE.get(), models.template(ROOM, "stove"));
 
-        models.tallBlock(FRIDGE.get(), models.existingTemplate(ROOM, "fridge_lower"), models.existingTemplate(ROOM, "fridge_upper"));
+        models.tallOpenableBlock(FRIDGE.get(), models.existingTemplate(ROOM, "fridge_lower"), models.existingTemplate(ROOM, "fridge_upper"),
+                models.existingTemplate(ROOM, "fridge_lower_open"), models.existingTemplate(ROOM, "fridge_upper_open"));
         models.blockItem(FRIDGE.get(), models.template(ROOM, "fridge_item"));
     }
 

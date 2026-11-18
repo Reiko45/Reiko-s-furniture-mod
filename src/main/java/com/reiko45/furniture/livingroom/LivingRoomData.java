@@ -42,7 +42,7 @@ public class LivingRoomData implements RoomData {
         }
         models.woodTable(COFFEE_TABLE, "coffee_table");
         models.woodFacing(BOOKSHELF, "bookshelf");
-        models.woodFacing(TV_STAND, "tv_stand");
+        models.woodFacingOpenable(TV_STAND, "tv_stand");
         models.woodTallLit(FLOOR_LAMP, "floor_lamp");
 
         ModelFile tvOff = models.existingTemplate(ROOM, "tv");

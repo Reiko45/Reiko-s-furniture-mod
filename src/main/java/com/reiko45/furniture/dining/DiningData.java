@@ -20,7 +20,7 @@ public class DiningData implements RoomData {
         models.woodTable(DINING_TABLE, "dining_table");
         models.woodFacing(DINING_CHAIR, "dining_chair");
         models.woodFacing(BENCH, "bench");
-        models.woodFacing(SIDEBOARD, "sideboard");
+        models.woodFacingOpenable(SIDEBOARD, "sideboard");
     }
 
     @Override

@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,open=false": {
       "model": "reikos_furniture:block/mangrove_dresser",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,open=true": {
+      "model": "reikos_furniture:block/mangrove_dresser_open",
+      "y": 90
+    },
+    "facing=north,open=false": {
       "model": "reikos_furniture:block/mangrove_dresser"
     },
-    "facing=south": {
+    "facing=north,open=true": {
+      "model": "reikos_furniture:block/mangrove_dresser_open"
+    },
+    "facing=south,open=false": {
       "model": "reikos_furniture:block/mangrove_dresser",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,open=true": {
+      "model": "reikos_furniture:block/mangrove_dresser_open",
+      "y": 180
+    },
+    "facing=west,open=false": {
       "model": "reikos_furniture:block/mangrove_dresser",
+      "y": 270
+    },
+    "facing=west,open=true": {
+      "model": "reikos_furniture:block/mangrove_dresser_open",
       "y": 270
     }
   }

@@ -18,9 +18,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 public class BedroomData implements RoomData {
     @Override
     public void models(FurnitureBlockStateProvider models) {
-        models.woodFacing(NIGHTSTAND, "nightstand");
-        models.woodFacing(DRESSER, "dresser");
-        models.woodTall(WARDROBE, "wardrobe");
+        models.woodFacingOpenable(NIGHTSTAND, "nightstand");
+        models.woodFacingOpenable(DRESSER, "dresser");
+        models.woodTallOpenable(WARDROBE, "wardrobe");
         models.woodFacing(DESK, "desk");
         models.woodFacingLit(TABLE_LAMP, "table_lamp");
     }

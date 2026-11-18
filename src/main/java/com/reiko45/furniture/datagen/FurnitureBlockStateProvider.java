@@ -7,6 +7,7 @@ import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureBlock;
+import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.block.TallBlockHelper;
 import java.util.function.Function;
@@ -95,6 +96,17 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         facingBlock(block, state -> state.getValue(TallBlockHelper.HALF) == DoubleBlockHalf.UPPER ? upper : lower);
     }
 
+    /** A two-block-tall storage block with closed and open ({@link FurnitureStorageBlock#OPEN}) models for each half. */
+    public void tallOpenableBlock(Block block, ModelFile lower, ModelFile upper, ModelFile lowerOpen, ModelFile upperOpen) {
+        facingBlock(block, state -> {
+            boolean open = state.getValue(FurnitureStorageBlock.OPEN);
+            if (state.getValue(TallBlockHelper.HALF) == DoubleBlockHalf.UPPER) {
+                return open ? upperOpen : upper;
+            }
+            return open ? lowerOpen : lower;
+        });
+    }
+
     /** A {@link ConnectingTableBlock}: the top is always shown, legs only on open corners. */
     public void tableBlock(Block block, ModelFile top, ModelFile northWestLeg) {
         var builder = getMultipartBuilder(block);
@@ -119,6 +131,32 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
             ModelFile model = woodModel(name, template(set.room(), template), wood);
             facingBlock(block, state -> model);
             itemModels().withExistingParent(name, modLoc("block/" + name));
+        }
+    }
+
+    /** Wooden storage piece whose doors or drawers show as open: {@code <template>} and {@code <template>_open}. */
+    public void woodFacingOpenable(WoodSet<?> set, String template) {
+        for (FurnitureWood wood : FurnitureWood.values()) {
+            Block block = set.get(wood).get();
+            String name = name(block);
+            ModelFile closed = woodModel(name, template(set.room(), template), wood);
+            ModelFile open = woodModel(name + "_open", template(set.room(), template + "_open"), wood);
+            facingBlock(block, state -> state.getValue(FurnitureStorageBlock.OPEN) ? open : closed);
+            itemModels().withExistingParent(name, modLoc("block/" + name));
+        }
+    }
+
+    /** Two-block-tall wooden storage with open doors: {@code <template>_lower/_upper}, their {@code _open} versions, and {@code <template>_item}. */
+    public void woodTallOpenable(WoodSet<?> set, String template) {
+        for (FurnitureWood wood : FurnitureWood.values()) {
+            Block block = set.get(wood).get();
+            String name = name(block);
+            tallOpenableBlock(block,
+                    woodModel(name + "_lower", template(set.room(), template + "_lower"), wood),
+                    woodModel(name + "_upper", template(set.room(), template + "_upper"), wood),
+                    woodModel(name + "_lower_open", template(set.room(), template + "_lower_open"), wood),
+                    woodModel(name + "_upper_open", template(set.room(), template + "_upper_open"), wood));
+            woodTextures(itemModels().withExistingParent(name, template(set.room(), template + "_item")), wood);
         }
     }
 
