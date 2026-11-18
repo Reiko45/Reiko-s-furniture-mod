@@ -8,6 +8,9 @@ import com.reiko45.furniture.core.registry.ModBlocks;
 import com.reiko45.furniture.core.registry.ModCreativeTab;
 import com.reiko45.furniture.core.registry.ModEntities;
 import com.reiko45.furniture.core.registry.ModItems;
+import com.reiko45.furniture.core.registry.ModMenus;
+import com.reiko45.furniture.core.registry.ModRecipes;
+import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.datagen.DataGenerators;
 import com.reiko45.furniture.dining.DiningFurniture;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
@@ -38,12 +41,16 @@ public class ReikosFurniture {
         KitchenFurniture.init();
         DiningFurniture.init();
         LivingRoomFurniture.init();
+        Workbench.init();
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModEntities.ENTITIES.register(modBus);
         ModCreativeTab.TABS.register(modBus);
+        ModMenus.MENUS.register(modBus);
+        ModRecipes.TYPES.register(modBus);
+        ModRecipes.SERIALIZERS.register(modBus);
 
         modBus.addListener(this::commonSetup);
         modBus.addListener(DataGenerators::gatherData);

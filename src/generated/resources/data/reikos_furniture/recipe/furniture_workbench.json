@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "T": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "pattern": [
+    " I ",
+    "PTP",
+    "P P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:furniture_workbench"
+  }
+}

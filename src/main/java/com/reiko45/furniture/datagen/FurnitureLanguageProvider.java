@@ -54,6 +54,9 @@ public class FurnitureLanguageProvider extends LanguageProvider {
             }
         }
 
+        add("container.reikos_furniture.furniture_workbench", "Furniture Workbench");
+        add("container.reikos_furniture.furniture_workbench.cost", "Needs %s planks");
+
         DataGenerators.ROOMS.forEach(room -> room.translations(this::add));
     }
 

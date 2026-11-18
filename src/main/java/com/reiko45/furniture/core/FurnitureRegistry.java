@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Registers furniture blocks together with their items.
@@ -61,15 +62,15 @@ public final class FurnitureRegistry {
         return set;
     }
 
-    /** Registers a single block (no wood or color variants) and its item. */
-    public static <B extends Block> DeferredBlock<B> register(String name, Room room, Supplier<B> factory) {
+    /** Registers a single block (no wood or color variants) and its item. {@code room} is null for tools like the workbench. */
+    public static <B extends Block> DeferredBlock<B> register(String name, @Nullable Room room, Supplier<B> factory) {
         DeferredBlock<B> block = ModBlocks.BLOCKS.register(name, factory);
         ModItems.ITEMS.register(name, () -> new FurnitureBlockItem(block.get(), new Item.Properties(), room));
         ROOMS.put(block, room);
         return block;
     }
 
-    /** Every furniture block with the room it belongs to, in registration order. */
+    /** Every block with the room it belongs to (null for the workbench), in registration order. */
     public static Map<DeferredBlock<?>, Room> rooms() {
         return Collections.unmodifiableMap(ROOMS);
     }

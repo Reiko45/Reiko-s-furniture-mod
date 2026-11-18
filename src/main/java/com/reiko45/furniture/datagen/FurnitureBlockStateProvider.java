@@ -10,6 +10,7 @@ import com.reiko45.furniture.core.block.FurnitureBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.block.TallBlockHelper;
+import com.reiko45.furniture.core.workbench.Workbench;
 import java.util.function.Function;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -41,6 +42,10 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         DataGenerators.ROOMS.forEach(room -> room.models(this));
+
+        ModelFile workbench = models().getExistingFile(modLoc("block/template/workbench"));
+        facingBlock(Workbench.BLOCK.get(), state -> workbench);
+        blockItem(Workbench.BLOCK.get(), modLoc("block/template/workbench"));
     }
 
     // ---- Templates -------------------------------------------------------------------------

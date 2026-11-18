@@ -1,0 +1,11 @@
+{
+  "type": "reikos_furniture:carpentry",
+  "count": 15,
+  "ingredient": {
+    "item": "minecraft:jungle_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:jungle_tv_stand"
+  }
+}

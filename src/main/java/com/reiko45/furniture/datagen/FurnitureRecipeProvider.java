@@ -1,6 +1,16 @@
 package com.reiko45.furniture.datagen;
 
+import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.core.workbench.CarpentryRecipe;
+import com.reiko45.furniture.core.workbench.Workbench;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import com.reiko45.furniture.core.WoodSet;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -28,6 +38,27 @@ public class FurnitureRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes(RecipeOutput output) {
         DataGenerators.ROOMS.forEach(room -> room.recipes(this, output));
+
+        shaped(Workbench.BLOCK.get(), 1, " I ", "PTP", "P P")
+                .define('I', Items.IRON_INGOT).define('T', Items.CRAFTING_TABLE).define('P', ItemTags.PLANKS)
+                .unlockedBy("has_crafting_table", has(Items.CRAFTING_TABLE))
+                .save(output);
+        carpentry(output);
+    }
+
+    /** Furniture workbench recipes: planks of a wood make any listed piece in that wood. */
+    private static void carpentry(RecipeOutput output) {
+        for (WoodSet<?> set : FurnitureRegistry.woodSets()) {
+            Integer cost = CarpentryCosts.COSTS.get(set.piece());
+            if (cost == null) {
+                continue;
+            }
+            for (FurnitureWood wood : FurnitureWood.values()) {
+                Block block = set.get(wood).get();
+                ResourceLocation id = ReikosFurniture.id("carpentry/" + BuiltInRegistries.BLOCK.getKey(block).getPath());
+                output.accept(id, new CarpentryRecipe(Ingredient.of(wood.planks()), cost, new ItemStack(block)), null);
+            }
+        }
     }
 
     public static Criterion<InventoryChangeTrigger.TriggerInstance> hasItem(ItemLike item) {
