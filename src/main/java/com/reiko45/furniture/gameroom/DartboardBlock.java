@@ -1,5 +1,6 @@
 package com.reiko45.furniture.gameroom;
 
+import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.reiko45.furniture.core.block.FurnitureBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -56,7 +57,11 @@ public class DartboardBlock extends FurnitureBlock {
     public void hit(Level level, BlockPos pos, BlockState state, Player player) {
         level.playSound(null, pos, SoundEvents.ARROW_HIT, SoundSource.BLOCKS, 0.8F, 1.3F);
         if (player != null) {
-            player.displayClientMessage(Component.translatable("message.reikos_furniture.dart_score", randomScore(level.random)), true);
+            int score = randomScore(level.random);
+            player.displayClientMessage(Component.translatable("message.reikos_furniture.dart_score", score), true);
+            if (score == 50) {
+                FurnitureActionTrigger.award(player, FurnitureActionTrigger.BULLSEYE);
+            }
         }
         level.setBlock(pos, state.setValue(POWERED, true), Block.UPDATE_ALL);
         level.scheduleTick(pos, this, 20);

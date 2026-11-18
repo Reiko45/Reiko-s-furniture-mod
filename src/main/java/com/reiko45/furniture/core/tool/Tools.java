@@ -1,5 +1,6 @@
 package com.reiko45.furniture.core.tool;
 
+import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.reiko45.furniture.core.registry.ModItems;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -18,7 +19,8 @@ public final class Tools {
     public static void init() {
     }
 
-    /** Hook for the furniture advancements (added later); does nothing yet. */
+    /** Fires the furniture advancement trigger for a tool action ({@code hammer} or {@code dolly}). */
     static void trigger(Player player, String action) {
+        FurnitureActionTrigger.award(player, action);
     }
 }

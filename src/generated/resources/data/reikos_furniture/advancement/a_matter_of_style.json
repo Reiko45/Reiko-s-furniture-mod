@@ -1,0 +1,33 @@
+{
+  "parent": "reikos_furniture:woodworker",
+  "criteria": {
+    "has_style": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:styles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.a_matter_of_style.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:oak_rustic_bed"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.a_matter_of_style.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_style"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

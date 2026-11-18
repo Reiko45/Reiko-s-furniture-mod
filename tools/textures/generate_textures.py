@@ -925,7 +925,32 @@ def style_textures():
     save(img, "block/style/tatami.png")
 
 
+def catalog_item():
+    """The furniture catalog: a brown book with pages showing and a little gold chair on the cover."""
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    px = img.load()
+    cover, cover_dark, spine = (0x8A, 0x55, 0x2E), (0x5E, 0x38, 0x1C), (0x4A, 0x2A, 0x14)
+    page, page_edge = (0xF2, 0xEA, 0xD4), (0xC8, 0xBC, 0xA0)
+    gold = (0xF0, 0xC0, 0x40)
+    for y in range(2, 15):
+        for x in range(3, 14):
+            px[x, y] = cover + (255,)
+        px[2, y] = spine + (255,)
+        px[13, y] = page + (255,) if 3 <= y <= 13 else cover_dark + (255,)
+        px[14, y] = page_edge + (255,) if 3 <= y <= 13 else (0, 0, 0, 0)
+    for x in range(2, 14):
+        px[x, 1] = cover_dark + (255,)
+        px[x, 15] = cover_dark + (255,)
+    for y in range(3, 14):
+        px[3, y] = cover_dark + (255,)
+    # A chair on the cover: back, seat and legs.
+    for x, y in ((9, 5), (9, 6), (9, 7), (9, 8), (6, 8), (7, 8), (8, 8), (6, 9), (6, 10), (6, 11), (9, 9), (9, 10), (9, 11)):
+        px[x, y] = gold + (255,)
+    save(img, "item/furniture_catalog.png")
+
+
 if __name__ == "__main__":
+    catalog_item()
     style_textures()
     bar_and_nursery()
     garage_and_library()

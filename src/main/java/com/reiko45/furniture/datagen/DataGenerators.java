@@ -16,6 +16,9 @@ import com.reiko45.furniture.livingroom.LivingRoomData;
 import com.reiko45.furniture.music.MusicData;
 import com.reiko45.furniture.nursery.NurseryData;
 import com.reiko45.furniture.styles.StyleData;
+import com.reiko45.furniture.core.catalog.CatalogData;
+import com.reiko45.furniture.core.advancement.FurnitureAdvancements;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
 import com.reiko45.furniture.office.OfficeData;
 import com.reiko45.furniture.outdoor.OutdoorData;
 import com.reiko45.furniture.pets.PetData;
@@ -57,6 +60,7 @@ public final class DataGenerators {
             new BarData(),
             new NurseryData(),
             new StyleData(),
+            new CatalogData(),
             new ToolsData());
 
     private DataGenerators() {
@@ -75,7 +79,10 @@ public final class DataGenerators {
                 List.of(new LootTableProvider.SubProviderEntry(FurnitureBlockLoot::new, LootContextParamSets.BLOCK)),
                 lookup));
         generator.addProvider(event.includeServer(), new FurnitureRecipeProvider(output, lookup));
-        generator.addProvider(event.includeServer(), new FurnitureBlockTagsProvider(output, lookup, files));
+        FurnitureBlockTagsProvider blockTags = generator.addProvider(event.includeServer(),
+                new FurnitureBlockTagsProvider(output, lookup, files));
+        generator.addProvider(event.includeServer(), new FurnitureItemTagsProvider(output, lookup, blockTags.contentsGetter(), files));
+        generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookup, files, List.of(new FurnitureAdvancements())));
         generator.addProvider(event.includeServer(), new FurniturePoiTagsProvider(output, lookup, files));
         // Painting variants are data (a datapack registry), with a tag so paintings place them.
         DatapackBuiltinEntriesProvider paintings = new DatapackBuiltinEntriesProvider(output, lookup,

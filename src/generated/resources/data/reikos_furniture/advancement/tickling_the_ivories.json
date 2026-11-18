@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "piano": {
+      "conditions": {
+        "action": "piano"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.tickling_the_ivories.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:oak_piano"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.tickling_the_ivories.title"
+    }
+  },
+  "requirements": [
+    [
+      "piano"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

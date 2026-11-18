@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "wash": {
+      "conditions": {
+        "action": "wash"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.fresh_laundry.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:washing_machine"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.fresh_laundry.title"
+    }
+  },
+  "requirements": [
+    [
+      "wash"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

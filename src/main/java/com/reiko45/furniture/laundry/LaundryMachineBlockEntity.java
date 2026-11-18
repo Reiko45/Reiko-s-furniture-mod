@@ -1,5 +1,8 @@
 package com.reiko45.furniture.laundry;
 
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.entity.player.Player;
+import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
 import com.reiko45.furniture.core.config.FurnitureConfig;
 import com.reiko45.furniture.core.registry.ModSounds;
@@ -105,10 +108,19 @@ public class LaundryMachineBlockEntity extends FurnitureStorageBlockEntity {
         if (machine.timer > 0) {
             return;
         }
+        boolean washed = false;
         for (int i = 0; i < machine.getContainerSize(); i++) {
             ItemStack stack = machine.getItem(i);
             if (!stack.isEmpty()) {
-                machine.getItems().set(i, machine.kind().process(stack));
+                ItemStack done = machine.kind().process(stack);
+                washed |= !ItemStack.matches(stack, done);
+                machine.getItems().set(i, done);
+            }
+        }
+        if (washed && machine.kind() == LaundryMachineBlock.Kind.WASHER) {
+            // Everyone nearby gets the "Fresh Laundry" advancement.
+            for (Player player : level.getEntitiesOfClass(Player.class, new AABB(pos).inflate(16))) {
+                FurnitureActionTrigger.award(player, FurnitureActionTrigger.WASH);
             }
         }
         level.setBlock(pos, state.setValue(LaundryMachineBlock.RUNNING, false), Block.UPDATE_ALL);

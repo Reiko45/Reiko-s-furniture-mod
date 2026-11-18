@@ -1,0 +1,39 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "sat_down": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "vehicle": {
+                "type": "reikos_furniture:seat"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:started_riding"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.take_a_seat.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:oak_dining_chair"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.take_a_seat.title"
+    }
+  },
+  "requirements": [
+    [
+      "sat_down"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

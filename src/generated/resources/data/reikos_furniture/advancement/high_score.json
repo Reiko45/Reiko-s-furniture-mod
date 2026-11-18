@@ -1,0 +1,30 @@
+{
+  "parent": "reikos_furniture:bullseye",
+  "criteria": {
+    "high_score": {
+      "conditions": {
+        "action": "arcade_high_score"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.high_score.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:arcade_cabinet"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.high_score.title"
+    }
+  },
+  "requirements": [
+    [
+      "high_score"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

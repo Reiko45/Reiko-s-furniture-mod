@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "pet_fed": {
+      "conditions": {
+        "action": "pet_fed"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.good_boy.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:red_feeding_bowl"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.good_boy.title"
+    }
+  },
+  "requirements": [
+    [
+      "pet_fed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

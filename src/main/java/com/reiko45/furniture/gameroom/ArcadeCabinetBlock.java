@@ -1,5 +1,6 @@
 package com.reiko45.furniture.gameroom;
 
+import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.reiko45.furniture.core.block.TallBlockHelper;
 import com.reiko45.furniture.core.registry.ModSounds;
 import com.reiko45.furniture.livingroom.FloorLampBlock;
@@ -18,6 +19,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
  * game. Each time it is switched on you get a random high score.
  */
 public class ArcadeCabinetBlock extends FloorLampBlock {
+    /** Scores from here up count for the "High Score" advancement. */
+    public static final int HIGH_SCORE = 9000;
+
     public ArcadeCabinetBlock(Properties properties, VoxelShape lowerShape, VoxelShape upperShape) {
         super(properties, lowerShape, upperShape);
     }
@@ -34,6 +38,9 @@ public class ArcadeCabinetBlock extends FloorLampBlock {
         if (!level.isClientSide && level.getBlockState(pos).getValue(LIT)) {
             int score = (1 + level.random.nextInt(99)) * 100;
             player.displayClientMessage(Component.translatable("message.reikos_furniture.arcade_score", score), true);
+            if (score >= HIGH_SCORE) {
+                FurnitureActionTrigger.award(player, FurnitureActionTrigger.ARCADE_HIGH_SCORE);
+            }
         }
         return result;
     }

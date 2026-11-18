@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:woodworker",
+  "criteria": {
+    "hammer": {
+      "conditions": {
+        "action": "hammer"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.interior_designer.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:hammer"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.interior_designer.title"
+    }
+  },
+  "requirements": [
+    [
+      "hammer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

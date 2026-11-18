@@ -1,0 +1,38 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "has_workbench": {
+      "conditions": {
+        "items": [
+          {
+            "items": "reikos_furniture:furniture_workbench"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.woodworker.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:furniture_workbench"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.woodworker.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_workbench"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "reikos_furniture:advancement/catalog"
+    ]
+  },
+  "sends_telemetry_event": true
+}

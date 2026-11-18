@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:interior_designer",
+  "criteria": {
+    "dolly": {
+      "conditions": {
+        "action": "dolly"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.heavy_lifting.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:moving_dolly"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.heavy_lifting.title"
+    }
+  },
+  "requirements": [
+    [
+      "dolly"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

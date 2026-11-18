@@ -1,5 +1,6 @@
 package com.reiko45.furniture;
 
+import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.mojang.logging.LogUtils;
 import com.reiko45.furniture.bar.BarFurniture;
 import com.reiko45.furniture.bathroom.BathroomFurniture;
@@ -32,6 +33,7 @@ import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.music.MusicFurniture;
 import com.reiko45.furniture.nursery.NurseryFurniture;
 import com.reiko45.furniture.styles.StyleFurniture;
+import com.reiko45.furniture.core.catalog.Catalog;
 import com.reiko45.furniture.office.OfficeFurniture;
 import com.reiko45.furniture.outdoor.OutdoorFurniture;
 import com.reiko45.furniture.pets.PetFurniture;
@@ -88,6 +90,7 @@ public class ReikosFurniture {
         StyleFurniture.init();
         Workbench.init();
         Tools.init();
+        Catalog.init();
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
@@ -99,6 +102,7 @@ public class ReikosFurniture {
         ModRecipes.TYPES.register(modBus);
         ModRecipes.SERIALIZERS.register(modBus);
         ModDataComponents.COMPONENTS.register(modBus);
+        FurnitureActionTrigger.TRIGGERS.register(modBus);
         FurnitureMaker.POI_TYPES.register(modBus);
         FurnitureMaker.PROFESSIONS.register(modBus);
 

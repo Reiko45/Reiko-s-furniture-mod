@@ -1,5 +1,7 @@
 package com.reiko45.furniture.pets;
 
+import net.minecraft.world.entity.player.Player;
+import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.reiko45.furniture.core.display.DisplayBlockEntity;
 import com.reiko45.furniture.core.display.DisplayFurnitureBlock;
 import com.reiko45.furniture.core.display.DisplaySlot;
@@ -74,6 +76,9 @@ public class FeedingBowlBlock extends DisplayFurnitureBlock {
                 6, 0.15, 0.05, 0.15, 0.02);
         pet.heal(HEAL);
         bowl.shrink(0);
+        if (pet.getOwner() instanceof Player owner) {
+            FurnitureActionTrigger.award(owner, FurnitureActionTrigger.PET_FED);
+        }
         level.playSound(null, pos, SoundEvents.GENERIC_EAT, SoundSource.NEUTRAL, 0.8F, 1.0F);
     }
 }

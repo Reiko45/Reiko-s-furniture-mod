@@ -1,5 +1,6 @@
 package com.reiko45.furniture.music;
 
+import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.reiko45.furniture.core.block.FurnitureBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -49,6 +50,7 @@ public class PianoBlock extends FurnitureBlock {
             server.sendParticles(ParticleTypes.NOTE, hit.getLocation().x, pos.getY() + 1.1, hit.getLocation().z, 0,
                     note / 24.0, 0.0, 0.0, 1.0);
             server.gameEvent(player, GameEvent.NOTE_BLOCK_PLAY, pos);
+            FurnitureActionTrigger.award(player, FurnitureActionTrigger.PIANO);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
     }

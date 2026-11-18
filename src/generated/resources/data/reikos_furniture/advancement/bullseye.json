@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:tickling_the_ivories",
+  "criteria": {
+    "bullseye": {
+      "conditions": {
+        "action": "bullseye"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.bullseye.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:dartboard"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.bullseye.title"
+    }
+  },
+  "requirements": [
+    [
+      "bullseye"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

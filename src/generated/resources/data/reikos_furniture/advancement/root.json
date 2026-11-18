@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "has_furniture": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:furniture"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/stripped_oak_log.png",
+    "description": {
+      "translate": "advancements.reikos_furniture.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:oak_nightstand"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.reikos_furniture.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_furniture"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
