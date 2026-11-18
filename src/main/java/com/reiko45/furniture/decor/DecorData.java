@@ -22,6 +22,7 @@ import com.reiko45.furniture.datagen.FurnitureRecipeProvider;
 import com.reiko45.furniture.datagen.RoomData;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -121,11 +122,12 @@ public class DecorData implements RoomData {
         String name = name(window);
         ModelFile pane = models.woodModel(name + "_pane", models.template(ROOM, "window_pane"), wood);
         ModelFile paneOpen = models.woodModel(name + "_pane_open", models.template(ROOM, "window_pane_open"), wood);
-        Map<BooleanProperty, ModelFile> frames = Map.of(
-                FramedWindowBlock.UP, models.woodModel(name + "_frame_top", models.template(ROOM, "window_frame_top"), wood),
-                FramedWindowBlock.DOWN, models.woodModel(name + "_frame_bottom", models.template(ROOM, "window_frame_bottom"), wood),
-                FramedWindowBlock.LEFT, models.woodModel(name + "_frame_left", models.template(ROOM, "window_frame_left"), wood),
-                FramedWindowBlock.RIGHT, models.woodModel(name + "_frame_right", models.template(ROOM, "window_frame_right"), wood));
+        // In a fixed order (not Map.of, whose order changes from run to run) so the blockstate file is stable.
+        Map<BooleanProperty, ModelFile> frames = new LinkedHashMap<>();
+        frames.put(FramedWindowBlock.UP, models.woodModel(name + "_frame_top", models.template(ROOM, "window_frame_top"), wood));
+        frames.put(FramedWindowBlock.DOWN, models.woodModel(name + "_frame_bottom", models.template(ROOM, "window_frame_bottom"), wood));
+        frames.put(FramedWindowBlock.LEFT, models.woodModel(name + "_frame_left", models.template(ROOM, "window_frame_left"), wood));
+        frames.put(FramedWindowBlock.RIGHT, models.woodModel(name + "_frame_right", models.template(ROOM, "window_frame_right"), wood));
         var builder = models.getMultipartBuilder(window);
         for (Direction facing : Direction.Plane.HORIZONTAL) {
             int y = FurnitureBlockStateProvider.yRot(facing);
