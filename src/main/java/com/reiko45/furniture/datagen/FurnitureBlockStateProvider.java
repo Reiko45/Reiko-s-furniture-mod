@@ -177,6 +177,16 @@ public class FurnitureBlockStateProvider extends BlockStateProvider {
         }
     }
 
+    /** Wooden block with no rotation: one model from {@code <template>}. */
+    public void woodSimple(WoodSet<?> set, String template) {
+        for (FurnitureWood wood : FurnitureWood.values()) {
+            Block block = set.get(wood).get();
+            String name = name(block);
+            simpleBlock(block, woodModel(name, template(set.room(), template), wood));
+            itemModels().withExistingParent(name, modLoc("block/" + name));
+        }
+    }
+
     /** Wooden piece that switches on and off: {@code <template>} and {@code <template>_on}. */
     public void woodFacingLit(WoodSet<?> set, String template) {
         for (FurnitureWood wood : FurnitureWood.values()) {

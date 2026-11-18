@@ -17,6 +17,7 @@ import com.reiko45.furniture.dining.DiningFurniture;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.office.OfficeFurniture;
+import com.reiko45.furniture.outdoor.OutdoorFurniture;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -45,6 +46,7 @@ public class ReikosFurniture {
         LivingRoomFurniture.init();
         BathroomFurniture.init();
         OfficeFurniture.init();
+        OutdoorFurniture.init();
         Workbench.init();
 
         ModBlocks.BLOCKS.register(modBus);

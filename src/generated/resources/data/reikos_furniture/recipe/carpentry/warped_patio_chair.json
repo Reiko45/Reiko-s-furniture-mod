@@ -1,0 +1,11 @@
+{
+  "type": "reikos_furniture:carpentry",
+  "count": 3,
+  "ingredient": {
+    "item": "minecraft:warped_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:warped_patio_chair"
+  }
+}

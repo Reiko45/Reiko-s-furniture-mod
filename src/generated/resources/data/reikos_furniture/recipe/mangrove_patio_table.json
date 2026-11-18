@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:mangrove_log"
+    },
+    "S": {
+      "item": "minecraft:mangrove_slab"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "L L",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:mangrove_patio_table"
+  }
+}

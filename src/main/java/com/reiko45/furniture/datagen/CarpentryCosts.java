@@ -25,7 +25,11 @@ final class CarpentryCosts {
             Map.entry("coffee_table", 4),
             Map.entry("tv_stand", 15),
             // Office
-            Map.entry("filing_cabinet", 23));
+            Map.entry("filing_cabinet", 23),
+            // Outdoor
+            Map.entry("patio_table", 6),
+            Map.entry("patio_chair", 3),
+            Map.entry("garden_bench", 5));
 
     private CarpentryCosts() {
     }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:dirt"
+    },
+    "P": {
+      "item": "minecraft:dark_oak_planks"
+    }
+  },
+  "pattern": [
+    "P P",
+    "PDP",
+    "PPP"
+  ],
+  "result": {
+    "count": 2,
+    "id": "reikos_furniture:dark_oak_planter_box"
+  }
+}
