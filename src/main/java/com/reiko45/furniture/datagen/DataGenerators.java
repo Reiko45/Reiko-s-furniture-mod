@@ -5,6 +5,7 @@ import com.reiko45.furniture.bedroom.BedroomData;
 import com.reiko45.furniture.dining.DiningData;
 import com.reiko45.furniture.kitchen.KitchenData;
 import com.reiko45.furniture.livingroom.LivingRoomData;
+import com.reiko45.furniture.office.OfficeData;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -24,7 +25,8 @@ public final class DataGenerators {
             new KitchenData(),
             new DiningData(),
             new LivingRoomData(),
-            new BathroomData());
+            new BathroomData(),
+            new OfficeData());
 
     private DataGenerators() {
     }

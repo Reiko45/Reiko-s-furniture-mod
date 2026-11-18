@@ -23,7 +23,9 @@ final class CarpentryCosts {
             Map.entry("sideboard", 15),
             // Living room
             Map.entry("coffee_table", 4),
-            Map.entry("tv_stand", 15));
+            Map.entry("tv_stand", 15),
+            // Office
+            Map.entry("filing_cabinet", 23));
 
     private CarpentryCosts() {
     }

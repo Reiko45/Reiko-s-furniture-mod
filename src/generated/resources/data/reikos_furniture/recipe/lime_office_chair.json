@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "W": {
+      "item": "minecraft:lime_wool"
+    }
+  },
+  "pattern": [
+    "W  ",
+    "WWW",
+    "NIN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:lime_office_chair"
+  }
+}

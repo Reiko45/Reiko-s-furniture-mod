@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "IIT",
+    " I ",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:desk_lamp"
+  }
+}

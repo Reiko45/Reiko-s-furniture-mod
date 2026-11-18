@@ -9,6 +9,8 @@
     "reikos_furniture:bathtub",
     "reikos_furniture:shower",
     "reikos_furniture:bathroom_sink",
-    "reikos_furniture:bathroom_cabinet"
+    "reikos_furniture:bathroom_cabinet",
+    "reikos_furniture:computer",
+    "reikos_furniture:desk_lamp"
   ]
 }

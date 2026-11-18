@@ -1,0 +1,11 @@
+{
+  "type": "reikos_furniture:carpentry",
+  "count": 23,
+  "ingredient": {
+    "item": "minecraft:oak_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:oak_filing_cabinet"
+  }
+}
