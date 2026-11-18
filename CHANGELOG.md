@@ -1,5 +1,53 @@
 # Changelog
 
+## 1.3.0
+
+1,459 furniture items in seventeen rooms (up from 677 in twelve), four furniture styles, new tools,
+advancements, a furniture catalog, village workshops, settings and four translations.
+
+### New rooms
+- **Decor:** wallpaper in 16 colors, eight kinds of tiles, herringbone parquet floors and slabs, and
+  baseboards and crown molding that form corners.
+- **Garage:** pegboards that hang six tools, a workshop bench that works like a crafting table,
+  toolboxes and oil drums in 16 colors, and metal shelving.
+- **Library:** two-block-tall bookcases that power enchanting tables, library ladders that slide along
+  the shelves, globes that spin, book stands, writing desks and a reading lamp.
+- **Home bar:** bar counters that form corners, bar stools, wine racks for nine bottles, an espresso
+  machine (espresso gives Haste, lattes are filling and give Speed) and a chalkboard you write on like
+  a sign.
+- **Nursery & hobby room:** cribs, changing tables, baby mobiles that turn, an aquarium for up to three
+  fish from fish buckets, and a bird cage for the parrot on your shoulder.
+
+### Doors, windows and art
+- **French doors and sliding glass doors** in every wood; redstone opens them.
+- **Windows** that join with their neighbours into one big window, with a sash that opens.
+- **Picture frames** that show any item, or a filled map at full size, and **twelve new paintings**.
+
+### Furniture styles
+- **Rustic, Modern, Royal and Japanese** versions of the bed, bunk bed, dining chair, dining table,
+  coffee table, nightstand, dresser, wardrobe, sofa and armchair: 480 new items with their own shapes,
+  from log posts and gold trim to a futon on tatami and a shoji wardrobe. Craft them from the classic
+  piece and a log, iron nugget, gold nugget or bamboo. They have their own creative tab.
+
+### Tools
+- **Furniture hammer:** turns placed furniture (sneak to turn it the other way).
+- **Moving dolly:** picks up storage furniture with everything inside and puts it down elsewhere.
+
+### Polish
+- **Advancements:** a "Reiko's Furniture" tab with fifteen advancements, and a
+  `reikos_furniture:furniture_action` trigger for datapacks.
+- **Furniture catalog:** a book listing every piece by room and style, with its recipe and workbench
+  cost. You get one with the Woodworker advancement.
+- **Village workshops:** villages can have a furniture maker's workshop with a villager inside.
+- **Settings:** furniture in other mods' woods (and their styles), the village workshop weight, the
+  laundry cycle, appliance speed, safe ownership and what the dolly may carry. They can be changed in
+  game from the Mods screen.
+- **Translations:** Spanish, French, German and Brazilian Portuguese, with names that follow each
+  language's grammar, also for furniture in other mods' woods.
+
+### Changes
+- Sofas now only join sofas of the same style.
+
 ## 1.2.0
 
 677 furniture items in twelve rooms (up from 462 in eight), four new foods and drinks, and

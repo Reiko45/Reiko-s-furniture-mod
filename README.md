@@ -1,13 +1,16 @@
 # Reiko's Furniture
 
-A furniture mod for **Minecraft 1.21.1** on **NeoForge**. The furniture is split into twelve room
+A furniture mod for **Minecraft 1.21.1** on **NeoForge**. The furniture is split into seventeen room
 sections: bedroom, kitchen, dining room, living room, bathroom, office, outdoor, kids' room, laundry
-room, music room, game room and pet corner. Wooden pieces come in all 11 vanilla wood types (and in
-the woods of other mods you have installed), and fabric pieces in all 16 colors. That makes 677
-furniture items, plus four foods and drinks.
+room, music room, game room, pet corner, decor, garage, library, home bar, and nursery & hobby room.
+Wooden pieces come in all 11 vanilla wood types (and in the woods of other mods you have installed),
+and fabric pieces in all 16 colors. Beds, chairs, tables, storage and sofas also come in four
+**furniture styles**: Rustic, Modern, Royal and Japanese. That makes 1,459 furniture items, plus six
+foods and drinks, two tools and a furniture catalog.
 
-Everything is in one creative tab, **Reiko's Furniture**, ordered room by room. Each item's tooltip
-shows which room it belongs to.
+The classic furniture is in the **Reiko's Furniture** creative tab, ordered room by room, and the
+style pieces are in **Reiko's Furniture: Styles**. Each item's tooltip shows its room (and style).
+The mod is in English, Spanish, French, German and Brazilian Portuguese.
 
 ## Furniture
 
@@ -94,7 +97,54 @@ shows which room it belongs to.
 | Pet corner | Pet bed | 16 colors | Cats sit on it; tamed wolves lie down on it |
 | | Cat tree (2 blocks tall) | 11 woods | Cats sit on top |
 | | Feeding bowl | 16 colors | Holds food that heals hurt tamed pets |
+| Decor | Wallpaper | 16 colors | Patterned building block |
+| | Tiles | 8 patterns | Building blocks: white, black, checkered, blue, green, terracotta, marble, hexagon |
+| | Parquet and parquet slab | 11 woods | Herringbone wooden floor |
+| | Baseboard | 11 woods | Trim along the bottom of a wall; forms corners |
+| | Crown molding | 11 woods | Trim along the top of a wall; forms corners |
+| | French door | 11 woods | Glass-paned door; opens with a click or redstone |
+| | Sliding door (2 blocks tall) | 11 woods | Glass door that slides open; redstone opens it |
+| | Window | 11 woods | Windows next to each other join into one; the sash opens |
+| | Picture frame | 11 woods | Shows an item, or a filled map at full size |
+| Garage | Pegboard | 11 woods | Hangs up to six tools or weapons |
+| | Workshop bench | 11 woods | A crafting table |
+| | Toolbox | 16 colors | Storage, 1 row |
+| | Oil drum | 16 colors | Storage, 1 row |
+| | Metal shelving | 1 | Storage, 3 rows |
+| Library | Tall bookcase (2 blocks tall) | 11 woods | Storage, 6 rows; powers enchanting tables |
+| | Library ladder | 11 woods | Climb it; right-click to slide it along the bookcases |
+| | Globe | 11 woods | Right-click to spin it |
+| | Book stand | 11 woods | Holds a book |
+| | Writing desk | 11 woods | Storage, 1 row |
+| | Reading lamp | 1 | Switches on and off |
+| Home bar | Bar counter | 11 woods | Storage, 3 rows; forms corners |
+| | Bar stool | 16 colors | Sit on it |
+| | Wine rack | 11 woods | Holds up to nine bottles |
+| | Espresso machine | 1 | Makes espresso and lattes |
+| | Chalkboard | 1 | Write a menu on it, like a sign |
+| Nursery & hobby room | Crib | 11 woods | Decoration |
+| | Changing table | 11 woods | Storage, 1 row |
+| | Baby mobile | 16 colors | Hangs from the ceiling and turns |
+| | Aquarium | 1 | Holds up to three fish from fish buckets |
+| | Bird cage | 1 | Holds the parrot from your shoulder |
 | Any room | Furniture workbench | 1 | Turns planks into wooden furniture; furniture makers work here |
+
+## Furniture styles
+
+Ten pieces also come in four styles, each with its own look and shape:
+
+| Style | Look |
+|---|---|
+| Rustic | Log posts with the bark on, thick plank tops, log-framed sofas |
+| Modern | Thin black metal legs, flat white fronts, a low platform bed, boxy sofas |
+| Royal | Carved legs, gold trim and handles, buttoned velvet, a tall headboard |
+| Japanese | A futon on a tatami platform, floor chairs, low tables, tansu chests and a shoji wardrobe |
+
+The styled pieces are the bed and bunk bed, dining chair, dining table, coffee table, nightstand,
+dresser and wardrobe (in 11 woods each), and the sofa and armchair (in 16 colors each). They work
+like the classic pieces: beds sleep and dye, sofas join (with sofas of the same style), tables join
+and storage opens. Craft one from the classic piece and the style's material: any log (Rustic), an
+iron nugget (Modern), a gold nugget (Royal) or bamboo (Japanese).
 
 ## How it works in game
 
@@ -148,12 +198,30 @@ shows which room it belongs to.
 - **Pets:** cats sit on pet beds and on top of cat trees. Idle tamed wolves walk over to a pet bed
   nearby and lie down on it. Fill a feeding bowl with up to 16 meat or fish: hurt tamed wolves and
   cats nearby eat from it and heal.
+- **Wall trim:** baseboards and crown molding form inner and outer corners like stairs.
+- **Doors and windows:** French doors work like wooden doors. The sliding door slides open with a
+  click or redstone, and when it is open only the frame is in the way. Windows next to each other (and
+  above each other) join into one big window, with the frame only around the outside; right-click to
+  tilt the sash open.
+- **Picture frames and paintings:** put any item in a picture frame, or a filled map to show the whole
+  map. Twelve new paintings, from 1x1 to 4x2, can be placed with the vanilla painting.
+- **Garage:** hang tools and weapons on the pegboard (up to six). The workshop bench is a crafting
+  table. Toolboxes click their latches when opened.
+- **Library:** right-click a library ladder to slide it to the next bookcase along the wall. The globe
+  spins and slows down when you right-click it. Put a book on the book stand. Tall bookcases power
+  enchanting tables with both halves.
+- **Home bar:** the wine rack holds potions, honey bottles, glass bottles and drinks. Right-click the
+  chalkboard to write on it (four lines, like a sign).
+- **Nursery & hobby room:** right-click the aquarium with a fish bucket to add the fish (up to three,
+  tropical fish keep their pattern), and with an empty bucket to take one back out. Sneak and
+  right-click the bird cage with a parrot on your shoulder to put it in, and right-click to let it out.
+  The baby mobile turns slowly.
 - Furniture faces you when placed, and most pieces can be placed underwater (waterlogged). Wooden
   and wool furniture can burn, except crimson and warped wood.
 
 ## Food and drink
 
-The coffee machine, toaster and blender make food. Right-click an appliance with the ingredients
+The coffee machine, toaster, blender and espresso machine make food. Right-click an appliance with the ingredients
 (and the glass bottle for drinks) to put them in. When they match a recipe the appliance starts,
 and the result pops out when it is done. Right-click with an empty hand to take the ingredients back
 before it starts.
@@ -164,6 +232,8 @@ before it starts.
 | Hot cocoa | Coffee machine | Cocoa beans, milk bucket, glass bottle | 6 s | Absorption for 30 seconds |
 | Fruit smoothie | Blender | Two fruits (apple, sweet berries, glow berries or melon slice), glass bottle | 5 s | Regeneration for 5 seconds |
 | Toast | Toaster | Bread | 4 s | More filling than bread |
+| Espresso | Espresso machine | Two cocoa beans, glass bottle | 4 s | Haste for 60 seconds |
+| Latte | Espresso machine | Cocoa beans, milk bucket, sugar, glass bottle | 6 s | Very filling, Speed for 15 seconds |
 
 Drinks give the glass bottle back. The recipes are data files (recipe type
 `reikos_furniture:appliance`), so a datapack can add or change them.
@@ -179,6 +249,31 @@ The workbench works like a stonecutter for furniture:
 It makes every all-wood piece in the wood you put in. Pieces that need other materials (lamps,
 beds, sinks, counters, bookshelves, glass pieces and so on) are made at a crafting table.
 
+## Furniture tools
+
+- **Furniture hammer:** right-click a placed piece to turn it clockwise, or sneak and right-click to
+  turn it the other way. Two-block-tall pieces turn as a whole. Beds, bunk beds, bathtubs, doors and
+  the chalkboard can't be turned.
+- **Moving dolly:** right-click a storage piece to pick it up with everything inside, then right-click
+  where you want it. It is put down facing you, contents and all. A safe only moves for its owner. The
+  server can limit the dolly to empty storage (see Settings).
+
+## Furniture catalog
+
+The furniture catalog is a book (craft a book with any planks, or get one with the Woodworker
+advancement). Right-click it to see every piece, room by room and style by style. Each piece cycles
+through its woods and colors; click one to see its crafting recipe (or the appliance that makes it)
+and what it costs at the furniture workbench.
+
+## Advancements
+
+The **Reiko's Furniture** advancement tab has fifteen advancements, among them Take a Seat, Coffee
+Break, Interior Designer (turn furniture with the hammer), Heavy Lifting (move storage with the
+dolly), A Matter of Style, Bullseye!, High Score, Fresh Laundry, Who's a Good Boy? and the challenge
+Home Sweet Home: own a piece from every room. Datapacks can use the
+`reikos_furniture:furniture_action` trigger, with an `action` of `hammer`, `dolly`, `piano`,
+`bullseye`, `arcade_high_score`, `wash` or `pet_fed`.
+
 ## Furniture maker villager
 
 The furniture workbench is a job site. An unemployed villager near one becomes a **furniture
@@ -186,6 +281,37 @@ maker**, with a canvas apron and a pencil behind the ear. Furniture makers buy p
 and sell furniture: chairs, table lamps, rugs and coffee tables at the first levels, then floor lamps,
 bookshelves, sofas, beds and record players, and at Master level TVs, fridges, arcade cabinets and
 pianos.
+
+### Village workshops
+
+New plains, desert, savanna, snowy and taiga villages can have a **furniture maker's workshop**: a
+small house in the village's own materials with a furniture workbench, a workshop bench, a pegboard
+and toolbox, a dining set, a style armchair, a lamp, a rug and a bed. A villager lives there and soon
+becomes a furniture maker. How often workshops appear is a setting.
+
+## Settings
+
+The settings can be changed in game (Mods, Reiko's Furniture, Config) or in the config files.
+
+| Setting | File | Default | What it does |
+|---|---|---|---|
+| Furniture in other mods' woods | `config/reikos_furniture-startup.toml` | on | Make wooden furniture in other mods' woods |
+| Styles in other mods' woods | `config/reikos_furniture-startup.toml` | on | Also make the style pieces in those woods |
+| Village workshop weight | `config/reikos_furniture-common.toml` | 2 | How often villages have a workshop (0 turns them off) |
+| Laundry cycle | world's `serverconfig/reikos_furniture-server.toml` | 5 seconds | How long the washing machine and dryer run |
+| Appliance speed | world's `serverconfig/reikos_furniture-server.toml` | 1.0 | Multiplier for how fast the kitchen and bar appliances work |
+| Safes only open for their owner | world's `serverconfig/reikos_furniture-server.toml` | on | Turn off to let anyone open safes |
+| Dolly carries full storage | world's `serverconfig/reikos_furniture-server.toml` | on | Turn off to only allow moving empty storage |
+
+The startup settings change which blocks exist, so every player and the server need the same values.
+
+## Languages
+
+The mod is translated into Spanish (`es_es`), French (`fr_fr`), German (`de_de`) and Brazilian
+Portuguese (`pt_br`). Furniture names follow each language's grammar ("Mesita de noche de roble",
+"Table de chevet en chêne", "Eichenholz-Nachttisch", "Criado-Mudo de Carvalho"), and furniture in
+other mods' woods gets names in every language too. The translations were made without a native
+speaker's review, so corrections are welcome.
 
 ## Recipe viewers (JEI and EMI)
 
@@ -295,6 +421,41 @@ carpet or terracotta of the color you want.
 | Pet bed | `W W` / `WWW` | W = color wool | 1 |
 | Cat tree | `CLC` / ` L ` / `CLC` | C = any carpet | 1 |
 | Feeding bowl | `T T` / ` T ` | T = color terracotta | 1 |
+| Wallpaper | `WPW` / `PDP` / `WPW` | W = paper, P = any planks, D = dye of the color | 8 |
+| Tiles | `AB` / `BA` | Concrete of the tile's color; checkered: white and black; hexagon: white and light gray; terracotta: terracotta; marble: calcite | 4 |
+| Parquet | `SS` / `SS` | | 2 |
+| Parquet slab | `QQQ` | Q = parquet of the same wood | 6 |
+| Baseboard | `SSS` | | 6 |
+| Crown molding | `S` / `S` / `S` | | 6 |
+| French door | `PG` / `PG` / `PG` | G = glass pane | 3 |
+| Sliding door | `LG` / `LG` / `LG` | G = glass pane | 2 |
+| Window | `SGS` | G = glass | 2 |
+| Picture frame | `SSS` / `SWS` / `SSS` | W = paper | 2 |
+| Pegboard | `PNP` / `PPP` | N = iron nugget | 2 |
+| Workshop bench | `SCS` / `P P` | C = crafting table | 1 |
+| Toolbox | `INI` / `IDI` | I = iron ingot, N = iron nugget, D = dye of the color | 1 |
+| Oil drum | `IDI` / `I I` / `III` | I = iron ingot, D = dye of the color | 1 |
+| Metal shelving | `I I` / `III` / `I I` | I = iron ingot | 1 |
+| Tall bookcase | `PBP` / `PBP` / `PBP` | B = book | 1 |
+| Library ladder | `S S` / `SSS` / `S S` | | 3 |
+| Globe | `M` / `S` / `P` | M = map | 1 |
+| Book stand | `B` / `S` | B = book | 1 |
+| Writing desk | `  F` / `PPP` / `PCP` | F = feather, C = chest | 1 |
+| Reading lamp | `GGG` / ` T ` / `III` | G = green stained glass, T = torch, I = gold ingot | 1 |
+| Bar counter | `LLL` / `PCP` / `PPP` | C = chest | 1 |
+| Bar stool | `W` / `I` / `N` | W = color wool, I = iron ingot, N = iron nugget | 1 |
+| Wine rack | `PSP` / `SBS` / `PSP` | B = glass bottle | 1 |
+| Espresso machine | `III` / `IBG` / `IRI` | I = iron ingot, B = bucket, G = glass pane, R = redstone | 1 |
+| Chalkboard | `PPP` / `PDP` / `PPP` | P = any planks, D = black dye | 1 |
+| Crib | `S S` / `SWS` / `PPP` | W = white wool | 1 |
+| Changing table | `WWW` / `PCP` | W = white wool, C = chest | 1 |
+| Baby mobile | ` N ` / `TWT` | N = iron nugget, T = string, W = color wool | 1 |
+| Aquarium | `GGG` / `GBG` / `PPP` | G = glass, B = water bucket, P = any planks | 1 |
+| Bird cage | ` N ` / `N N` / `NIN` | N = gold nugget, I = gold ingot | 1 |
+| Style pieces | Shapeless | The classic piece + any log (Rustic), iron nugget (Modern), gold nugget (Royal) or bamboo (Japanese) | 1 |
+| Furniture hammer | `IPI` / ` S ` / ` S ` | I = iron ingot, P = any planks, S = stick | 1 |
+| Moving dolly | `S  ` / `S  ` / `INI` | S = stick, I = iron ingot, N = iron nugget | 1 |
+| Furniture catalog | Shapeless | A book and any planks | 1 |
 | Furniture workbench | ` I ` / `PTP` / `P P` | I = iron ingot, T = crafting table, P = any planks | 1 |
 
 ## Building and running
@@ -305,7 +466,7 @@ You need Java 21. The Gradle wrapper downloads everything else.
 ./gradlew build
 ```
 
-The mod jar is written to `build/libs/reikos_furniture-1.2.0.jar`. Put it in the `mods` folder of a
+The mod jar is written to `build/libs/reikos_furniture-1.3.0.jar`. Put it in the `mods` folder of a
 Minecraft 1.21.1 NeoForge install.
 
 Other useful tasks:
@@ -314,7 +475,7 @@ Other useful tasks:
 |---|---|
 | `./gradlew runClient` | Starts the game with the mod loaded |
 | `./gradlew runServer` | Starts a dedicated server with the mod loaded |
-| `./gradlew runData` | Regenerates models, block states, recipes, loot tables, tags, sounds and names into `src/generated/resources` |
+| `./gradlew runData` | Regenerates models, block states, recipes, loot tables, tags, advancements, sounds and names (in every language) into `src/generated/resources` |
 | `./gradlew runGameTestServer` | Runs the automated in-game tests and exits |
 
 Run `./gradlew runData` after changing pieces, models or recipes, and commit the files it generates.
@@ -328,13 +489,13 @@ checks that `src/generated` is up to date. The jar is attached to each run as a 
 
 To publish a release:
 
-1. Set `mod_version` in `gradle.properties`, for example `1.2.0`.
+1. Set `mod_version` in `gradle.properties`, for example `1.3.0`.
 2. Push a tag with the same version:
    ```bash
-   git tag v1.2.0
+   git tag v1.3.0
    ```
    ```bash
-   git push origin v1.2.0
+   git push origin v1.3.0
    ```
 3. GitHub builds and tests the mod and creates a release with the jar attached.
 
@@ -350,28 +511,37 @@ src/main/java/com/reiko45/furniture/
   ReikosFurnitureClient.java   Client-only setup (renderers, screens, colors)
   core/                        Shared parts every room uses
     FurnitureWood.java         The wood types (the vanilla ones, plus any found in other mods)
+    Style.java                 The furniture styles
     FurnitureRegistry.java     Registers furniture blocks and their items
     block/                     Base blocks: seats, storage, two-block-tall pieces, lights, tables, beds
     blockentity/, entity/      Storage inventory, invisible seat entity
     display/                   Blocks that show items (shelves, plates, feeding bowls) and their renderer
     modded/                    Furniture in other mods' woods: detection and the built-in pack
-    registry/                  Block entities, sounds, recipe types, the creative tab
+    registry/                  Block entities, sounds, recipe types, the creative tabs
     workbench/                 Furniture workbench block, recipe type, menu and screen
+    tool/                      Furniture hammer and moving dolly
+    catalog/                   The furniture catalog item and screen
+    advancement/               The furniture_action trigger and the advancement tab
+    config/                    The settings
   bedroom/  kitchen/  dining/  livingroom/  bathroom/  office/  outdoor/  kids/
-  laundry/  music/  gameroom/  pets/
+  laundry/  music/  gameroom/  pets/  decor/  garage/  library/  bar/  nursery/
     <Room>Furniture.java       The room's blocks
     <Room>Data.java            The room's models and recipes (used by runData)
+  styles/                      The Rustic, Modern, Royal and Japanese pieces
   kitchen/appliance/           Coffee machine, toaster, blender and their recipe type
-  villager/                    The furniture maker profession and trades
+  villager/                    The furniture maker profession, trades and village workshops
   compat/                      JEI and EMI plugins (only loaded when those mods are installed)
   datagen/                     Data generation shared by all rooms
+    lang/                      The translations: one grammar and word list per language
   gametest/                    Automated in-game tests
 src/main/resources/assets/reikos_furniture/
   models/block/template/<room>/  Model templates (written by tools/models)
+  models/block/template/style/<style>/  Templates of the style pieces
   textures/                    The mod's own textures (written by tools/textures)
   sounds/                      The mod's own sounds (written by tools/sounds)
+src/main/resources/data/reikos_furniture/structure/village/  The village workshops (written by tools/structures)
 src/generated/resources/       Output of runData (do not edit by hand)
-tools/                         Python scripts that make the templates, textures and sounds
+tools/                         Python scripts that make the templates, textures, sounds and workshops
 ```
 
 Each piece has template models that use the texture variables `#planks`, `#log` and `#stripped_log`
@@ -389,6 +559,7 @@ commit the results.
 | `python3 tools/models/generate_all.py` | Python 3 | Rewrites every model template from the room scripts in `tools/models/` |
 | `python3 tools/textures/generate_textures.py` | Pillow | Draws the fabrics, appliance fronts, screens, food items and villager clothes |
 | `python3 tools/sounds/generate_sounds.py` | numpy, ffmpeg | Makes the sounds (microwave ding, toilet flush, washer, ...) as `.ogg` files |
+| `python3 tools/structures/generate_workshops.py` | Python 3 | Builds the five village workshops as structure files |
 | `python3 tools/check_textures.py` | Python 3 | Checks that every texture a model uses exists (run `./gradlew build` first) |
 
 To change a piece's shape, edit its room script in `tools/models/` (for example `tools/models/office.py`).
@@ -409,7 +580,8 @@ Then run `generate_all.py` and `./gradlew runData`.
 4. Run `./gradlew runData`.
 
 Names, loot tables and mining tags are generated automatically, and the piece is made in other
-mods' woods too.
+mods' woods too. For the other languages, add the piece's word (with its grammatical gender) to each
+class in `datagen/lang/`; `runData` stops with a list of anything missing.
 
 ### Adding a room
 
