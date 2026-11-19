@@ -86,6 +86,11 @@ public class Portuguese extends RomanceGrammar {
         noun("wine_rack", "Adega", F);
         noun("workshop_bench", "Bancada de Trabalho", F);
         noun("writing_desk", "Secretária", F);
+        noun("plant_stand", "Suporte para Plantas", M);
+        noun("window_flower_box", "Floreira de Janela", F);
+        noun("garden_shed_cabinet", "Armário de Jardim", M);
+        noun("growing_pot", "Vaso de Cultivo", M);
+        noun("hanging_planter", "Vaso Suspenso", M);
         noun("mailbox", "Caixa de Correio", F);
         noun("armchair", "Poltrona", F);
         noun("baby_mobile", "Móbile", M);
@@ -105,6 +110,7 @@ public class Portuguese extends RomanceGrammar {
         noun("wallpaper", "Papel de Parede", M);
 
         single("light_switch", "Interruptor de Luz");
+        single("terracotta_growing_pot", "Vaso de Cultivo de Terracota");
         single("aquarium", "Aquário");
         single("arcade_cabinet", "Fliperama");
         single("bathroom_cabinet", "Armário de Banheiro");
@@ -229,6 +235,10 @@ public class Portuguese extends RomanceGrammar {
         text(item + "hammer", "Martelo de Marceneiro");
         text(item + "hammer.tooltip", "Clique com o botão direito em um móvel para girá-lo (agachado: para o outro lado)");
         text(item + "light_switch.tooltip", "Agache e clique com o botão direito em luminárias para conectá-las (%s conectadas)");
+        text(item + "watering_can", "Regador");
+        text(item + "watering_can.water", "Água: %s/%s");
+        text(item + "watering_can.tooltip", "Clique com o botão direito na água, numa pia ou numa banheira para enchê-lo e depois em plantas para regá-las (3×3)");
+        text("message.reikos_furniture.watering_can_empty", "O regador está vazio");
         text("message.reikos_furniture.lamp_linked", "Luminária conectada ao interruptor (%s de %s)");
         text("message.reikos_furniture.lamp_unlinked", "Luminária desconectada do interruptor (%s de %s)");
         text("message.reikos_furniture.switch_full", "Este interruptor já controla %s de %s luminárias");
@@ -294,6 +304,7 @@ public class Portuguese extends RomanceGrammar {
         text(room + "library", "Biblioteca");
         text(room + "bar", "Bar em Casa");
         text(room + "nursery", "Quarto do Bebê e Hobbies");
+        text(room + "greenhouse", "Estufa e Jardim");
         text("style.reikos_furniture.rustic", "Estilo Rústico");
         text("style.reikos_furniture.modern", "Estilo Moderno");
         text("style.reikos_furniture.royal", "Estilo Real");

@@ -87,7 +87,12 @@ public class Spanish extends RomanceGrammar {
         noun("wine_rack", "Botellero", M);
         noun("workshop_bench", "Banco de trabajo", M);
         noun("writing_desk", "Secreter", M);
+        noun("plant_stand", "Soporte para plantas", M);
+        noun("window_flower_box", "Jardinera de ventana", F);
+        noun("garden_shed_cabinet", "Armario de jardín", M);
         // Colored pieces.
+        noun("growing_pot", "Maceta de cultivo", F);
+        noun("hanging_planter", "Maceta colgante", F);
         noun("mailbox", "Buzón", M);
         noun("armchair", "Sillón", M);
         noun("baby_mobile", "Móvil de cuna", M);
@@ -107,6 +112,7 @@ public class Spanish extends RomanceGrammar {
         noun("wallpaper", "Papel pintado", M);
 
         single("light_switch", "Interruptor de luz");
+        single("terracotta_growing_pot", "Maceta de cultivo de terracota");
         single("aquarium", "Acuario");
         single("arcade_cabinet", "Máquina recreativa");
         single("bathroom_cabinet", "Armario de baño");
@@ -231,6 +237,10 @@ public class Spanish extends RomanceGrammar {
         text(item + "hammer", "Martillo de muebles");
         text(item + "hammer.tooltip", "Clic derecho en un mueble para girarlo (agachado: hacia el otro lado)");
         text(item + "light_switch.tooltip", "Agáchate y haz clic derecho en lámparas para conectarlas (%s conectadas)");
+        text(item + "watering_can", "Regadera");
+        text(item + "watering_can.water", "Agua: %s/%s");
+        text(item + "watering_can.tooltip", "Haz clic derecho en agua, un fregadero o una bañera para llenarla y luego en plantas para regarlas (3×3)");
+        text("message.reikos_furniture.watering_can_empty", "La regadera está vacía");
         text("message.reikos_furniture.lamp_linked", "Lámpara conectada al interruptor (%s de %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lámpara desconectada del interruptor (%s de %s)");
         text("message.reikos_furniture.switch_full", "Este interruptor ya controla %s de %s lámparas");
@@ -296,6 +306,7 @@ public class Spanish extends RomanceGrammar {
         text(room + "library", "Biblioteca");
         text(room + "bar", "Bar en casa");
         text(room + "nursery", "Cuarto del bebé y manualidades");
+        text(room + "greenhouse", "Invernadero y jardín");
         text("style.reikos_furniture.rustic", "Estilo rústico");
         text("style.reikos_furniture.modern", "Estilo moderno");
         text("style.reikos_furniture.royal", "Estilo regio");

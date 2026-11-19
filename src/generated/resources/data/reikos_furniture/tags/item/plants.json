@@ -1,0 +1,22 @@
+{
+  "values": [
+    "#minecraft:small_flowers",
+    "#minecraft:tall_flowers",
+    "#minecraft:saplings",
+    "minecraft:fern",
+    "minecraft:dead_bush",
+    "minecraft:short_grass",
+    "minecraft:brown_mushroom",
+    "minecraft:red_mushroom",
+    "minecraft:crimson_fungus",
+    "minecraft:warped_fungus",
+    "minecraft:crimson_roots",
+    "minecraft:warped_roots",
+    "minecraft:cactus",
+    "minecraft:azalea",
+    "minecraft:flowering_azalea",
+    "minecraft:sweet_berries",
+    "minecraft:large_fern",
+    "minecraft:tall_grass"
+  ]
+}

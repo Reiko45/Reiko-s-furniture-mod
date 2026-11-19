@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/greenhouse/hanging_planter",
+  "textures": {
+    "pot": "minecraft:block/red_terracotta"
+  }
+}

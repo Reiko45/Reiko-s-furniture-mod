@@ -45,6 +45,11 @@ public final class ModDataComponents {
             COMPONENTS.registerComponentType("linked_lamps", builder -> builder.persistent(BlockPos.CODEC.listOf())
                     .networkSynchronized(BlockPos.STREAM_CODEC.apply(ByteBufCodecs.list())));
 
+    /** How many waterings are left in a watering can. */
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> WATER =
+            COMPONENTS.registerComponentType("water",
+                    builder -> builder.persistent(Codec.intRange(0, 1000)).networkSynchronized(ByteBufCodecs.VAR_INT));
+
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<CarriedFurniture>> CARRIED_FURNITURE =
             COMPONENTS.registerComponentType("carried_furniture",
                     builder -> builder.persistent(CarriedFurniture.CODEC).networkSynchronized(CarriedFurniture.STREAM_CODEC));

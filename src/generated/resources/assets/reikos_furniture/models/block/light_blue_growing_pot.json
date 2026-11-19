@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/greenhouse/growing_pot",
+  "textures": {
+    "band": "minecraft:block/light_blue_concrete",
+    "pot": "minecraft:block/light_blue_terracotta"
+  }
+}

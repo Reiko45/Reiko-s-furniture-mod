@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:flower_pot"
+    },
+    "L": {
+      "item": "minecraft:cherry_log"
+    },
+    "S": {
+      "item": "minecraft:cherry_slab"
+    }
+  },
+  "pattern": [
+    " F ",
+    "SSS",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:cherry_plant_stand"
+  }
+}

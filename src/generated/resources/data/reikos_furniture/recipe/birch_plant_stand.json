@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:flower_pot"
+    },
+    "L": {
+      "item": "minecraft:birch_log"
+    },
+    "S": {
+      "item": "minecraft:birch_slab"
+    }
+  },
+  "pattern": [
+    " F ",
+    "SSS",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:birch_plant_stand"
+  }
+}

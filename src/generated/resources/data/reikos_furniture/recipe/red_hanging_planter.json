@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:dirt"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "minecraft:red_terracotta"
+    }
+  },
+  "pattern": [
+    " S ",
+    "TDT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:red_hanging_planter"
+  }
+}

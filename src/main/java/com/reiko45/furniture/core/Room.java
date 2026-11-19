@@ -18,7 +18,8 @@ public enum Room {
     GARAGE("garage", "Garage"),
     LIBRARY("library", "Library"),
     BAR("bar", "Home Bar"),
-    NURSERY("nursery", "Nursery & Hobby Room");
+    NURSERY("nursery", "Nursery & Hobby Room"),
+    GREENHOUSE("greenhouse", "Greenhouse & Garden");
 
     private final String id;
     private final String displayName;

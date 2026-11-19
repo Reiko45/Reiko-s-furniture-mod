@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:flower_pot"
+    },
+    "L": {
+      "item": "minecraft:mangrove_log"
+    },
+    "S": {
+      "item": "minecraft:mangrove_slab"
+    }
+  },
+  "pattern": [
+    " F ",
+    "SSS",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:mangrove_plant_stand"
+  }
+}

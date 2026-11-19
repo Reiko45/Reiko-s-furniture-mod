@@ -6,7 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-/** The mod's tags: item tags used by the advancements, and the lamps block tag. Written by data generation. */
+/** The mod's tags: item tags used by the advancements, the plants pots hold, and the lamps block tag. Written by data generation. */
 public final class FurnitureTags {
     /** Every furniture item that belongs to a room, classic and styled. */
     public static final TagKey<Item> FURNITURE = item("furniture");
@@ -14,6 +14,9 @@ public final class FurnitureTags {
     public static final TagKey<Item> STYLES = item("styles");
     /** Drinks made with the kitchen and bar appliances. */
     public static final TagKey<Item> DRINKS = item("drinks");
+
+    /** Flowers, saplings and other small plants that pots, plant stands and flower boxes hold. */
+    public static final TagKey<Item> PLANTS = item("plants");
 
     /** Lamps a light switch can control. */
     public static final TagKey<Block> LAMPS = TagKey.create(Registries.BLOCK, ReikosFurniture.id("lamps"));

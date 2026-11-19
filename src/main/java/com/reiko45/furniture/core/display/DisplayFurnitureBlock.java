@@ -39,6 +39,11 @@ public class DisplayFurnitureBlock extends FurnitureBlock implements EntityBlock
         return 1;
     }
 
+    /** How much bigger than the slot's own scale its plants are drawn (growing pots grow them). */
+    public float plantScale(BlockState state) {
+        return 1.0F;
+    }
+
     /** Which items may be put on it. Everything by default. */
     public boolean accepts(ItemStack stack) {
         return true;

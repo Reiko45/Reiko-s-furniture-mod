@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:dirt"
+    },
+    "T": {
+      "item": "minecraft:yellow_terracotta"
+    }
+  },
+  "pattern": [
+    "TDT",
+    " T "
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:yellow_growing_pot"
+  }
+}

@@ -95,6 +95,11 @@ public class German extends Grammar {
         noun("wine_rack", "Weinregal", N);
         noun("workshop_bench", "Werkbank", F);
         noun("writing_desk", "Sekretär", M);
+        noun("plant_stand", "Pflanzenständer", M);
+        noun("window_flower_box", "Blumenkasten", M);
+        noun("garden_shed_cabinet", "Gartenschrank", M);
+        noun("growing_pot", "Pflanztopf", M);
+        noun("hanging_planter", "Blumenampel", F);
         noun("mailbox", "Briefkasten", M);
         noun("armchair", "Sessel", M);
         noun("baby_mobile", "Mobile", N);
@@ -114,6 +119,7 @@ public class German extends Grammar {
         noun("wallpaper", "Tapete", F);
 
         single("light_switch", "Lichtschalter");
+        single("terracotta_growing_pot", "Terrakotta-Pflanztopf");
         single("aquarium", "Aquarium");
         single("arcade_cabinet", "Spielautomat");
         single("bathroom_cabinet", "Badezimmerschrank");
@@ -238,6 +244,10 @@ public class German extends Grammar {
         text(item + "hammer", "Möbelhammer");
         text(item + "hammer.tooltip", "Rechtsklick auf ein Möbelstück dreht es (beim Schleichen andersherum)");
         text(item + "light_switch.tooltip", "Schleichend Rechtsklick auf Lampen verbindet sie (%s verbunden)");
+        text(item + "watering_can", "Gießkanne");
+        text(item + "watering_can.water", "Wasser: %s/%s");
+        text(item + "watering_can.tooltip", "Rechtsklick auf Wasser, ein Spülbecken oder eine Badewanne füllt sie, dann auf Pflanzen, um sie zu gießen (3×3)");
+        text("message.reikos_furniture.watering_can_empty", "Die Gießkanne ist leer");
         text("message.reikos_furniture.lamp_linked", "Lampe mit dem Schalter verbunden (%s von %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lampe vom Schalter getrennt (%s von %s)");
         text("message.reikos_furniture.switch_full", "Dieser Schalter steuert schon %s von %s Lampen");
@@ -303,6 +313,7 @@ public class German extends Grammar {
         text(room + "library", "Bibliothek");
         text(room + "bar", "Hausbar");
         text(room + "nursery", "Babyzimmer & Hobbyraum");
+        text(room + "greenhouse", "Gewächshaus & Garten");
         text("style.reikos_furniture.rustic", "Rustikaler Stil");
         text("style.reikos_furniture.modern", "Moderner Stil");
         text("style.reikos_furniture.royal", "Königlicher Stil");

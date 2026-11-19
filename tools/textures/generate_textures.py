@@ -607,6 +607,39 @@ def tool_items():
     save(dolly(True), "item/moving_dolly_loaded.png")
 
 
+def watering_can():
+    """A green watering can: round body, a carrying handle on top and a long spout with a rose."""
+    green, green_dark, green_light = (0x4C, 0x9A, 0x3C), (0x2F, 0x6A, 0x26), (0x7C, 0xC4, 0x5E)
+    rose, rose_dark = (0xC8, 0xC8, 0xCC), (0x80, 0x80, 0x88)
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    px = img.load()
+
+    def put(x, y, c):
+        if 0 <= x < 16 and 0 <= y < 16:
+            px[x, y] = c + (255,)
+
+    for y in range(7, 15):  # body, with the corners cut
+        for x in range(6, 15):
+            if (x, y) in ((6, 7), (14, 7), (6, 14), (14, 14)):
+                continue
+            c = green_light if x == 7 else green_dark if x >= 13 or y == 14 else green
+            put(x, y, c)
+    for x in range(7, 14):  # top rim
+        put(x, 6, green_dark)
+    for x, y in ((8, 5), (8, 4), (9, 3), (10, 3), (11, 3), (12, 4), (12, 5)):  # handle
+        put(x, y, green_dark)
+    for x, y in ((9, 4), (10, 4), (11, 4)):
+        put(x, y, green)
+    for i in range(5):  # spout, from the bottom of the body up to the left
+        put(5 - i, 11 - i, green)
+        put(5 - i, 12 - i, green_dark)
+    for x, y in ((0, 5), (1, 5), (0, 6), (1, 6), (0, 7), (1, 4), (2, 5)):  # the rose
+        put(x, y, rose)
+    for x, y in ((0, 4), (1, 7)):
+        put(x, y, rose_dark)
+    save(img, "item/watering_can.png")
+
+
 # ---- Paintings ---------------------------------------------------------------------------------
 
 PAINTINGS = {  # name: (width, height) in blocks
@@ -956,6 +989,7 @@ if __name__ == "__main__":
     garage_and_library()
     paintings()
     tool_items()
+    watering_can()
     window_glass()
     for name, rgb in DYES.items():
         wallpaper(name, rgb)

@@ -86,6 +86,11 @@ public class French extends RomanceGrammar {
         noun("wine_rack", "Casier à vin", M);
         noun("workshop_bench", "Établi", M);
         noun("writing_desk", "Secrétaire", M);
+        noun("plant_stand", "Support à plantes", M);
+        noun("window_flower_box", "Jardinière de fenêtre", F);
+        noun("garden_shed_cabinet", "Armoire de jardin", F);
+        noun("growing_pot", "Pot de culture", M);
+        noun("hanging_planter", "Pot suspendu", M);
         noun("mailbox", "Boîte aux lettres", F);
         noun("armchair", "Fauteuil", M);
         noun("baby_mobile", "Mobile pour bébé", M);
@@ -105,6 +110,7 @@ public class French extends RomanceGrammar {
         noun("wallpaper", "Papier peint", M);
 
         single("light_switch", "Interrupteur");
+        single("terracotta_growing_pot", "Pot de culture en terre cuite");
         single("aquarium", "Aquarium");
         single("arcade_cabinet", "Borne d'arcade");
         single("bathroom_cabinet", "Armoire de toilette");
@@ -229,6 +235,10 @@ public class French extends RomanceGrammar {
         text(item + "hammer", "Marteau de menuisier");
         text(item + "hammer.tooltip", "Clic droit sur un meuble pour le tourner (accroupi : dans l'autre sens)");
         text(item + "light_switch.tooltip", "Accroupi, clic droit sur des lampes pour les relier (%s reliées)");
+        text(item + "watering_can", "Arrosoir");
+        text(item + "watering_can.water", "Eau : %s/%s");
+        text(item + "watering_can.tooltip", "Clic droit sur de l'eau, un évier ou une baignoire pour le remplir, puis sur des plantes pour les arroser (3×3)");
+        text("message.reikos_furniture.watering_can_empty", "L'arrosoir est vide");
         text("message.reikos_furniture.lamp_linked", "Lampe reliée à l'interrupteur (%s sur %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lampe détachée de l'interrupteur (%s sur %s)");
         text("message.reikos_furniture.switch_full", "Cet interrupteur commande déjà %s lampes sur %s");
@@ -294,6 +304,7 @@ public class French extends RomanceGrammar {
         text(room + "library", "Bibliothèque");
         text(room + "bar", "Bar maison");
         text(room + "nursery", "Chambre de bébé et loisirs");
+        text(room + "greenhouse", "Serre et jardin");
         text("style.reikos_furniture.rustic", "Style rustique");
         text("style.reikos_furniture.modern", "Style moderne");
         text("style.reikos_furniture.royal", "Style royal");
