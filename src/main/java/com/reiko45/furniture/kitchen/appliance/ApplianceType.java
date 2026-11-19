@@ -11,7 +11,9 @@ public enum ApplianceType {
     TOASTER("toaster", null, () -> ModSounds.TOASTER_POP.get()),
     BLENDER("blender", () -> ModSounds.BLENDER.get(), null),
     ESPRESSO_MACHINE("espresso_machine", () -> ModSounds.COFFEE_BREWING.get(), null),
-    POPCORN_MACHINE("popcorn_machine", () -> ModSounds.POPCORN_POPPING.get(), null);
+    POPCORN_MACHINE("popcorn_machine", () -> ModSounds.POPCORN_POPPING.get(), null),
+    POTTERY_WHEEL("pottery_wheel", () -> ModSounds.POTTERY_WHEEL.get(), null),
+    SEWING_MACHINE("sewing_machine", () -> ModSounds.SEWING_MACHINE.get(), null);
 
     private final String id;
     @Nullable

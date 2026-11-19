@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/lime_vase",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/lime_vase"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/lime_vase",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/lime_vase",
+      "y": 270
+    }
+  }
+}

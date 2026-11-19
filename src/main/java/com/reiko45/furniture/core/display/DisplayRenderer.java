@@ -5,6 +5,11 @@ import com.mojang.math.Axis;
 import com.reiko45.furniture.core.block.FurnitureBlock;
 import java.util.List;
 import com.reiko45.furniture.decor.PictureFrameBlock;
+import com.reiko45.furniture.studio.CanvasItem;
+import com.reiko45.furniture.studio.CanvasRenderer;
+import com.reiko45.furniture.studio.CanvasTextures;
+import com.reiko45.furniture.studio.EaselBlock;
+import com.reiko45.furniture.studio.Painting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -57,6 +62,10 @@ public class DisplayRenderer implements BlockEntityRenderer<DisplayBlockEntity> 
                 continue;
             }
             DisplaySlot slot = slots.get(i);
+            if (stack.getItem() instanceof CanvasItem && (block instanceof EaselBlock || block instanceof PictureFrameBlock)) {
+                renderPainting(CanvasItem.painting(stack), block instanceof EaselBlock, facing, pose, buffers, light);
+                continue;
+            }
             if (block instanceof PictureFrameBlock && stack.has(DataComponents.MAP_ID)) {
                 renderMap(display, stack.get(DataComponents.MAP_ID), facing, pose, buffers, light);
                 continue;
@@ -102,6 +111,22 @@ public class DisplayRenderer implements BlockEntityRenderer<DisplayBlockEntity> 
             blockRenderer.renderSingleBlock(plant.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER),
                     pose, buffers, light, overlay, ModelData.EMPTY, null);
         }
+        pose.popPose();
+    }
+
+    /** A canvas leans on the easel's ledge, or fills a picture frame's picture area like a map. */
+    private static void renderPainting(Painting painting, boolean onEasel, Direction facing, PoseStack pose,
+                                       MultiBufferSource buffers, int light) {
+        pose.pushPose();
+        CanvasRenderer.facingNorth(pose, facing);
+        if (onEasel) {
+            CanvasRenderer.onNorthFace(pose, 13.5F / 16, 4.75F / 16, 5.25F / 16, 11F / 16);
+            pose.mulPose(Axis.XP.rotationDegrees(-12.0F)); // leaning back against the easel
+        } else {
+            CanvasRenderer.onNorthFace(pose, (8 + PictureFrameBlock.PICTURE_SIZE / 2) / 16, (8 - PictureFrameBlock.PICTURE_SIZE / 2) / 16,
+                    14.45F / 16, PictureFrameBlock.PICTURE_SIZE / 16);
+        }
+        CanvasTextures.draw(painting, pose, buffers, light);
         pose.popPose();
     }
 

@@ -214,6 +214,27 @@ def popcorn_popping(rnd):
     return out * env(n, 0.02, 0.2)
 
 
+def pottery_wheel(rnd):
+    """A low wheel hum and the wet hiss of clay under the hands, rising and falling."""
+    n = int(RATE * 2.5)
+    tt = t(2.5)
+    hum = np.sin(2 * np.pi * 70 * tt) * 0.4 + np.sin(2 * np.pi * 140 * tt) * 0.15
+    wet = lowpass(rnd.standard_normal(n), 900) * (0.6 + 0.4 * np.sin(2 * np.pi * 1.3 * tt))
+    return (hum + wet * 0.8) * env(n, 0.1, 0.3)
+
+
+def sewing_machine(rnd):
+    """The needle going up and down, 14 stitches a second, with a motor whine."""
+    n = int(RATE * 2.0)
+    tt = t(2.0)
+    out = np.sin(2 * np.pi * 380 * tt) * 0.05
+    period = RATE // 14
+    for start in range(0, n - 600, period):
+        tick = rnd.standard_normal(600) * np.exp(-np.arange(600) / 80)
+        out[start:start + 600] += tick - lowpass(tick, 1500)
+    return out * env(n, 0.03, 0.15)
+
+
 def toolbox_latch():
     tt = t(0.25)
     click = np.zeros(len(tt))
@@ -242,4 +263,6 @@ if __name__ == "__main__":
     write("toolbox_latch", toolbox_latch(), 0.6)
     write("projector", projector(rnd), 0.5)
     write("popcorn_popping", popcorn_popping(rnd), 0.6)
+    write("pottery_wheel", pottery_wheel(rnd), 0.5)
+    write("sewing_machine", sewing_machine(rnd), 0.5)
     print("sounds written to", os.path.normpath(OUT))

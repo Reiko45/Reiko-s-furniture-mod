@@ -3,6 +3,9 @@ package com.reiko45.furniture.core.network;
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.catalog.CatalogCrafting;
 import com.reiko45.furniture.core.mail.MailboxMenu;
+import com.reiko45.furniture.studio.EaselBlock;
+import com.reiko45.furniture.studio.Painting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -54,10 +57,30 @@ public final class ModNetwork {
         }
     }
 
+    /** Client to server: the pixels painted on the canvas on an easel, and a title to sign it with (or ""). */
+    public record PaintCanvas(BlockPos easel, String pixels, String title) implements CustomPacketPayload {
+        public static final Type<PaintCanvas> TYPE = new Type<>(ReikosFurniture.id("paint_canvas"));
+        public static final StreamCodec<RegistryFriendlyByteBuf, PaintCanvas> STREAM_CODEC = StreamCodec.composite(
+                BlockPos.STREAM_CODEC, PaintCanvas::easel,
+                ByteBufCodecs.stringUtf8(Painting.SIZE * Painting.SIZE), PaintCanvas::pixels,
+                ByteBufCodecs.stringUtf8(Painting.MAX_TITLE * 4), PaintCanvas::title,
+                PaintCanvas::new);
+
+        @Override
+        public Type<PaintCanvas> type() {
+            return TYPE;
+        }
+
+        static void handle(PaintCanvas message, IPayloadContext context) {
+            EaselBlock.paint(context.player(), message.easel(), message.pixels(), message.title());
+        }
+    }
+
     /** Mod bus listener. */
     public static void register(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
         registrar.playToServer(SendMail.TYPE, SendMail.STREAM_CODEC, SendMail::handle);
         registrar.playToServer(CatalogCraft.TYPE, CatalogCraft.STREAM_CODEC, CatalogCraft::handle);
+        registrar.playToServer(PaintCanvas.TYPE, PaintCanvas.STREAM_CODEC, PaintCanvas::handle);
     }
 }

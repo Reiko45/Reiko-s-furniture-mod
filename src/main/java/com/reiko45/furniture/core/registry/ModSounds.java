@@ -29,6 +29,8 @@ public final class ModSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> TOOLBOX_LATCH = register("toolbox_latch");
     public static final DeferredHolder<SoundEvent, SoundEvent> PROJECTOR = register("projector");
     public static final DeferredHolder<SoundEvent, SoundEvent> POPCORN_POPPING = register("popcorn_popping");
+    public static final DeferredHolder<SoundEvent, SoundEvent> POTTERY_WHEEL = register("pottery_wheel");
+    public static final DeferredHolder<SoundEvent, SoundEvent> SEWING_MACHINE = register("sewing_machine");
 
     /** English subtitles, keyed by sound name. */
     public static final java.util.Map<String, String> SUBTITLES = java.util.Map.ofEntries(
@@ -47,7 +49,9 @@ public final class ModSounds {
             java.util.Map.entry("globe_spin", "Globe spins"),
             java.util.Map.entry("toolbox_latch", "Toolbox latch clicks"),
             java.util.Map.entry("projector", "Projector whirs"),
-            java.util.Map.entry("popcorn_popping", "Popcorn pops"));
+            java.util.Map.entry("popcorn_popping", "Popcorn pops"),
+            java.util.Map.entry("pottery_wheel", "Pottery wheel spins"),
+            java.util.Map.entry("sewing_machine", "Sewing machine rattles"));
 
     private ModSounds() {
     }

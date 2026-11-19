@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/studio/vase",
+  "textures": {
+    "pot": "minecraft:block/brown_terracotta"
+  }
+}

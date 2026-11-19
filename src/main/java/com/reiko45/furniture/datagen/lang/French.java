@@ -93,6 +93,10 @@ public class French extends RomanceGrammar {
         noun("hanging_planter", "Pot suspendu", M);
         noun("speaker", "Enceinte", F);
         noun("recliner", "Fauteuil inclinable", M);
+        noun("easel", "Chevalet", M);
+        noun("vase", "Vase", M);
+        noun("floor_cushion", "Coussin de sol", M);
+        noun("paint_pots", "Peinture", F);
         noun("mailbox", "Boîte aux lettres", F);
         noun("armchair", "Fauteuil", M);
         noun("baby_mobile", "Mobile pour bébé", M);
@@ -112,6 +116,10 @@ public class French extends RomanceGrammar {
         noun("wallpaper", "Papier peint", M);
 
         single("light_switch", "Interrupteur");
+        single("canvas", "Toile");
+        single("pottery_wheel", "Tour de potier");
+        single("terracotta_vase", "Vase en terre cuite");
+        single("sewing_machine", "Machine à coudre");
         single("projector_screen", "Écran de projection");
         single("projector", "Projecteur");
         single("popcorn_machine", "Machine à pop-corn");
@@ -247,6 +255,15 @@ public class French extends RomanceGrammar {
         text(item + "watering_can.tooltip", "Clic droit sur de l'eau, un évier ou une baignoire pour le remplir, puis sur des plantes pour les arroser (3×3)");
         text("message.reikos_furniture.watering_can_empty", "L'arrosoir est vide");
         text("message.reikos_furniture.projector_no_screen", "Il n'y a pas d'écran de projection devant l'objectif");
+        text("container.reikos_furniture.easel", "Peinture");
+        text("container.reikos_furniture.easel.sign", "Signer");
+        text("container.reikos_furniture.easel.title", "Titre");
+        text("container.reikos_furniture.easel.fill", "Remplir");
+        text("container.reikos_furniture.easel.brush", "Pinceau");
+        text("container.reikos_furniture.easel.signing", "Donnez-lui un titre. Une peinture signée ne peut plus être modifiée.");
+        text("item.reikos_furniture.canvas.by", "par %s");
+        text("item.reikos_furniture.canvas.unfinished", "Peinture inachevée");
+        text("item.reikos_furniture.canvas.tooltip", "Posez-la sur un chevalet pour la peindre");
         text("message.reikos_furniture.lamp_linked", "Lampe reliée à l'interrupteur (%s sur %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lampe détachée de l'interrupteur (%s sur %s)");
         text("message.reikos_furniture.switch_full", "Cet interrupteur commande déjà %s lampes sur %s");
@@ -314,6 +331,7 @@ public class French extends RomanceGrammar {
         text(room + "nursery", "Chambre de bébé et loisirs");
         text(room + "greenhouse", "Serre et jardin");
         text(room + "theater", "Home cinéma");
+        text(room + "studio", "Atelier d'art");
         text("style.reikos_furniture.rustic", "Style rustique");
         text("style.reikos_furniture.modern", "Style moderne");
         text("style.reikos_furniture.royal", "Style royal");
@@ -333,6 +351,8 @@ public class French extends RomanceGrammar {
         text(sub + "toolbox_latch", "Loquet de boîte à outils");
         text(sub + "projector", "Un projecteur ronronne");
         text(sub + "popcorn_popping", "Le pop-corn éclate");
+        text(sub + "pottery_wheel", "Un tour de potier tourne");
+        text(sub + "sewing_machine", "Une machine à coudre cliquette");
         text(sub + "tv_static", "Télévision grésille");
         text(sub + "washer_running", "Lave-linge tourne");
         text(sub + "workbench_saw", "Scie coupe");

@@ -181,6 +181,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "studio": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:rooms/studio"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "theater": {
       "conditions": {
         "items": [
@@ -262,6 +272,9 @@
     ],
     [
       "theater"
+    ],
+    [
+      "studio"
     ]
   ],
   "rewards": {

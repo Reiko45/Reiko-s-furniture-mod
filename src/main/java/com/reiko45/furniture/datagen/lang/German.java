@@ -102,6 +102,10 @@ public class German extends Grammar {
         noun("hanging_planter", "Blumenampel", F);
         noun("speaker", "Lautsprecher", M);
         noun("recliner", "Liegesessel", M);
+        noun("easel", "Staffelei", F);
+        noun("vase", "Vase", F);
+        noun("floor_cushion", "Sitzkissen", N);
+        noun("paint_pots", "Farbeimer", M);
         noun("mailbox", "Briefkasten", M);
         noun("armchair", "Sessel", M);
         noun("baby_mobile", "Mobile", N);
@@ -121,6 +125,10 @@ public class German extends Grammar {
         noun("wallpaper", "Tapete", F);
 
         single("light_switch", "Lichtschalter");
+        single("canvas", "Leinwand");
+        single("pottery_wheel", "Töpferscheibe");
+        single("terracotta_vase", "Terrakottavase");
+        single("sewing_machine", "Nähmaschine");
         single("projector_screen", "Projektionsleinwand");
         single("projector", "Projektor");
         single("popcorn_machine", "Popcornmaschine");
@@ -256,6 +264,15 @@ public class German extends Grammar {
         text(item + "watering_can.tooltip", "Rechtsklick auf Wasser, ein Spülbecken oder eine Badewanne füllt sie, dann auf Pflanzen, um sie zu gießen (3×3)");
         text("message.reikos_furniture.watering_can_empty", "Die Gießkanne ist leer");
         text("message.reikos_furniture.projector_no_screen", "Vor dem Objektiv ist keine Projektionsleinwand");
+        text("container.reikos_furniture.easel", "Gemälde");
+        text("container.reikos_furniture.easel.sign", "Signieren");
+        text("container.reikos_furniture.easel.title", "Titel");
+        text("container.reikos_furniture.easel.fill", "Füllen");
+        text("container.reikos_furniture.easel.brush", "Pinsel");
+        text("container.reikos_furniture.easel.signing", "Gib ihm einen Titel. Ein signiertes Gemälde kann nicht mehr geändert werden.");
+        text("item.reikos_furniture.canvas.by", "von %s");
+        text("item.reikos_furniture.canvas.unfinished", "Unfertiges Gemälde");
+        text("item.reikos_furniture.canvas.tooltip", "Stell sie auf eine Staffelei, um sie zu bemalen");
         text("message.reikos_furniture.lamp_linked", "Lampe mit dem Schalter verbunden (%s von %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lampe vom Schalter getrennt (%s von %s)");
         text("message.reikos_furniture.switch_full", "Dieser Schalter steuert schon %s von %s Lampen");
@@ -323,6 +340,7 @@ public class German extends Grammar {
         text(room + "nursery", "Babyzimmer & Hobbyraum");
         text(room + "greenhouse", "Gewächshaus & Garten");
         text(room + "theater", "Heimkino");
+        text(room + "studio", "Kunstatelier");
         text("style.reikos_furniture.rustic", "Rustikaler Stil");
         text("style.reikos_furniture.modern", "Moderner Stil");
         text("style.reikos_furniture.royal", "Königlicher Stil");
@@ -342,6 +360,8 @@ public class German extends Grammar {
         text(sub + "toolbox_latch", "Werkzeugkasten klickt");
         text(sub + "projector", "Projektor surrt");
         text(sub + "popcorn_popping", "Popcorn platzt");
+        text(sub + "pottery_wheel", "Töpferscheibe dreht sich");
+        text(sub + "sewing_machine", "Nähmaschine rattert");
         text(sub + "tv_static", "Fernseher rauscht");
         text(sub + "washer_running", "Waschmaschine läuft");
         text(sub + "workbench_saw", "Säge sägt");

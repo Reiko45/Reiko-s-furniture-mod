@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/studio/paint_pots",
+  "textures": {
+    "paint": "minecraft:block/magenta_concrete"
+  }
+}

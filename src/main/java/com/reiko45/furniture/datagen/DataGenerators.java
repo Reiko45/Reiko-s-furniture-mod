@@ -17,6 +17,7 @@ import com.reiko45.furniture.music.MusicData;
 import com.reiko45.furniture.nursery.NurseryData;
 import com.reiko45.furniture.greenhouse.GreenhouseData;
 import com.reiko45.furniture.theater.TheaterData;
+import com.reiko45.furniture.studio.StudioData;
 import com.reiko45.furniture.styles.StyleData;
 import com.reiko45.furniture.datagen.lang.French;
 import com.reiko45.furniture.datagen.lang.German;
@@ -71,6 +72,7 @@ public final class DataGenerators {
             new NurseryData(),
             new GreenhouseData(),
             new TheaterData(),
+            new StudioData(),
             new StyleData(),
             new CatalogData(),
             new LightingData(),

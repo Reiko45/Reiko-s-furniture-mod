@@ -45,6 +45,11 @@ public final class ModDataComponents {
             COMPONENTS.registerComponentType("linked_lamps", builder -> builder.persistent(BlockPos.CODEC.listOf())
                     .networkSynchronized(BlockPos.STREAM_CODEC.apply(ByteBufCodecs.list())));
 
+    /** The picture painted on a canvas. */
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<com.reiko45.furniture.studio.Painting>> PAINTING =
+            COMPONENTS.registerComponentType("painting", builder -> builder.persistent(com.reiko45.furniture.studio.Painting.CODEC)
+                    .networkSynchronized(com.reiko45.furniture.studio.Painting.STREAM_CODEC));
+
     /** How many waterings are left in a watering can. */
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> WATER =
             COMPONENTS.registerComponentType("water",

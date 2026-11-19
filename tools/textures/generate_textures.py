@@ -1167,6 +1167,20 @@ def theater():
     save(img, "item/popcorn.png")
 
 
+def canvas_linen():
+    """Bare canvas: an off-white linen weave (its color matches bare pixels in paintings)."""
+    base = (0xF2, 0xEB, 0xD9)
+    img = new(color=base)
+    px = img.load()
+    rnd = random.Random("linen")
+    for y in range(16):
+        for x in range(16):
+            f = 0.97 if (x + y) % 2 else 1.0
+            f -= rnd.random() * 0.03
+            px[x, y] = shade(base, f) + (255,)
+    save(img, "block/canvas.png")
+
+
 if __name__ == "__main__":
     catalog_item()
     style_textures()
@@ -1176,6 +1190,7 @@ if __name__ == "__main__":
     tool_items()
     watering_can()
     theater()
+    canvas_linen()
     window_glass()
     for name, rgb in DYES.items():
         wallpaper(name, rgb)

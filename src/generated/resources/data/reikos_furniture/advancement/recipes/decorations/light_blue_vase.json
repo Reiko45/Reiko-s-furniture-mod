@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "reikos_furniture:light_blue_vase"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vase": {
+      "conditions": {
+        "items": [
+          {
+            "items": "reikos_furniture:terracotta_vase"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_vase"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "reikos_furniture:light_blue_vase"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/template/studio/vase",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/template/studio/vase"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/template/studio/vase",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/template/studio/vase",
+      "y": 270
+    }
+  }
+}

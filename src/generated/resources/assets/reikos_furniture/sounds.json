@@ -47,11 +47,23 @@
     ],
     "subtitle": "subtitles.reikos_furniture.popcorn_popping"
   },
+  "pottery_wheel": {
+    "sounds": [
+      "reikos_furniture:pottery_wheel"
+    ],
+    "subtitle": "subtitles.reikos_furniture.pottery_wheel"
+  },
   "projector": {
     "sounds": [
       "reikos_furniture:projector"
     ],
     "subtitle": "subtitles.reikos_furniture.projector"
+  },
+  "sewing_machine": {
+    "sounds": [
+      "reikos_furniture:sewing_machine"
+    ],
+    "subtitle": "subtitles.reikos_furniture.sewing_machine"
   },
   "sliding_door": {
     "sounds": [
