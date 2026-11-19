@@ -24,7 +24,8 @@
             12
           ],
           "texture": "#planks",
-          "cullface": "down"
+          "cullface": "down",
+          "tintindex": 1
         },
         "up": {
           "uv": [
@@ -33,7 +34,8 @@
             13,
             12
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "north": {
           "uv": [
@@ -42,7 +44,8 @@
             14,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "south": {
           "uv": [
@@ -51,7 +54,8 @@
             13,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "west": {
           "uv": [
@@ -60,7 +64,8 @@
             12,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "east": {
           "uv": [
@@ -69,7 +74,8 @@
             12,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         }
       }
     },
@@ -93,7 +99,8 @@
             9
           ],
           "texture": "#planks",
-          "cullface": "down"
+          "cullface": "down",
+          "tintindex": 1
         },
         "up": {
           "uv": [
@@ -102,7 +109,8 @@
             15,
             9
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "north": {
           "uv": [
@@ -111,7 +119,8 @@
             3,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "south": {
           "uv": [
@@ -120,7 +129,8 @@
             15,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "west": {
           "uv": [
@@ -129,7 +139,8 @@
             9,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "east": {
           "uv": [
@@ -138,7 +149,8 @@
             9,
             16
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         }
       }
     }

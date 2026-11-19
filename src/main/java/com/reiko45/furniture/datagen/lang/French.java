@@ -223,6 +223,7 @@ public class French extends RomanceGrammar {
         text(item + "furniture_catalog.tooltip", "Tous les meubles, par pièce et par style");
         text(item + "hammer", "Marteau de menuisier");
         text(item + "hammer.tooltip", "Clic droit sur un meuble pour le tourner (accroupi : dans l'autre sens)");
+        text(item + "stain", "Teinte : %s");
         text(item + "moving_dolly", "Diable de déménagement");
         text(item + "moving_dolly.tooltip", "Clic droit sur un meuble de rangement pour le déplacer avec son contenu");
         text(item + "moving_dolly.carrying", "Transporte : %s");

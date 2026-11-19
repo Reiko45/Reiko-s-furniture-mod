@@ -1581,6 +1581,7 @@
   "item.reikos_furniture.moving_dolly": "Moving Dolly",
   "item.reikos_furniture.moving_dolly.carrying": "Carrying: %s",
   "item.reikos_furniture.moving_dolly.tooltip": "Right-click storage furniture to move it with its contents",
+  "item.reikos_furniture.stain": "Stain: %s",
   "item.reikos_furniture.toast": "Toast",
   "itemGroup.reikos_furniture": "Reiko's Furniture",
   "itemGroup.reikos_furniture.styles": "Reiko's Furniture: Styles",

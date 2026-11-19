@@ -225,6 +225,7 @@ public class Spanish extends RomanceGrammar {
         text(item + "furniture_catalog.tooltip", "Todos los muebles, por habitación y estilo");
         text(item + "hammer", "Martillo de muebles");
         text(item + "hammer.tooltip", "Clic derecho en un mueble para girarlo (agachado: hacia el otro lado)");
+        text(item + "stain", "Tinte: %s");
         text(item + "moving_dolly", "Carretilla de mudanzas");
         text(item + "moving_dolly.tooltip", "Clic derecho en un mueble de almacenamiento para moverlo con su contenido");
         text(item + "moving_dolly.carrying", "Lleva: %s");

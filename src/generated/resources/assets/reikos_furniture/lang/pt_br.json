@@ -1581,6 +1581,7 @@
   "item.reikos_furniture.moving_dolly": "Carrinho de Mudança",
   "item.reikos_furniture.moving_dolly.carrying": "Levando: %s",
   "item.reikos_furniture.moving_dolly.tooltip": "Clique com o botão direito em um móvel de armazenamento para movê-lo com o conteúdo",
+  "item.reikos_furniture.stain": "Tingimento: %s",
   "item.reikos_furniture.toast": "Torrada",
   "itemGroup.reikos_furniture": "Reiko's Furniture",
   "itemGroup.reikos_furniture.styles": "Reiko's Furniture: Estilos",

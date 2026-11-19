@@ -85,10 +85,11 @@ public class RepaintGameTests {
         use(helper, pos, sneaking(helper), new ItemStack(Items.LIME_WOOL));
         helper.assertBlockPresent(LivingRoomFurniture.SOFA.get(DyeColor.LIME).get(), pos);
         helper.assertBlockProperty(pos, SofaBlock.FACING, Direction.NORTH);
-        // Dye doesn't recolor wooden pieces this way.
+        // Dye stains wooden pieces instead (see StainGameTests); the piece stays the same block.
         BlockPos table = pos.east(2);
         helper.setBlock(table, BedroomFurniture.DESK.get(FurnitureWood.OAK).get());
-        helper.assertFalse(use(helper, table, sneaking(helper), new ItemStack(Items.BLUE_DYE)), "dye is not a wood material");
+        use(helper, table, sneaking(helper), new ItemStack(Items.BLUE_DYE));
+        helper.assertBlockPresent(BedroomFurniture.DESK.get(FurnitureWood.OAK).get(), table);
         helper.succeed();
     }
 

@@ -223,6 +223,7 @@ public class Portuguese extends RomanceGrammar {
         text(item + "furniture_catalog.tooltip", "Todos os móveis, por cômodo e estilo");
         text(item + "hammer", "Martelo de Marceneiro");
         text(item + "hammer.tooltip", "Clique com o botão direito em um móvel para girá-lo (agachado: para o outro lado)");
+        text(item + "stain", "Tingimento: %s");
         text(item + "moving_dolly", "Carrinho de Mudança");
         text(item + "moving_dolly.tooltip", "Clique com o botão direito em um móvel de armazenamento para movê-lo com o conteúdo");
         text(item + "moving_dolly.carrying", "Levando: %s");

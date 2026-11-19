@@ -29,6 +29,9 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import com.reiko45.furniture.core.stain.StainClient;
+import com.reiko45.furniture.core.stain.Stains;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 /** Client-only setup. */
@@ -41,6 +44,12 @@ public class ReikosFurnitureClient {
         modBus.addListener(ReikosFurnitureClient::clientSetup);
         modBus.addListener(ReikosFurnitureClient::registerScreens);
         modBus.addListener(ReikosFurnitureClient::registerBlockColors);
+        // Wood stain: tints on stained pieces and items.
+        Stains.clientListener = StainClient::onChanged;
+        modBus.addListener(StainClient::registerBlockColors);
+        modBus.addListener(StainClient::registerItemColors);
+        NeoForge.EVENT_BUS.addListener(StainClient::onChunkUnload);
+        NeoForge.EVENT_BUS.addListener(StainClient::onLevelUnload);
     }
 
     private static void registerBlockColors(RegisterColorHandlersEvent.Block event) {

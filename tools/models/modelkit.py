@@ -2,6 +2,8 @@
 import json, math, os
 
 FACES = ["down", "up", "north", "south", "west", "east"]
+# Faces with the wood textures get tint index 1, so wooden furniture can be stained (tinted) in game.
+STAINABLE = {"#planks", "#log", "#stripped_log"}
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "src", "main", "resources", "assets",
                    "reikos_furniture", "models", "block", "template")
 
@@ -68,6 +70,8 @@ class Box:
                 entry["cullface"] = face
             if self.tint:
                 entry["tintindex"] = 0
+            elif tex in STAINABLE:
+                entry["tintindex"] = 1
             if self.rot.get(face):
                 entry["rotation"] = self.rot[face]
             faces[face] = entry

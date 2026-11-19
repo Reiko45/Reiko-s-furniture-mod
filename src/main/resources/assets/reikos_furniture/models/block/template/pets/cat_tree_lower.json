@@ -26,7 +26,8 @@
             16
           ],
           "texture": "#planks",
-          "cullface": "down"
+          "cullface": "down",
+          "tintindex": 1
         },
         "up": {
           "uv": [
@@ -45,7 +46,8 @@
             16
           ],
           "texture": "#planks",
-          "cullface": "north"
+          "cullface": "north",
+          "tintindex": 1
         },
         "south": {
           "uv": [
@@ -55,7 +57,8 @@
             16
           ],
           "texture": "#planks",
-          "cullface": "south"
+          "cullface": "south",
+          "tintindex": 1
         },
         "west": {
           "uv": [
@@ -65,7 +68,8 @@
             16
           ],
           "texture": "#planks",
-          "cullface": "west"
+          "cullface": "west",
+          "tintindex": 1
         },
         "east": {
           "uv": [
@@ -75,7 +79,8 @@
             16
           ],
           "texture": "#planks",
-          "cullface": "east"
+          "cullface": "east",
+          "tintindex": 1
         }
       }
     },
@@ -157,7 +162,8 @@
             8,
             15
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "up": {
           "uv": [
@@ -175,7 +181,8 @@
             15,
             6
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "south": {
           "uv": [
@@ -184,7 +191,8 @@
             8,
             6
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "west": {
           "uv": [
@@ -193,7 +201,8 @@
             8,
             6
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         },
         "east": {
           "uv": [
@@ -202,7 +211,8 @@
             15,
             6
           ],
-          "texture": "#planks"
+          "texture": "#planks",
+          "tintindex": 1
         }
       }
     },

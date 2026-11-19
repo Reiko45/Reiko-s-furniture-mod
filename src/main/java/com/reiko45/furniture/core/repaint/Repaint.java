@@ -7,6 +7,7 @@ import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.advancement.FurnitureActionTrigger;
 import com.reiko45.furniture.core.block.FurnitureBedBlock;
+import com.reiko45.furniture.core.stain.Stains;
 import com.reiko45.furniture.kids.BunkBedBlock;
 import com.reiko45.furniture.kids.BunkTopBlock;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Changes a placed piece instead of crafting a new one. Sneak and right-click furniture with:
  * <ul>
+ *   <li>a dye, to stain a wooden piece (a sponge takes the stain off again);</li>
  *   <li>planks of another wood, to make it in that wood;</li>
  *   <li>a dye or wool, to change the color of a fabric piece;</li>
  *   <li>a style's material (a log, iron nugget, gold nugget, bamboo, ...), to turn it into that style.</li>
@@ -197,7 +199,7 @@ public final class Repaint {
         BlockState state = level.getBlockState(pos);
         Block target = target(state.getBlock(), stack);
         if (target == null) {
-            return false;
+            return stain(level, pos, state, player, stack);
         }
         if (target != state.getBlock() && !level.isClientSide) {
             apply(level, pos, target);
@@ -205,6 +207,37 @@ public final class Repaint {
             FurnitureActionTrigger.award(player, FurnitureActionTrigger.REPAINT);
         }
         return true;
+    }
+
+    /** Dye stains a wooden piece; a sponge takes the stain off. */
+    private static boolean stain(Level level, BlockPos pos, BlockState state, Player player, ItemStack stack) {
+        if (!isWooden(state.getBlock())) {
+            return false;
+        }
+        if (stack.getItem() instanceof DyeItem dye) {
+            if (!level.isClientSide && Stains.getPiece(level, pos) != dye.getDyeColor()) {
+                Stains.setPiece(level, pos, dye.getDyeColor());
+                stack.consume(1, player);
+                level.playSound(null, pos, SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                FurnitureActionTrigger.award(player, FurnitureActionTrigger.REPAINT);
+            }
+            return true;
+        }
+        if (stack.is(Items.SPONGE) && Stains.getPiece(level, pos) != null) {
+            if (!level.isClientSide) {
+                Stains.setPiece(level, pos, null);
+                level.playSound(null, pos, SoundEvents.BRUSH_GENERIC, SoundSource.BLOCKS, 1.0F, 1.0F);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /** Whether a block is a wooden piece (part of a wood set, in any wood). */
+    public static boolean isWooden(Block block) {
+        index();
+        Place place = places.get(block);
+        return place != null && place.wood() != null;
     }
 
     /** Replaces the piece at {@code pos} (all its parts) with {@code target}, keeping its state and contents. */
@@ -256,7 +289,7 @@ public final class Repaint {
     }
 
     /** Every block of the piece: both halves of tall pieces and doors, both parts of beds. */
-    static List<BlockPos> parts(Level level, BlockPos pos, BlockState state) {
+    public static List<BlockPos> parts(Level level, BlockPos pos, BlockState state) {
         List<BlockPos> parts = new ArrayList<>();
         parts.add(pos);
         if (state.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
@@ -269,6 +302,27 @@ public final class Repaint {
                     ? state.getValue(BedBlock.FACING) : state.getValue(BedBlock.FACING).getOpposite());
             if (level.getBlockState(other).is(state.getBlock())) {
                 parts.add(other);
+            }
+        }
+        return parts;
+    }
+
+    /**
+     * The blocks a piece covers, worked out from its state alone (for when the piece is already being
+     * removed): the other half of tall pieces and beds, and the top bunks above a bunk bed.
+     */
+    public static List<BlockPos> partPositions(BlockPos pos, BlockState state) {
+        List<BlockPos> parts = new ArrayList<>();
+        parts.add(pos);
+        if (state.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
+            parts.add(state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? pos.above() : pos.below());
+        } else if (state.getBlock() instanceof BedBlock && state.hasProperty(BedBlock.PART)) {
+            parts.add(pos.relative(state.getValue(BedBlock.PART) == BedPart.FOOT
+                    ? state.getValue(BedBlock.FACING) : state.getValue(BedBlock.FACING).getOpposite()));
+        }
+        if (state.getBlock() instanceof BunkBedBlock) {
+            for (BlockPos part : List.copyOf(parts)) {
+                parts.add(part.above());
             }
         }
         return parts;

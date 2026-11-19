@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -31,6 +32,11 @@ public final class ModDataComponents {
                 ByteBufCodecs.COMPOUND_TAG, CarriedFurniture::data,
                 CarriedFurniture::new);
     }
+
+    /** The wood stain of a wooden piece (or of the piece a moving dolly carries). */
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<DyeColor>> STAIN =
+            COMPONENTS.registerComponentType("stain",
+                    builder -> builder.persistent(DyeColor.CODEC).networkSynchronized(DyeColor.STREAM_CODEC));
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<CarriedFurniture>> CARRIED_FURNITURE =
             COMPONENTS.registerComponentType("carried_furniture",

@@ -1581,6 +1581,7 @@
   "item.reikos_furniture.moving_dolly": "Carretilla de mudanzas",
   "item.reikos_furniture.moving_dolly.carrying": "Lleva: %s",
   "item.reikos_furniture.moving_dolly.tooltip": "Clic derecho en un mueble de almacenamiento para moverlo con su contenido",
+  "item.reikos_furniture.stain": "Tinte: %s",
   "item.reikos_furniture.toast": "Tostada",
   "itemGroup.reikos_furniture": "Reiko's Furniture",
   "itemGroup.reikos_furniture.styles": "Reiko's Furniture: estilos",

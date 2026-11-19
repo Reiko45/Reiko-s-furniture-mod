@@ -232,6 +232,7 @@ public class German extends Grammar {
         text(item + "furniture_catalog.tooltip", "Alle Möbelstücke, nach Raum und Stil");
         text(item + "hammer", "Möbelhammer");
         text(item + "hammer.tooltip", "Rechtsklick auf ein Möbelstück dreht es (beim Schleichen andersherum)");
+        text(item + "stain", "Beize: %s");
         text(item + "moving_dolly", "Sackkarre");
         text(item + "moving_dolly.tooltip", "Rechtsklick auf ein Aufbewahrungsmöbel bewegt es samt Inhalt");
         text(item + "moving_dolly.carrying", "Trägt: %s");

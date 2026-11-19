@@ -1581,6 +1581,7 @@
   "item.reikos_furniture.moving_dolly": "Sackkarre",
   "item.reikos_furniture.moving_dolly.carrying": "Trägt: %s",
   "item.reikos_furniture.moving_dolly.tooltip": "Rechtsklick auf ein Aufbewahrungsmöbel bewegt es samt Inhalt",
+  "item.reikos_furniture.stain": "Beize: %s",
   "item.reikos_furniture.toast": "Toast",
   "itemGroup.reikos_furniture": "Reiko's Furniture",
   "itemGroup.reikos_furniture.styles": "Reiko's Furniture: Stile",

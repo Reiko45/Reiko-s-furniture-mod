@@ -1,5 +1,6 @@
 package com.reiko45.furniture.core.tool;
 
+import com.reiko45.furniture.core.stain.Stains;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.TallBlockHelper;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
@@ -18,6 +19,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -105,6 +107,12 @@ public class DollyItem extends Item {
         inventory.clearContent(); // so nothing spills when the block is removed
         BlockState carried = lower.hasProperty(BlockStateProperties.OPEN) ? lower.setValue(BlockStateProperties.OPEN, false) : lower;
         dolly.set(ModDataComponents.CARRIED_FURNITURE.get(), new CarriedFurniture(carried, data));
+        // The stain goes along on the dolly.
+        DyeColor stain = Stains.getPiece(level, lowerPos);
+        if (stain != null) {
+            dolly.set(ModDataComponents.STAIN.get(), stain);
+        }
+        Stains.setPiece(level, lowerPos, null);
         if (lower.hasProperty(TallBlockHelper.HALF)) {
             level.setBlock(lowerPos.above(), net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
         }
@@ -144,6 +152,7 @@ public class DollyItem extends Item {
             entity.setChanged();
         }
         dolly.remove(ModDataComponents.CARRIED_FURNITURE.get());
+        Stains.setPiece(level, pos, dolly.remove(ModDataComponents.STAIN.get()));
         level.playSound(null, pos, state.getSoundType(level, pos, null).getPlaceSound(), SoundSource.BLOCKS, 1.0F, 0.9F);
         return null;
     }

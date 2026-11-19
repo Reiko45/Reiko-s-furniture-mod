@@ -34,6 +34,7 @@ public class ToolsData implements RoomData {
     public void translations(BiConsumer<String, String> add) {
         add.accept("item.reikos_furniture.hammer", "Furniture Hammer");
         add.accept("item.reikos_furniture.hammer.tooltip", "Right-click furniture to turn it (sneak: the other way)");
+        add.accept("item.reikos_furniture.stain", "Stain: %s");
         add.accept("item.reikos_furniture.moving_dolly", "Moving Dolly");
         add.accept("item.reikos_furniture.moving_dolly.tooltip", "Right-click storage furniture to move it with its contents");
         add.accept("item.reikos_furniture.moving_dolly.carrying", "Carrying: %s");

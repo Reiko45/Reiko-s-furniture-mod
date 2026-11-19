@@ -1581,6 +1581,7 @@
   "item.reikos_furniture.moving_dolly": "Diable de déménagement",
   "item.reikos_furniture.moving_dolly.carrying": "Transporte : %s",
   "item.reikos_furniture.moving_dolly.tooltip": "Clic droit sur un meuble de rangement pour le déplacer avec son contenu",
+  "item.reikos_furniture.stain": "Teinte : %s",
   "item.reikos_furniture.toast": "Pain grillé",
   "itemGroup.reikos_furniture": "Reiko's Furniture",
   "itemGroup.reikos_furniture.styles": "Reiko's Furniture : styles",

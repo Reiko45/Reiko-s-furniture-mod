@@ -40,6 +40,7 @@ import com.reiko45.furniture.pets.PetFurniture;
 import com.reiko45.furniture.villager.FurnitureMaker;
 import com.reiko45.furniture.villager.VillageWorkshops;
 import com.reiko45.furniture.core.repaint.Repaint;
+import com.reiko45.furniture.core.stain.Stains;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.resources.ResourceLocation;
@@ -105,6 +106,7 @@ public class ReikosFurniture {
         ModRecipes.SERIALIZERS.register(modBus);
         ModDataComponents.COMPONENTS.register(modBus);
         FurnitureActionTrigger.TRIGGERS.register(modBus);
+        Stains.ATTACHMENT_TYPES.register(modBus);
         FurnitureMaker.POI_TYPES.register(modBus);
         FurnitureMaker.PROFESSIONS.register(modBus);
 
@@ -120,6 +122,10 @@ public class ReikosFurniture {
         NeoForge.EVENT_BUS.addListener(FurnitureMaker::addTrades);
         NeoForge.EVENT_BUS.addListener(VillageWorkshops::onServerAboutToStart);
         NeoForge.EVENT_BUS.addListener(Repaint::onRightClickBlock);
+        NeoForge.EVENT_BUS.addListener(Stains::onBlockDrops);
+        NeoForge.EVENT_BUS.addListener(Stains::onBreak);
+        NeoForge.EVENT_BUS.addListener(Stains::onNeighborNotify);
+        NeoForge.EVENT_BUS.addListener(Stains::onServerTick);
     }
 
     /** Record players use the vanilla jukebox block entity, so music discs and comparators work as usual. */
