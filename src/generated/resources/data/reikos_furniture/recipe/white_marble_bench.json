@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:calcite"
+    }
+  },
+  "pattern": [
+    "M M",
+    "MMM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:white_marble_bench"
+  }
+}

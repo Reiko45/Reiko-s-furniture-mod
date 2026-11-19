@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:blue_concrete"
+    }
+  },
+  "pattern": [
+    "MMM",
+    " M ",
+    " M "
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:blue_concrete_table"
+  }
+}

@@ -5,6 +5,7 @@ import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.WoodSet;
+import com.reiko45.furniture.material.MaterialSet;
 import com.reiko45.furniture.core.item.FurnitureBlockItem;
 import com.reiko45.furniture.core.registry.ModItems;
 import java.util.ArrayList;
@@ -57,6 +58,9 @@ public final class CatalogEntries {
         for (ColorSet<?> set : FurnitureRegistry.colorSets()) {
             set.all().forEach(block -> setOf.put(block.get(), set));
         }
+        for (MaterialSet<?, ?> set : MaterialSet.sets()) {
+            set.all().forEach(block -> setOf.put(block.get(), set));
+        }
         Map<Room, Map<Object, Entry>> rooms = new LinkedHashMap<>();
         Map<Style, Map<Object, Entry>> styles = new LinkedHashMap<>();
         for (Room room : Room.values()) {
@@ -93,7 +97,7 @@ public final class CatalogEntries {
 
     private static List<ItemStack> variants(Object key) {
         Collection<? extends DeferredBlock<?>> blocks = key instanceof WoodSet<?> wood ? wood.all()
-                : key instanceof ColorSet<?> color ? color.all() : null;
+                : key instanceof ColorSet<?> color ? color.all() : key instanceof MaterialSet<?, ?> material ? material.all() : null;
         if (blocks == null) {
             return List.of(new ItemStack((Block) key));
         }

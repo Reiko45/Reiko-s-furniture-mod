@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/bench",
+  "textures": {
+    "side": "minecraft:block/red_concrete",
+    "top": "minecraft:block/red_concrete"
+  }
+}

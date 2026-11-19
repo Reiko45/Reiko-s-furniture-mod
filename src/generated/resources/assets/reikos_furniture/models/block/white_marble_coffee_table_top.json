@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/coffee_table_top",
+  "textures": {
+    "side": "reikos_furniture:block/marble_white",
+    "top": "reikos_furniture:block/marble_white"
+  }
+}

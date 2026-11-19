@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/dining_table_top",
+  "textures": {
+    "side": "minecraft:block/black_concrete",
+    "top": "minecraft:block/black_concrete"
+  }
+}

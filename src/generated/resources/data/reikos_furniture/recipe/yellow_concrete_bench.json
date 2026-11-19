@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:yellow_concrete"
+    }
+  },
+  "pattern": [
+    "M M",
+    "MMM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:yellow_concrete_bench"
+  }
+}

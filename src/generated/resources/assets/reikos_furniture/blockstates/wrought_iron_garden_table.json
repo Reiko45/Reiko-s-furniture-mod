@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/template/metal/wrought_iron_garden_table",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/template/metal/wrought_iron_garden_table"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/template/metal/wrought_iron_garden_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/template/metal/wrought_iron_garden_table",
+      "y": 270
+    }
+  }
+}

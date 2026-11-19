@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/counter_outer_right_open",
+  "textures": {
+    "side": "minecraft:block/gray_concrete",
+    "top": "minecraft:block/gray_concrete"
+  }
+}

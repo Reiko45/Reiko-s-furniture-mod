@@ -105,6 +105,10 @@ public class Spanish extends RomanceGrammar {
         noun("paint_pots", "Pintura", F);
         noun("present", "Regalo", M);
         noun("stocking", "Calcetín navideño", M);
+        noun("concrete_table", "Mesa de hormigón", F);
+        noun("concrete_bench", "Banco de hormigón", M);
+        noun("concrete_counter", "Encimera de hormigón", F);
+        noun("concrete_planter", "Jardinera de hormigón", F);
         noun("mailbox", "Buzón", M);
         noun("armchair", "Sillón", M);
         noun("baby_mobile", "Móvil de cuna", M);
@@ -124,6 +128,28 @@ public class Spanish extends RomanceGrammar {
         noun("wallpaper", "Papel pintado", M);
 
         single("light_switch", "Interruptor de luz");
+        // Stone, copper and wrought-iron furniture.
+        String[][] stones = {{"white_marble", "de mármol blanco"}, {"black_marble", "de mármol negro"}, {"quartz", "de cuarzo"},
+                {"blackstone", "de piedra negra"}, {"stone_brick", "de ladrillos de piedra"}};
+        String[][] stonePieces = {{"dining_table", "Mesa de comedor"}, {"bench", "Banco"}, {"coffee_table", "Mesa de centro"},
+                {"counter", "Encimera"}, {"planter", "Jardinera"}};
+        for (String[] stone : stones) {
+            for (String[] piece : stonePieces) {
+                single(stone[0] + "_" + piece[0], piece[1] + " " + stone[1]);
+            }
+        }
+        String[][] copperPieces = {{"lamp", "Lámpara de cobre"}, {"table", "Mesa de cobre"}, {"chair", "Silla de cobre"}};
+        String[][] ages = {{"", ""}, {"exposed_", " expuesto"}, {"weathered_", " erosionado"}, {"oxidized_", " oxidado"}};
+        for (String[] piece : copperPieces) {
+            for (String[] age : ages) {
+                single(age[0] + "copper_" + piece[0], piece[1] + age[1]);
+                single("waxed_" + age[0] + "copper_" + piece[0], piece[1] + age[1] + " encerado");
+            }
+        }
+        single("wrought_iron_garden_chair", "Silla de jardín de hierro forjado");
+        single("wrought_iron_garden_table", "Mesa de jardín de hierro forjado");
+        single("wrought_iron_bench", "Banco de hierro forjado");
+        single("wrought_iron_lamp_post", "Farola de hierro forjado");
         single("christmas_tree", "Árbol de Navidad");
         single("warm_string_lights", "Guirnalda de luces cálidas");
         single("colorful_string_lights", "Guirnalda de luces de colores");
@@ -352,6 +378,8 @@ public class Spanish extends RomanceGrammar {
         text(room + "theater", "Cine en casa");
         text(room + "studio", "Taller de arte");
         text(room + "holiday", "Fiestas");
+        text(room + "stone", "Piedra y hormigón");
+        text(room + "metal", "Cobre y hierro");
         text("style.reikos_furniture.rustic", "Estilo rústico");
         text("style.reikos_furniture.modern", "Estilo moderno");
         text("style.reikos_furniture.royal", "Estilo regio");

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "minecraft:cyan_concrete"
+    }
+  },
+  "pattern": [
+    "MMM",
+    " M ",
+    " M "
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:cyan_concrete_table"
+  }
+}

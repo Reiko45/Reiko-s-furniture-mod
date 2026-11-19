@@ -1,0 +1,148 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#copper",
+    "copper": "minecraft:block/copper_block",
+    "bulb": "minecraft:block/ochre_froglight_side"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        2.5,
+        14,
+        2.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            13.5,
+            2.5,
+            15
+          ],
+          "texture": "#copper",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            2.5,
+            2.5
+          ],
+          "texture": "#copper"
+        },
+        "north": {
+          "uv": [
+            13.5,
+            2,
+            15,
+            16
+          ],
+          "texture": "#copper"
+        },
+        "south": {
+          "uv": [
+            1,
+            2,
+            2.5,
+            16
+          ],
+          "texture": "#copper"
+        },
+        "west": {
+          "uv": [
+            1,
+            2,
+            2.5,
+            16
+          ],
+          "texture": "#copper"
+        },
+        "east": {
+          "uv": [
+            13.5,
+            2,
+            15,
+            16
+          ],
+          "texture": "#copper"
+        }
+      }
+    },
+    {
+      "from": [
+        0.75,
+        0,
+        0.75
+      ],
+      "to": [
+        2.75,
+        0.5,
+        2.75
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.75,
+            13.25,
+            2.75,
+            15.25
+          ],
+          "texture": "#copper",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0.75,
+            0.75,
+            2.75,
+            2.75
+          ],
+          "texture": "#copper"
+        },
+        "north": {
+          "uv": [
+            13.25,
+            15.5,
+            15.25,
+            16
+          ],
+          "texture": "#copper"
+        },
+        "south": {
+          "uv": [
+            0.75,
+            15.5,
+            2.75,
+            16
+          ],
+          "texture": "#copper"
+        },
+        "west": {
+          "uv": [
+            0.75,
+            15.5,
+            2.75,
+            16
+          ],
+          "texture": "#copper"
+        },
+        "east": {
+          "uv": [
+            13.25,
+            15.5,
+            15.25,
+            16
+          ],
+          "texture": "#copper"
+        }
+      }
+    }
+  ]
+}

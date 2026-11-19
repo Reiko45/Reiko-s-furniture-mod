@@ -19,6 +19,7 @@ import com.reiko45.furniture.greenhouse.GreenhouseData;
 import com.reiko45.furniture.theater.TheaterData;
 import com.reiko45.furniture.studio.StudioData;
 import com.reiko45.furniture.holiday.HolidayData;
+import com.reiko45.furniture.material.MaterialData;
 import com.reiko45.furniture.styles.StyleData;
 import com.reiko45.furniture.datagen.lang.French;
 import com.reiko45.furniture.datagen.lang.German;
@@ -75,6 +76,7 @@ public final class DataGenerators {
             new TheaterData(),
             new StudioData(),
             new HolidayData(),
+            new MaterialData(),
             new StyleData(),
             new CatalogData(),
             new LightingData(),
@@ -105,6 +107,7 @@ public final class DataGenerators {
         generator.addProvider(event.includeServer(), new FurnitureItemTagsProvider(output, lookup, blockTags.contentsGetter(), files));
         generator.addProvider(event.includeServer(), new AdvancementProvider(output, lookup, files, List.of(new FurnitureAdvancements())));
         generator.addProvider(event.includeServer(), new FurniturePoiTagsProvider(output, lookup, files));
+        generator.addProvider(event.includeServer(), new FurnitureDataMapProvider(output, lookup));
         // Painting variants are data (a datapack registry), with a tag so paintings place them.
         DatapackBuiltinEntriesProvider paintings = new DatapackBuiltinEntriesProvider(output, lookup,
                 new RegistrySetBuilder().add(Registries.PAINTING_VARIANT, Paintings::bootstrap), Set.of(ReikosFurniture.MODID));

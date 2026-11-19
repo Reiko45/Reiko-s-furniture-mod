@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/metal/copper_lamp",
+  "textures": {
+    "copper": "minecraft:block/weathered_copper"
+  }
+}

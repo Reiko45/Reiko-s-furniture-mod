@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/dining_table_leg",
+  "textures": {
+    "side": "minecraft:block/stone_bricks",
+    "top": "minecraft:block/smooth_stone"
+  }
+}

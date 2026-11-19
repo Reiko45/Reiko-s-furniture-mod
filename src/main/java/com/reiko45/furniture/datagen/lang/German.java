@@ -112,6 +112,10 @@ public class German extends Grammar {
         noun("paint_pots", "Farbeimer", M);
         noun("present", "Geschenk", N);
         noun("stocking", "Nikolausstiefel", M);
+        noun("concrete_table", "Betontisch", M);
+        noun("concrete_bench", "Betonbank", F);
+        noun("concrete_counter", "Betonarbeitsplatte", F);
+        noun("concrete_planter", "Betonpflanzkübel", M);
         noun("mailbox", "Briefkasten", M);
         noun("armchair", "Sessel", M);
         noun("baby_mobile", "Mobile", N);
@@ -131,6 +135,30 @@ public class German extends Grammar {
         noun("wallpaper", "Tapete", F);
 
         single("light_switch", "Lichtschalter");
+        // Stone, copper and wrought-iron furniture.
+        String[][] stones = {{"white_marble", "Weißmarmor"}, {"black_marble", "Schwarzmarmor"}, {"quartz", "Quarz"},
+                {"blackstone", "Schwarzstein"}, {"stone_brick", "Steinziegel"}};
+        String[][] stonePieces = {{"dining_table", "Esstisch"}, {"bench", "Bank"}, {"coffee_table", "Couchtisch"},
+                {"counter", "Arbeitsplatte"}, {"planter", "Pflanzkübel"}};
+        for (String[] stone : stones) {
+            for (String[] piece : stonePieces) {
+                single(stone[0] + "_" + piece[0], stone[1] + "-" + piece[1]);
+            }
+        }
+        // Lamp is feminine, table and chair masculine.
+        String[][] copperPieces = {{"lamp", "Kupferlampe", "e"}, {"table", "Kupfertisch", "er"}, {"chair", "Kupferstuhl", "er"}};
+        String[][] ages = {{"", ""}, {"exposed_", "Angelaufen"}, {"weathered_", "Verwittert"}, {"oxidized_", "Oxidiert"}};
+        for (String[] piece : copperPieces) {
+            for (String[] age : ages) {
+                String aged = age[1].isEmpty() ? "" : age[1] + piece[2] + " ";
+                single(age[0] + "copper_" + piece[0], aged + piece[1]);
+                single("waxed_" + age[0] + "copper_" + piece[0], "Gewachst" + piece[2] + " " + lowerFirst(aged) + piece[1]);
+            }
+        }
+        single("wrought_iron_garden_chair", "Schmiedeeiserner Gartenstuhl");
+        single("wrought_iron_garden_table", "Schmiedeeiserner Gartentisch");
+        single("wrought_iron_bench", "Schmiedeeiserne Bank");
+        single("wrought_iron_lamp_post", "Schmiedeeiserner Laternenpfahl");
         single("christmas_tree", "Weihnachtsbaum");
         single("warm_string_lights", "Lichterkette (warmweiß)");
         single("colorful_string_lights", "Bunte Lichterkette");
@@ -359,6 +387,8 @@ public class German extends Grammar {
         text(room + "theater", "Heimkino");
         text(room + "studio", "Kunstatelier");
         text(room + "holiday", "Feiertage");
+        text(room + "stone", "Stein & Beton");
+        text(room + "metal", "Kupfer & Eisen");
         text("style.reikos_furniture.rustic", "Rustikaler Stil");
         text("style.reikos_furniture.modern", "Moderner Stil");
         text("style.reikos_furniture.royal", "Königlicher Stil");

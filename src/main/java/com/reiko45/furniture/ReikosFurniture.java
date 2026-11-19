@@ -36,6 +36,7 @@ import com.reiko45.furniture.greenhouse.GreenhouseFurniture;
 import com.reiko45.furniture.theater.TheaterFurniture;
 import com.reiko45.furniture.studio.StudioFurniture;
 import com.reiko45.furniture.holiday.HolidayFurniture;
+import com.reiko45.furniture.material.MaterialFurniture;
 import com.reiko45.furniture.styles.StyleFurniture;
 import com.reiko45.furniture.core.catalog.Catalog;
 import com.reiko45.furniture.core.lighting.Lighting;
@@ -101,6 +102,7 @@ public class ReikosFurniture {
         TheaterFurniture.init();
         StudioFurniture.init();
         HolidayFurniture.init();
+        MaterialFurniture.init();
         StyleFurniture.init();
         Workbench.init();
         Tools.init();

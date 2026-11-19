@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/counter_outer_left",
+  "textures": {
+    "side": "minecraft:block/orange_concrete",
+    "top": "minecraft:block/orange_concrete"
+  }
+}

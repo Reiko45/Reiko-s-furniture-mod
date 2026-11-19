@@ -22,7 +22,9 @@ public enum Room {
     GREENHOUSE("greenhouse", "Greenhouse & Garden"),
     THEATER("theater", "Home Theater"),
     STUDIO("studio", "Art Studio"),
-    HOLIDAY("holiday", "Holidays");
+    HOLIDAY("holiday", "Holidays"),
+    STONE("stone", "Stone & Concrete"),
+    METAL("metal", "Copper & Iron");
 
     private final String id;
     private final String displayName;

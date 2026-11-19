@@ -1,0 +1,32 @@
+{
+  "values": [
+    "reikos_furniture:copper_lamp",
+    "reikos_furniture:exposed_copper_lamp",
+    "reikos_furniture:weathered_copper_lamp",
+    "reikos_furniture:oxidized_copper_lamp",
+    "reikos_furniture:waxed_copper_lamp",
+    "reikos_furniture:waxed_exposed_copper_lamp",
+    "reikos_furniture:waxed_weathered_copper_lamp",
+    "reikos_furniture:waxed_oxidized_copper_lamp",
+    "reikos_furniture:copper_table",
+    "reikos_furniture:exposed_copper_table",
+    "reikos_furniture:weathered_copper_table",
+    "reikos_furniture:oxidized_copper_table",
+    "reikos_furniture:waxed_copper_table",
+    "reikos_furniture:waxed_exposed_copper_table",
+    "reikos_furniture:waxed_weathered_copper_table",
+    "reikos_furniture:waxed_oxidized_copper_table",
+    "reikos_furniture:copper_chair",
+    "reikos_furniture:exposed_copper_chair",
+    "reikos_furniture:weathered_copper_chair",
+    "reikos_furniture:oxidized_copper_chair",
+    "reikos_furniture:waxed_copper_chair",
+    "reikos_furniture:waxed_exposed_copper_chair",
+    "reikos_furniture:waxed_weathered_copper_chair",
+    "reikos_furniture:waxed_oxidized_copper_chair",
+    "reikos_furniture:wrought_iron_garden_chair",
+    "reikos_furniture:wrought_iron_garden_table",
+    "reikos_furniture:wrought_iron_bench",
+    "reikos_furniture:wrought_iron_lamp_post"
+  ]
+}

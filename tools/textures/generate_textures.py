@@ -1289,6 +1289,24 @@ def holiday_lights():
     save(img, "block/holiday/bulb_warm.png")
 
 
+def marble():
+    """White and black marble: soft cloudy stone with thin veins running across."""
+    for name, base, vein in (("marble_white", (0xEC, 0xEA, 0xE6), (0xA8, 0xA6, 0xAC)),
+                             ("marble_black", (0x24, 0x24, 0x28), (0xC8, 0xC4, 0xB8))):
+        rnd = random.Random(name)
+        img = new(color=base)
+        px = img.load()
+        for y in range(16):
+            for x in range(16):
+                px[x, y] = shade(base, 0.96 + rnd.random() * 0.06) + (255,)
+        for start in (rnd.randrange(16), rnd.randrange(16)):
+            y = start
+            for x in range(16):
+                px[x, y % 16] = mix(base, vein, 0.6 + rnd.random() * 0.3) + (255,)
+                y += rnd.choice((0, 0, 1, -1))
+        save(img, f"block/{name}.png")
+
+
 if __name__ == "__main__":
     catalog_item()
     style_textures()
@@ -1300,6 +1318,7 @@ if __name__ == "__main__":
     theater()
     canvas_linen()
     holiday_lights()
+    marble()
     window_glass()
     for name, rgb in DYES.items():
         wallpaper(name, rgb)

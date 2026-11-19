@@ -1,0 +1,31 @@
+{
+  "values": {
+    "reikos_furniture:copper_chair": {
+      "next_oxidation_stage": "reikos_furniture:exposed_copper_chair"
+    },
+    "reikos_furniture:copper_lamp": {
+      "next_oxidation_stage": "reikos_furniture:exposed_copper_lamp"
+    },
+    "reikos_furniture:copper_table": {
+      "next_oxidation_stage": "reikos_furniture:exposed_copper_table"
+    },
+    "reikos_furniture:exposed_copper_chair": {
+      "next_oxidation_stage": "reikos_furniture:weathered_copper_chair"
+    },
+    "reikos_furniture:exposed_copper_lamp": {
+      "next_oxidation_stage": "reikos_furniture:weathered_copper_lamp"
+    },
+    "reikos_furniture:exposed_copper_table": {
+      "next_oxidation_stage": "reikos_furniture:weathered_copper_table"
+    },
+    "reikos_furniture:weathered_copper_chair": {
+      "next_oxidation_stage": "reikos_furniture:oxidized_copper_chair"
+    },
+    "reikos_furniture:weathered_copper_lamp": {
+      "next_oxidation_stage": "reikos_furniture:oxidized_copper_lamp"
+    },
+    "reikos_furniture:weathered_copper_table": {
+      "next_oxidation_stage": "reikos_furniture:oxidized_copper_table"
+    }
+  }
+}

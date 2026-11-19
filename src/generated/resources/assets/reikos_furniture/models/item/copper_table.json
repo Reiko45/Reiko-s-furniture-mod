@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/metal/copper_table_item",
+  "textures": {
+    "copper": "minecraft:block/copper_block"
+  }
+}

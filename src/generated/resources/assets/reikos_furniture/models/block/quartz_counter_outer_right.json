@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/counter_outer_right",
+  "textures": {
+    "side": "minecraft:block/quartz_block_side",
+    "top": "minecraft:block/quartz_block_top"
+  }
+}

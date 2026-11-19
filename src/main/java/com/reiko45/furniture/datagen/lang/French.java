@@ -103,6 +103,10 @@ public class French extends RomanceGrammar {
         noun("paint_pots", "Peinture", F);
         noun("present", "Cadeau", M);
         noun("stocking", "Chaussette de Noël", F);
+        noun("concrete_table", "Table en béton", F);
+        noun("concrete_bench", "Banc en béton", M);
+        noun("concrete_counter", "Plan de travail en béton", M);
+        noun("concrete_planter", "Jardinière en béton", F);
         noun("mailbox", "Boîte aux lettres", F);
         noun("armchair", "Fauteuil", M);
         noun("baby_mobile", "Mobile pour bébé", M);
@@ -122,6 +126,28 @@ public class French extends RomanceGrammar {
         noun("wallpaper", "Papier peint", M);
 
         single("light_switch", "Interrupteur");
+        // Stone, copper and wrought-iron furniture.
+        String[][] stones = {{"white_marble", "en marbre blanc"}, {"black_marble", "en marbre noir"}, {"quartz", "en quartz"},
+                {"blackstone", "en pierre noire"}, {"stone_brick", "en briques de pierre"}};
+        String[][] stonePieces = {{"dining_table", "Table à manger"}, {"bench", "Banc"}, {"coffee_table", "Table basse"},
+                {"counter", "Plan de travail"}, {"planter", "Jardinière"}};
+        for (String[] stone : stones) {
+            for (String[] piece : stonePieces) {
+                single(stone[0] + "_" + piece[0], piece[1] + " " + stone[1]);
+            }
+        }
+        String[][] copperPieces = {{"lamp", "Lampe en cuivre"}, {"table", "Table en cuivre"}, {"chair", "Chaise en cuivre"}};
+        String[][] ages = {{"", ""}, {"exposed_", " exposé"}, {"weathered_", " érodé"}, {"oxidized_", " oxydé"}};
+        for (String[] piece : copperPieces) {
+            for (String[] age : ages) {
+                single(age[0] + "copper_" + piece[0], piece[1] + age[1]);
+                single("waxed_" + age[0] + "copper_" + piece[0], piece[1] + age[1] + " ciré");
+            }
+        }
+        single("wrought_iron_garden_chair", "Chaise de jardin en fer forgé");
+        single("wrought_iron_garden_table", "Table de jardin en fer forgé");
+        single("wrought_iron_bench", "Banc en fer forgé");
+        single("wrought_iron_lamp_post", "Lampadaire en fer forgé");
         single("christmas_tree", "Sapin de Noël");
         single("warm_string_lights", "Guirlande lumineuse chaude");
         single("colorful_string_lights", "Guirlande lumineuse multicolore");
@@ -350,6 +376,8 @@ public class French extends RomanceGrammar {
         text(room + "theater", "Home cinéma");
         text(room + "studio", "Atelier d'art");
         text(room + "holiday", "Fêtes");
+        text(room + "stone", "Pierre et béton");
+        text(room + "metal", "Cuivre et fer");
         text("style.reikos_furniture.rustic", "Style rustique");
         text("style.reikos_furniture.modern", "Style moderne");
         text("style.reikos_furniture.royal", "Style royal");

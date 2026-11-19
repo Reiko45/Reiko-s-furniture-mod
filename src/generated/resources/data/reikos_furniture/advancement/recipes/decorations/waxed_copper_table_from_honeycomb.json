@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_copper_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": "reikos_furniture:copper_table"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "reikos_furniture:waxed_copper_table_from_honeycomb"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_copper_table"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "reikos_furniture:waxed_copper_table_from_honeycomb"
+    ]
+  }
+}

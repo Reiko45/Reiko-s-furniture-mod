@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/stone/coffee_table_item",
+  "textures": {
+    "side": "minecraft:block/polished_blackstone",
+    "top": "minecraft:block/polished_blackstone"
+  }
+}

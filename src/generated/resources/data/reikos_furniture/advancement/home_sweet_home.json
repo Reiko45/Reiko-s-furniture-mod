@@ -141,6 +141,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "metal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:rooms/metal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "music": {
       "conditions": {
         "items": [
@@ -186,6 +196,16 @@
         "items": [
           {
             "items": "#reikos_furniture:rooms/pets"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:rooms/stone"
           }
         ]
       },
@@ -288,6 +308,12 @@
     ],
     [
       "holiday"
+    ],
+    [
+      "stone"
+    ],
+    [
+      "metal"
     ]
   ],
   "rewards": {
