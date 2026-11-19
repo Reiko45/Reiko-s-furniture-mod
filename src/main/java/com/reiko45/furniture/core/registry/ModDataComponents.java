@@ -4,6 +4,8 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.reiko45.furniture.ReikosFurniture;
 import io.netty.buffer.ByteBuf;
+import java.util.List;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -37,6 +39,11 @@ public final class ModDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<DyeColor>> STAIN =
             COMPONENTS.registerComponentType("stain",
                     builder -> builder.persistent(DyeColor.CODEC).networkSynchronized(DyeColor.STREAM_CODEC));
+
+    /** The lamps a light switch turns on and off. */
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<List<BlockPos>>> LINKED_LAMPS =
+            COMPONENTS.registerComponentType("linked_lamps", builder -> builder.persistent(BlockPos.CODEC.listOf())
+                    .networkSynchronized(BlockPos.STREAM_CODEC.apply(ByteBufCodecs.list())));
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<CarriedFurniture>> CARRIED_FURNITURE =
             COMPONENTS.registerComponentType("carried_furniture",

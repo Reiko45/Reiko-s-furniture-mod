@@ -8,7 +8,14 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import com.reiko45.furniture.core.lighting.LightSwitchBlock;
+import com.reiko45.furniture.core.registry.ModDataComponents;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -24,6 +31,12 @@ public class FurnitureBlockLoot extends BlockLootSubProvider {
         for (Block block : getKnownBlocks()) {
             if (block.asItem() == Items.AIR) {
                 add(block, noDrop()); // parts without an item, like the top of a bunk bed
+            } else if (block instanceof LightSwitchBlock) {
+                // The switch keeps the lamps it controls.
+                add(block, LootTable.lootTable().withPool(applyExplosionCondition(block, LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block).apply(CopyComponentsFunction.copyComponents(
+                                CopyComponentsFunction.Source.BLOCK_ENTITY).include(ModDataComponents.LINKED_LAMPS.get()))))));
             } else if (block instanceof SlabBlock) {
                 add(block, createSlabItemTable(block)); // a double slab drops two
             } else if (block.defaultBlockState().hasProperty(BlockStateProperties.BED_PART)) {

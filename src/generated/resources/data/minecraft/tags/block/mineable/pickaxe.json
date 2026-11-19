@@ -85,6 +85,7 @@
     "reikos_furniture:reading_lamp",
     "reikos_furniture:espresso_machine",
     "reikos_furniture:aquarium",
-    "reikos_furniture:bird_cage"
+    "reikos_furniture:bird_cage",
+    "reikos_furniture:light_switch"
   ]
 }

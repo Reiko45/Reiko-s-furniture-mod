@@ -105,6 +105,7 @@ public class Spanish extends RomanceGrammar {
         noun("towel_rack", "Toallero", M);
         noun("wallpaper", "Papel pintado", M);
 
+        single("light_switch", "Interruptor de luz");
         single("aquarium", "Acuario");
         single("arcade_cabinet", "Máquina recreativa");
         single("bathroom_cabinet", "Armario de baño");
@@ -225,6 +226,10 @@ public class Spanish extends RomanceGrammar {
         text(item + "furniture_catalog.tooltip", "Todos los muebles, por habitación y estilo");
         text(item + "hammer", "Martillo de muebles");
         text(item + "hammer.tooltip", "Clic derecho en un mueble para girarlo (agachado: hacia el otro lado)");
+        text(item + "light_switch.tooltip", "Agáchate y haz clic derecho en lámparas para conectarlas (%s conectadas)");
+        text("message.reikos_furniture.lamp_linked", "Lámpara conectada al interruptor (%s de %s)");
+        text("message.reikos_furniture.lamp_unlinked", "Lámpara desconectada del interruptor (%s de %s)");
+        text("message.reikos_furniture.switch_full", "Este interruptor ya controla %s de %s lámparas");
         text(item + "stain", "Tinte: %s");
         text(item + "moving_dolly", "Carretilla de mudanzas");
         text(item + "moving_dolly.tooltip", "Clic derecho en un mueble de almacenamiento para moverlo con su contenido");

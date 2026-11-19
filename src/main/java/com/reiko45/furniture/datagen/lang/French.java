@@ -103,6 +103,7 @@ public class French extends RomanceGrammar {
         noun("towel_rack", "Porte-serviettes", M);
         noun("wallpaper", "Papier peint", M);
 
+        single("light_switch", "Interrupteur");
         single("aquarium", "Aquarium");
         single("arcade_cabinet", "Borne d'arcade");
         single("bathroom_cabinet", "Armoire de toilette");
@@ -223,6 +224,10 @@ public class French extends RomanceGrammar {
         text(item + "furniture_catalog.tooltip", "Tous les meubles, par pièce et par style");
         text(item + "hammer", "Marteau de menuisier");
         text(item + "hammer.tooltip", "Clic droit sur un meuble pour le tourner (accroupi : dans l'autre sens)");
+        text(item + "light_switch.tooltip", "Accroupi, clic droit sur des lampes pour les relier (%s reliées)");
+        text("message.reikos_furniture.lamp_linked", "Lampe reliée à l'interrupteur (%s sur %s)");
+        text("message.reikos_furniture.lamp_unlinked", "Lampe détachée de l'interrupteur (%s sur %s)");
+        text("message.reikos_furniture.switch_full", "Cet interrupteur commande déjà %s lampes sur %s");
         text(item + "stain", "Teinte : %s");
         text(item + "moving_dolly", "Diable de déménagement");
         text(item + "moving_dolly.tooltip", "Clic droit sur un meuble de rangement pour le déplacer avec son contenu");

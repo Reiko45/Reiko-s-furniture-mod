@@ -136,3 +136,16 @@ write(ROOM, "picture_frame", [
     Box((1, 1, 14.5), (15, 2, 16), P), Box((1, 14, 14.5), (15, 15, 16), P),
     Box((1, 2, 14.5), (2, 14, 16), P), Box((14, 2, 14.5), (15, 14, 16), P),
 ], {"backing": "minecraft:block/white_concrete_powder"})
+
+# Light switch: a wall plate with a rocker; the rocker tips up when the lights are on.
+def light_switch(on):
+    top, bottom = (10.5, 7.5) if on else (8.5, 5.5)
+    return [
+        Box((5, 4, 15), (11, 12, 16), "#plate"),
+        Box((6.5, 5, 14.75), (9.5, 11, 15), "#frame"),
+        Box((7, bottom, 14.25), (9, top, 14.75), "#plate"),
+    ]
+
+SWITCH = {"plate": "minecraft:block/white_concrete", "frame": "minecraft:block/light_gray_concrete"}
+write(ROOM, "light_switch", light_switch(False), SWITCH, particle="minecraft:block/white_concrete")
+write(ROOM, "light_switch_on", light_switch(True), SWITCH, particle="minecraft:block/white_concrete")

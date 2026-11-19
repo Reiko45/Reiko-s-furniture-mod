@@ -4,8 +4,9 @@ import com.reiko45.furniture.ReikosFurniture;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
-/** The mod's item tags (used by the advancements). They are written by data generation. */
+/** The mod's tags: item tags used by the advancements, and the lamps block tag. Written by data generation. */
 public final class FurnitureTags {
     /** Every furniture item that belongs to a room, classic and styled. */
     public static final TagKey<Item> FURNITURE = item("furniture");
@@ -13,6 +14,9 @@ public final class FurnitureTags {
     public static final TagKey<Item> STYLES = item("styles");
     /** Drinks made with the kitchen and bar appliances. */
     public static final TagKey<Item> DRINKS = item("drinks");
+
+    /** Lamps a light switch can control. */
+    public static final TagKey<Block> LAMPS = TagKey.create(Registries.BLOCK, ReikosFurniture.id("lamps"));
 
     private FurnitureTags() {
     }

@@ -34,6 +34,7 @@ import com.reiko45.furniture.music.MusicFurniture;
 import com.reiko45.furniture.nursery.NurseryFurniture;
 import com.reiko45.furniture.styles.StyleFurniture;
 import com.reiko45.furniture.core.catalog.Catalog;
+import com.reiko45.furniture.core.lighting.Lighting;
 import com.reiko45.furniture.office.OfficeFurniture;
 import com.reiko45.furniture.outdoor.OutdoorFurniture;
 import com.reiko45.furniture.pets.PetFurniture;
@@ -94,6 +95,7 @@ public class ReikosFurniture {
         Workbench.init();
         Tools.init();
         Catalog.init();
+        Lighting.init();
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);

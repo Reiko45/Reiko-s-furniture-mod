@@ -23,6 +23,7 @@ import com.reiko45.furniture.datagen.lang.Portuguese;
 import com.reiko45.furniture.datagen.lang.Spanish;
 import com.reiko45.furniture.datagen.lang.TranslatedLanguageProvider;
 import com.reiko45.furniture.core.catalog.CatalogData;
+import com.reiko45.furniture.core.lighting.LightingData;
 import com.reiko45.furniture.core.advancement.FurnitureAdvancements;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import com.reiko45.furniture.office.OfficeData;
@@ -67,6 +68,7 @@ public final class DataGenerators {
             new NurseryData(),
             new StyleData(),
             new CatalogData(),
+            new LightingData(),
             new ToolsData());
 
     private DataGenerators() {

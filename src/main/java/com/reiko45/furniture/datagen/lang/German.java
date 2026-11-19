@@ -112,6 +112,7 @@ public class German extends Grammar {
         noun("towel_rack", "Handtuchhalter", M);
         noun("wallpaper", "Tapete", F);
 
+        single("light_switch", "Lichtschalter");
         single("aquarium", "Aquarium");
         single("arcade_cabinet", "Spielautomat");
         single("bathroom_cabinet", "Badezimmerschrank");
@@ -232,6 +233,10 @@ public class German extends Grammar {
         text(item + "furniture_catalog.tooltip", "Alle Möbelstücke, nach Raum und Stil");
         text(item + "hammer", "Möbelhammer");
         text(item + "hammer.tooltip", "Rechtsklick auf ein Möbelstück dreht es (beim Schleichen andersherum)");
+        text(item + "light_switch.tooltip", "Schleichend Rechtsklick auf Lampen verbindet sie (%s verbunden)");
+        text("message.reikos_furniture.lamp_linked", "Lampe mit dem Schalter verbunden (%s von %s)");
+        text("message.reikos_furniture.lamp_unlinked", "Lampe vom Schalter getrennt (%s von %s)");
+        text("message.reikos_furniture.switch_full", "Dieser Schalter steuert schon %s von %s Lampen");
         text(item + "stain", "Beize: %s");
         text(item + "moving_dolly", "Sackkarre");
         text(item + "moving_dolly.tooltip", "Rechtsklick auf ein Aufbewahrungsmöbel bewegt es samt Inhalt");

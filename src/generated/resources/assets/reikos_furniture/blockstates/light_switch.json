@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,on=false": {
+      "model": "reikos_furniture:block/template/decor/light_switch",
+      "y": 90
+    },
+    "facing=east,on=true": {
+      "model": "reikos_furniture:block/template/decor/light_switch_on",
+      "y": 90
+    },
+    "facing=north,on=false": {
+      "model": "reikos_furniture:block/template/decor/light_switch"
+    },
+    "facing=north,on=true": {
+      "model": "reikos_furniture:block/template/decor/light_switch_on"
+    },
+    "facing=south,on=false": {
+      "model": "reikos_furniture:block/template/decor/light_switch",
+      "y": 180
+    },
+    "facing=south,on=true": {
+      "model": "reikos_furniture:block/template/decor/light_switch_on",
+      "y": 180
+    },
+    "facing=west,on=false": {
+      "model": "reikos_furniture:block/template/decor/light_switch",
+      "y": 270
+    },
+    "facing=west,on=true": {
+      "model": "reikos_furniture:block/template/decor/light_switch_on",
+      "y": 270
+    }
+  }
+}
