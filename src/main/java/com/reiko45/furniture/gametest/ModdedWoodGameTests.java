@@ -4,6 +4,7 @@ import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureRegistry;
 import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.core.repaint.Repaint;
 import com.reiko45.furniture.styles.StyleFurniture;
 import com.reiko45.furniture.core.config.FurnitureConfig;
 import com.reiko45.furniture.core.Style;
@@ -15,6 +16,7 @@ import com.reiko45.furniture.music.MusicFurniture;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -97,6 +99,10 @@ public class ModdedWoodGameTests {
         helper.setBlock(pos.east(2), MusicFurniture.RECORD_PLAYER.get(wood).get());
         helper.assertTrue(helper.getBlockEntity(pos.east(2)) instanceof JukeboxBlockEntity, "record player jukebox");
         helper.assertTrue(FurnitureRegistry.moddedItems().size() >= FurnitureWood.modded().size(), "items in the creative tab");
+
+        // Sneaking with the modded wood's planks turns an oak piece into that wood.
+        helper.assertTrue(Repaint.target(BedroomFurniture.NIGHTSTAND.get(FurnitureWood.OAK).get(), new ItemStack(wood.planks()))
+                == BedroomFurniture.NIGHTSTAND.get(wood).get(), "modded planks change the wood");
 
         // Style pieces too (unless the startup config turns them off), crafted from the modded classic piece.
         if (FurnitureConfig.moddedWoodStyles()) {

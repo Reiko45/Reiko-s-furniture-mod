@@ -72,8 +72,9 @@ public class BunkTopBlock extends Block {
 
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        // Breaking the top bunk breaks the bunk bed below (which drops the item).
-        if (!state.is(newState.getBlock()) && level.getBlockState(pos.below()).getBlock() instanceof BunkBedBlock) {
+        // Breaking the top bunk breaks the bunk bed below (which drops the item). Swapping it for
+        // another top bunk (a different wood or style) keeps the bed.
+        if (!(newState.getBlock() instanceof BunkTopBlock) && level.getBlockState(pos.below()).getBlock() instanceof BunkBedBlock) {
             level.destroyBlock(pos.below(), true);
         }
         super.onRemove(state, level, pos, newState, movedByPiston);

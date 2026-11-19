@@ -34,6 +34,7 @@ public class FurnitureActionTrigger extends SimpleCriterionTrigger<FurnitureActi
     public static final String ARCADE_HIGH_SCORE = "arcade_high_score";
     public static final String WASH = "wash";
     public static final String PET_FED = "pet_fed";
+    public static final String REPAINT = "repaint";
 
     @Override
     public Codec<TriggerInstance> codec() {
