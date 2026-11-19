@@ -73,7 +73,7 @@ public final class FurnitureConfig {
                     .translation(key("modded_woods.enabled"))
                     .define("enabled", true);
             moddedWoodStyles = builder
-                    .comment("Also make the furniture styles (rustic, modern, royal, Japanese) in other mods' woods.",
+                    .comment("Also make the pieces of the furniture styles (rustic, modern, medieval, ...) in other mods' woods.",
                             "Turn this off if you have many wood mods and want fewer items.")
                     .translation(key("modded_woods.styles"))
                     .define("styles", true);

@@ -63,8 +63,9 @@ public class BarData implements RoomData {
         ModelFile on = models.existingTemplate(ROOM, "espresso_machine_on");
         models.facingBlock(ESPRESSO_MACHINE.get(), state -> state.getValue(ApplianceBlock.RUNNING) ? on : off);
         models.blockItem(ESPRESSO_MACHINE.get(), models.template(ROOM, "espresso_machine"));
-        // The chalkboard is drawn by the vanilla sign renderer; its block model only gives the break particles.
-        models.simpleBlock(CHALKBOARD.get(), models.models().sign("chalkboard", ReikosFurniture.id("entity/signs/chalkboard")));
+        // The chalkboard is drawn by the vanilla sign renderer; its block model only gives the break particles
+        // (from a block texture: the sign texture isn't on the block atlas).
+        models.simpleBlock(CHALKBOARD.get(), models.models().sign("chalkboard", ResourceLocation.withDefaultNamespace("block/spruce_planks")));
         models.itemModels().basicItem(CHALKBOARD.get().asItem());
         models.itemModels().basicItem(ESPRESSO.get());
         models.itemModels().basicItem(LATTE.get());

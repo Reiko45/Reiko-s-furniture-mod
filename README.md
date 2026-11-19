@@ -1,12 +1,19 @@
 # Reiko's Furniture
 
-A furniture mod for **Minecraft 1.21.1** on **NeoForge**. The furniture is split into seventeen room
+A furniture mod for **Minecraft 1.21.1** on **NeoForge**. The furniture is split into twenty-three
 sections: bedroom, kitchen, dining room, living room, bathroom, office, outdoor, kids' room, laundry
-room, music room, game room, pet corner, decor, garage, library, home bar, and nursery & hobby room.
+room, music room, game room, pet corner, decor, garage, library, home bar, nursery & hobby room,
+greenhouse & garden, home theater, art studio, holidays, stone & concrete, and copper & iron.
 Wooden pieces come in all 11 vanilla wood types (and in the woods of other mods you have installed),
-and fabric pieces in all 16 colors. Beds, chairs, tables, storage and sofas also come in four
-**furniture styles**: Rustic, Modern, Royal and Japanese. That makes 1,459 furniture items, plus six
-foods and drinks, two tools and a furniture catalog.
+and fabric pieces in all 16 colors. Beds, chairs, tables, storage, lamps, counters and sofas also come
+in eight **furniture styles**: Rustic, Modern, Royal, Japanese, Medieval, Victorian, Futuristic and
+Beach House. That makes 2,799 furniture items, plus seven foods and drinks, two tools, a watering
+can and a furniture catalog.
+
+Furniture can be **repainted** (another wood, color or style) and **stained** with dye, **light
+switches** control lamps without wiring, **mailboxes** send items to other players, the catalog
+**crafts** furniture straight from your inventory, and canvases on easels can be **painted** pixel by
+pixel.
 
 The classic furniture is in the **Reiko's Furniture** creative tab, ordered room by room, and the
 style pieces are in **Reiko's Furniture: Styles**. Each item's tooltip shows its room (and style).
@@ -127,24 +134,66 @@ The mod is in English, Spanish, French, German and Brazilian Portuguese.
 | | Baby mobile | 16 colors | Hangs from the ceiling and turns |
 | | Aquarium | 1 | Holds up to three fish from fish buckets |
 | | Bird cage | 1 | Holds the parrot from your shoulder |
+| Greenhouse & garden | Growing pot | Terracotta + 16 colors | A flower or sapling grows bigger in it, in four stages |
+| | Plant stand | 11 woods | Holds a plant |
+| | Hanging planter | 16 colors | Hangs from the ceiling and holds a plant |
+| | Window flower box | 11 woods | On a wall, holds three flowers |
+| | Garden shed cabinet (2 blocks tall) | 11 woods | Storage, 6 rows |
+| Home theater | Projector screen (3×2 blocks) | 1 | Shows the film a projector plays |
+| | Projector | 1 | Plays three films on a screen in front of it |
+| | Recliner | 16 colors | Sit on it; sneak and right-click to tilt it back |
+| | Speaker | 11 woods | Sends out notes while a jukebox or record player plays |
+| | Popcorn machine | 1 | Makes popcorn |
+| | Movie poster | 1 | Four designs; right-click to change |
+| Art studio | Easel | 11 woods | Holds a canvas; right-click to paint it |
+| | Canvas | 1 | Paint it on an easel; hang it on a wall or put it in a picture frame |
+| | Pottery wheel | 1 | Makes vases from clay |
+| | Vase | Terracotta + 16 colors | Holds a flower |
+| | Sewing machine | 1 | Sews floor cushions |
+| | Floor cushion | 16 colors | Sit on it |
+| | Paint pots | 16 colors | Decoration |
+| Holidays | Christmas tree (2 blocks tall) | 1 | Twinkling lights; switches on and off |
+| | Present | 16 colors | Storage, 1 row; keeps what is inside when broken |
+| | String lights | Warm white, colorful | On walls and ceilings; join into long strands |
+| | Wreath | 1 | Wall decoration |
+| | Stocking | 16 colors | Holds a gift |
+| | Snow globe | 1 | Shake it to make it snow |
+| | Gravestone, fake cobweb, hanging bats | 1 each | Halloween decorations; the cobweb doesn't slow you down |
+| | Candy bowl | 1 | Holds three treats |
+| | Witch's cauldron | 1 | Bubbles and glows |
+| Stone & concrete | Dining table, coffee table | 5 stones | Join with tables next to them |
+| | Bench | 5 stones, 16 concrete colors | Sit on it |
+| | Counter | 5 stones, 16 concrete colors | Storage, 3 rows; forms corners |
+| | Planter | 5 stones, 16 concrete colors | Grow flowers, saplings and crops on it |
+| | Concrete table | 16 colors | Joins with tables next to it |
+| Copper & iron | Copper lamp, table, chair | 4 ages, waxed or not | Age like copper blocks; wax with honeycomb, scrape with an axe |
+| | Wrought-iron garden chair, garden table, bench | 1 each | Sit on the chair and bench |
+| | Wrought-iron lamp post (2 blocks tall) | 1 | Switches on and off |
+| Decor | Light switch | 1 | Turns up to 32 linked lamps on and off |
+| Outdoor | Mailbox | 11 woods | Send items to other players; the flag goes up when there is mail |
 | Any room | Furniture workbench | 1 | Turns planks into wooden furniture; furniture makers work here |
 
 ## Furniture styles
 
-Ten pieces also come in four styles, each with its own look and shape:
+Sixteen pieces also come in eight styles, each with its own look and shape:
 
-| Style | Look |
-|---|---|
-| Rustic | Log posts with the bark on, thick plank tops, log-framed sofas |
-| Modern | Thin black metal legs, flat white fronts, a low platform bed, boxy sofas |
-| Royal | Carved legs, gold trim and handles, buttoned velvet, a tall headboard |
-| Japanese | A futon on a tatami platform, floor chairs, low tables, tansu chests and a shoji wardrobe |
+| Style | Material | Look |
+|---|---|---|
+| Rustic | Any log | Log posts with the bark on, thick plank tops, log-framed sofas |
+| Modern | Iron nugget | Thin black metal legs, flat white fronts, a low platform bed, boxy sofas |
+| Royal | Gold nugget | Carved legs, gold trim and handles, buttoned velvet, a tall headboard |
+| Japanese | Bamboo | A futon on a tatami platform, floor chairs, low tables, tansu chests and a shoji wardrobe |
+| Medieval | Iron bars | Dark timber with wrought-iron straps and studs, a four-poster bed, trestle tables |
+| Victorian | Any candle | A sleigh bed, turned legs, marble tops, brass pulls, button-tufted upholstery |
+| Futuristic | Glowstone dust | White shells on chrome with glowing strips, a floating bed, pod chairs |
+| Beach House | Sand or red sand | Whitewashed frames, slatted boards, louvred doors, rope, wicker, striped cushions |
 
 The styled pieces are the bed and bunk bed, dining chair, dining table, coffee table, nightstand,
-dresser and wardrobe (in 11 woods each), and the sofa and armchair (in 16 colors each). They work
-like the classic pieces: beds sleep and dye, sofas join (with sofas of the same style), tables join
-and storage opens. Craft one from the classic piece and the style's material: any log (Rustic), an
-iron nugget (Modern), a gold nugget (Royal) or bamboo (Japanese).
+dresser, wardrobe, desk, bookshelf, table lamp, floor lamp, kitchen counter and upper cabinet (in
+11 woods each), and the sofa and armchair (in 16 colors each). They work like the classic pieces:
+beds sleep and dye, sofas join (with sofas of the same style), tables join, counters form corners,
+bookshelves power enchanting tables, lamps switch, and storage opens. Craft one from the classic
+piece and the style's material, or sneak and right-click a placed classic piece with the material.
 
 ## How it works in game
 
@@ -216,12 +265,47 @@ iron nugget (Modern), a gold nugget (Royal) or bamboo (Japanese).
   tropical fish keep their pattern), and with an empty bucket to take one back out. Sneak and
   right-click the bird cage with a parrot on your shoulder to put it in, and right-click to let it out.
   The baby mobile turns slowly.
+- **Repaint and reupholster:** sneak and right-click a placed piece with planks of another wood to make
+  it in that wood, with a dye or wool to change the color of a fabric piece, or with a style's material
+  to turn it into that style. It keeps its facing and everything stored in it, and each change uses one
+  item. Pieces two blocks tall, beds and bunk beds change as a whole.
+- **Wood stain:** sneak and right-click wooden furniture with a dye to stain the wood that color (the
+  grain still shows). A sponge takes the stain off. Broken pieces keep their stain, and so do pieces
+  moved with the dolly or turned with the hammer.
+- **Light switches:** hold a light switch, sneak and right-click lamps to link them (up to 32 lamps
+  within 32 blocks), then put the switch on a wall. Right-click it to turn all its lamps off, or on if
+  they are all off. Every lamp in the mod can be linked: lamps, ceiling lights, pendants, chandeliers,
+  string lights, the Christmas tree and the lamps of every style.
+- **Mailboxes:** a mailbox belongs to whoever places it. Anyone can send up to nine items from it to the
+  owner, or type another player's name, as long as that player has a mailbox too. Mail waits in a
+  27-slot inbox while the player is offline or far away, any of their mailboxes shows it, and the red
+  flag goes up when there is mail.
+- **Greenhouse:** plant a flower or sapling in a growing pot and it grows bigger in four stages, faster
+  with bone meal or the watering can. Fill the watering can from water, a sink, a filled bathtub or a
+  water cauldron (16 waterings); right-click to water a 3 by 3 area: crops and saplings get an extra
+  growth tick and farmland gets wet. Plant stands, hanging planters and window flower boxes hold
+  flowers and saplings.
+- **Home theater:** point a projector at the projector screen (up to 12 blocks away) and right-click it
+  to play one of three films, then off. Sneak and right-click a recliner with an empty hand to tilt it
+  back. Speakers send out notes while a jukebox or record player within 8 blocks plays. Right-click a
+  movie poster to change it.
+- **Art studio:** put a canvas on an easel and right-click it with an empty hand to paint: 16 by 16
+  pixels in 16 colors, right-click to rub out, and a fill tool. Sign it to give it a title and finish it.
+  Place a painted canvas on a wall or put it in a picture frame to show it. Vases hold a flower.
+- **Holidays:** presents keep what is inside when you break them, like shulker boxes. Right-click the
+  Christmas tree to switch its twinkling lights on and off. String lights next to each other join into
+  one strand, on walls and under ceilings. Shake the snow globe to make it snow inside. The candy bowl
+  holds three treats, and the fake cobweb doesn't slow you down.
+- **Copper:** copper furniture ages like copper blocks, from shiny to green. Copper lamps give less
+  light as they age. Wax it with honeycomb to keep its look, and scrape it with an axe to take off a
+  stage or the wax.
 - Furniture faces you when placed, and most pieces can be placed underwater (waterlogged). Wooden
   and wool furniture can burn, except crimson and warped wood.
 
 ## Food and drink
 
-The coffee machine, toaster, blender and espresso machine make food. Right-click an appliance with the ingredients
+The coffee machine, toaster, blender, espresso machine, popcorn machine, pottery wheel and sewing
+machine make things. Right-click an appliance with the ingredients
 (and the glass bottle for drinks) to put them in. When they match a recipe the appliance starts,
 and the result pops out when it is done. Right-click with an empty hand to take the ingredients back
 before it starts.
@@ -234,6 +318,9 @@ before it starts.
 | Toast | Toaster | Bread | 4 s | More filling than bread |
 | Espresso | Espresso machine | Two cocoa beans, glass bottle | 4 s | Haste for 60 seconds |
 | Latte | Espresso machine | Cocoa beans, milk bucket, sugar, glass bottle | 6 s | Very filling, Speed for 15 seconds |
+| Popcorn (2) | Popcorn machine | Two wheat seeds, paper | 5 s | A quick snack |
+| Vase | Pottery wheel | Three clay balls | 6 s | A terracotta vase; craft it with a dye to color it |
+| Floor cushions (2) | Sewing machine | Wool of the color, string | 4 s | A seat |
 
 Drinks give the glass bottle back. The recipes are data files (recipe type
 `reikos_furniture:appliance`), so a datapack can add or change them.
@@ -263,31 +350,36 @@ beds, sinks, counters, bookshelves, glass pieces and so on) are made at a crafti
 The furniture catalog is a book (craft a book with any planks, or get one with the Woodworker
 advancement). Right-click it to see every piece, room by room and style by style. Each piece cycles
 through its woods and colors; click one to see its crafting recipe (or the appliance that makes it)
-and what it costs at the furniture workbench.
+and what it costs at the furniture workbench. Click **Craft** to make it with the materials in your
+inventory, without a crafting table or workbench (shift-click to make as many as you can, up to a
+stack). The button is greyed out when you don't have the materials.
 
 ## Advancements
 
-The **Reiko's Furniture** advancement tab has fifteen advancements, among them Take a Seat, Coffee
-Break, Interior Designer (turn furniture with the hammer), Heavy Lifting (move storage with the
-dolly), A Matter of Style, Bullseye!, High Score, Fresh Laundry, Who's a Good Boy? and the challenge
-Home Sweet Home: own a piece from every room. Datapacks can use the
-`reikos_furniture:furniture_action` trigger, with an `action` of `hammer`, `dolly`, `piano`,
-`bullseye`, `arcade_high_score`, `wash` or `pet_fed`.
+The **Reiko's Furniture** advancement tab has twenty-three advancements, among them Take a Seat,
+Coffee Break, Interior Designer (turn furniture with the hammer), Heavy Lifting (move storage with the
+dolly), A Matter of Style, Bullseye!, High Score, Fresh Laundry, Who's a Good Boy?, You've Got Mail,
+Let There Be Light (link five lamps to one switch), Movie Night (watch a film from a recliner), The
+Artist (sign a painting), Green Thumb, Deck the Halls, A Fresh Coat (stain or repaint a piece), Copper
+Age (wax copper furniture) and the challenge Home Sweet Home: own a piece from every room. Datapacks
+can use the `reikos_furniture:furniture_action` trigger, with an `action` of `hammer`, `dolly`,
+`piano`, `bullseye`, `arcade_high_score`, `wash`, `pet_fed`, `repaint`, `light_switch`, `mail`,
+`green_thumb`, `movie_night`, `the_artist` or `deck_the_halls`.
 
 ## Furniture maker villager
 
 The furniture workbench is a job site. An unemployed villager near one becomes a **furniture
 maker**, with a canvas apron and a pencil behind the ear. Furniture makers buy planks, logs and wool,
-and sell furniture: chairs, table lamps, rugs and coffee tables at the first levels, then floor lamps,
-bookshelves, sofas, beds and record players, and at Master level TVs, fridges, arcade cabinets and
-pianos.
+and sell furniture: chairs, table lamps, light switches, rugs, coffee tables and mailboxes at the first
+levels, then floor lamps, bookshelves, vases, sofas, beds, record players and presents, and at Master
+level TVs, fridges, arcade cabinets and pianos.
 
 ### Village workshops
 
 New plains, desert, savanna, snowy and taiga villages can have a **furniture maker's workshop**: a
 small house in the village's own materials with a furniture workbench, a workshop bench, a pegboard
-and toolbox, a dining set, a style armchair, a lamp, a rug and a bed. A villager lives there and soon
-becomes a furniture maker. How often workshops appear is a setting.
+and toolbox, a dining set, a style armchair, a lamp, a rug and a bed, a light switch by the door that
+works the lamp, and a mailbox outside. A villager lives there and soon becomes a furniture maker. How often workshops appear is a setting.
 
 ## Settings
 
@@ -318,7 +410,24 @@ speaker's review, so corrections are welcome.
 If you have [JEI](https://www.curseforge.com/minecraft/mc-mods/jei) or
 [EMI](https://modrinth.com/mod/emi) installed, they show two extra recipe pages: **Furniture
 Workbench** (the planks each piece costs) and **Kitchen Appliances** (what each appliance makes, from
-what, and how long it takes). Crafting table recipes show up as usual. Neither mod is needed to play.
+what, and how long it takes, also for the popcorn machine, pottery wheel and sewing machine). Crafting
+table recipes show up as usual. Neither mod is needed to play.
+
+## Other mods
+
+None of these are needed; the mod works with them when they are installed.
+
+- **[Jade](https://modrinth.com/mod/jade) and [WTHIT](https://modrinth.com/mod/wthit):** looking at a
+  piece shows extra lines: how far along an appliance or the washing machine is, who owns a safe or a
+  mailbox and how much mail is waiting, how many fish are in an aquarium, how big a potted plant has grown, the
+  title and painter of a canvas, a piece's wood stain and how many lamps a light switch works. Storage
+  contents show as usual.
+- **[Create](https://modrinth.com/mod/create):** furniture can be moved on contraptions. Storage keeps
+  its contents (Create's storage handling picks up the furniture's inventories) and lamps stay lit. You
+  can't sit on seats while they move.
+- **[Sodium](https://modrinth.com/mod/sodium) and [Iris](https://modrinth.com/mod/iris):** the
+  furniture renders correctly with both, including glowing lamps and screens, canvases and wood stain.
+  Iris needs the Sodium version it was made for (for example Iris 1.8.12 with Sodium 0.6.13).
 
 ## Furniture in other mods' woods
 
@@ -452,11 +561,60 @@ carpet or terracotta of the color you want.
 | Baby mobile | ` N ` / `TWT` | N = iron nugget, T = string, W = color wool | 1 |
 | Aquarium | `GGG` / `GBG` / `PPP` | G = glass, B = water bucket, P = any planks | 1 |
 | Bird cage | ` N ` / `N N` / `NIN` | N = gold nugget, I = gold ingot | 1 |
-| Style pieces | Shapeless | The classic piece + any log (Rustic), iron nugget (Modern), gold nugget (Royal) or bamboo (Japanese) | 1 |
+| Plant stand | ` F ` / `SSS` / `L L` | F = flower pot | 1 |
+| Growing pot | `TDT` / ` T ` | T = terracotta (plain or of the color), D = dirt | 1 |
+| Hanging planter | ` T ` / `CDC` | T = string, C = color terracotta, D = dirt | 1 |
+| Window flower box | `SDS` | D = dirt | 2 |
+| Garden shed cabinet | `PHP` / `PCP` / `PPP` | H = any hoe, C = chest | 1 |
+| Watering can | Shapeless | A bucket, two iron nuggets and green dye | 1 |
+| Projector screen | `NSN` / `WWW` / `WWW` | N = iron nugget, S = stick, W = white wool | 1 |
+| Projector | `IIG` / `IRI` | I = iron ingot, G = glass, R = redstone | 1 |
+| Recliner | `W L` / `WWW` / `P P` | W = color wool, L = lever, P = any planks | 1 |
+| Speaker | `PCP` / `PNP` / `PCP` | C = black carpet, N = note block | 2 |
+| Popcorn machine | `GGG` / `G G` / `RIR` | G = glass, R = red dye, I = iron ingot | 1 |
+| Movie poster | Shapeless | Three paper, an ink sac and red dye | 1 |
+| Easel | ` T ` / `TST` / `T T` | T = stick | 1 |
+| Canvas | `TPT` / `TPT` | T = stick, P = paper | 2 |
+| Pottery wheel | `SIS` / `PPP` | S = smooth stone slab, I = iron ingot, P = any planks | 1 |
+| Colored vase | Shapeless | A terracotta vase (from the pottery wheel) and the dye | 1 |
+| Sewing machine | `III` / `TNT` | I = iron ingot, T = string, N = iron nugget | 1 |
+| Paint pots | Shapeless | Two iron nuggets, a stick and the dye | 1 |
+| Christmas tree | ` G ` / `LDL` / `LSL` | G = gold nugget, L = any leaves, D = glowstone dust, S = any log | 1 |
+| Present | Shapeless | A chest, two paper, string and the dye | 1 |
+| Warm string lights | `TTT` / `GGG` | T = string, G = glowstone dust | 4 |
+| Colorful string lights | `TTT` / `RGB` | T = string, R = red dye, G = glowstone dust, B = blue dye | 4 |
+| Wreath | `LLL` / `L L` / `LRL` | L = any leaves, R = red dye | 1 |
+| Stocking | `C ` / `W ` / `WW` | C = white carpet, W = color wool | 1 |
+| Snow globe | ` G ` / `GSG` / ` P ` | G = glass, S = snowball, P = any wooden slab | 1 |
+| Gravestone | ` S ` / `SSS` / `SSS` | S = stone | 1 |
+| Fake cobweb | `T T` / ` T ` / `T T` | T = string | 1 |
+| Hanging bats | Shapeless | Black wool, string and leather | 1 |
+| Candy bowl | `T T` / ` T ` | T = orange terracotta | 1 |
+| Witch's cauldron | Shapeless | A cauldron, a slime ball and glowstone dust | 1 |
+| Stone or concrete dining table | `MMM` / ` M ` / ` M ` | M = the stone or concrete (see below) | 1 |
+| Stone coffee table | `MMM` / `M M` | | 1 |
+| Stone or concrete bench | `M M` / `MMM` | | 1 |
+| Stone or concrete counter | `MMM` / `MCM` / `MMM` | C = chest | 1 |
+| Stone or concrete planter | `M M` / `MDM` / `MMM` | D = dirt | 2 |
+| Copper lamp | `CCC` / ` T ` / ` C ` | C = copper ingot, T = torch | 1 |
+| Copper table | `CCC` / ` C ` / ` C ` | C = copper ingot | 1 |
+| Copper chair | `C  ` / `CCC` / `C C` | C = copper ingot | 1 |
+| Waxed copper furniture | Shapeless | The copper piece and a honeycomb | 1 |
+| Wrought-iron garden chair | `B  ` / `III` / `B B` | B = iron bars, I = iron ingot | 1 |
+| Wrought-iron garden table | `III` / ` B ` / `BBB` | B = iron bars, I = iron ingot | 1 |
+| Wrought-iron bench | `B B` / `III` / `B B` | B = iron bars, I = iron ingot | 1 |
+| Wrought-iron lamp post | `L` / `B` / `B` | L = lantern, B = iron bars | 1 |
+| Light switch | Shapeless | A lever and white terracotta | 1 |
+| Mailbox | `PPP` / `PCP` / ` L ` | C = chest | 1 |
+| Style pieces | Shapeless | The classic piece + the style's material (see Furniture styles) | 1 |
 | Furniture hammer | `IPI` / ` S ` / ` S ` | I = iron ingot, P = any planks, S = stick | 1 |
 | Moving dolly | `S  ` / `S  ` / `INI` | S = stick, I = iron ingot, N = iron nugget | 1 |
 | Furniture catalog | Shapeless | A book and any planks | 1 |
 | Furniture workbench | ` I ` / `PTP` / `P P` | I = iron ingot, T = crafting table, P = any planks | 1 |
+
+The stones are white marble (calcite), black marble (polished deepslate), quartz (quartz block),
+blackstone (polished blackstone) and stone bricks; concrete pieces use concrete of the color. Vases,
+popcorn and floor cushions are made in appliances (see Food and drink).
 
 ## Building and running
 
@@ -466,8 +624,11 @@ You need Java 21. The Gradle wrapper downloads everything else.
 ./gradlew build
 ```
 
-The mod jar is written to `build/libs/reikos_furniture-1.3.0.jar`. Put it in the `mods` folder of a
-Minecraft 1.21.1 NeoForge install.
+The mod jar is written to `build/libs/reikos_furniture-1.4.0.jar`. Put it in the `mods` folder of a
+Minecraft 1.21.1 NeoForge install. The jar is about 14 MB. With 2,799 pieces (about 2,900 blocks) the
+game takes a few seconds longer to start; in testing it reached the world in under 30 seconds, even
+with software rendering. Each wood mod adds about 190 blocks per wood (70 with styles in other mods'
+woods turned off).
 
 Other useful tasks:
 
@@ -480,7 +641,8 @@ Other useful tasks:
 
 Run `./gradlew runData` after changing pieces, models or recipes, and commit the files it generates.
 
-To try the mod with JEI, EMI or a wood mod in the dev client, put their jars in `run/mods`.
+To try the mod with JEI, EMI, Jade, WTHIT, Create, Sodium, Iris or a wood mod in the dev client, put
+their jars in `run/mods`.
 
 ## Automatic builds and releases
 
@@ -489,13 +651,13 @@ checks that `src/generated` is up to date. The jar is attached to each run as a 
 
 To publish a release:
 
-1. Set `mod_version` in `gradle.properties`, for example `1.3.0`.
+1. Set `mod_version` in `gradle.properties`, for example `1.4.0`.
 2. Push a tag with the same version:
    ```bash
-   git tag v1.3.0
+   git tag v1.4.0
    ```
    ```bash
-   git push origin v1.3.0
+   git push origin v1.4.0
    ```
 3. GitHub builds and tests the mod and creates a release with the jar attached.
 
@@ -523,14 +685,22 @@ src/main/java/com/reiko45/furniture/
     catalog/                   The furniture catalog item and screen
     advancement/               The furniture_action trigger and the advancement tab
     config/                    The settings
+    repaint/                   Changing a placed piece's wood, color or style
+    stain/                     Wood stain (kept per chunk and sent to the players who see it)
+    lighting/                  Light switches and which blocks count as lamps
+    mail/                      Mailboxes, the post office and the mailbox screen
+    network/                   The packets (painting a canvas, crafting from the catalog, sending mail)
   bedroom/  kitchen/  dining/  livingroom/  bathroom/  office/  outdoor/  kids/
   laundry/  music/  gameroom/  pets/  decor/  garage/  library/  bar/  nursery/
+  greenhouse/  theater/  studio/  holiday/
     <Room>Furniture.java       The room's blocks
     <Room>Data.java            The room's models and recipes (used by runData)
-  styles/                      The Rustic, Modern, Royal and Japanese pieces
-  kitchen/appliance/           Coffee machine, toaster, blender and their recipe type
+  studio/                      Also the paint screen and the renderers that draw canvases
+  material/                    Stone, concrete, copper and wrought-iron furniture (the last two rooms)
+  styles/                      The pieces of the eight styles
+  kitchen/appliance/           The appliances (coffee machine to sewing machine) and their recipe type
   villager/                    The furniture maker profession, trades and village workshops
-  compat/                      JEI and EMI plugins (only loaded when those mods are installed)
+  compat/                      JEI, EMI, Jade and WTHIT plugins (only loaded when those mods are installed)
   datagen/                     Data generation shared by all rooms
     lang/                      The translations: one grammar and word list per language
   gametest/                    Automated in-game tests
@@ -545,7 +715,8 @@ tools/                         Python scripts that make the templates, textures,
 ```
 
 Each piece has template models that use the texture variables `#planks`, `#log` and `#stripped_log`
-(fabric pieces use `#wool`). Data generation creates the model for every wood type or color from
+(fabric pieces use `#wool`; stone pieces `#side` and `#top`; copper `#copper`). The wood faces have
+tint index 1, which wood stain colors. Data generation creates the model for every wood type or color from
 them. You can open the templates in [Blockbench](https://www.blockbench.net/) as Java block models.
 
 ## Tools
@@ -557,8 +728,8 @@ commit the results.
 | Script | Needs | What it does |
 |---|---|---|
 | `python3 tools/models/generate_all.py` | Python 3 | Rewrites every model template from the room scripts in `tools/models/` |
-| `python3 tools/textures/generate_textures.py` | Pillow | Draws the fabrics, appliance fronts, screens, food items and villager clothes |
-| `python3 tools/sounds/generate_sounds.py` | numpy, ffmpeg | Makes the sounds (microwave ding, toilet flush, washer, ...) as `.ogg` files |
+| `python3 tools/textures/generate_textures.py` | Pillow | Draws the fabrics, appliance fronts, screens, films, posters, marble, style materials, food items and villager clothes |
+| `python3 tools/sounds/generate_sounds.py` | numpy, ffmpeg | Makes the sounds (microwave ding, toilet flush, washer, projector, popcorn, ...) as `.ogg` files |
 | `python3 tools/structures/generate_workshops.py` | Python 3 | Builds the five village workshops as structure files |
 | `python3 tools/check_textures.py` | Python 3 | Checks that every texture a model uses exists (run `./gradlew build` first) |
 

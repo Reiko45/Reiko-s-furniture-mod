@@ -2996,7 +2996,7 @@
   "item.reikos_furniture.hammer.tooltip": "Rechtsklick auf ein Möbelstück dreht es (beim Schleichen andersherum)",
   "item.reikos_furniture.hot_cocoa": "Heiße Schokolade",
   "item.reikos_furniture.latte": "Milchkaffee",
-  "item.reikos_furniture.light_switch.tooltip": "Schleichend Rechtsklick auf Lampen verbindet sie (%s verbunden)",
+  "item.reikos_furniture.light_switch.tooltip": "Beim Schleichen verbindet ein Rechtsklick Lampen mit dem Schalter (%s verbunden)",
   "item.reikos_furniture.moving_dolly": "Sackkarre",
   "item.reikos_furniture.moving_dolly.carrying": "Trägt: %s",
   "item.reikos_furniture.moving_dolly.tooltip": "Rechtsklick auf ein Aufbewahrungsmöbel bewegt es samt Inhalt",

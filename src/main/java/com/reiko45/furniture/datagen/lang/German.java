@@ -328,7 +328,7 @@ public class German extends Grammar {
         text(item + "furniture_catalog.tooltip", "Alle Möbelstücke, nach Raum und Stil");
         text(item + "hammer", "Möbelhammer");
         text(item + "hammer.tooltip", "Rechtsklick auf ein Möbelstück dreht es (beim Schleichen andersherum)");
-        text(item + "light_switch.tooltip", "Schleichend Rechtsklick auf Lampen verbindet sie (%s verbunden)");
+        text(item + "light_switch.tooltip", "Beim Schleichen verbindet ein Rechtsklick Lampen mit dem Schalter (%s verbunden)");
         text(item + "watering_can", "Gießkanne");
         text(item + "watering_can.water", "Wasser: %s/%s");
         text(item + "watering_can.tooltip", "Rechtsklick auf Wasser, ein Spülbecken oder eine Badewanne füllt sie, dann auf Pflanzen, um sie zu gießen (3×3)");

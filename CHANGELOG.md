@@ -1,5 +1,60 @@
 # Changelog
 
+## 1.4.0
+
+2,799 furniture items in twenty-three sections (up from 1,459 in seventeen), eight furniture styles
+(up from four), and new ways to change, light and share your furniture.
+
+### New features
+- **Repaint and reupholster:** sneak and right-click a placed piece with planks of another wood, a dye
+  or wool, or a style's material to change its wood, color or style. It keeps its contents.
+- **Wood stain:** sneak and right-click wooden furniture with a dye to stain it; a sponge takes it off.
+  Stains stay on broken pieces and on pieces moved with the dolly.
+- **Light switches:** link up to 32 lamps to a switch and turn them all on and off at once, without
+  redstone.
+- **Mailboxes:** send items to other players, even when they are offline. The flag goes up when mail
+  is waiting.
+- **Craft from the catalog:** the catalog's Craft button makes a piece from the materials in your
+  inventory (shift-click to make a stack).
+
+### New rooms
+- **Greenhouse & garden:** growing pots where plants grow bigger in four stages, plant stands, hanging
+  planters, window flower boxes, a two-block-tall garden shed cabinet and a **watering can** that waters
+  a 3 by 3 area.
+- **Home theater:** a 3 by 2 projector screen and a projector with three films, recliners that tilt
+  back, speakers that send out notes while a jukebox plays nearby, a popcorn machine (popcorn is a new food)
+  and movie posters.
+- **Art studio:** easels and canvases you paint pixel by pixel and sign, then hang on a wall or put in
+  a picture frame; a pottery wheel that makes vases, a sewing machine that makes floor cushions, and
+  paint pots.
+- **Holidays:** a Christmas tree with twinkling lights, presents that keep their contents, string
+  lights that join into long strands, a wreath, stockings and a snow globe; for Halloween a gravestone,
+  a fake cobweb, hanging bats, a candy bowl and a witch's cauldron.
+- **Stone & concrete:** dining tables, coffee tables, benches, counters and planters in white and black
+  marble, quartz, blackstone and stone bricks, and tables, benches, counters and planters in all 16
+  concrete colors.
+- **Copper & iron:** copper lamps, tables and chairs that age like copper blocks (wax them with
+  honeycomb, scrape them with an axe), and a wrought-iron garden chair, table, bench and lamp post.
+
+### Furniture styles
+- **Medieval, Victorian, Futuristic and Beach House**, made from iron bars, a candle, glowstone dust
+  and sand.
+- **Six more styled pieces in every style:** desk, bookshelf, table lamp, floor lamp, kitchen counter
+  and upper cabinet. That makes sixteen styled pieces in eight styles.
+
+### Other mods
+- **Jade and WTHIT:** tooltips show appliance progress, owners, mail, linked lamps, fish, plant growth,
+  paintings and wood stain.
+- **Create:** furniture moves on contraptions with its contents, and lamps stay lit.
+- **Sodium and Iris:** checked; everything renders, including glowing parts and wood stain.
+
+### Polish
+- **Eight new advancements:** You've Got Mail, Let There Be Light, Movie Night, The Artist, Green Thumb,
+  Deck the Halls, A Fresh Coat and Copper Age.
+- **Furniture makers** also sell light switches, mailboxes, vases and presents.
+- **Village workshops** have a light switch by the door and a mailbox outside.
+- **Translations** for everything new in Spanish, French, German and Brazilian Portuguese.
+
 ## 1.3.0
 
 1,459 furniture items in seventeen rooms (up from 677 in twelve), four furniture styles, new tools,
