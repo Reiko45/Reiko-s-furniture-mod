@@ -37,6 +37,16 @@ repositories {
         url = "https://maven.terraformersmc.com/"
         content { includeGroup "dev.emi" }
     }
+    // Jade (from Modrinth)
+    maven {
+        url = "https://api.modrinth.com/maven"
+        content { includeGroup "maven.modrinth" }
+    }
+    // WTHIT
+    maven {
+        url = "https://maven2.bai.lol"
+        content { includeGroup "mcp.mobius.waila"; includeGroup "lol.bai" }
+    }
 }
 
 base {
@@ -130,6 +140,9 @@ dependencies {
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
     compileOnly "dev.emi:emi-neoforge:${emi_version}:api"
+    // Block tooltips (Jade or WTHIT): the compat/jade and compat/wthit plugins. Optional too.
+    compileOnly "maven.modrinth:jade:${jade_version}"
+    compileOnly "mcp.mobius.waila:wthit-api:${wthit_version}"
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

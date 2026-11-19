@@ -47,6 +47,15 @@ public class ApplianceBlockEntity extends BlockEntity {
         return items.stream().allMatch(ItemStack::isEmpty);
     }
 
+    /** Ticks done so far, and of how many (0 when it isn't running). */
+    public int progress() {
+        return progress;
+    }
+
+    public int total() {
+        return total;
+    }
+
     public boolean isRunning() {
         return getBlockState().getValue(ApplianceBlock.RUNNING);
     }

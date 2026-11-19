@@ -2938,6 +2938,7 @@
   "catalog.reikos_furniture.pieces": "%s Möbelstücke",
   "catalog.reikos_furniture.variants": "Variante %s von %s",
   "catalog.reikos_furniture.workbench": "Möbelwerkbank: %s Bretter",
+  "config.jade.plugin_reikos_furniture.furniture": "Reiko's Furniture",
   "config.reikos_furniture.appliance_speed": "Gerätegeschwindigkeit",
   "config.reikos_furniture.dolly_carries_full_storage": "Sackkarre trägt volle Möbel",
   "config.reikos_furniture.gameplay": "Spielmechanik",
@@ -2948,6 +2949,7 @@
   "config.reikos_furniture.safe_owner_only": "Tresore öffnen sich nur für ihren Besitzer",
   "config.reikos_furniture.village_workshop_weight": "Häufigkeit von Werkstätten in Dörfern",
   "config.reikos_furniture.world": "Welt",
+  "config.waila.plugin_reikos_furniture.furniture": "Reiko's Furniture",
   "container.reikos_furniture.easel": "Gemälde",
   "container.reikos_furniture.easel.brush": "Pinsel",
   "container.reikos_furniture.easel.fill": "Füllen",
@@ -3090,5 +3092,13 @@
   "subtitles.reikos_furniture.toolbox_latch": "Werkzeugkasten klickt",
   "subtitles.reikos_furniture.tv_static": "Fernseher rauscht",
   "subtitles.reikos_furniture.washer_running": "Waschmaschine läuft",
-  "subtitles.reikos_furniture.workbench_saw": "Säge sägt"
+  "subtitles.reikos_furniture.workbench_saw": "Säge sägt",
+  "tooltip.reikos_furniture.done_in": "Fertig in %s s",
+  "tooltip.reikos_furniture.fish": "Fische: %s von %s",
+  "tooltip.reikos_furniture.growth": "Wachstum: %s von %s",
+  "tooltip.reikos_furniture.lamps": "Verbundene Lampen: %s",
+  "tooltip.reikos_furniture.mail": "Wartende Post: %s",
+  "tooltip.reikos_furniture.owner": "Besitzer: %s",
+  "tooltip.reikos_furniture.painting": "„%s“ von %s",
+  "tooltip.reikos_furniture.progress": "Fortschritt: %s %%"
 }

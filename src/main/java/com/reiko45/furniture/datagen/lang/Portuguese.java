@@ -252,6 +252,16 @@ public class Portuguese extends RomanceGrammar {
         text("catalog.reikos_furniture.craft", "Fabricar");
         text("catalog.reikos_furniture.craft_all", "Fabricar Tudo");
         text("catalog.reikos_furniture.missing", "Você não tem os materiais para isto");
+        text("tooltip.reikos_furniture.progress", "Progresso: %s%%");
+        text("tooltip.reikos_furniture.done_in", "Pronto em %s s");
+        text("tooltip.reikos_furniture.owner", "Dono: %s");
+        text("tooltip.reikos_furniture.mail", "Correio esperando: %s");
+        text("tooltip.reikos_furniture.lamps", "Luminárias conectadas: %s");
+        text("tooltip.reikos_furniture.fish", "Peixes: %s de %s");
+        text("tooltip.reikos_furniture.growth", "Crescimento: %s de %s");
+        text("tooltip.reikos_furniture.painting", "“%s”, por %s");
+        text("config.jade.plugin_reikos_furniture.furniture", "Reiko's Furniture");
+        text("config.waila.plugin_reikos_furniture.furniture", "Reiko's Furniture");
         text("catalog.reikos_furniture.workbench", "Bancada de Marcenaria: %s tábuas");
 
         String config = "config.reikos_furniture.";

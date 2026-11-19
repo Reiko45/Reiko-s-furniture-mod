@@ -41,6 +41,17 @@ public class CatalogData implements RoomData {
         add.accept("catalog.reikos_furniture.craft", "Craft");
         add.accept("catalog.reikos_furniture.craft_all", "Craft all");
         add.accept("catalog.reikos_furniture.missing", "You don't have the materials for this");
+        // Block tooltips from Jade or WTHIT.
+        add.accept("tooltip.reikos_furniture.progress", "Progress: %s%%");
+        add.accept("tooltip.reikos_furniture.done_in", "Done in %s s");
+        add.accept("tooltip.reikos_furniture.owner", "Owner: %s");
+        add.accept("tooltip.reikos_furniture.mail", "Mail waiting: %s");
+        add.accept("tooltip.reikos_furniture.lamps", "Lamps linked: %s");
+        add.accept("tooltip.reikos_furniture.fish", "Fish: %s of %s");
+        add.accept("tooltip.reikos_furniture.growth", "Growth: %s of %s");
+        add.accept("tooltip.reikos_furniture.painting", "\"%s\" by %s");
+        add.accept("config.jade.plugin_reikos_furniture.furniture", "Reiko's Furniture");
+        add.accept("config.waila.plugin_reikos_furniture.furniture", "Reiko's Furniture");
         FurnitureAdvancements.NAMES.forEach((id, text) -> {
             add.accept(FurnitureAdvancements.titleKey(id), text[0]);
             add.accept(FurnitureAdvancements.descriptionKey(id), text[1]);

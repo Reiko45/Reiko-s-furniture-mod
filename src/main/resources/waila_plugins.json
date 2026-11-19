@@ -1,0 +1,7 @@
+{
+  "reikos_furniture:furniture": {
+    "initializer": "com.reiko45.furniture.compat.wthit.FurnitureWthitPlugin",
+    "side": "*",
+    "required": []
+  }
+}

@@ -34,6 +34,11 @@ public class LaundryMachineBlockEntity extends FurnitureStorageBlockEntity {
         super(LaundryFurniture.LAUNDRY_MACHINE_BLOCK_ENTITY.get(), pos, state);
     }
 
+    /** Ticks left in the current wash or dry, or 0. */
+    public int timer() {
+        return timer;
+    }
+
     private LaundryMachineBlock.Kind kind() {
         return ((LaundryMachineBlock) getBlockState().getBlock()).kind();
     }

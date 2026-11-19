@@ -2938,6 +2938,7 @@
   "catalog.reikos_furniture.pieces": "%s muebles",
   "catalog.reikos_furniture.variants": "Variante %s de %s",
   "catalog.reikos_furniture.workbench": "Mesa de carpintería: %s tablones",
+  "config.jade.plugin_reikos_furniture.furniture": "Reiko's Furniture",
   "config.reikos_furniture.appliance_speed": "Velocidad de los electrodomésticos",
   "config.reikos_furniture.dolly_carries_full_storage": "La carretilla lleva muebles llenos",
   "config.reikos_furniture.gameplay": "Jugabilidad",
@@ -2948,6 +2949,7 @@
   "config.reikos_furniture.safe_owner_only": "Las cajas fuertes solo se abren para su dueño",
   "config.reikos_furniture.village_workshop_weight": "Frecuencia de talleres en las aldeas",
   "config.reikos_furniture.world": "Mundo",
+  "config.waila.plugin_reikos_furniture.furniture": "Reiko's Furniture",
   "container.reikos_furniture.easel": "Pintura",
   "container.reikos_furniture.easel.brush": "Pincel",
   "container.reikos_furniture.easel.fill": "Relleno",
@@ -3090,5 +3092,13 @@
   "subtitles.reikos_furniture.toolbox_latch": "Cierre de caja de herramientas",
   "subtitles.reikos_furniture.tv_static": "Televisor chisporrotea",
   "subtitles.reikos_furniture.washer_running": "Lavadora funciona",
-  "subtitles.reikos_furniture.workbench_saw": "Sierra corta"
+  "subtitles.reikos_furniture.workbench_saw": "Sierra corta",
+  "tooltip.reikos_furniture.done_in": "Listo en %s s",
+  "tooltip.reikos_furniture.fish": "Peces: %s de %s",
+  "tooltip.reikos_furniture.growth": "Crecimiento: %s de %s",
+  "tooltip.reikos_furniture.lamps": "Lámparas conectadas: %s",
+  "tooltip.reikos_furniture.mail": "Correo esperando: %s",
+  "tooltip.reikos_furniture.owner": "Dueño: %s",
+  "tooltip.reikos_furniture.painting": "«%s», de %s",
+  "tooltip.reikos_furniture.progress": "Progreso: %s%%"
 }

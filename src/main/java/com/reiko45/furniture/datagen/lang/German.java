@@ -263,6 +263,16 @@ public class German extends Grammar {
         text("catalog.reikos_furniture.craft", "Herstellen");
         text("catalog.reikos_furniture.craft_all", "Alles herstellen");
         text("catalog.reikos_furniture.missing", "Dir fehlen die Materialien dafür");
+        text("tooltip.reikos_furniture.progress", "Fortschritt: %s %%");
+        text("tooltip.reikos_furniture.done_in", "Fertig in %s s");
+        text("tooltip.reikos_furniture.owner", "Besitzer: %s");
+        text("tooltip.reikos_furniture.mail", "Wartende Post: %s");
+        text("tooltip.reikos_furniture.lamps", "Verbundene Lampen: %s");
+        text("tooltip.reikos_furniture.fish", "Fische: %s von %s");
+        text("tooltip.reikos_furniture.growth", "Wachstum: %s von %s");
+        text("tooltip.reikos_furniture.painting", "„%s“ von %s");
+        text("config.jade.plugin_reikos_furniture.furniture", "Reiko's Furniture");
+        text("config.waila.plugin_reikos_furniture.furniture", "Reiko's Furniture");
         text("catalog.reikos_furniture.workbench", "Möbelwerkbank: %s Bretter");
 
         String config = "config.reikos_furniture.";

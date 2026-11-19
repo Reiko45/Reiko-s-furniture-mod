@@ -48,6 +48,16 @@ public class PostOffice extends SavedData {
         return inboxes.computeIfAbsent(player, p -> NonNullList.withSize(INBOX_SIZE, ItemStack.EMPTY));
     }
 
+    /** How many items are waiting in a player's inbox. */
+    public int mailCount(UUID player) {
+        Container inbox = inboxContainer(player);
+        int count = 0;
+        for (int i = 0; i < inbox.getContainerSize(); i++) {
+            count += inbox.getItem(i).getCount();
+        }
+        return count;
+    }
+
     public boolean hasMail(UUID player) {
         NonNullList<ItemStack> inbox = inboxes.get(player);
         return inbox != null && inbox.stream().anyMatch(stack -> !stack.isEmpty());
