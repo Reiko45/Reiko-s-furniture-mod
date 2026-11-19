@@ -1,0 +1,150 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "books": "minecraft:block/bookshelf",
+    "paper": "reikos_furniture:block/style/washi",
+    "iron": "minecraft:block/anvil"
+  },
+  "elements": [
+    {
+      "from": [
+        4.5,
+        0,
+        4.5
+      ],
+      "to": [
+        11.5,
+        1,
+        11.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            4.5,
+            4.5,
+            11.5,
+            11.5
+          ],
+          "texture": "#planks",
+          "cullface": "down",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            4.5,
+            4.5,
+            11.5,
+            11.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "north": {
+          "uv": [
+            4.5,
+            15,
+            11.5,
+            16
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            4.5,
+            15,
+            11.5,
+            16
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            4.5,
+            15,
+            11.5,
+            16
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            4.5,
+            15,
+            11.5,
+            16
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "from": [
+        7.25,
+        1,
+        7.25
+      ],
+      "to": [
+        8.75,
+        16,
+        8.75
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.25,
+            7.25,
+            8.75,
+            8.75
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "north": {
+          "uv": [
+            7.25,
+            0,
+            8.75,
+            15
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            7.25,
+            0,
+            8.75,
+            15
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            7.25,
+            0,
+            8.75,
+            15
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            7.25,
+            0,
+            8.75,
+            15
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        }
+      }
+    }
+  ]
+}

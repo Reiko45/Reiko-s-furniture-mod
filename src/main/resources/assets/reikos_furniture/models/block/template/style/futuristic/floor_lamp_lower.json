@@ -1,0 +1,140 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "books": "minecraft:block/bookshelf",
+    "shell": "minecraft:block/white_concrete",
+    "chrome": "reikos_furniture:block/style/chrome",
+    "glow": "reikos_furniture:block/style/glow_strip"
+  },
+  "elements": [
+    {
+      "from": [
+        5,
+        0,
+        5
+      ],
+      "to": [
+        11,
+        1,
+        11
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            5,
+            5,
+            11,
+            11
+          ],
+          "texture": "#chrome",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            5,
+            5,
+            11,
+            11
+          ],
+          "texture": "#chrome"
+        },
+        "north": {
+          "uv": [
+            5,
+            15,
+            11,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "south": {
+          "uv": [
+            5,
+            15,
+            11,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "west": {
+          "uv": [
+            5,
+            15,
+            11,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "east": {
+          "uv": [
+            5,
+            15,
+            11,
+            16
+          ],
+          "texture": "#chrome"
+        }
+      }
+    },
+    {
+      "from": [
+        7.5,
+        1,
+        7.5
+      ],
+      "to": [
+        8.5,
+        16,
+        8.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.5,
+            7.5,
+            8.5,
+            8.5
+          ],
+          "texture": "#chrome"
+        },
+        "north": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            15
+          ],
+          "texture": "#chrome"
+        },
+        "south": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            15
+          ],
+          "texture": "#chrome"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            15
+          ],
+          "texture": "#chrome"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            0,
+            8.5,
+            15
+          ],
+          "texture": "#chrome"
+        }
+      }
+    }
+  ]
+}

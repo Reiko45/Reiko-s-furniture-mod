@@ -1,0 +1,8 @@
+{
+  "parent": "reikos_furniture:block/template/style/futuristic/floor_lamp_lower",
+  "textures": {
+    "log": "minecraft:block/cherry_log",
+    "planks": "minecraft:block/cherry_planks",
+    "stripped_log": "minecraft:block/stripped_cherry_log"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=east,open=false,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner",
+      "y": 90
+    },
+    "facing=east,open=false,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left",
+      "y": 90
+    },
+    "facing=east,open=false,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right",
+      "y": 90
+    },
+    "facing=east,open=false,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter",
+      "y": 90
+    },
+    "facing=east,open=true,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner",
+      "y": 90
+    },
+    "facing=east,open=true,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left_open",
+      "y": 90
+    },
+    "facing=east,open=true,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right_open",
+      "y": 90
+    },
+    "facing=east,open=true,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_open",
+      "y": 90
+    },
+    "facing=north,open=false,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner"
+    },
+    "facing=north,open=false,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left"
+    },
+    "facing=north,open=false,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right"
+    },
+    "facing=north,open=false,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter"
+    },
+    "facing=north,open=true,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner"
+    },
+    "facing=north,open=true,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left_open"
+    },
+    "facing=north,open=true,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right_open"
+    },
+    "facing=north,open=true,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_open"
+    },
+    "facing=south,open=false,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner",
+      "y": 180
+    },
+    "facing=south,open=false,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left",
+      "y": 180
+    },
+    "facing=south,open=false,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right",
+      "y": 180
+    },
+    "facing=south,open=false,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter",
+      "y": 180
+    },
+    "facing=south,open=true,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner",
+      "y": 180
+    },
+    "facing=south,open=true,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left_open",
+      "y": 180
+    },
+    "facing=south,open=true,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right_open",
+      "y": 180
+    },
+    "facing=south,open=true,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_open",
+      "y": 180
+    },
+    "facing=west,open=false,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner",
+      "y": 270
+    },
+    "facing=west,open=false,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left",
+      "y": 270
+    },
+    "facing=west,open=false,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right",
+      "y": 270
+    },
+    "facing=west,open=false,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter",
+      "y": 270
+    },
+    "facing=west,open=true,shape=inner": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_inner",
+      "y": 270
+    },
+    "facing=west,open=true,shape=outer_left": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_left_open",
+      "y": 270
+    },
+    "facing=west,open=true,shape=outer_right": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_outer_right_open",
+      "y": 270
+    },
+    "facing=west,open=true,shape=straight": {
+      "model": "reikos_furniture:block/dark_oak_modern_counter_open",
+      "y": 270
+    }
+  }
+}

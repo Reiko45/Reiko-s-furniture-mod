@@ -1,0 +1,8 @@
+{
+  "parent": "reikos_furniture:block/template/style/japanese/floor_lamp_upper",
+  "textures": {
+    "log": "minecraft:block/crimson_stem",
+    "planks": "minecraft:block/crimson_planks",
+    "stripped_log": "minecraft:block/stripped_crimson_stem"
+  }
+}

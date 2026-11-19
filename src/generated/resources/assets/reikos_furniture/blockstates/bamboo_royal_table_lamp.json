@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,lit=false": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp_on",
+      "y": 90
+    },
+    "facing=north,lit=false": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp"
+    },
+    "facing=north,lit=true": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp_on"
+    },
+    "facing=south,lit=false": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp_on",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "reikos_furniture:block/bamboo_royal_table_lamp_on",
+      "y": 270
+    }
+  }
+}

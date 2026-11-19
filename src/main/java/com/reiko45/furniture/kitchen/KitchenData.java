@@ -4,43 +4,44 @@ import static com.reiko45.furniture.kitchen.KitchenFurniture.BLENDER;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.COFFEE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.COFFEE_MACHINE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.COUNTER;
-import static com.reiko45.furniture.kitchen.KitchenFurniture.FRUIT_SMOOTHIE;
-import static com.reiko45.furniture.kitchen.KitchenFurniture.HOT_COCOA;
-import static com.reiko45.furniture.kitchen.KitchenFurniture.TOAST;
-import static com.reiko45.furniture.kitchen.KitchenFurniture.TOASTER;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.CUTTING_BOARD;
-import static com.reiko45.furniture.kitchen.KitchenFurniture.PENDANT_LAMP;
-import static com.reiko45.furniture.kitchen.KitchenFurniture.TRASH_CAN;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.FRIDGE;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.FRUIT_SMOOTHIE;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.GLASS_UPPER_CABINET;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.HOT_COCOA;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.KITCHEN_ISLAND;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.MICROWAVE;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.PENDANT_LAMP;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.SINK;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.STOVE;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.TOAST;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.TOASTER;
+import static com.reiko45.furniture.kitchen.KitchenFurniture.TRASH_CAN;
 import static com.reiko45.furniture.kitchen.KitchenFurniture.UPPER_CABINET;
 
 import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Room;
-import com.reiko45.furniture.kitchen.appliance.ApplianceBlock;
-import com.reiko45.furniture.kitchen.appliance.ApplianceRecipe;
-import com.reiko45.furniture.kitchen.appliance.ApplianceType;
-import net.minecraft.world.item.ItemStack;
+import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.datagen.FurnitureBlockStateProvider;
 import com.reiko45.furniture.datagen.FurnitureRecipeProvider;
 import com.reiko45.furniture.datagen.RoomData;
-import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.kitchen.appliance.ApplianceBlock;
+import com.reiko45.furniture.kitchen.appliance.ApplianceRecipe;
+import com.reiko45.furniture.kitchen.appliance.ApplianceType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import java.util.function.BiConsumer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 
 /**
  * Models and recipes for the kitchen. P = planks, S = wooden slab, C = chest, T = smooth stone slab,
@@ -83,13 +84,18 @@ public class KitchenData implements RoomData {
 
     /** Counters have a model for every corner shape, closed and open. */
     private static void counters(FurnitureBlockStateProvider models) {
+        counters(models, COUNTER);
+    }
+
+    /** A counter in every wood, with its straight, inner and outer corner models (from {@code counter*} templates). */
+    public static void counters(FurnitureBlockStateProvider models, WoodSet<? extends CounterBlock> set) {
         for (FurnitureWood wood : FurnitureWood.values()) {
-            CounterBlock block = COUNTER.get(wood).get();
-            String name = wood.id() + "_counter";
+            CounterBlock block = set.get(wood).get();
+            String name = BuiltInRegistries.BLOCK.getKey(block).getPath();
             Map<String, ModelFile> files = new HashMap<>();
             for (String variant : List.of("", "_open", "_inner", "_outer_left", "_outer_left_open",
                     "_outer_right", "_outer_right_open")) {
-                files.put(variant, models.woodModel(name + variant, models.template(ROOM, "counter" + variant), wood));
+                files.put(variant, models.woodModel(name + variant, models.template(set, "counter" + variant), wood));
             }
             models.facingBlock(block, state -> {
                 boolean open = state.getValue(CounterBlock.OPEN);

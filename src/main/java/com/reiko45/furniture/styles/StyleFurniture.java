@@ -10,11 +10,15 @@ import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.core.block.ConnectingTableBlock;
 import com.reiko45.furniture.core.block.FurnitureBedBlock;
+import com.reiko45.furniture.core.block.FurnitureBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.block.SeatBlock;
+import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.block.TallStorageFurnitureBlock;
 import com.reiko45.furniture.kids.BunkBedBlock;
 import com.reiko45.furniture.kids.BunkTopBlock;
+import com.reiko45.furniture.kitchen.CounterBlock;
+import com.reiko45.furniture.livingroom.FloorLampBlock;
 import com.reiko45.furniture.livingroom.SofaBlock;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -28,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * The furniture styles: Rustic, Modern, Royal, Japanese, Medieval, Victorian, Futuristic and Beach House
- * versions of the bed, bunk bed, dining
+ * versions of the bed, bunk bed, desk, bookshelf, table and floor lamps, kitchen counter and upper cabinet, dining
  * chair and table, coffee table, nightstand, dresser, wardrobe, sofa and armchair. They work like
  * the classic pieces and are listed in their own creative tab.
  */
@@ -45,7 +49,13 @@ public final class StyleFurniture {
                          WoodSet<FurnitureStorageBlock> dresser,
                          WoodSet<TallStorageFurnitureBlock> wardrobe,
                          ColorSet<SofaBlock> sofa,
-                         ColorSet<SeatBlock> armchair) {
+                         ColorSet<SeatBlock> armchair,
+                         WoodSet<FurnitureBlock> desk,
+                         WoodSet<FurnitureStorageBlock> bookshelf,
+                         WoodSet<SwitchableFurnitureBlock> tableLamp,
+                         WoodSet<FloorLampBlock> floorLamp,
+                         WoodSet<CounterBlock> counter,
+                         WoodSet<FurnitureStorageBlock> upperCabinet) {
     }
 
     /** Outlines and seat heights for one style's pieces (in pixels, front facing north). */
@@ -60,6 +70,14 @@ public final class StyleFurniture {
     private static final VoxelShape WARDROBE_LOWER = boxes(box(0, 0, 0.5, 16, 16, 16));
     private static final VoxelShape WARDROBE_UPPER = boxes(box(0.5, 0, 0.5, 15.5, 14, 16), box(0, 14, 0, 16, 16, 16));
     private static final VoxelShape ARMCHAIR = boxes(box(1, 0, 1, 15, 10, 15), box(2.5, 10, 12, 13.5, 15, 15));
+    // The shapes of the second set of pieces are the same in every style.
+    private static final VoxelShape DESK = boxes(box(0, 14, 0, 16, 16, 16), box(1, 0, 1, 4, 14, 15),
+            box(9, 0, 0.5, 15, 14, 15), box(3, 6, 13.5, 9, 14, 14.5));
+    private static final VoxelShape FULL = boxes(box(0, 0, 0, 16, 16, 16));
+    private static final VoxelShape TABLE_LAMP = boxes(box(4.5, 0, 4.5, 11.5, 11, 11.5));
+    private static final VoxelShape FLOOR_LAMP_LOWER = boxes(box(4.5, 0, 4.5, 11.5, 1.5, 11.5), box(7, 1.5, 7, 9, 16, 9));
+    private static final VoxelShape FLOOR_LAMP_UPPER = boxes(box(7, 0, 7, 9, 6, 9), box(3.5, 6, 3.5, 12.5, 15, 12.5));
+    private static final VoxelShape UPPER_CABINET = boxes(box(0, 4, 7.5, 16, 16, 16));
 
     private static final Map<Style, Shapes> SHAPES = new EnumMap<>(Style.class);
 
@@ -164,7 +182,20 @@ public final class StyleFurniture {
                 color -> new SofaBlock(fabric(color), shapes.sofaSeat(), style));
         ColorSet<SeatBlock> armchair = FurnitureRegistry.colorSet(style.piece("armchair"), Room.LIVING_ROOM,
                 color -> new SeatBlock(fabric(color), shapes.armchair(), shapes.armchairSeat()));
-        return new Pieces(style, bed, bunk[0], top[0], chair, table, coffeeTable, nightstand, dresser, wardrobe, sofa, armchair);
+        WoodSet<FurnitureBlock> desk = FurnitureRegistry.woodSet(style.piece("desk"), Room.BEDROOM,
+                wood -> new FurnitureBlock(wood.properties(), DESK));
+        WoodSet<FurnitureStorageBlock> bookshelf = FurnitureRegistry.woodSet(style.piece("bookshelf"), Room.LIVING_ROOM,
+                wood -> new FurnitureStorageBlock(wood.properties(), 2, FULL));
+        WoodSet<SwitchableFurnitureBlock> tableLamp = FurnitureRegistry.woodSet(style.piece("table_lamp"), Room.BEDROOM,
+                wood -> new SwitchableFurnitureBlock(wood.properties().lightLevel(SwitchableFurnitureBlock.lightWhenOn(15)), TABLE_LAMP));
+        WoodSet<FloorLampBlock> floorLamp = FurnitureRegistry.woodSet(style.piece("floor_lamp"), Room.LIVING_ROOM,
+                wood -> new FloorLampBlock(wood.properties().lightLevel(FloorLampBlock::lightLevel), FLOOR_LAMP_LOWER, FLOOR_LAMP_UPPER));
+        WoodSet<CounterBlock> counter = FurnitureRegistry.woodSet(style.piece("counter"), Room.KITCHEN,
+                wood -> new CounterBlock(wood.properties(), 3, FULL));
+        WoodSet<FurnitureStorageBlock> upperCabinet = FurnitureRegistry.woodSet(style.piece("upper_cabinet"), Room.KITCHEN,
+                wood -> new FurnitureStorageBlock(wood.properties(), 2, UPPER_CABINET));
+        return new Pieces(style, bed, bunk[0], top[0], chair, table, coffeeTable, nightstand, dresser, wardrobe, sofa, armchair,
+                desk, bookshelf, tableLamp, floorLamp, counter, upperCabinet);
     }
 
     private static BlockBehaviour.Properties fabric(DyeColor color) {

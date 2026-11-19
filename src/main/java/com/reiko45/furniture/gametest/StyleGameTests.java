@@ -4,6 +4,7 @@ import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Style;
+import com.reiko45.furniture.kitchen.CounterBlock;
 import com.reiko45.furniture.core.block.FurnitureBedBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
@@ -117,6 +118,40 @@ public class StyleGameTests {
                 new ItemStack(LivingRoomFurniture.SOFA.get(DyeColor.CYAN).get()), new ItemStack(Items.GLOWSTONE_DUST));
         check(helper, StyleFurniture.get(Style.BEACH).diningChair().get(FurnitureWood.BIRCH).get(),
                 new ItemStack(com.reiko45.furniture.dining.DiningFurniture.DINING_CHAIR.get(FurnitureWood.BIRCH).get()), new ItemStack(Items.RED_SAND));
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void styleCountersFormCorners(GameTestHelper helper) {
+        Block counter = StyleFurniture.get(Style.VICTORIAN).counter().get(FurnitureWood.SPRUCE).get();
+        BlockPos inner = new BlockPos(1, 1, 2);
+        CoreGameTests.placeFacing(helper, inner, counter, Direction.NORTH);
+        CoreGameTests.placeFacing(helper, inner.north(), counter, Direction.EAST);
+        helper.assertBlockProperty(inner, CounterBlock.SHAPE, CounterBlock.Shape.INNER);
+        BlockPos outer = new BlockPos(4, 1, 2);
+        CoreGameTests.placeFacing(helper, outer, StyleFurniture.get(Style.FUTURISTIC).counter().get(FurnitureWood.BIRCH).get(), Direction.NORTH);
+        CoreGameTests.placeFacing(helper, outer.south(), StyleFurniture.get(Style.FUTURISTIC).counter().get(FurnitureWood.BIRCH).get(), Direction.WEST);
+        helper.assertBlockProperty(outer, CounterBlock.SHAPE, CounterBlock.Shape.OUTER_LEFT);
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void styleBookshelvesAndLampsWork(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 1, 1);
+        for (Style style : Style.values()) {
+            StyleFurniture.Pieces pieces = StyleFurniture.get(style);
+            helper.setBlock(pos, pieces.bookshelf().get(FurnitureWood.OAK).get());
+            helper.assertValueEqual(helper.getBlockState(pos).getEnchantPowerBonus(helper.getLevel(), helper.absolutePos(pos)), 1.0F,
+                    style.id() + " bookshelf powers enchanting");
+            helper.assertTrue(com.reiko45.furniture.core.lighting.Lighting.isLamp(pieces.tableLamp().get(FurnitureWood.OAK).get().defaultBlockState()),
+                    style.id() + " table lamp is a lamp");
+            helper.assertTrue(com.reiko45.furniture.core.lighting.Lighting.isLamp(pieces.floorLamp().get(FurnitureWood.OAK).get().defaultBlockState()),
+                    style.id() + " floor lamp is a lamp");
+        }
+        check(helper, StyleFurniture.get(Style.MEDIEVAL).floorLamp().get(FurnitureWood.OAK).get(),
+                new ItemStack(LivingRoomFurniture.FLOOR_LAMP.get(FurnitureWood.OAK).get()), new ItemStack(Items.IRON_BARS));
+        check(helper, StyleFurniture.get(Style.BEACH).upperCabinet().get(FurnitureWood.JUNGLE).get(),
+                new ItemStack(com.reiko45.furniture.kitchen.KitchenFurniture.UPPER_CABINET.get(FurnitureWood.JUNGLE).get()), new ItemStack(Items.SAND));
         helper.succeed();
     }
 

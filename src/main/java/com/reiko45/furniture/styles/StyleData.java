@@ -5,6 +5,9 @@ import com.reiko45.furniture.bedroom.BedroomData;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.ColorSet;
 import com.reiko45.furniture.core.FurnitureWood;
+import com.reiko45.furniture.kitchen.KitchenFurniture;
+import com.reiko45.furniture.kitchen.KitchenData;
+import com.reiko45.furniture.core.FurnitureTags;
 import com.reiko45.furniture.core.Style;
 import com.reiko45.furniture.core.WoodSet;
 import com.reiko45.furniture.datagen.FurnitureBlockStateProvider;
@@ -66,6 +69,12 @@ public class StyleData implements RoomData {
                 models.woolItem(pieces.sofa(), color, "sofa_item");
             }
             models.colorFacing(pieces.armchair(), "armchair");
+            models.woodFacing(pieces.desk(), "desk");
+            models.woodFacing(pieces.bookshelf(), "bookshelf");
+            models.woodFacingLit(pieces.tableLamp(), "table_lamp");
+            models.woodTallLit(pieces.floorLamp(), "floor_lamp");
+            KitchenData.counters(models, pieces.counter());
+            models.woodFacingOpenable(pieces.upperCabinet(), "upper_cabinet");
             if (pieces.style() == Style.BEACH) {
                 stripes(models, pieces);
             }
@@ -100,6 +109,12 @@ public class StyleData implements RoomData {
             wood(output, pieces.wardrobe(), BedroomFurniture.WARDROBE, material);
             color(output, pieces.sofa(), LivingRoomFurniture.SOFA, material);
             color(output, pieces.armchair(), LivingRoomFurniture.ARMCHAIR, material);
+            wood(output, pieces.desk(), BedroomFurniture.DESK, material);
+            wood(output, pieces.bookshelf(), LivingRoomFurniture.BOOKSHELF, material);
+            wood(output, pieces.tableLamp(), BedroomFurniture.TABLE_LAMP, material);
+            wood(output, pieces.floorLamp(), LivingRoomFurniture.FLOOR_LAMP, material);
+            wood(output, pieces.counter(), KitchenFurniture.COUNTER, material);
+            wood(output, pieces.upperCabinet(), KitchenFurniture.UPPER_CABINET, material);
         }
     }
 
@@ -127,6 +142,10 @@ public class StyleData implements RoomData {
     public void tags(FurnitureBlockTagsProvider tags) {
         for (StyleFurniture.Pieces pieces : StyleFurniture.all().values()) {
             pieces.bunkBedTop().all().forEach(top -> tags.tagFor(BlockTags.MINEABLE_WITH_AXE).add((Block) top.get()));
+            // Style bookshelves power enchanting tables, and style lamps work with light switches.
+            pieces.bookshelf().all().forEach(block -> tags.tagFor(BlockTags.ENCHANTMENT_POWER_PROVIDER).add((Block) block.get()));
+            pieces.tableLamp().all().forEach(block -> tags.tagFor(FurnitureTags.LAMPS).add((Block) block.get()));
+            pieces.floorLamp().all().forEach(block -> tags.tagFor(FurnitureTags.LAMPS).add((Block) block.get()));
         }
     }
 
