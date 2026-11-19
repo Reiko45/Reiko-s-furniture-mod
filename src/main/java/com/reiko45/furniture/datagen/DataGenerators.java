@@ -24,6 +24,7 @@ import com.reiko45.furniture.datagen.lang.Spanish;
 import com.reiko45.furniture.datagen.lang.TranslatedLanguageProvider;
 import com.reiko45.furniture.core.catalog.CatalogData;
 import com.reiko45.furniture.core.lighting.LightingData;
+import com.reiko45.furniture.core.mail.MailData;
 import com.reiko45.furniture.core.advancement.FurnitureAdvancements;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import com.reiko45.furniture.office.OfficeData;
@@ -69,6 +70,7 @@ public final class DataGenerators {
             new StyleData(),
             new CatalogData(),
             new LightingData(),
+            new MailData(),
             new ToolsData());
 
     private DataGenerators() {

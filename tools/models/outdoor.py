@@ -92,3 +92,21 @@ def doorbell(pressed):
 BELL = {"plate": "minecraft:block/iron_block", "button": "minecraft:block/gold_block"}
 write(ROOM, "doorbell", doorbell(False), BELL, particle="minecraft:block/iron_block")
 write(ROOM, "doorbell_pressed", doorbell(True), BELL, particle="minecraft:block/iron_block")
+
+# Mailbox on a post (front faces north). The red flag on the right side is up when there is mail.
+def mailbox(flag_up):
+    parts = [
+        Box((7, 0, 7), (9, 10, 9), S),
+        Box((4, 10, 3), (12, 14, 13), P),
+        Box((4.5, 14, 3), (11.5, 15, 13), P),
+        Box((4.5, 10.5, 2.5), (11.5, 14.5, 3), S),
+        Box((7.25, 12, 2), (8.75, 12.75, 2.5), L),
+    ]
+    if flag_up:
+        parts += [Box((12, 11, 9), (12.5, 16, 9.75), "#flag"), Box((12, 14, 9.75), (12.5, 16, 12), "#flag")]
+    else:
+        parts += [Box((12, 11, 7), (12.5, 11.75, 12), "#flag"), Box((12, 11, 12), (12.5, 13, 12.75), "#flag")]
+    return parts
+
+write(ROOM, "mailbox", mailbox(False), {"flag": "minecraft:block/red_concrete"})
+write(ROOM, "mailbox_flag", mailbox(True), {"flag": "minecraft:block/red_concrete"})

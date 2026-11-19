@@ -31,6 +31,8 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import com.reiko45.furniture.core.stain.StainClient;
+import com.reiko45.furniture.core.mail.Mail;
+import com.reiko45.furniture.core.mail.MailboxScreen;
 import com.reiko45.furniture.core.stain.Stains;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
@@ -60,6 +62,7 @@ public class ReikosFurnitureClient {
 
     private static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenus.WORKBENCH.get(), WorkbenchScreen::new);
+        event.register(Mail.MENU.get(), MailboxScreen::new);
     }
 
     private static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {

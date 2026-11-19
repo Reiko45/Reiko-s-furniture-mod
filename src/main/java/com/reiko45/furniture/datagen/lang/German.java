@@ -95,6 +95,7 @@ public class German extends Grammar {
         noun("wine_rack", "Weinregal", N);
         noun("workshop_bench", "Werkbank", F);
         noun("writing_desk", "Sekretär", M);
+        noun("mailbox", "Briefkasten", M);
         noun("armchair", "Sessel", M);
         noun("baby_mobile", "Mobile", N);
         noun("bar_stool", "Barhocker", M);
@@ -237,6 +238,16 @@ public class German extends Grammar {
         text("message.reikos_furniture.lamp_linked", "Lampe mit dem Schalter verbunden (%s von %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lampe vom Schalter getrennt (%s von %s)");
         text("message.reikos_furniture.switch_full", "Dieser Schalter steuert schon %s von %s Lampen");
+        text("container.reikos_furniture.mailbox", "Briefkasten von %s");
+        text("container.reikos_furniture.mailbox.not_yours", "Nur %s kann die Post in diesem Briefkasten lesen. Von hier kannst du Post verschicken.");
+        text("container.reikos_furniture.mailbox.send_to", "Senden an:");
+        text("container.reikos_furniture.mailbox.send", "Senden");
+        text("message.reikos_furniture.mail_sent", "An %s gesendet");
+        text("message.reikos_furniture.mail_partly_sent", "Der Briefkasten von %s ist voll: Was nicht hineinpasste, ist noch hier");
+        text("message.reikos_furniture.mail_no_mailbox", "%s hat keinen Briefkasten");
+        text("message.reikos_furniture.mail_unknown_player", "Es gibt keinen Spieler namens %s");
+        text("message.reikos_furniture.mail_nothing", "Lege, was du senden möchtest, in die Felder unter dem Namen");
+        text("message.reikos_furniture.mail_received", "Du hast Post von %s");
         text(item + "stain", "Beize: %s");
         text(item + "moving_dolly", "Sackkarre");
         text(item + "moving_dolly.tooltip", "Rechtsklick auf ein Aufbewahrungsmöbel bewegt es samt Inhalt");

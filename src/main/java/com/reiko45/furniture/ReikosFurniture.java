@@ -35,6 +35,8 @@ import com.reiko45.furniture.nursery.NurseryFurniture;
 import com.reiko45.furniture.styles.StyleFurniture;
 import com.reiko45.furniture.core.catalog.Catalog;
 import com.reiko45.furniture.core.lighting.Lighting;
+import com.reiko45.furniture.core.mail.Mail;
+import com.reiko45.furniture.core.network.ModNetwork;
 import com.reiko45.furniture.office.OfficeFurniture;
 import com.reiko45.furniture.outdoor.OutdoorFurniture;
 import com.reiko45.furniture.pets.PetFurniture;
@@ -96,6 +98,7 @@ public class ReikosFurniture {
         Tools.init();
         Catalog.init();
         Lighting.init();
+        Mail.init();
 
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
@@ -109,6 +112,7 @@ public class ReikosFurniture {
         ModDataComponents.COMPONENTS.register(modBus);
         FurnitureActionTrigger.TRIGGERS.register(modBus);
         Stains.ATTACHMENT_TYPES.register(modBus);
+        modBus.addListener(ModNetwork::register);
         FurnitureMaker.POI_TYPES.register(modBus);
         FurnitureMaker.PROFESSIONS.register(modBus);
 

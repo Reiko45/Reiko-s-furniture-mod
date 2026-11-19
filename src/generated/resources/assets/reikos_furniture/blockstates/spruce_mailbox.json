@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,flag=false": {
+      "model": "reikos_furniture:block/spruce_mailbox",
+      "y": 90
+    },
+    "facing=east,flag=true": {
+      "model": "reikos_furniture:block/spruce_mailbox_flag",
+      "y": 90
+    },
+    "facing=north,flag=false": {
+      "model": "reikos_furniture:block/spruce_mailbox"
+    },
+    "facing=north,flag=true": {
+      "model": "reikos_furniture:block/spruce_mailbox_flag"
+    },
+    "facing=south,flag=false": {
+      "model": "reikos_furniture:block/spruce_mailbox",
+      "y": 180
+    },
+    "facing=south,flag=true": {
+      "model": "reikos_furniture:block/spruce_mailbox_flag",
+      "y": 180
+    },
+    "facing=west,flag=false": {
+      "model": "reikos_furniture:block/spruce_mailbox",
+      "y": 270
+    },
+    "facing=west,flag=true": {
+      "model": "reikos_furniture:block/spruce_mailbox_flag",
+      "y": 270
+    }
+  }
+}

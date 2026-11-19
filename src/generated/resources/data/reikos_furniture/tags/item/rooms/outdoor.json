@@ -56,6 +56,17 @@
     "reikos_furniture:bamboo_shutters",
     "reikos_furniture:crimson_shutters",
     "reikos_furniture:warped_shutters",
-    "reikos_furniture:doorbell"
+    "reikos_furniture:doorbell",
+    "reikos_furniture:oak_mailbox",
+    "reikos_furniture:spruce_mailbox",
+    "reikos_furniture:birch_mailbox",
+    "reikos_furniture:jungle_mailbox",
+    "reikos_furniture:acacia_mailbox",
+    "reikos_furniture:dark_oak_mailbox",
+    "reikos_furniture:mangrove_mailbox",
+    "reikos_furniture:cherry_mailbox",
+    "reikos_furniture:bamboo_mailbox",
+    "reikos_furniture:crimson_mailbox",
+    "reikos_furniture:warped_mailbox"
   ]
 }

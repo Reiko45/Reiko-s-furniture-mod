@@ -86,6 +86,7 @@ public class French extends RomanceGrammar {
         noun("wine_rack", "Casier à vin", M);
         noun("workshop_bench", "Établi", M);
         noun("writing_desk", "Secrétaire", M);
+        noun("mailbox", "Boîte aux lettres", F);
         noun("armchair", "Fauteuil", M);
         noun("baby_mobile", "Mobile pour bébé", M);
         noun("bar_stool", "Tabouret de bar", M);
@@ -228,6 +229,16 @@ public class French extends RomanceGrammar {
         text("message.reikos_furniture.lamp_linked", "Lampe reliée à l'interrupteur (%s sur %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lampe détachée de l'interrupteur (%s sur %s)");
         text("message.reikos_furniture.switch_full", "Cet interrupteur commande déjà %s lampes sur %s");
+        text("container.reikos_furniture.mailbox", "Boîte aux lettres de %s");
+        text("container.reikos_furniture.mailbox.not_yours", "Seul %s peut lire le courrier de cette boîte aux lettres. Vous pouvez envoyer du courrier d'ici.");
+        text("container.reikos_furniture.mailbox.send_to", "Envoyer à :");
+        text("container.reikos_furniture.mailbox.send", "Envoyer");
+        text("message.reikos_furniture.mail_sent", "Envoyé à %s");
+        text("message.reikos_furniture.mail_partly_sent", "La boîte aux lettres de %s est pleine : ce qui n'a pas tenu est encore ici");
+        text("message.reikos_furniture.mail_no_mailbox", "%s n'a pas de boîte aux lettres");
+        text("message.reikos_furniture.mail_unknown_player", "Aucun joueur ne s'appelle %s");
+        text("message.reikos_furniture.mail_nothing", "Placez ce que vous voulez envoyer dans les cases sous le nom");
+        text("message.reikos_furniture.mail_received", "Vous avez du courrier de %s");
         text(item + "stain", "Teinte : %s");
         text(item + "moving_dolly", "Diable de déménagement");
         text(item + "moving_dolly.tooltip", "Clic droit sur un meuble de rangement pour le déplacer avec son contenu");
