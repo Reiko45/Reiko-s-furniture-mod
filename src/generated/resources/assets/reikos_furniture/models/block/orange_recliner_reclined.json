@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/theater/recliner_reclined",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/orange"
+  }
+}

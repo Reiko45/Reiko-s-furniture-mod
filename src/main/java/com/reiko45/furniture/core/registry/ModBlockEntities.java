@@ -32,7 +32,8 @@ public final class ModBlockEntities {
     private ModBlockEntities() {
     }
 
-    private static Block[] blocksOfType(Class<?> type) {
+    /** Every registered block of a class, in registration order. */
+    public static Block[] blocksOfType(Class<?> type) {
         return ModBlocks.BLOCKS.getEntries().stream()
                 .map(Holder::value)
                 .filter(type::isInstance)

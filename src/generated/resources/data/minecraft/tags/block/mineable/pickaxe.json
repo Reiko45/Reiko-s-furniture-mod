@@ -119,6 +119,8 @@
     "reikos_furniture:green_hanging_planter",
     "reikos_furniture:red_hanging_planter",
     "reikos_furniture:black_hanging_planter",
+    "reikos_furniture:projector",
+    "reikos_furniture:popcorn_machine",
     "reikos_furniture:light_switch"
   ]
 }

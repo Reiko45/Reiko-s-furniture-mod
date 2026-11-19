@@ -981,6 +981,191 @@ def catalog_item():
         px[x, y] = gold + (255,)
     save(img, "item/furniture_catalog.png")
 
+# ---- Home theater ------------------------------------------------------------------------------
+
+def theater():
+    """Three films for the projector screen (48x32 frames), four movie posters, and popcorn."""
+    W, H = 48, 32
+
+    def film(name, n, frametime, draw):
+        img = Image.new("RGBA", (W, H * n), (0, 0, 0, 255))
+        for i in range(n):
+            f = Image.new("RGBA", (W, H), (0, 0, 0, 255))
+            draw(f.load(), i)
+            img.paste(f, (0, H * i))
+        full = os.path.join(ROOT, "block/screen/" + name + ".png")
+        os.makedirs(os.path.dirname(full), exist_ok=True)
+        img.save(full)
+        with open(full + ".mcmeta", "w") as fh:
+            json.dump({"animation": {"frametime": frametime, "width": W, "height": H}}, fh, indent=2)
+            fh.write("\n")
+
+    def fill(px, x0, y0, x1, y1, c):
+        for y in range(max(0, y0), min(H, y1)):
+            for x in range(max(0, x0), min(W, x1)):
+                px[x, y] = c + (255,)
+
+    # Film 1: a rocket crossing a starfield past a ringed planet.
+    rnd = random.Random("space")
+    stars = [(rnd.randrange(W), rnd.randrange(H), rnd.randrange(4)) for _ in range(40)]
+
+    def space(px, i):
+        fill(px, 0, 0, W, H, (0x08, 0x0A, 0x22))
+        for x, y, phase in stars:
+            v = 0xFF if (i + phase) % 4 else 0x80
+            px[x, y] = (v, v, v, 255)
+        for y in range(H):  # planet
+            for x in range(W):
+                if (x - 38) ** 2 + (y - 9) ** 2 <= 30:
+                    px[x, y] = ((0xD0, 0x80, 0x40) if (y + x // 3) % 4 else (0xB0, 0x60, 0x30)) + (255,)
+        fill(px, 31, 9, 46, 10, (0xE8, 0xD0, 0x90))  # ring
+        rx = (i * 3) % (W + 16) - 12
+        ry = 18 + (1 if i % 6 < 3 else 0)
+        fill(px, rx, ry, rx + 8, ry + 3, (0xE8, 0xE8, 0xF0))   # body
+        fill(px, rx + 8, ry + 1, rx + 10, ry + 2, (0xD0, 0x30, 0x30))  # nose
+        fill(px, rx + 2, ry - 1, rx + 4, ry, (0xD0, 0x30, 0x30))  # fins
+        fill(px, rx + 2, ry + 3, rx + 4, ry + 4, (0xD0, 0x30, 0x30))
+        fill(px, rx + 5, ry + 1, rx + 6, ry + 2, (0x60, 0xB0, 0xF0))  # window
+        flame = (0xFF, 0xC0, 0x30) if i % 2 else (0xFF, 0x70, 0x20)
+        fill(px, rx - 3, ry + 1, rx, ry + 2, flame)
+        fill(px, rx - 2, ry, rx, ry + 3, flame if i % 2 else (0xFF, 0xA0, 0x20))
+    film("film_1", 24, 3, space)
+
+    # Film 2: a sailboat at sea at sunset, with rolling waves.
+    def sea(px, i):
+        for y in range(18):
+            t = y / 18
+            px_c = (int(0xF0 - 0x40 * (1 - t)), int(0x90 + 0x40 * t), int(0x70 + 0x30 * (1 - t)))
+            fill(px, 0, y, W, y + 1, px_c)
+        for y in range(H):  # sun, half under the horizon
+            for x in range(W):
+                if (x - 12) ** 2 + (y - 18) ** 2 <= 30 and y < 18:
+                    px[x, y] = (0xFF, 0xE0, 0x60, 255)
+        fill(px, 0, 18, W, H, (0x20, 0x50, 0x90))
+        for x in range(W):  # waves move left
+            for row, shade in ((19, (0x40, 0x80, 0xC0)), (23, (0x30, 0x68, 0xA8)), (28, (0x40, 0x80, 0xC0))):
+                if (x + i * (2 if row == 23 else 1)) % 8 < 3:
+                    px[x, row] = shade + (255,)
+        bx = (i * 2) % (W + 14) - 12
+        by = 15 + (1 if i % 4 < 2 else 0)
+        fill(px, bx, by, bx + 12, by + 2, (0x70, 0x40, 0x20))      # hull
+        fill(px, bx + 2, by + 2, bx + 10, by + 3, (0x50, 0x2C, 0x14))
+        fill(px, bx + 5, by - 9, bx + 6, by, (0x40, 0x28, 0x10))   # mast
+        for k in range(8):                                      # sail
+            fill(px, bx + 6, by - 9 + k, bx + 7 + k // 2, by - 8 + k, (0xF4, 0xF0, 0xE0))
+    film("film_2", 32, 3, sea)
+
+    # Film 3: a cartoon cat chasing a mouse across a lawn.
+    def chase(px, i):
+        fill(px, 0, 0, W, 22, (0x9C, 0xD8, 0xF8))
+        fill(px, 0, 22, W, H, (0x58, 0xA8, 0x38))
+        fill(px, 0, 22, W, 23, (0x70, 0xC0, 0x48))
+        cloud = (i // 2) % (W + 10) - 8
+        fill(px, cloud, 5, cloud + 8, 7, (0xFF, 0xFF, 0xFF))
+        fill(px, cloud + 2, 4, cloud + 6, 5, (0xFF, 0xFF, 0xFF))
+        hop = 1 if i % 4 < 2 else 0
+        mx = (i * 3) % (W + 30) - 4
+        fill(px, mx, 19 - hop, mx + 4, 22 - hop, (0x90, 0x90, 0x98))     # mouse
+        fill(px, mx + 3, 18 - hop, mx + 4, 19 - hop, (0xF0, 0xA0, 0xB0))  # ear
+        fill(px, mx - 3, 21 - hop, mx, 22 - hop, (0xF0, 0xA0, 0xB0))      # tail
+        cx = mx - 16
+        jump = 2 if i % 4 < 2 else 0
+        fill(px, cx, 16 - jump, cx + 10, 21 - jump, (0xF0, 0x90, 0x30))  # cat body
+        fill(px, cx + 8, 13 - jump, cx + 13, 18 - jump, (0xF0, 0x90, 0x30))  # head
+        fill(px, cx + 8, 12 - jump, cx + 9, 13 - jump, (0xF0, 0x90, 0x30))
+        fill(px, cx + 12, 12 - jump, cx + 13, 13 - jump, (0xF0, 0x90, 0x30))
+        fill(px, cx + 11, 14 - jump, cx + 12, 15 - jump, (0x20, 0x20, 0x20))  # eye
+        for k in range(0, 10, 3):
+            fill(px, cx + k, 17 - jump, cx + k + 1, 21 - jump, (0xC8, 0x70, 0x20))  # stripes
+        fill(px, cx - 4, 14 - jump, cx, 15 - jump, (0xF0, 0x90, 0x30))  # tail
+        fill(px, cx + 1, 21 - jump, cx + 3, 23 - jump, (0xF0, 0x90, 0x30))  # legs
+        fill(px, cx + 7, 21 - jump, cx + 9, 23 - jump, (0xF0, 0x90, 0x30))
+    film("film_3", 32, 2, chase)
+
+    # Movie posters: art in the middle 12 columns (the frame covers the edges), a title bar at the bottom.
+    def poster(n, bg, art, title):
+        img = new(color=bg)
+        px = img.load()
+        art(px)
+        for x in range(3, 13):
+            for y in (12, 13):
+                px[x, y] = title + (255,)
+        for x in range(4, 12, 2):
+            px[x, 14] = title + (255,)
+        save(img, f"block/poster/movie_{n}.png")
+
+    def rocket(px):
+        rnd = random.Random("poster")
+        for _ in range(10):
+            px[rnd.randrange(3, 13), rnd.randrange(1, 11)] = (0xFF, 0xFF, 0xFF, 255)
+        for y in range(2, 9):
+            for x in range(7, 10):
+                px[x, y] = (0xE8, 0xE8, 0xF0, 255)
+        px[8, 1] = (0xD0, 0x30, 0x30, 255)
+        for x, y in ((6, 8), (10, 8), (6, 7), (10, 7)):
+            px[x, y] = (0xD0, 0x30, 0x30, 255)
+        px[8, 4] = (0x60, 0xB0, 0xF0, 255)
+        for x in (7, 8, 9):
+            px[x, 9] = (0xFF, 0xA0, 0x20, 255)
+        px[8, 10] = (0xFF, 0xD0, 0x40, 255)
+
+    def monster(px):
+        for y in range(3, 11):
+            for x in range(4, 12):
+                if not (y < 5 and x in (4, 11)):
+                    px[x, y] = (0x40, 0xA0, 0x40, 255)
+        for x, y in ((6, 5), (9, 5)):
+            px[x, y] = (0xFF, 0xFF, 0x60, 255)
+        for x in range(6, 10):
+            px[x, 8] = (0x20, 0x20, 0x20, 255)
+        px[6, 9] = px[9, 9] = (0xFF, 0xFF, 0xFF, 255)
+
+    def heart(px):
+        rows = ["0110110", "1111111", "1111111", "0111110", "0011100", "0001000"]
+        for dy, row in enumerate(rows):
+            for dx, c in enumerate(row):
+                if c == "1":
+                    px[5 + dx, 3 + dy] = (0xE0, 0x30, 0x50, 255)
+        px[6, 4] = (0xFF, 0xA0, 0xB0, 255)
+
+    def cowboy(px):
+        for y in range(1, 11):
+            for x in range(16):
+                if (x - 8) ** 2 + (y - 10) ** 2 <= 9:
+                    px[x, y] = (0xFF, 0xD0, 0x40, 255)
+        for x in range(3, 13):
+            px[x, 10] = (0x30, 0x20, 0x10, 255)
+        for x in range(5, 11):
+            px[x, 6] = (0x50, 0x30, 0x18, 255)
+        for y in range(3, 6):
+            for x in range(6, 10):
+                px[x, y] = (0x50, 0x30, 0x18, 255)
+
+    poster(1, (0x10, 0x14, 0x40), rocket, (0xF0, 0xC0, 0x30))
+    poster(2, (0x20, 0x10, 0x18), monster, (0xD0, 0x20, 0x20))
+    poster(3, (0xF8, 0xC0, 0xD0), heart, (0x90, 0x20, 0x40))
+    poster(4, (0xE0, 0x70, 0x30), cowboy, (0x40, 0x20, 0x10))
+
+    # Popcorn: in the machine's case (block) and in a striped paper bag (item).
+    rnd = random.Random("popcorn")
+    img = new(color=(0xF2, 0xE6, 0xB0))
+    px = img.load()
+    for _ in range(70):
+        x, y = rnd.randrange(16), rnd.randrange(16)
+        px[x, y] = rnd.choice([(0xFF, 0xFA, 0xE8), (0xF8, 0xD8, 0x70), (0xE0, 0xC0, 0x60), (0xFF, 0xFF, 0xFF)]) + (255,)
+    save(img, "block/popcorn.png")
+
+    img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+    px = img.load()
+    for y in range(6, 15):
+        for x in range(4 + (y - 6) // 6, 12 - (y - 6) // 6):
+            px[x, y] = ((0xE0, 0x30, 0x30) if (x // 2) % 2 == 0 else (0xF8, 0xF8, 0xF8)) + (255,)
+    for x in range(4, 12):
+        px[x, 6] = (0xC0, 0x20, 0x20, 255)
+    for x, y in ((4, 5), (5, 4), (6, 5), (7, 3), (8, 4), (9, 5), (10, 4), (11, 5), (6, 3), (9, 3), (8, 2)):
+        px[x, y] = rnd.choice([(0xFF, 0xFA, 0xE8), (0xF8, 0xD8, 0x70)]) + (255,)
+    save(img, "item/popcorn.png")
+
 
 if __name__ == "__main__":
     catalog_item()
@@ -990,6 +1175,7 @@ if __name__ == "__main__":
     paintings()
     tool_items()
     watering_can()
+    theater()
     window_glass()
     for name, rgb in DYES.items():
         wallpaper(name, rgb)

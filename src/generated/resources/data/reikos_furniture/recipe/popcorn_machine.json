@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "G G",
+    "RIR"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:popcorn_machine"
+  }
+}

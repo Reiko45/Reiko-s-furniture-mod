@@ -180,6 +180,16 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "theater": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:rooms/theater"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -249,6 +259,9 @@
     ],
     [
       "greenhouse"
+    ],
+    [
+      "theater"
     ]
   ],
   "rewards": {

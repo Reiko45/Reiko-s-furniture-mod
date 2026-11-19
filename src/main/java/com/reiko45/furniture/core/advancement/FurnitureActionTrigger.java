@@ -38,6 +38,7 @@ public class FurnitureActionTrigger extends SimpleCriterionTrigger<FurnitureActi
     public static final String LIGHT_SWITCH = "light_switch";
     public static final String MAIL = "mail";
     public static final String GREEN_THUMB = "green_thumb";
+    public static final String MOVIE_NIGHT = "movie_night";
 
     @Override
     public Codec<TriggerInstance> codec() {

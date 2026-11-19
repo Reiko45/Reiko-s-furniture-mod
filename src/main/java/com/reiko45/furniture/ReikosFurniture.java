@@ -33,6 +33,7 @@ import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.music.MusicFurniture;
 import com.reiko45.furniture.nursery.NurseryFurniture;
 import com.reiko45.furniture.greenhouse.GreenhouseFurniture;
+import com.reiko45.furniture.theater.TheaterFurniture;
 import com.reiko45.furniture.styles.StyleFurniture;
 import com.reiko45.furniture.core.catalog.Catalog;
 import com.reiko45.furniture.core.lighting.Lighting;
@@ -95,6 +96,7 @@ public class ReikosFurniture {
         BarFurniture.init();
         NurseryFurniture.init();
         GreenhouseFurniture.init();
+        TheaterFurniture.init();
         StyleFurniture.init();
         Workbench.init();
         Tools.init();

@@ -41,6 +41,18 @@
     ],
     "subtitle": "subtitles.reikos_furniture.microwave_ding"
   },
+  "popcorn_popping": {
+    "sounds": [
+      "reikos_furniture:popcorn_popping"
+    ],
+    "subtitle": "subtitles.reikos_furniture.popcorn_popping"
+  },
+  "projector": {
+    "sounds": [
+      "reikos_furniture:projector"
+    ],
+    "subtitle": "subtitles.reikos_furniture.projector"
+  },
   "sliding_door": {
     "sounds": [
       "reikos_furniture:sliding_door"

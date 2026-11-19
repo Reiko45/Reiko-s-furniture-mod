@@ -1,8 +1,9 @@
 package com.reiko45.furniture.compat;
 
 import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.core.registry.ModBlockEntities;
 import com.reiko45.furniture.core.workbench.CarpentryRecipe;
-import com.reiko45.furniture.kitchen.KitchenFurniture;
+import com.reiko45.furniture.kitchen.appliance.ApplianceBlock;
 import com.reiko45.furniture.kitchen.appliance.ApplianceRecipe;
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +31,7 @@ public final class RecipeViewers {
 
     /** The appliance blocks, which are the catalysts / workstations of the appliance category. */
     public static List<ItemStack> appliances() {
-        return List.of(new ItemStack(KitchenFurniture.COFFEE_MACHINE.get()), new ItemStack(KitchenFurniture.TOASTER.get()),
-                new ItemStack(KitchenFurniture.BLENDER.get()), new ItemStack(com.reiko45.furniture.bar.BarFurniture.ESPRESSO_MACHINE.get()));
+        return Arrays.stream(ModBlockEntities.blocksOfType(ApplianceBlock.class)).map(ItemStack::new).toList();
     }
 
     /** "Takes 5 s" */

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "reikos_furniture:projector_screen",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "part": "bottom_middle"
+              }
+            }
+          ],
+          "name": "reikos_furniture:projector_screen"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "reikos_furniture:blocks/projector_screen"
+}

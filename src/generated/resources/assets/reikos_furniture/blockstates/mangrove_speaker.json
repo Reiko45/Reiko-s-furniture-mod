@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/mangrove_speaker",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/mangrove_speaker"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/mangrove_speaker",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/mangrove_speaker",
+      "y": 270
+    }
+  }
+}

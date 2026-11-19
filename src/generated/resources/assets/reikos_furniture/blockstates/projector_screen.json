@@ -1,0 +1,544 @@
+{
+  "variants": {
+    "facing=east,film=1,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 90
+    },
+    "facing=east,film=1,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 90
+    },
+    "facing=east,film=1,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 90
+    },
+    "facing=east,film=1,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 90
+    },
+    "facing=east,film=1,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 90
+    },
+    "facing=east,film=1,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 90
+    },
+    "facing=east,film=1,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_1",
+      "y": 90
+    },
+    "facing=east,film=1,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_1",
+      "y": 90
+    },
+    "facing=east,film=1,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_1",
+      "y": 90
+    },
+    "facing=east,film=1,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_1",
+      "y": 90
+    },
+    "facing=east,film=1,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_1",
+      "y": 90
+    },
+    "facing=east,film=1,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_1",
+      "y": 90
+    },
+    "facing=east,film=2,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 90
+    },
+    "facing=east,film=2,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 90
+    },
+    "facing=east,film=2,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 90
+    },
+    "facing=east,film=2,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 90
+    },
+    "facing=east,film=2,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 90
+    },
+    "facing=east,film=2,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 90
+    },
+    "facing=east,film=2,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_2",
+      "y": 90
+    },
+    "facing=east,film=2,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_2",
+      "y": 90
+    },
+    "facing=east,film=2,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_2",
+      "y": 90
+    },
+    "facing=east,film=2,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_2",
+      "y": 90
+    },
+    "facing=east,film=2,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_2",
+      "y": 90
+    },
+    "facing=east,film=2,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_2",
+      "y": 90
+    },
+    "facing=east,film=3,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 90
+    },
+    "facing=east,film=3,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 90
+    },
+    "facing=east,film=3,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 90
+    },
+    "facing=east,film=3,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 90
+    },
+    "facing=east,film=3,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 90
+    },
+    "facing=east,film=3,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 90
+    },
+    "facing=east,film=3,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_3",
+      "y": 90
+    },
+    "facing=east,film=3,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_3",
+      "y": 90
+    },
+    "facing=east,film=3,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_3",
+      "y": 90
+    },
+    "facing=east,film=3,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_3",
+      "y": 90
+    },
+    "facing=east,film=3,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_3",
+      "y": 90
+    },
+    "facing=east,film=3,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_3",
+      "y": 90
+    },
+    "facing=north,film=1,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left"
+    },
+    "facing=north,film=1,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle"
+    },
+    "facing=north,film=1,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right"
+    },
+    "facing=north,film=1,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left"
+    },
+    "facing=north,film=1,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle"
+    },
+    "facing=north,film=1,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right"
+    },
+    "facing=north,film=1,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_1"
+    },
+    "facing=north,film=1,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_1"
+    },
+    "facing=north,film=1,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_1"
+    },
+    "facing=north,film=1,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_1"
+    },
+    "facing=north,film=1,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_1"
+    },
+    "facing=north,film=1,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_1"
+    },
+    "facing=north,film=2,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left"
+    },
+    "facing=north,film=2,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle"
+    },
+    "facing=north,film=2,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right"
+    },
+    "facing=north,film=2,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left"
+    },
+    "facing=north,film=2,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle"
+    },
+    "facing=north,film=2,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right"
+    },
+    "facing=north,film=2,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_2"
+    },
+    "facing=north,film=2,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_2"
+    },
+    "facing=north,film=2,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_2"
+    },
+    "facing=north,film=2,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_2"
+    },
+    "facing=north,film=2,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_2"
+    },
+    "facing=north,film=2,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_2"
+    },
+    "facing=north,film=3,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left"
+    },
+    "facing=north,film=3,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle"
+    },
+    "facing=north,film=3,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right"
+    },
+    "facing=north,film=3,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left"
+    },
+    "facing=north,film=3,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle"
+    },
+    "facing=north,film=3,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right"
+    },
+    "facing=north,film=3,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_3"
+    },
+    "facing=north,film=3,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_3"
+    },
+    "facing=north,film=3,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_3"
+    },
+    "facing=north,film=3,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_3"
+    },
+    "facing=north,film=3,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_3"
+    },
+    "facing=north,film=3,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_3"
+    },
+    "facing=south,film=1,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 180
+    },
+    "facing=south,film=1,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 180
+    },
+    "facing=south,film=1,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 180
+    },
+    "facing=south,film=1,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 180
+    },
+    "facing=south,film=1,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 180
+    },
+    "facing=south,film=1,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 180
+    },
+    "facing=south,film=1,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_1",
+      "y": 180
+    },
+    "facing=south,film=1,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_1",
+      "y": 180
+    },
+    "facing=south,film=1,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_1",
+      "y": 180
+    },
+    "facing=south,film=1,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_1",
+      "y": 180
+    },
+    "facing=south,film=1,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_1",
+      "y": 180
+    },
+    "facing=south,film=1,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_1",
+      "y": 180
+    },
+    "facing=south,film=2,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 180
+    },
+    "facing=south,film=2,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 180
+    },
+    "facing=south,film=2,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 180
+    },
+    "facing=south,film=2,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 180
+    },
+    "facing=south,film=2,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 180
+    },
+    "facing=south,film=2,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 180
+    },
+    "facing=south,film=2,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_2",
+      "y": 180
+    },
+    "facing=south,film=2,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_2",
+      "y": 180
+    },
+    "facing=south,film=2,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_2",
+      "y": 180
+    },
+    "facing=south,film=2,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_2",
+      "y": 180
+    },
+    "facing=south,film=2,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_2",
+      "y": 180
+    },
+    "facing=south,film=2,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_2",
+      "y": 180
+    },
+    "facing=south,film=3,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 180
+    },
+    "facing=south,film=3,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 180
+    },
+    "facing=south,film=3,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 180
+    },
+    "facing=south,film=3,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 180
+    },
+    "facing=south,film=3,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 180
+    },
+    "facing=south,film=3,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 180
+    },
+    "facing=south,film=3,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_3",
+      "y": 180
+    },
+    "facing=south,film=3,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_3",
+      "y": 180
+    },
+    "facing=south,film=3,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_3",
+      "y": 180
+    },
+    "facing=south,film=3,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_3",
+      "y": 180
+    },
+    "facing=south,film=3,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_3",
+      "y": 180
+    },
+    "facing=south,film=3,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_3",
+      "y": 180
+    },
+    "facing=west,film=1,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 270
+    },
+    "facing=west,film=1,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 270
+    },
+    "facing=west,film=1,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 270
+    },
+    "facing=west,film=1,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 270
+    },
+    "facing=west,film=1,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 270
+    },
+    "facing=west,film=1,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 270
+    },
+    "facing=west,film=1,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_1",
+      "y": 270
+    },
+    "facing=west,film=1,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_1",
+      "y": 270
+    },
+    "facing=west,film=1,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_1",
+      "y": 270
+    },
+    "facing=west,film=1,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_1",
+      "y": 270
+    },
+    "facing=west,film=1,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_1",
+      "y": 270
+    },
+    "facing=west,film=1,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_1",
+      "y": 270
+    },
+    "facing=west,film=2,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 270
+    },
+    "facing=west,film=2,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 270
+    },
+    "facing=west,film=2,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 270
+    },
+    "facing=west,film=2,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 270
+    },
+    "facing=west,film=2,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 270
+    },
+    "facing=west,film=2,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 270
+    },
+    "facing=west,film=2,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_2",
+      "y": 270
+    },
+    "facing=west,film=2,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_2",
+      "y": 270
+    },
+    "facing=west,film=2,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_2",
+      "y": 270
+    },
+    "facing=west,film=2,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_2",
+      "y": 270
+    },
+    "facing=west,film=2,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_2",
+      "y": 270
+    },
+    "facing=west,film=2,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_2",
+      "y": 270
+    },
+    "facing=west,film=3,lit=false,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left",
+      "y": 270
+    },
+    "facing=west,film=3,lit=false,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle",
+      "y": 270
+    },
+    "facing=west,film=3,lit=false,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right",
+      "y": 270
+    },
+    "facing=west,film=3,lit=false,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left",
+      "y": 270
+    },
+    "facing=west,film=3,lit=false,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle",
+      "y": 270
+    },
+    "facing=west,film=3,lit=false,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right",
+      "y": 270
+    },
+    "facing=west,film=3,lit=true,part=bottom_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_left_film_3",
+      "y": 270
+    },
+    "facing=west,film=3,lit=true,part=bottom_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_middle_film_3",
+      "y": 270
+    },
+    "facing=west,film=3,lit=true,part=bottom_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_bottom_right_film_3",
+      "y": 270
+    },
+    "facing=west,film=3,lit=true,part=top_left": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_left_film_3",
+      "y": 270
+    },
+    "facing=west,film=3,lit=true,part=top_middle": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_middle_film_3",
+      "y": 270
+    },
+    "facing=west,film=3,lit=true,part=top_right": {
+      "model": "reikos_furniture:block/template/theater/projector_screen_top_right_film_3",
+      "y": 270
+    }
+  }
+}

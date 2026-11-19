@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,reclined=false": {
+      "model": "reikos_furniture:block/lime_recliner",
+      "y": 90
+    },
+    "facing=east,reclined=true": {
+      "model": "reikos_furniture:block/lime_recliner_reclined",
+      "y": 90
+    },
+    "facing=north,reclined=false": {
+      "model": "reikos_furniture:block/lime_recliner"
+    },
+    "facing=north,reclined=true": {
+      "model": "reikos_furniture:block/lime_recliner_reclined"
+    },
+    "facing=south,reclined=false": {
+      "model": "reikos_furniture:block/lime_recliner",
+      "y": 180
+    },
+    "facing=south,reclined=true": {
+      "model": "reikos_furniture:block/lime_recliner_reclined",
+      "y": 180
+    },
+    "facing=west,reclined=false": {
+      "model": "reikos_furniture:block/lime_recliner",
+      "y": 270
+    },
+    "facing=west,reclined=true": {
+      "model": "reikos_furniture:block/lime_recliner_reclined",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#poster",
+    "frame": "minecraft:block/black_concrete",
+    "poster": "reikos_furniture:block/poster/movie_1"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        15.25
+      ],
+      "to": [
+        14,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2,
+            0,
+            14,
+            0.75
+          ],
+          "texture": "#frame",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            2,
+            15.25,
+            14,
+            16
+          ],
+          "texture": "#frame",
+          "cullface": "up"
+        },
+        "north": {
+          "uv": [
+            2,
+            0,
+            14,
+            16
+          ],
+          "texture": "#frame"
+        },
+        "south": {
+          "uv": [
+            2,
+            0,
+            14,
+            16
+          ],
+          "texture": "#frame",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            15.25,
+            0,
+            16,
+            16
+          ],
+          "texture": "#frame"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            0.75,
+            16
+          ],
+          "texture": "#frame"
+        }
+      }
+    },
+    {
+      "from": [
+        2.5,
+        0.5,
+        15
+      ],
+      "to": [
+        13.5,
+        15.5,
+        15.25
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            2.5,
+            0.75,
+            13.5,
+            1
+          ],
+          "texture": "#frame"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            15,
+            13.5,
+            15.25
+          ],
+          "texture": "#frame"
+        },
+        "north": {
+          "uv": [
+            2.5,
+            0.5,
+            13.5,
+            15.5
+          ],
+          "texture": "#poster"
+        },
+        "south": {
+          "uv": [
+            2.5,
+            0.5,
+            13.5,
+            15.5
+          ],
+          "texture": "#frame"
+        },
+        "west": {
+          "uv": [
+            15,
+            0.5,
+            15.25,
+            15.5
+          ],
+          "texture": "#frame"
+        },
+        "east": {
+          "uv": [
+            0.75,
+            0.5,
+            1,
+            15.5
+          ],
+          "texture": "#frame"
+        }
+      }
+    }
+  ]
+}

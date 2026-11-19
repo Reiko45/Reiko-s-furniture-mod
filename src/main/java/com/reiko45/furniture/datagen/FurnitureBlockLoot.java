@@ -10,6 +10,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import com.reiko45.furniture.core.lighting.LightSwitchBlock;
 import com.reiko45.furniture.core.registry.ModDataComponents;
+import com.reiko45.furniture.theater.ProjectorScreenBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -37,6 +38,9 @@ public class FurnitureBlockLoot extends BlockLootSubProvider {
                         .setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(block).apply(CopyComponentsFunction.copyComponents(
                                 CopyComponentsFunction.Source.BLOCK_ENTITY).include(ModDataComponents.LINKED_LAMPS.get()))))));
+            } else if (block instanceof ProjectorScreenBlock) {
+                // Six blocks, one item: only the bottom middle drops it.
+                add(block, createSinglePropConditionTable(block, ProjectorScreenBlock.PART, ProjectorScreenBlock.Part.BOTTOM_MIDDLE));
             } else if (block instanceof SlabBlock) {
                 add(block, createSlabItemTable(block)); // a double slab drops two
             } else if (block.defaultBlockState().hasProperty(BlockStateProperties.BED_PART)) {

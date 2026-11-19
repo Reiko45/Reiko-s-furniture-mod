@@ -188,6 +188,32 @@ def globe_spin(rnd):
     return (whir * 2 + ticks) * env(n, 0.01, 0.2)
 
 
+def projector(rnd):
+    """A film projector: a motor hum with the sprocket clicking 24 times a second."""
+    n = int(RATE * 1.6)
+    tt = t(1.6)
+    hum = np.sin(2 * np.pi * 110 * tt) * 0.3 + np.sin(2 * np.pi * 220 * tt) * 0.15
+    clicks = np.zeros(n)
+    period = RATE // 24
+    for start in range(0, n - 200, period):
+        click = rnd.standard_normal(200) * np.exp(-np.arange(200) / 30)
+        clicks[start:start + 200] += click
+    clicks = clicks - lowpass(clicks, 900)
+    return (hum + clicks * 0.6 + lowpass(rnd.standard_normal(n), 400) * 0.1) * env(n, 0.08, 0.3)
+
+
+def popcorn_popping(rnd):
+    """Kernels popping at random, faster and faster, over a soft sizzle."""
+    n = int(RATE * 2.5)
+    out = lowpass(rnd.standard_normal(n), 3000) * 0.05
+    for _ in range(45):
+        start = int(min(n - 2000, abs(rnd.normal(0.65, 0.25)) * n))
+        length = 1200
+        pop = rnd.standard_normal(length) * np.exp(-np.arange(length) / 140)
+        out[start:start + length] += (pop - lowpass(pop, 600)) * rnd.uniform(0.5, 1.0)
+    return out * env(n, 0.02, 0.2)
+
+
 def toolbox_latch():
     tt = t(0.25)
     click = np.zeros(len(tt))
@@ -214,4 +240,6 @@ if __name__ == "__main__":
     write("sliding_door", sliding_door(rnd), 0.6)
     write("globe_spin", globe_spin(rnd), 0.5)
     write("toolbox_latch", toolbox_latch(), 0.6)
+    write("projector", projector(rnd), 0.5)
+    write("popcorn_popping", popcorn_popping(rnd), 0.6)
     print("sounds written to", os.path.normpath(OUT))

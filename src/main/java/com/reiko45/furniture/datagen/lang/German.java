@@ -100,6 +100,8 @@ public class German extends Grammar {
         noun("garden_shed_cabinet", "Gartenschrank", M);
         noun("growing_pot", "Pflanztopf", M);
         noun("hanging_planter", "Blumenampel", F);
+        noun("speaker", "Lautsprecher", M);
+        noun("recliner", "Liegesessel", M);
         noun("mailbox", "Briefkasten", M);
         noun("armchair", "Sessel", M);
         noun("baby_mobile", "Mobile", N);
@@ -119,6 +121,10 @@ public class German extends Grammar {
         noun("wallpaper", "Tapete", F);
 
         single("light_switch", "Lichtschalter");
+        single("projector_screen", "Projektionsleinwand");
+        single("projector", "Projektor");
+        single("popcorn_machine", "Popcornmaschine");
+        single("movie_poster", "Filmplakat");
         single("terracotta_growing_pot", "Terrakotta-Pflanztopf");
         single("aquarium", "Aquarium");
         single("arcade_cabinet", "Spielautomat");
@@ -238,6 +244,7 @@ public class German extends Grammar {
         text(item + "fruit_smoothie", "Fruchtsmoothie");
         text(item + "toast", "Toast");
         text(item + "espresso", "Espresso");
+        text(item + "popcorn", "Popcorn");
         text(item + "latte", "Milchkaffee");
         text(item + "furniture_catalog", "Möbelkatalog");
         text(item + "furniture_catalog.tooltip", "Alle Möbelstücke, nach Raum und Stil");
@@ -248,6 +255,7 @@ public class German extends Grammar {
         text(item + "watering_can.water", "Wasser: %s/%s");
         text(item + "watering_can.tooltip", "Rechtsklick auf Wasser, ein Spülbecken oder eine Badewanne füllt sie, dann auf Pflanzen, um sie zu gießen (3×3)");
         text("message.reikos_furniture.watering_can_empty", "Die Gießkanne ist leer");
+        text("message.reikos_furniture.projector_no_screen", "Vor dem Objektiv ist keine Projektionsleinwand");
         text("message.reikos_furniture.lamp_linked", "Lampe mit dem Schalter verbunden (%s von %s)");
         text("message.reikos_furniture.lamp_unlinked", "Lampe vom Schalter getrennt (%s von %s)");
         text("message.reikos_furniture.switch_full", "Dieser Schalter steuert schon %s von %s Lampen");
@@ -314,6 +322,7 @@ public class German extends Grammar {
         text(room + "bar", "Hausbar");
         text(room + "nursery", "Babyzimmer & Hobbyraum");
         text(room + "greenhouse", "Gewächshaus & Garten");
+        text(room + "theater", "Heimkino");
         text("style.reikos_furniture.rustic", "Rustikaler Stil");
         text("style.reikos_furniture.modern", "Moderner Stil");
         text("style.reikos_furniture.royal", "Königlicher Stil");
@@ -331,6 +340,8 @@ public class German extends Grammar {
         text(sub + "toaster_pop", "Toaster springt auf");
         text(sub + "toilet_flush", "Toilettenspülung rauscht");
         text(sub + "toolbox_latch", "Werkzeugkasten klickt");
+        text(sub + "projector", "Projektor surrt");
+        text(sub + "popcorn_popping", "Popcorn platzt");
         text(sub + "tv_static", "Fernseher rauscht");
         text(sub + "washer_running", "Waschmaschine läuft");
         text(sub + "workbench_saw", "Säge sägt");

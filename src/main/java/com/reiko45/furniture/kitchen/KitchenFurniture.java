@@ -141,7 +141,7 @@ public final class KitchenFurniture {
     @SuppressWarnings("DataFlowIssue")
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ApplianceBlockEntity>> APPLIANCE_BLOCK_ENTITY =
             ModBlockEntities.BLOCK_ENTITIES.register("appliance", () -> BlockEntityType.Builder.of(ApplianceBlockEntity::new,
-                    COFFEE_MACHINE.get(), TOASTER.get(), BLENDER.get(), com.reiko45.furniture.bar.BarFurniture.ESPRESSO_MACHINE.get()).build(null));
+                    ModBlockEntities.blocksOfType(ApplianceBlock.class)).build(null));
 
     // Food and drink made by the appliances.
     public static final DeferredItem<DrinkItem> COFFEE = ModItems.ITEMS.register("coffee", () -> new DrinkItem(

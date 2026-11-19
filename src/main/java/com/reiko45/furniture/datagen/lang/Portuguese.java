@@ -91,6 +91,8 @@ public class Portuguese extends RomanceGrammar {
         noun("garden_shed_cabinet", "Armário de Jardim", M);
         noun("growing_pot", "Vaso de Cultivo", M);
         noun("hanging_planter", "Vaso Suspenso", M);
+        noun("speaker", "Caixa de Som", F);
+        noun("recliner", "Poltrona Reclinável", F);
         noun("mailbox", "Caixa de Correio", F);
         noun("armchair", "Poltrona", F);
         noun("baby_mobile", "Móbile", M);
@@ -110,6 +112,10 @@ public class Portuguese extends RomanceGrammar {
         noun("wallpaper", "Papel de Parede", M);
 
         single("light_switch", "Interruptor de Luz");
+        single("projector_screen", "Tela de Projeção");
+        single("projector", "Projetor");
+        single("popcorn_machine", "Máquina de Pipoca");
+        single("movie_poster", "Pôster de Filme");
         single("terracotta_growing_pot", "Vaso de Cultivo de Terracota");
         single("aquarium", "Aquário");
         single("arcade_cabinet", "Fliperama");
@@ -229,6 +235,7 @@ public class Portuguese extends RomanceGrammar {
         text(item + "fruit_smoothie", "Vitamina de Frutas");
         text(item + "toast", "Torrada");
         text(item + "espresso", "Café Espresso");
+        text(item + "popcorn", "Pipoca");
         text(item + "latte", "Café com Leite");
         text(item + "furniture_catalog", "Catálogo de Móveis");
         text(item + "furniture_catalog.tooltip", "Todos os móveis, por cômodo e estilo");
@@ -239,6 +246,7 @@ public class Portuguese extends RomanceGrammar {
         text(item + "watering_can.water", "Água: %s/%s");
         text(item + "watering_can.tooltip", "Clique com o botão direito na água, numa pia ou numa banheira para enchê-lo e depois em plantas para regá-las (3×3)");
         text("message.reikos_furniture.watering_can_empty", "O regador está vazio");
+        text("message.reikos_furniture.projector_no_screen", "Não há tela de projeção na frente da lente");
         text("message.reikos_furniture.lamp_linked", "Luminária conectada ao interruptor (%s de %s)");
         text("message.reikos_furniture.lamp_unlinked", "Luminária desconectada do interruptor (%s de %s)");
         text("message.reikos_furniture.switch_full", "Este interruptor já controla %s de %s luminárias");
@@ -305,6 +313,7 @@ public class Portuguese extends RomanceGrammar {
         text(room + "bar", "Bar em Casa");
         text(room + "nursery", "Quarto do Bebê e Hobbies");
         text(room + "greenhouse", "Estufa e Jardim");
+        text(room + "theater", "Cinema em Casa");
         text("style.reikos_furniture.rustic", "Estilo Rústico");
         text("style.reikos_furniture.modern", "Estilo Moderno");
         text("style.reikos_furniture.royal", "Estilo Real");
@@ -322,6 +331,8 @@ public class Portuguese extends RomanceGrammar {
         text(sub + "toaster_pop", "Torradeira estala");
         text(sub + "toilet_flush", "Descarga é acionada");
         text(sub + "toolbox_latch", "Trava da caixa de ferramentas");
+        text(sub + "projector", "Projetor zumbe");
+        text(sub + "popcorn_popping", "Pipoca estoura");
         text(sub + "tv_static", "TV chia");
         text(sub + "washer_running", "Máquina de lavar funciona");
         text(sub + "workbench_saw", "Serra corta");

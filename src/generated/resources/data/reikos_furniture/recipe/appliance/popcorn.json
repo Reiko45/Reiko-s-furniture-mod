@@ -1,0 +1,20 @@
+{
+  "type": "reikos_furniture:appliance",
+  "appliance": "popcorn_machine",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "reikos_furniture:popcorn"
+  },
+  "time": 100
+}
