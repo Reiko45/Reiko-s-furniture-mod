@@ -1,0 +1,155 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "shell": "minecraft:block/white_concrete",
+    "chrome": "reikos_furniture:block/style/chrome",
+    "glow": "reikos_furniture:block/style/glow_strip",
+    "cushion": "reikos_furniture:block/fabric/light_gray"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        2.5,
+        6,
+        2.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            13.5,
+            2.5,
+            15
+          ],
+          "texture": "#chrome",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            1,
+            1,
+            2.5,
+            2.5
+          ],
+          "texture": "#chrome"
+        },
+        "north": {
+          "uv": [
+            13.5,
+            10,
+            15,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "south": {
+          "uv": [
+            1,
+            10,
+            2.5,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "west": {
+          "uv": [
+            1,
+            10,
+            2.5,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "east": {
+          "uv": [
+            13.5,
+            10,
+            15,
+            16
+          ],
+          "texture": "#chrome"
+        }
+      }
+    },
+    {
+      "from": [
+        0.75,
+        0,
+        0.75
+      ],
+      "to": [
+        2.75,
+        0.5,
+        2.75
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.75,
+            13.25,
+            2.75,
+            15.25
+          ],
+          "texture": "#glow",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0.75,
+            0.75,
+            2.75,
+            2.75
+          ],
+          "texture": "#glow"
+        },
+        "north": {
+          "uv": [
+            13.25,
+            15.5,
+            15.25,
+            16
+          ],
+          "texture": "#glow"
+        },
+        "south": {
+          "uv": [
+            0.75,
+            15.5,
+            2.75,
+            16
+          ],
+          "texture": "#glow"
+        },
+        "west": {
+          "uv": [
+            0.75,
+            15.5,
+            2.75,
+            16
+          ],
+          "texture": "#glow"
+        },
+        "east": {
+          "uv": [
+            13.25,
+            15.5,
+            15.25,
+            16
+          ],
+          "texture": "#glow"
+        }
+      },
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  ]
+}

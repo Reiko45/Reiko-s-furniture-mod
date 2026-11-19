@@ -109,6 +109,14 @@ public class StyleGameTests {
                 new ItemStack(LivingRoomFurniture.ARMCHAIR.get(DyeColor.PURPLE).get()), new ItemStack(Items.GOLD_NUGGET));
         check(helper, StyleFurniture.get(Style.JAPANESE).wardrobe().get(FurnitureWood.BAMBOO).get(),
                 new ItemStack(BedroomFurniture.WARDROBE.get(FurnitureWood.BAMBOO).get()), new ItemStack(Items.BAMBOO));
+        check(helper, StyleFurniture.get(Style.MEDIEVAL).bed().get(FurnitureWood.DARK_OAK).get(),
+                new ItemStack(BedroomFurniture.BED.get(FurnitureWood.DARK_OAK).get()), new ItemStack(Items.IRON_BARS));
+        check(helper, StyleFurniture.get(Style.VICTORIAN).nightstand().get(FurnitureWood.CHERRY).get(),
+                new ItemStack(BedroomFurniture.NIGHTSTAND.get(FurnitureWood.CHERRY).get()), new ItemStack(Items.PINK_CANDLE));
+        check(helper, StyleFurniture.get(Style.FUTURISTIC).sofa().get(DyeColor.CYAN).get(),
+                new ItemStack(LivingRoomFurniture.SOFA.get(DyeColor.CYAN).get()), new ItemStack(Items.GLOWSTONE_DUST));
+        check(helper, StyleFurniture.get(Style.BEACH).diningChair().get(FurnitureWood.BIRCH).get(),
+                new ItemStack(com.reiko45.furniture.dining.DiningFurniture.DINING_CHAIR.get(FurnitureWood.BIRCH).get()), new ItemStack(Items.RED_SAND));
         helper.succeed();
     }
 

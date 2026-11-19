@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/style/futuristic/bunk_bed_top_foot",
+  "textures": {
+    "log": "minecraft:block/bamboo_block",
+    "planks": "minecraft:block/bamboo_planks",
+    "stripped_log": "minecraft:block/stripped_bamboo_block",
+    "wool": "reikos_furniture:block/fabric/gray"
+  }
+}

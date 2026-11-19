@@ -67,7 +67,7 @@ public class FurnitureAdvancements implements AdvancementProvider.AdvancementGen
         name("interior_designer", "Interior Designer", "Turn a piece of furniture with a hammer");
         name("heavy_lifting", "Heavy Lifting", "Move storage furniture with a moving dolly, contents and all");
         name("a_matter_of_style", "A Matter of Style", "Make a piece of furniture in a style");
-        name("style_icon", "Style Icon", "Have a piece in every style: Rustic, Modern, Royal and Japanese");
+        name("style_icon", "Style Icon", "Have a piece in each of the eight styles");
         name("tickling_the_ivories", "Tickling the Ivories", "Play a note on a piano");
         name("bullseye", "Bullseye!", "Score 50 with a dart");
         name("high_score", "High Score", "Score 9000 or more on an arcade cabinet");

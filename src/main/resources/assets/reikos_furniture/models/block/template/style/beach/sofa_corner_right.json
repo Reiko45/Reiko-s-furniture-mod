@@ -1,0 +1,80 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#wool",
+    "frame": "reikos_furniture:block/style/wicker",
+    "stripes": "reikos_furniture:block/fabric/striped/white"
+  },
+  "elements": [
+    {
+      "from": [
+        11.5,
+        7,
+        0
+      ],
+      "to": [
+        16,
+        13,
+        11
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            11.5,
+            5,
+            16,
+            16
+          ],
+          "texture": "#stripes"
+        },
+        "up": {
+          "uv": [
+            11.5,
+            0,
+            16,
+            11
+          ],
+          "texture": "#stripes"
+        },
+        "north": {
+          "uv": [
+            0,
+            3,
+            4.5,
+            9
+          ],
+          "texture": "#stripes",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            11.5,
+            3,
+            16,
+            9
+          ],
+          "texture": "#stripes"
+        },
+        "west": {
+          "uv": [
+            0,
+            3,
+            11,
+            9
+          ],
+          "texture": "#stripes"
+        },
+        "east": {
+          "uv": [
+            5,
+            3,
+            16,
+            9
+          ],
+          "texture": "#stripes",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

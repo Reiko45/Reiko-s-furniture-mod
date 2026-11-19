@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/style/beach/bed_foot",
+  "textures": {
+    "log": "minecraft:block/mangrove_log",
+    "planks": "minecraft:block/mangrove_planks",
+    "stripped_log": "minecraft:block/stripped_mangrove_log",
+    "wool": "reikos_furniture:block/fabric/gray"
+  }
+}

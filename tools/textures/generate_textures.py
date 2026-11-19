@@ -52,6 +52,19 @@ def new(w=16, h=16, color=(0, 0, 0)):
 
 # ---- Fabric -------------------------------------------------------------------------------
 
+def striped_fabric(name, base):
+    """Beach cushions: the dye color with wide off-white stripes."""
+    rnd = random.Random("stripes-" + name)
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            color = (0xF4, 0xF0, 0xE6) if (x // 3) % 2 == 1 else base
+            weave = 1.03 if (x + y) % 2 == 0 else 0.98
+            px[x, y] = shade(color, weave * (1 + rnd.uniform(-0.03, 0.03))) + (255,)
+    save(img, f"block/fabric/striped/{name}.png")
+
+
 def fabric(name, base):
     """Woven upholstery: a fine basket weave with soft noise."""
     rnd = random.Random("fabric-" + name)
@@ -957,6 +970,67 @@ def style_textures():
             px[x, y] = shade(straw, f * (0.97 + rnd.random() * 0.06)) + (255,)
     save(img, "block/style/tatami.png")
 
+    # Medieval: dark wrought iron with rivets.
+    rnd = random.Random("wrought iron")
+    img = new()
+    px = img.load()
+    iron = (0x3A, 0x3A, 0x3E)
+    for y in range(16):
+        for x in range(16):
+            px[x, y] = shade(iron, 0.9 + rnd.random() * 0.2) + (255,)
+    for x, y in ((3, 3), (12, 3), (3, 12), (12, 12), (7, 7)):
+        px[x, y] = (0x80, 0x80, 0x86, 255)
+        px[x + 1, y + 1] = (0x1C, 0x1C, 0x20, 255)
+    save(img, "block/style/wrought_iron.png")
+
+    # Futuristic: polished chrome with diagonal highlights, and a glowing cyan strip.
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            band = (x + y) % 16
+            f = 1.18 if band in (3, 4) else 1.08 if band in (2, 5, 11) else 0.92 if band > 12 else 1.0
+            px[x, y] = shade((0xC4, 0xCA, 0xD0), f) + (255,)
+    save(img, "block/style/chrome.png")
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            edge = min(y, 15 - y)
+            c = (0xD8, 0xFF, 0xFF) if edge > 5 else (0x60, 0xE8, 0xF8) if edge > 2 else (0x20, 0xB0, 0xD8)
+            px[x, y] = c + (255,)
+    save(img, "block/style/glow_strip.png")
+
+    # Beach house: whitewashed boards, rope and wicker.
+    rnd = random.Random("whitewash")
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            base = (0xEE, 0xEA, 0xE0) if y % 4 else (0xC8, 0xC2, 0xB4)
+            if rnd.random() < 0.06:
+                base = (0xB8, 0xA0, 0x80)  # wood showing through
+            px[x, y] = shade(base, 0.97 + rnd.random() * 0.05) + (255,)
+    save(img, "block/style/whitewash.png")
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            twist = (x + 2 * y) % 6
+            px[x, y] = shade((0xC8, 0xA8, 0x70), 1.1 if twist < 2 else 0.95 if twist < 4 else 0.82) + (255,)
+    save(img, "block/style/rope.png")
+    rnd = random.Random("wicker")
+    img = new()
+    px = img.load()
+    for y in range(16):
+        for x in range(16):
+            over = ((x // 4) + (y // 2)) % 2 == 0
+            f = (1.08 if over else 0.88) * (0.96 + rnd.random() * 0.08)
+            if (x % 4 == 0 and not over) or (y % 2 == 1 and over):
+                f *= 0.85
+            px[x, y] = shade((0xD2, 0xAE, 0x72), f) + (255,)
+    save(img, "block/style/wicker.png")
+
 
 def catalog_item():
     """The furniture catalog: a brown book with pages showing and a little gold chair on the cover."""
@@ -1236,6 +1310,7 @@ if __name__ == "__main__":
     piano_keys()
     for name, rgb in DYES.items():
         fabric(name, rgb)
+        striped_fabric(name, rgb)
     appliance_textures()
     tv_channels()
     computer_screen()

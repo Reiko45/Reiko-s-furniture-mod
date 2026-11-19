@@ -1,4 +1,4 @@
-"""Model templates for the furniture styles (Rustic, Modern, Royal, Japanese).
+"""Model templates for the furniture styles (Rustic, Modern, Royal, Japanese, Medieval, Victorian, Futuristic, Beach House).
 
 Each style has its own templates in template/style/<style>/ with the same names as the classic pieces
 (bed_head, dining_table_top, sofa_base, ...), so data generation fills them in the same way.
@@ -553,7 +553,419 @@ def japanese():
         {"frame": "minecraft:block/bamboo_planks"})
 
 
+# ---- Medieval: dark timber, wrought-iron straps and studs, a four-poster bed, trestle tables -------
+
+def medieval():
+    I = "#iron"
+
+    def studs(xs, ys, z1, z2):
+        return [Box((x - 0.4, y - 0.4, z1), (x + 0.4, y + 0.4, z2), I) for x in xs for y in ys]
+
+    head = [
+        Box((0, 0, 0), (2.5, 16, 2.5), L), Box((13.5, 0, 0), (16, 16, 2.5), L),
+        Box((2.5, 4, 0.75), (13.5, 13, 1.75), P),
+        Box((2.5, 6, 1.75), (13.5, 7, 2), I), Box((2.5, 10.5, 1.75), (13.5, 11.5, 2), I),
+        Box((2.5, 14.5, 0.5), (13.5, 16, 2), L),
+        Box((0.5, 14.5, 2.5), (2, 16, 16), L), Box((14, 14.5, 2.5), (15.5, 16, 16), L),
+        Box((0, 3, 2.5), (1, 6, 16), L), Box((15, 3, 2.5), (16, 6, 16), L),
+        Box((1, 3, 2.5), (15, 4, 16), P),
+    ] + studs((4, 8, 12), (6.5, 11), 2, 2.25) + mattress(True, 4, 2.5, 16)
+    foot = [
+        Box((0, 0, 13.5), (2.5, 16, 16), L), Box((13.5, 0, 13.5), (16, 16, 16), L),
+        Box((2.5, 4, 14.25), (13.5, 9, 15.25), P), Box((2.5, 6, 14), (13.5, 7, 14.25), I),
+        Box((2.5, 14.5, 14), (13.5, 16, 15.5), L),
+        Box((0.5, 14.5, 0), (2, 16, 13.5), L), Box((14, 14.5, 0), (15.5, 16, 13.5), L),
+        Box((0, 3, 0), (1, 6, 13.5), L), Box((15, 3, 0), (16, 6, 13.5), L),
+        Box((1, 3, 0), (15, 4, 13.5), P),
+    ] + mattress(False, 4, 0, 13.5)
+
+    def bunk_extra(head_half, top, y, pw):
+        if head_half:
+            return [Box((pw, y + 7.5, 1.5), (16 - pw, y + 8.25, 1.75), I)]
+        return [Box((pw, y + 5.5, 14.25), (16 - pw, y + 6.25, 14.5), I)]
+
+    def bunk(head_half, top):
+        return bunk_part(head_half, top, L, 2.5, L, P, extra=bunk_extra)
+
+    chair = feet(2, 4.5, 2, 4.5, L, 7) + [
+        Box((1.5, 7, 1.5), (14.5, 9, 14.5), P),
+        Box((4.5, 2, 2.75), (11.5, 3, 3.75), S), Box((4.5, 2, 12.25), (11.5, 3, 13.25), S),
+        Box((2, 9, 12), (4.5, 16, 14.5), L), Box((11.5, 9, 12), (14, 16, 14.5), L),
+        Box((4.5, 10, 12.75), (11.5, 15, 13.75), P),
+        Box((4.5, 12, 12.5), (11.5, 13, 12.75), I),
+    ] + studs((5.5, 10.5), (12.5,), 12.25, 12.5)
+
+    def nightstand(opened):
+        return [
+            Box((1, 0, 1.5), (15, 13, 15), P), Box((0.5, 13, 1), (15.5, 16, 15.5), S),
+            Box((1, 0, 1.25), (2, 13, 1.5), I), Box((14, 0, 1.25), (15, 13, 1.5), I),
+            Box((0.5, 14, 0.75), (15.5, 15, 1), I),
+        ] + drawer_h(3, 13, 7.5, 12, P, P, knob(8, 9.75, I, 1.5), opened) \
+          + drawer_h(3, 13, 2, 6.5, P, P, knob(8, 4.25, I, 1.5), False)
+
+    def dresser(opened):
+        parts = [
+            Box((0.5, 0, 1.5), (15.5, 13.5, 15.5), P), Box((0, 13.5, 0.5), (16, 16, 16), S),
+            Box((0.5, 0, 1.25), (1.5, 13.5, 1.5), I), Box((14.5, 0, 1.25), (15.5, 13.5, 1.5), I),
+        ]
+        for row, (y1, y2) in enumerate(((9.25, 13), (5.25, 8.75), (1, 4.75))):
+            parts += drawer_h(2, 14, y1, y2, P, P, knob(8, (y1 + y2) / 2, I, 1.5), opened and row == 0)
+        return parts
+
+    def wardrobe(opened):
+        lower = [Box((0, 0, 0.5), (16, 2, 16), L), Box((0.5, 2, 1), (15.5, 16, 16), P)]
+        lower += door(1, 7.9, 2, 16, 0.5, 1, P, opened, "left") + door(8.1, 15, 2, 16, 0.5, 1, P, opened, "right")
+        upper = [Box((0.5, 0, 1), (15.5, 14, 16), P), Box((0, 14, 0), (16, 16, 16), L)]
+        upper += door(1, 7.9, 0, 13, 0.5, 1, P, opened, "left") + door(8.1, 15, 0, 13, 0.5, 1, P, opened, "right")
+        if opened:
+            wardrobe_interior(lower, upper, I)
+        else:
+            # Strap hinges across both doors, and ring pulls.
+            for y in (5, 12):
+                lower += [Box((1, y, 0.25), (7, y + 1, 0.5), I), Box((9, y, 0.25), (15, y + 1, 0.5), I)]
+            for y in (4, 10):
+                upper += [Box((1, y, 0.25), (7, y + 1, 0.5), I), Box((9, y, 0.25), (15, y + 1, 0.5), I)]
+            upper += [Box((6.75, 0.5, 0), (7.5, 2.5, 0.5), I), Box((8.5, 0.5, 0), (9.25, 2.5, 0.5), I)]
+        return lower, upper
+
+    F = "#frame"
+    sofa_base = [
+        Box((0, 0, 1), (16, 4, 16), F), Box((0, 2, 0.75), (16, 3, 1), I),
+        Box((0, 4, 1.5), (16, 7, 12), W),
+        Box((0, 4, 12), (16, 16, 16), F), Box((0, 7, 11), (16, 14, 12), W),
+    ]
+    sofa_arm = [Box((0, 4, 1), (2.5, 12, 12), F), Box((0, 12, 1), (2.5, 13, 12.5), F)]
+    sofa_corner = [Box((0, 7, 0), (4.5, 14, 11), W)]
+    armchair = [
+        Box((1, 0, 1), (15, 4, 15), F), Box((1, 2, 0.75), (15, 3, 1), I),
+        Box((3, 4, 1.5), (13, 7, 12), W),
+        Box((1, 4, 12), (15, 16, 15), F), Box((3, 7, 11), (13, 14, 12), W),
+        Box((1, 4, 1), (3, 11, 12), F), Box((13, 4, 1), (15, 11, 12), F),
+        Box((1, 11, 1), (3, 12, 12.5), F), Box((13, 11, 1), (15, 12, 12.5), F),
+    ]
+    write_style("style/medieval", {
+        "bed": (head, foot), "bunk": bunk, "chair": chair,
+        "dining_table": ([Box((0, 13, 0), (16, 16, 16), P)],
+                         [Box((1, 0, 0.5), (4.5, 1.5, 5), S), Box((1.75, 1.5, 1.75), (3.75, 13, 3.75), L),
+                          Box((1.5, 11, 1.5), (4, 12, 4), I)]),
+        "coffee_table": ([Box((0, 6, 0), (16, 9, 16), P)],
+                         [Box((1, 0, 1), (4, 6, 4), L), Box((0.75, 4, 0.75), (4.25, 4.75, 4.25), I)]),
+        "nightstand": nightstand, "dresser": dresser, "wardrobe": wardrobe,
+        "sofa": (sofa_base, sofa_arm, sofa_corner), "armchair": armchair,
+    }, {"iron": "reikos_furniture:block/style/wrought_iron"},
+        {"frame": "minecraft:block/dark_oak_planks", "iron": "reikos_furniture:block/style/wrought_iron"})
+
+
+# ---- Victorian: turned legs, a sleigh bed, marble tops, button-tufted upholstery, a crowned wardrobe ----
+
+def victorian():
+    B, M, U = "#brass", "#marble", "#upholstery"
+
+    def turned(x, z, h, w=2.5):
+        """A turned leg at (x, z): foot, ball, slim shaft and a collar under the top."""
+        return [Box((x + 0.5, 0, z + 0.5), (x + w - 0.5, 1, z + w - 0.5), S),
+                Box((x, 1, z), (x + w, 2.5, z + w), S),
+                Box((x + 0.5, 2.5, z + 0.5), (x + w - 0.5, h - 2, z + w - 0.5), S),
+                Box((x + 0.25, h - 2, z + 0.25), (x + w - 0.25, h, z + w - 0.25), S)]
+
+    def turned_legs(h, x=1.0, w=2.5):
+        return [b for px in (x, 16 - x - w) for pz in (x, 16 - x - w) for b in turned(px, pz, h, w)]
+
+    head = [
+        Box((0, 0, 0), (16, 3, 2.5), S),
+        Box((0.5, 3, 0.5), (15.5, 12, 2), P), Box((2, 5, 2), (14, 11, 2.25), S),
+        Box((0, 12, 0), (16, 14, 2.5), S), Box((0.5, 14, 0.5), (15.5, 15, 2), S), Box((0, 15, 1), (16, 16, 2.75), S),
+        Box((7.25, 12.5, 2.5), (8.75, 13.5, 2.75), B),
+        Box((0, 3, 2.5), (1, 7, 16), P), Box((15, 3, 2.5), (16, 7, 16), P),
+        Box((1, 3, 2.5), (15, 4, 16), P),
+    ] + mattress(True, 4, 2.5, 16)
+    foot = [
+        Box((0, 0, 13.5), (16, 2, 16), S),
+        Box((0.5, 2, 14), (15.5, 8, 15.5), P),
+        Box((0, 8, 13.5), (16, 9.5, 16), S), Box((0, 9.5, 13), (16, 10.5, 15.5), S),
+        Box((7.25, 5, 13.75), (8.75, 6.5, 14), B),
+        Box((0, 3, 0), (1, 7, 13.5), P), Box((15, 3, 0), (16, 7, 13.5), P),
+        Box((1, 3, 0), (15, 4, 13.5), P),
+    ] + mattress(False, 4, 0, 13.5)
+
+    def bunk_extra(head_half, top, y, pw):
+        zs = (0.5, pw - 0.5) if head_half else (16.5 - pw, 15.5)
+        h = 14 if top else 16
+        return [Box((0.25, h - 1, zs[0]), (pw - 0.25, h, zs[1]), B), Box((16.25 - pw, h - 1, zs[0]), (15.75, h, zs[1]), B)]
+
+    def bunk(head_half, top):
+        return bunk_part(head_half, top, S, 2, S, P, extra=bunk_extra)
+
+    chair = turned_legs(7, 2, 2) + [
+        Box((1.5, 7, 1.5), (14.5, 8, 14.5), S),
+        Box((2, 8, 2), (14, 9.5, 13), U),
+        Box((2.5, 8, 12.5), (4, 16, 14), S), Box((12, 8, 12.5), (13.5, 16, 14), S),
+        Box((4, 10, 12.75), (12, 15, 13.75), U), Box((4, 15, 12.5), (12, 16, 14), S),
+        Box((7.5, 12, 12.5), (8.5, 13, 12.75), B),
+    ]
+
+    def nightstand(opened):
+        return turned_legs(4) + [
+            Box((1, 4, 1.5), (15, 13.5, 15), P),
+            Box((0, 13.5, 0), (16, 15, 16), M), Box((0, 15, 14.5), (16, 16, 16), S),
+        ] + drawer_h(2, 14, 9, 13, S, P, knob(8, 11, B, 1.25), opened) \
+          + drawer_h(2, 14, 4.5, 8.5, S, P, knob(8, 6.5, B, 1.25), False)
+
+    def dresser(opened):
+        parts = turned_legs(3, 0.5) + [
+            Box((0.5, 3, 1.5), (15.5, 13.5, 15.5), P),
+            Box((0, 13.5, 0.5), (16, 15, 16), M), Box((0, 15, 14.5), (16, 16, 16), S),
+        ]
+        for row, (y1, y2) in enumerate(((10.25, 13.25), (7, 10), (3.75, 6.75))):
+            mid = (y1 + y2) / 2
+            parts += drawer_h(1.5, 14.5, y1, y2, S, P, (4, 6, mid - 0.4, mid + 0.4, B), opened and row == 0)
+            if not (opened and row == 0):
+                parts.append(Box((10, mid - 0.4, 0.5), (12, mid + 0.4, 1), B))
+            else:
+                parts.append(Box((10, mid - 0.4, -4.5), (12, mid + 0.4, -4), B))
+        return parts
+
+    def wardrobe(opened):
+        lower = [Box((0, 0, 0.5), (16, 1.5, 16), S), Box((0.5, 1.5, 1), (15.5, 16, 16), P)]
+        lower += door(1, 7.9, 1.5, 16, 0.5, 1, P, opened, "left") + door(8.1, 15, 1.5, 16, 0.5, 1, P, opened, "right")
+        upper = [Box((0.5, 0, 1), (15.5, 13, 16), P), Box((0, 13, 0), (16, 14, 16), S),
+                 Box((0.5, 14, 0.25), (15.5, 15, 16), S), Box((5, 15, 0.5), (11, 16, 2), S), Box((7.5, 15, 0), (8.5, 16, 0.5), B)]
+        upper += door(1, 7.9, 0, 12, 0.5, 1, P, opened, "left") + door(8.1, 15, 0, 12, 0.5, 1, P, opened, "right")
+        upper += door_handle(6.5, 7.25, 1, 3, 0, 0.5, 1, 7.9, 0.5, B, opened, "left")
+        upper += door_handle(8.75, 9.5, 1, 3, 0, 0.5, 8.1, 15, 0.5, B, opened, "right")
+        if opened:
+            wardrobe_interior(lower, upper, B)
+        else:
+            lower += [Box((2, 3, 0.25), (7, 14.5, 0.5), S), Box((9, 3, 0.25), (14, 14.5, 0.5), S)]
+            upper += [Box((2, 4, 0.25), (7, 11, 0.5), S), Box((9, 4, 0.25), (14, 11, 0.5), S)]
+        return lower, upper
+
+    F = "#frame"
+    buttons = [Box((x, y, 11.75), (x + 0.5, y + 0.5, 12), B) for x in (1.75, 5.75, 9.75, 13.75) for y in (9, 12)]
+    sofa_base = feet(1, 2.5, 1.5, 3, F, 2) + [
+        Box((0, 2, 1), (16, 4, 16), W),
+        Box((0, 4, 1.5), (16, 7.5, 12), W),
+        Box((0, 4, 12), (16, 14, 16), W),
+    ] + buttons
+    sofa_arm = [Box((0, 4, 1), (2.5, 10, 12), W), Box((0, 10, 1), (3, 11.5, 12), W)]
+    sofa_corner = [Box((0, 7.5, 0), (4.5, 14, 12), W)]
+    armchair = feet(2, 3.5, 2, 3.5, F, 2) + [
+        Box((1, 2, 1), (15, 4, 15), W),
+        Box((2.5, 4, 1.5), (13.5, 7.5, 12), W),
+        Box((1, 4, 12), (15, 16, 15), W),
+        Box((1, 7.5, 9), (2.5, 16, 12), W), Box((13.5, 7.5, 9), (15, 16, 12), W),
+        Box((1, 4, 1), (2.5, 10, 9), W), Box((13.5, 4, 1), (15, 10, 9), W),
+    ] + [Box((x, y, 11.75), (x + 0.5, y + 0.5, 12), B) for x, y in ((5, 10.5), (10.5, 10.5), (7.75, 13.5))]
+    write_style("style/victorian", {
+        "bed": (head, foot), "bunk": bunk, "chair": chair,
+        "dining_table": ([Box((0, 14, 0), (16, 16, 16), P), Box((0.5, 13, 0.5), (15.5, 14, 15.5), S)], turned(1, 1, 13)),
+        "coffee_table": ([Box((0, 7.5, 0), (16, 9, 16), M), Box((0.5, 6.5, 0.5), (15.5, 7.5, 15.5), S)], turned(1, 1, 6.5)),
+        "nightstand": nightstand, "dresser": dresser, "wardrobe": wardrobe,
+        "sofa": (sofa_base, sofa_arm, sofa_corner), "armchair": armchair,
+    }, {"brass": "minecraft:block/gold_block", "marble": "minecraft:block/calcite",
+        "upholstery": "reikos_furniture:block/fabric/green"},
+        {"frame": "minecraft:block/dark_oak_planks", "brass": "minecraft:block/gold_block"})
+
+
+# ---- Futuristic: white shells, chrome, glowing strips, a floating bed and pod chairs -----------
+
+def futuristic():
+    SH, CH, GL, C = "#shell", "#chrome", "#glow", "#cushion"
+
+    def glow(f, t):
+        return Box(f, t, GL, glow=True)
+
+    head = [
+        Box((3, 0, 3), (13, 2, 16), CH), glow((2.5, 1.75, 2.5), (13.5, 2, 16)),
+        Box((0, 2, 0), (16, 4, 16), SH),
+        Box((0, 4, 0), (16, 13, 1.5), SH),
+        Box((1.5, 5.5, 1.5), (14.5, 11.5, 1.75), P),
+        glow((0, 12, 1.5), (16, 12.5, 1.75)),
+    ] + mattress(True, 4, 1.75, 16, x1=0.5, x2=15.5)
+    foot = [
+        Box((3, 0, 0), (13, 2, 13), CH), glow((2.5, 1.75, 0), (13.5, 2, 13.5)),
+        Box((0, 2, 0), (16, 4, 15.75), SH), glow((0, 2.5, 15.75), (16, 3, 16)),
+    ] + mattress(False, 4, 0, 15.5, x1=0.5, x2=15.5)
+
+    def bunk_extra(head_half, top, y, pw):
+        if head_half:
+            return [glow((pw, y + 8, 1.5), (16 - pw, y + 8.5, 1.75))]
+        return [glow((pw, y + 6, 14.25), (16 - pw, y + 6.5, 14.5))]
+
+    def bunk(head_half, top):
+        return bunk_part(head_half, top, CH, 1.5, CH, SH, base=SH, extra=bunk_extra)
+
+    chair = [
+        Box((5, 0, 5), (11, 0.75, 11), CH), Box((7, 0.75, 7), (9, 6, 9), CH),
+        Box((2.5, 6, 2.5), (13.5, 8, 13.5), SH),
+        Box((3, 8, 3), (13, 9, 12), C),
+        Box((2.5, 8, 12), (13.5, 16, 14), SH), Box((3.5, 9, 11.5), (12.5, 15, 12), C),
+        Box((2, 8, 3), (2.5, 12, 14), SH), Box((13.5, 8, 3), (14, 12, 14), SH),
+        glow((2.5, 7.75, 2.25), (13.5, 8, 2.5)),
+    ]
+
+    def bar(y):
+        return (4, 12, y - 0.25, y + 0.25, CH)
+
+    def nightstand(opened):
+        return [
+            Box((6, 0, 6), (10, 2.5, 10), CH), glow((1.5, 2.5, 2), (14.5, 3, 14.5)),
+            Box((1, 3, 1.5), (15, 13, 15), SH),
+        ] + drawer_h(1.5, 14.5, 8.25, 12.5, P, SH, bar(11.75), opened) \
+          + drawer_h(1.5, 14.5, 3.5, 7.75, P, SH, bar(7), False)
+
+    def dresser(opened):
+        parts = [Box((2, 0, 3), (14, 1.5, 14), CH), glow((0.5, 1.5, 1.5), (15.5, 2, 15.5)),
+                 Box((0, 2, 1), (16, 13, 16), SH)]
+        for row, (y1, y2) in enumerate(((9.5, 12.5), (6, 9), (2.5, 5.5))):
+            parts += drawer_h(0.5, 15.5, y1, y2, P, SH, bar(y2 - 0.75), opened and row == 0, zf=0.5, zb=1)
+        return parts
+
+    def wardrobe(opened):
+        lower = [Box((0.5, 0, 1), (15.5, 1.5, 15.5), CH), Box((0, 1.5, 1), (16, 16, 16), SH)]
+        lower += door(0.5, 7.9, 1.5, 16, 0.5, 1, P, opened, "left") + door(8.1, 15.5, 1.5, 16, 0.5, 1, P, opened, "right")
+        upper = [Box((0, 0, 1), (16, 16, 16), SH)]
+        upper += door(0.5, 7.9, 0, 15, 0.5, 1, P, opened, "left") + door(8.1, 15.5, 0, 15, 0.5, 1, P, opened, "right")
+        upper += door_handle(7, 7.5, 0, 5, 0, 0.5, 0.5, 7.9, 0.5, CH, opened, "left")
+        upper += door_handle(8.5, 9, 0, 5, 0, 0.5, 8.1, 15.5, 0.5, CH, opened, "right")
+        if opened:
+            wardrobe_interior(lower, upper, CH)
+        else:
+            lower.append(glow((7.9, 1.5, 0.6), (8.1, 16, 1)))
+            upper.append(glow((7.9, 0, 0.6), (8.1, 15, 1)))
+            upper.append(glow((0, 15.25, 0.75), (16, 15.75, 1)))
+        return lower, upper
+
+    F = "#frame"
+    sofa_base = [
+        Box((1, 0, 2), (15, 1, 15), CH),
+        Box((0, 1, 1), (16, 4, 16), F), glow((0, 1, 0.75), (16, 1.5, 1)),
+        Box((0, 4, 1.5), (16, 7, 12), W),
+        Box((0, 4, 12), (16, 13, 16), F), Box((0, 7, 11.5), (16, 13, 12), W),
+    ]
+    sofa_arm = [Box((0, 4, 1), (2, 9, 12), F)]
+    sofa_corner = [Box((0, 7, 0), (4.5, 13, 11.5), W)]
+    armchair = [
+        Box((5, 0, 5), (11, 1, 11), CH), Box((7, 1, 7), (9, 3, 9), CH),
+        Box((1.5, 3, 1.5), (14.5, 5, 14.5), F), glow((1.5, 4.75, 1.25), (14.5, 5, 1.5)),
+        Box((2.5, 5, 2), (13.5, 8, 12), W),
+        Box((1.5, 5, 12), (14.5, 16, 14.5), F), Box((2.5, 8, 11.5), (13.5, 14, 12), W),
+        Box((1.5, 5, 2.5), (2.5, 13, 12), F), Box((13.5, 5, 2.5), (14.5, 13, 12), F),
+    ]
+    tops = {}
+    for name, y in (("dining_table", 15), ("coffee_table", 6)):
+        tops[name] = [Box((0, y, 0), (16, y + 1.5, 1.5), SH), Box((0, y, 14.5), (16, y + 1.5, 16), SH),
+                      Box((0, y, 1.5), (1.5, y + 1.5, 14.5), SH), Box((14.5, y, 1.5), (16, y + 1.5, 14.5), SH),
+                      Box((1.5, y, 1.5), (14.5, y + 1.5, 14.5), P)]
+    tops["dining_table"] = [Box((b.f[0], b.f[1] - 0.5, b.f[2]), (b.t[0], b.t[1] - 0.5, b.t[2]), b.tex) for b in tops["dining_table"]]
+    write_style("style/futuristic", {
+        "bed": (head, foot), "bunk": bunk, "chair": chair,
+        "dining_table": (tops["dining_table"], [Box((1, 0, 1), (2.5, 14.5, 2.5), CH), glow((0.75, 0, 0.75), (2.75, 0.5, 2.75))]),
+        "coffee_table": (tops["coffee_table"], [Box((1, 0, 1), (2.5, 6, 2.5), CH), glow((0.75, 0, 0.75), (2.75, 0.5, 2.75))]),
+        "nightstand": nightstand, "dresser": dresser, "wardrobe": wardrobe,
+        "sofa": (sofa_base, sofa_arm, sofa_corner), "armchair": armchair,
+    }, {"shell": "minecraft:block/white_concrete", "chrome": "reikos_furniture:block/style/chrome",
+        "glow": "reikos_furniture:block/style/glow_strip", "cushion": "reikos_furniture:block/fabric/light_gray"},
+        {"frame": "minecraft:block/white_concrete", "chrome": "reikos_furniture:block/style/chrome",
+         "glow": "reikos_furniture:block/style/glow_strip"})
+
+
+# ---- Beach house: whitewashed frames, slatted boards, rope, wicker and striped cushions --------
+
+def beach():
+    WH, R, WK, ST = "#white", "#rope", "#wicker", "#stripes"
+    slats = (2.25, 4.75, 7.25, 9.75, 12.25)
+    head = [
+        Box((0, 0, 0), (2, 15, 2), WH), Box((14, 0, 0), (16, 15, 2), WH),
+        Box((-0.25, 12, -0.25), (2.25, 13, 2.25), R), Box((13.75, 12, -0.25), (16.25, 13, 2.25), R),
+        Box((2, 3, 0.5), (14, 4, 1.5), WH), Box((2, 14, 0.25), (14, 15.5, 1.75), WH),
+        Box((0, 3, 2), (1, 6, 16), WH), Box((15, 3, 2), (16, 6, 16), WH),
+        Box((1, 3, 2), (15, 4, 16), P),
+    ] + [Box((x, 4, 0.5), (x + 1.75, 14, 1.5), P) for x in slats] + mattress(True, 4, 2, 16)
+    foot = [
+        Box((0, 0, 14), (2, 10, 16), WH), Box((14, 0, 14), (16, 10, 16), WH),
+        Box((2, 3, 14.5), (14, 4, 15.5), WH), Box((2, 9, 14.25), (14, 10, 15.75), WH),
+        Box((0, 3, 0), (1, 6, 14), WH), Box((15, 3, 0), (16, 6, 14), WH),
+        Box((1, 3, 0), (15, 4, 14), P),
+    ] + [Box((x, 4, 14.5), (x + 1.75, 9, 15.5), P) for x in slats] + mattress(False, 4, 0, 14)
+
+    def bunk_extra(head_half, top, y, pw):
+        zs = (0, pw) if head_half else (16 - pw, 16)
+        h = 14 if top else 16
+        return [Box((-0.25, h - 4, zs[0] - 0.25), (pw + 0.25, h - 3, zs[1] + 0.25), R),
+                Box((15.75 - pw, h - 4, zs[0] - 0.25), (16.25, h - 3, zs[1] + 0.25), R)]
+
+    def bunk(head_half, top):
+        return bunk_part(head_half, top, WH, 2, WH, P, extra=bunk_extra)
+
+    chair = feet(2.5, 4, 2.5, 4, P, 7) + [
+        Box((2, 7, 2), (14, 8.5, 14), WK),
+        Box((2.5, 8.5, 2.5), (13.5, 9.5, 12.5), "#cushion"),
+        Box((2.5, 8.5, 12.5), (13.5, 15, 14), WK), Box((2, 15, 12.25), (14, 16, 14.25), P),
+    ]
+
+    def rope_pull(y):
+        return (6.5, 9.5, y - 0.375, y + 0.375, R)
+
+    def nightstand(opened):
+        return [Box((1, 0, 1.5), (15, 14, 15), WH), Box((0, 14, 0), (16, 16, 16), P)] \
+            + drawer_h(2, 14, 8.5, 13, P, WH, rope_pull(10.75), opened) \
+            + drawer_h(2, 14, 2.5, 7.5, P, WH, rope_pull(5), False)
+
+    def dresser(opened):
+        parts = [Box((0.5, 0, 1.5), (15.5, 14, 15.5), WH), Box((0, 14, 0), (16, 16, 16), P)]
+        for row, (y1, y2) in enumerate(((9.5, 13.25), (5.25, 9), (1, 4.75))):
+            parts += drawer_h(1.5, 14.5, y1, y2, P, WH, rope_pull((y1 + y2) / 2), opened and row == 0)
+        return parts
+
+    def wardrobe(opened):
+        lower = [Box((0, 0, 0.5), (16, 1.5, 16), P), Box((0.5, 1.5, 1), (15.5, 16, 16), WH)]
+        lower += door(1, 7.9, 1.5, 16, 0.5, 1, P, opened, "left") + door(8.1, 15, 1.5, 16, 0.5, 1, P, opened, "right")
+        upper = [Box((0.5, 0, 1), (15.5, 14, 16), WH), Box((0, 14, 0), (16, 16, 16), P)]
+        upper += door(1, 7.9, 0, 13, 0.5, 1, P, opened, "left") + door(8.1, 15, 0, 13, 0.5, 1, P, opened, "right")
+        upper += door_handle(6.5, 7.25, 1, 4, 0, 0.5, 1, 7.9, 0.5, R, opened, "left")
+        upper += door_handle(8.75, 9.5, 1, 4, 0, 0.5, 8.1, 15, 0.5, R, opened, "right")
+        if opened:
+            wardrobe_interior(lower, upper, R)
+        else:
+            # Louvres across the doors.
+            for y in range(3, 16, 2):
+                lower += [Box((1.5, y, 0.25), (7.4, y + 0.5, 0.5), WH), Box((8.6, y, 0.25), (14.5, y + 0.5, 0.5), WH)]
+            for y in range(5, 13, 2):
+                upper += [Box((1.5, y, 0.25), (7.4, y + 0.5, 0.5), WH), Box((8.6, y, 0.25), (14.5, y + 0.5, 0.5), WH)]
+        return lower, upper
+
+    F = "#frame"
+    sofa_base = feet(1, 2.5, 1.5, 3, F, 2) + [
+        Box((0, 2, 1), (16, 4, 16), F), Box((0, 4, 1.5), (16, 7, 12), ST),
+        Box((0, 4, 12), (16, 14, 16), F), Box((0, 7, 11), (16, 13, 12), ST),
+    ]
+    sofa_arm = [Box((0, 4, 1), (2.5, 10, 12), F)]
+    sofa_corner = [Box((0, 7, 0), (4.5, 13, 11), ST)]
+    armchair = feet(1.5, 3, 1.5, 3, F, 2) + [
+        Box((1, 2, 1), (15, 4, 15), F), Box((2.5, 4, 1.5), (13.5, 7, 12), ST),
+        Box((1, 4, 12), (15, 15, 15), F), Box((2.5, 7, 11), (13.5, 13, 12), ST),
+        Box((1, 4, 1), (2.5, 10, 12), F), Box((13.5, 4, 1), (15, 10, 12), F),
+    ]
+    write_style("style/beach", {
+        "bed": (head, foot), "bunk": bunk, "chair": chair,
+        "dining_table": ([Box((0, 15, 0), (16, 16, 16), P), Box((0.5, 13.5, 0.5), (15.5, 15, 15.5), WH)],
+                         [Box((1, 0, 1), (3, 13.5, 3), WH)]),
+        "coffee_table": ([Box((0, 7, 0), (16, 8.5, 16), P), Box((0.5, 6, 0.5), (15.5, 7, 15.5), WK)],
+                         [Box((1, 0, 1), (3, 6, 3), WH)]),
+        "nightstand": nightstand, "dresser": dresser, "wardrobe": wardrobe,
+        "sofa": (sofa_base, sofa_arm, sofa_corner), "armchair": armchair,
+    }, {"white": "reikos_furniture:block/style/whitewash", "rope": "reikos_furniture:block/style/rope",
+        "wicker": "reikos_furniture:block/style/wicker", "cushion": "reikos_furniture:block/fabric/striped/light_blue",
+        "wool": "reikos_furniture:block/fabric/striped/light_blue"},
+        {"frame": "reikos_furniture:block/style/wicker", "stripes": "reikos_furniture:block/fabric/striped/white"})
+
+
 rustic()
 modern()
 royal()
 japanese()
+medieval()
+victorian()
+futuristic()
+beach()

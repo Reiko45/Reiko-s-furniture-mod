@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/style/futuristic/armchair",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/blue"
+  }
+}

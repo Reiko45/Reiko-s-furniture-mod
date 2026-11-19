@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/style/victorian/sofa_corner_left",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/magenta"
+  }
+}

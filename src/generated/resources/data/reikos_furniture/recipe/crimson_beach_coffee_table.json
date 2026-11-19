@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reikos_furniture:crimson_coffee_table"
+    },
+    [
+      {
+        "item": "minecraft:sand"
+      },
+      {
+        "item": "minecraft:red_sand"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:crimson_beach_coffee_table"
+  }
+}

@@ -27,7 +27,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * The furniture styles: Rustic, Modern, Royal and Japanese versions of the bed, bunk bed, dining
+ * The furniture styles: Rustic, Modern, Royal, Japanese, Medieval, Victorian, Futuristic and Beach House
+ * versions of the bed, bunk bed, dining
  * chair and table, coffee table, nightstand, dresser, wardrobe, sofa and armchair. They work like
  * the classic pieces and are listed in their own creative tab.
  */
@@ -93,6 +94,35 @@ public final class StyleFurniture {
                 boxes(box(1, 0, 1.5, 15, 10, 15)), boxes(box(0, 0, 1, 16, 10, 16), box(8, 10, 1, 16, 16, 16)),
                 WARDROBE_LOWER, boxes(box(0, 0, 0.5, 16, 16, 16)),
                 5, boxes(box(1, 0, 1, 15, 5, 15), box(1, 5, 11.5, 15, 12, 15)), 5));
+        // Medieval: a four-poster bed, heavy chairs, trestle tables and iron-strapped storage.
+        SHAPES.put(Style.MEDIEVAL, new Shapes(null,
+                boxes(box(1.5, 0, 1.5, 14.5, 9, 14.5), box(2, 9, 12, 14, 16, 14.5)), 9,
+                boxes(box(0, 13, 0, 16, 16, 16)), boxes(box(1, 0, 0.5, 4.5, 13, 5)),
+                boxes(box(0, 6, 0, 16, 9, 16)), boxes(box(1, 0, 1, 4, 6, 4)),
+                NIGHTSTAND, DRESSER, WARDROBE_LOWER, WARDROBE_UPPER,
+                7, boxes(box(1, 0, 1, 15, 12, 15), box(1, 12, 12, 15, 16, 15)), 7));
+        // Victorian: a sleigh bed, turned legs, marble tops and button-tufted upholstery.
+        SHAPES.put(Style.VICTORIAN, new Shapes(null,
+                boxes(box(1.5, 0, 1.5, 14.5, 9.5, 14.5), box(2.5, 9.5, 12.5, 13.5, 16, 14)), 9.5,
+                boxes(box(0, 13, 0, 16, 16, 16)), boxes(box(1, 0, 1, 3.5, 13, 3.5)),
+                boxes(box(0, 6.5, 0, 16, 9, 16)), boxes(box(1, 0, 1, 3.5, 6.5, 3.5)),
+                NIGHTSTAND, DRESSER, WARDROBE_LOWER, WARDROBE_UPPER,
+                7.5, boxes(box(1, 0, 1, 15, 10, 15), box(1, 10, 9, 15, 16, 15)), 7.5));
+        // Futuristic: a floating platform bed, pod chairs and white shells on chrome.
+        SHAPES.put(Style.FUTURISTIC, new Shapes(boxes(box(0, 0, 0, 16, 8, 16)),
+                boxes(box(2, 0, 2, 14, 9, 14), box(2, 9, 11.5, 14, 16, 14)), 9,
+                boxes(box(0, 14.5, 0, 16, 16, 16)), boxes(box(1, 0, 1, 2.5, 14.5, 2.5)),
+                boxes(box(0, 6, 0, 16, 7.5, 16)), boxes(box(1, 0, 1, 2.5, 6, 2.5)),
+                boxes(box(1, 0, 1.5, 15, 13, 15)), boxes(box(0, 0, 1, 16, 13, 16)),
+                WARDROBE_LOWER, boxes(box(0, 0, 0.5, 16, 16, 16)),
+                7, boxes(box(1.5, 0, 1.5, 14.5, 13, 14.5), box(1.5, 13, 12, 14.5, 16, 14.5)), 8));
+        // Beach house: whitewashed slats, wicker and striped cushions.
+        SHAPES.put(Style.BEACH, new Shapes(null,
+                boxes(box(2, 0, 2, 14, 9.5, 14), box(2, 9.5, 12, 14, 16, 14.25)), 9.5,
+                boxes(box(0, 13.5, 0, 16, 16, 16)), boxes(box(1, 0, 1, 3, 13.5, 3)),
+                boxes(box(0, 6, 0, 16, 8.5, 16)), boxes(box(1, 0, 1, 3, 6, 3)),
+                NIGHTSTAND, DRESSER, WARDROBE_LOWER, WARDROBE_UPPER,
+                7, boxes(box(1, 0, 1, 15, 10, 15), box(1, 10, 11, 15, 15, 15)), 7));
     }
 
     private static final Map<Style, Pieces> PIECES = new EnumMap<>(Style.class);

@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/style/beach/sofa_corner_right",
+  "textures": {
+    "stripes": "reikos_furniture:block/fabric/striped/lime",
+    "wool": "reikos_furniture:block/fabric/lime"
+  }
+}

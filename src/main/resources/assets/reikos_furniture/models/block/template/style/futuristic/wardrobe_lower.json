@@ -1,0 +1,335 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "shell": "minecraft:block/white_concrete",
+    "chrome": "reikos_furniture:block/style/chrome",
+    "glow": "reikos_furniture:block/style/glow_strip",
+    "cushion": "reikos_furniture:block/fabric/light_gray"
+  },
+  "elements": [
+    {
+      "from": [
+        0.5,
+        0,
+        1
+      ],
+      "to": [
+        15.5,
+        1.5,
+        15.5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            0.5,
+            15.5,
+            15
+          ],
+          "texture": "#chrome",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            1,
+            15.5,
+            15.5
+          ],
+          "texture": "#chrome"
+        },
+        "north": {
+          "uv": [
+            0.5,
+            14.5,
+            15.5,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            14.5,
+            15.5,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "west": {
+          "uv": [
+            1,
+            14.5,
+            15.5,
+            16
+          ],
+          "texture": "#chrome"
+        },
+        "east": {
+          "uv": [
+            0.5,
+            14.5,
+            15,
+            16
+          ],
+          "texture": "#chrome"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        1.5,
+        1
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            15
+          ],
+          "texture": "#shell"
+        },
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            14.5
+          ],
+          "texture": "#shell"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            14.5
+          ],
+          "texture": "#shell",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            1,
+            0,
+            16,
+            14.5
+          ],
+          "texture": "#shell",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            15,
+            14.5
+          ],
+          "texture": "#shell",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        0.5,
+        1.5,
+        0.5
+      ],
+      "to": [
+        7.9,
+        16,
+        1
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0.5,
+            15,
+            7.9,
+            15.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "north": {
+          "uv": [
+            8.1,
+            0,
+            15.5,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            0.5,
+            0,
+            7.9,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            0.5,
+            0,
+            1,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            15,
+            0,
+            15.5,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "from": [
+        8.1,
+        1.5,
+        0.5
+      ],
+      "to": [
+        15.5,
+        16,
+        1
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            8.1,
+            15,
+            15.5,
+            15.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "north": {
+          "uv": [
+            0.5,
+            0,
+            7.9,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            8.1,
+            0,
+            15.5,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            0.5,
+            0,
+            1,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            15,
+            0,
+            15.5,
+            14.5
+          ],
+          "texture": "#planks",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "from": [
+        7.9,
+        1.5,
+        0.6
+      ],
+      "to": [
+        8.1,
+        16,
+        1
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            7.9,
+            15,
+            8.1,
+            15.4
+          ],
+          "texture": "#glow"
+        },
+        "north": {
+          "uv": [
+            7.9,
+            0,
+            8.1,
+            14.5
+          ],
+          "texture": "#glow"
+        },
+        "south": {
+          "uv": [
+            7.9,
+            0,
+            8.1,
+            14.5
+          ],
+          "texture": "#glow"
+        },
+        "west": {
+          "uv": [
+            0.6,
+            0,
+            1,
+            14.5
+          ],
+          "texture": "#glow"
+        },
+        "east": {
+          "uv": [
+            15,
+            0,
+            15.4,
+            14.5
+          ],
+          "texture": "#glow"
+        }
+      },
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  ]
+}

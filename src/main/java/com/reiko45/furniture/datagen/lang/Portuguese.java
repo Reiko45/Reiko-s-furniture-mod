@@ -21,7 +21,11 @@ public class Portuguese extends RomanceGrammar {
             Style.RUSTIC, new String[] {"Rústico", "Rústica"},
             Style.MODERN, new String[] {"Moderno", "Moderna"},
             Style.ROYAL, new String[] {"Real", "Real"},
-            Style.JAPANESE, new String[] {"Japonês", "Japonesa"}));
+            Style.JAPANESE, new String[] {"Japonês", "Japonesa"},
+            Style.MEDIEVAL, new String[] {"Medieval", "Medieval"},
+            Style.VICTORIAN, new String[] {"Vitoriano", "Vitoriana"},
+            Style.FUTURISTIC, new String[] {"Futurista", "Futurista"},
+            Style.BEACH, new String[] {"Praiano", "Praiana"}));
 
     public Portuguese() {
         noun("bar_counter", "Balcão de Bar", M);
@@ -198,7 +202,7 @@ public class Portuguese extends RomanceGrammar {
         text(adv + "a_matter_of_style.title", "Questão de Estilo");
         text(adv + "a_matter_of_style.description", "Faça um móvel de um estilo");
         text(adv + "style_icon.title", "Ícone de Estilo");
-        text(adv + "style_icon.description", "Tenha um móvel de cada estilo: Rústico, Moderno, Real e Japonês");
+        text(adv + "style_icon.description", "Tenha um móvel de cada um dos oito estilos");
         text(adv + "tickling_the_ivories.title", "Ao Piano");
         text(adv + "tickling_the_ivories.description", "Toque uma nota em um piano");
         text(adv + "bullseye.title", "Na Mosca!");
@@ -350,6 +354,10 @@ public class Portuguese extends RomanceGrammar {
         text("style.reikos_furniture.modern", "Estilo Moderno");
         text("style.reikos_furniture.royal", "Estilo Real");
         text("style.reikos_furniture.japanese", "Estilo Japonês");
+        text("style.reikos_furniture.medieval", "Estilo Medieval");
+        text("style.reikos_furniture.victorian", "Estilo Vitoriano");
+        text("style.reikos_furniture.futuristic", "Estilo Futurista");
+        text("style.reikos_furniture.beach", "Estilo Casa de Praia");
 
         String sub = "subtitles.reikos_furniture.";
         text(sub + "arcade_blip", "Fliperama apita");

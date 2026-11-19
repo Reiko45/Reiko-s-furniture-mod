@@ -21,7 +21,11 @@ public class French extends RomanceGrammar {
             Style.RUSTIC, new String[] {"rustique", "rustique"},
             Style.MODERN, new String[] {"moderne", "moderne"},
             Style.ROYAL, new String[] {"royal", "royale"},
-            Style.JAPANESE, new String[] {"japonais", "japonaise"}));
+            Style.JAPANESE, new String[] {"japonais", "japonaise"},
+            Style.MEDIEVAL, new String[] {"médiéval", "médiévale"},
+            Style.VICTORIAN, new String[] {"victorien", "victorienne"},
+            Style.FUTURISTIC, new String[] {"futuriste", "futuriste"},
+            Style.BEACH, new String[] {"balnéaire", "balnéaire"}));
 
     public French() {
         noun("bar_counter", "Comptoir de bar", M);
@@ -198,7 +202,7 @@ public class French extends RomanceGrammar {
         text(adv + "a_matter_of_style.title", "Une question de style");
         text(adv + "a_matter_of_style.description", "Fabriquez un meuble d'un style");
         text(adv + "style_icon.title", "Icône de style");
-        text(adv + "style_icon.description", "Possédez un meuble de chaque style : rustique, moderne, royal et japonais");
+        text(adv + "style_icon.description", "Possédez un meuble de chacun des huit styles");
         text(adv + "tickling_the_ivories.title", "Pianiste");
         text(adv + "tickling_the_ivories.description", "Jouez une note sur un piano");
         text(adv + "bullseye.title", "Dans le mille !");
@@ -350,6 +354,10 @@ public class French extends RomanceGrammar {
         text("style.reikos_furniture.modern", "Style moderne");
         text("style.reikos_furniture.royal", "Style royal");
         text("style.reikos_furniture.japanese", "Style japonais");
+        text("style.reikos_furniture.medieval", "Style médiéval");
+        text("style.reikos_furniture.victorian", "Style victorien");
+        text("style.reikos_furniture.futuristic", "Style futuriste");
+        text("style.reikos_furniture.beach", "Style maison de plage");
 
         String sub = "subtitles.reikos_furniture.";
         text(sub + "arcade_blip", "Borne d'arcade bipe");

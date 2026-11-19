@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_classic": {
+      "conditions": {
+        "items": [
+          {
+            "items": "reikos_furniture:cherry_dresser"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "reikos_furniture:cherry_medieval_dresser"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_classic"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "reikos_furniture:cherry_medieval_dresser"
+    ]
+  }
+}

@@ -11,7 +11,11 @@ public enum Style {
     RUSTIC("rustic", "Rustic"),
     MODERN("modern", "Modern"),
     ROYAL("royal", "Royal"),
-    JAPANESE("japanese", "Japanese");
+    JAPANESE("japanese", "Japanese"),
+    MEDIEVAL("medieval", "Medieval"),
+    VICTORIAN("victorian", "Victorian"),
+    FUTURISTIC("futuristic", "Futuristic"),
+    BEACH("beach", "Beach House");
 
     private final String id;
     private final String displayName;

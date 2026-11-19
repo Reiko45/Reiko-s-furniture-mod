@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/style/beach/bunk_bed_lower_head",
+  "textures": {
+    "log": "minecraft:block/cherry_log",
+    "planks": "minecraft:block/cherry_planks",
+    "stripped_log": "minecraft:block/stripped_cherry_log",
+    "wool": "reikos_furniture:block/fabric/light_blue"
+  }
+}

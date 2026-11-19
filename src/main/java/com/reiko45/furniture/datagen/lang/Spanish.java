@@ -21,7 +21,11 @@ public class Spanish extends RomanceGrammar {
             Style.RUSTIC, new String[] {"rústico", "rústica"},
             Style.MODERN, new String[] {"moderno", "moderna"},
             Style.ROYAL, new String[] {"regio", "regia"},
-            Style.JAPANESE, new String[] {"japonés", "japonesa"}));
+            Style.JAPANESE, new String[] {"japonés", "japonesa"},
+            Style.MEDIEVAL, new String[] {"medieval", "medieval"},
+            Style.VICTORIAN, new String[] {"victoriano", "victoriana"},
+            Style.FUTURISTIC, new String[] {"futurista", "futurista"},
+            Style.BEACH, new String[] {"playero", "playera"}));
 
     public Spanish() {
         // Wooden pieces.
@@ -200,7 +204,7 @@ public class Spanish extends RomanceGrammar {
         text(adv + "a_matter_of_style.title", "Cuestión de estilo");
         text(adv + "a_matter_of_style.description", "Fabrica un mueble de un estilo");
         text(adv + "style_icon.title", "Icono de estilo");
-        text(adv + "style_icon.description", "Ten un mueble de cada estilo: rústico, moderno, regio y japonés");
+        text(adv + "style_icon.description", "Ten un mueble de cada uno de los ocho estilos");
         text(adv + "tickling_the_ivories.title", "Al piano");
         text(adv + "tickling_the_ivories.description", "Toca una nota en un piano");
         text(adv + "bullseye.title", "¡En el blanco!");
@@ -352,6 +356,10 @@ public class Spanish extends RomanceGrammar {
         text("style.reikos_furniture.modern", "Estilo moderno");
         text("style.reikos_furniture.royal", "Estilo regio");
         text("style.reikos_furniture.japanese", "Estilo japonés");
+        text("style.reikos_furniture.medieval", "Estilo medieval");
+        text("style.reikos_furniture.victorian", "Estilo victoriano");
+        text("style.reikos_furniture.futuristic", "Estilo futurista");
+        text("style.reikos_furniture.beach", "Estilo casa de playa");
 
         String sub = "subtitles.reikos_furniture.";
         text(sub + "arcade_blip", "Máquina recreativa pita");

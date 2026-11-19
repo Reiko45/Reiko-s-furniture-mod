@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/style/beach/sofa_arm_left",
+  "textures": {
+    "stripes": "reikos_furniture:block/fabric/striped/purple",
+    "wool": "reikos_furniture:block/fabric/purple"
+  }
+}

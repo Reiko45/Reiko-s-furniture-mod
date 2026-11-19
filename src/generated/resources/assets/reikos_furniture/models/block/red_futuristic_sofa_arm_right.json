@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/style/futuristic/sofa_arm_right",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/red"
+  }
+}

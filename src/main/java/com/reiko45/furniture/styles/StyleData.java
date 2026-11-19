@@ -1,5 +1,6 @@
 package com.reiko45.furniture.styles;
 
+import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.bedroom.BedroomData;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.ColorSet;
@@ -16,9 +17,11 @@ import com.reiko45.furniture.kids.KidsFurniture;
 import com.reiko45.furniture.livingroom.LivingRoomData;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import java.util.function.BiConsumer;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.DyeColor;
@@ -29,7 +32,8 @@ import net.minecraft.world.level.ItemLike;
 
 /**
  * Models, recipes and names for the style pieces. Each one is crafted from the classic piece plus the
- * style's material: any log (Rustic), an iron nugget (Modern), a gold nugget (Royal) or bamboo (Japanese).
+ * style's material: any log (Rustic), an iron nugget (Modern), a gold nugget (Royal), bamboo (Japanese),
+ * iron bars (Medieval), any candle (Victorian), glowstone dust (Futuristic) or sand (Beach House).
  */
 public class StyleData implements RoomData {
     /** The extra ingredient that turns a classic piece into a style piece. */
@@ -39,6 +43,10 @@ public class StyleData implements RoomData {
             case MODERN -> Ingredient.of(Items.IRON_NUGGET);
             case ROYAL -> Ingredient.of(Items.GOLD_NUGGET);
             case JAPANESE -> Ingredient.of(Items.BAMBOO);
+            case MEDIEVAL -> Ingredient.of(Items.IRON_BARS);
+            case VICTORIAN -> Ingredient.of(ItemTags.CANDLES);
+            case FUTURISTIC -> Ingredient.of(Items.GLOWSTONE_DUST);
+            case BEACH -> Ingredient.of(Items.SAND, Items.RED_SAND);
         };
     }
 
@@ -58,6 +66,23 @@ public class StyleData implements RoomData {
                 models.woolItem(pieces.sofa(), color, "sofa_item");
             }
             models.colorFacing(pieces.armchair(), "armchair");
+            if (pieces.style() == Style.BEACH) {
+                stripes(models, pieces);
+            }
+        }
+    }
+
+    /** Beach house cushions are striped in the piece's color, white in between. */
+    private static void stripes(FurnitureBlockStateProvider models, StyleFurniture.Pieces pieces) {
+        for (DyeColor color : DyeColor.values()) {
+            ResourceLocation striped = ReikosFurniture.id("block/fabric/striped/" + color.getName());
+            String sofa = BuiltInRegistries.BLOCK.getKey(pieces.sofa().get(color).get()).getPath();
+            for (String part : new String[] {"_base", "_arm_left", "_arm_right", "_corner_left", "_corner_right"}) {
+                models.models().getBuilder(sofa + part).texture("stripes", striped);
+            }
+            models.itemModels().getBuilder(sofa).texture("stripes", striped);
+            models.models().getBuilder(BuiltInRegistries.BLOCK.getKey(pieces.armchair().get(color).get()).getPath())
+                    .texture("stripes", striped);
         }
     }
 

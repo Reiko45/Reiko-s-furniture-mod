@@ -1,0 +1,9 @@
+{
+  "parent": "reikos_furniture:block/template/style/medieval/bunk_bed_top_foot",
+  "textures": {
+    "log": "minecraft:block/dark_oak_log",
+    "planks": "minecraft:block/dark_oak_planks",
+    "stripped_log": "minecraft:block/stripped_dark_oak_log",
+    "wool": "reikos_furniture:block/fabric/magenta"
+  }
+}

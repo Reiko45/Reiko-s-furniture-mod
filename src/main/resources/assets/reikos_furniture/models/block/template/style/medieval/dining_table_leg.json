@@ -1,0 +1,226 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#planks",
+    "iron": "reikos_furniture:block/style/wrought_iron"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        0.5
+      ],
+      "to": [
+        4.5,
+        1.5,
+        5
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1,
+            11,
+            4.5,
+            15.5
+          ],
+          "texture": "#stripped_log",
+          "cullface": "down",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            1,
+            0.5,
+            4.5,
+            5
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "north": {
+          "uv": [
+            11.5,
+            14.5,
+            15,
+            16
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            1,
+            14.5,
+            4.5,
+            16
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            0.5,
+            14.5,
+            5,
+            16
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            11,
+            14.5,
+            15.5,
+            16
+          ],
+          "texture": "#stripped_log",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "from": [
+        1.75,
+        1.5,
+        1.75
+      ],
+      "to": [
+        3.75,
+        13,
+        3.75
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1.75,
+            12.25,
+            3.75,
+            14.25
+          ],
+          "texture": "#log",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            1.75,
+            1.75,
+            3.75,
+            3.75
+          ],
+          "texture": "#log",
+          "tintindex": 1
+        },
+        "north": {
+          "uv": [
+            12.25,
+            3,
+            14.25,
+            14.5
+          ],
+          "texture": "#log",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            1.75,
+            3,
+            3.75,
+            14.5
+          ],
+          "texture": "#log",
+          "tintindex": 1
+        },
+        "west": {
+          "uv": [
+            1.75,
+            3,
+            3.75,
+            14.5
+          ],
+          "texture": "#log",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            12.25,
+            3,
+            14.25,
+            14.5
+          ],
+          "texture": "#log",
+          "tintindex": 1
+        }
+      }
+    },
+    {
+      "from": [
+        1.5,
+        11,
+        1.5
+      ],
+      "to": [
+        4,
+        12,
+        4
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            1.5,
+            12,
+            4,
+            14.5
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            1.5,
+            1.5,
+            4,
+            4
+          ],
+          "texture": "#iron"
+        },
+        "north": {
+          "uv": [
+            12,
+            4,
+            14.5,
+            5
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            4,
+            4,
+            5
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            1.5,
+            4,
+            4,
+            5
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            14.5,
+            5
+          ],
+          "texture": "#iron"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#wool",
+    "frame": "minecraft:block/white_concrete",
+    "chrome": "reikos_furniture:block/style/chrome",
+    "glow": "reikos_furniture:block/style/glow_strip"
+  },
+  "elements": [
+    {
+      "from": [
+        14,
+        4,
+        1
+      ],
+      "to": [
+        16,
+        9,
+        12
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            14,
+            4,
+            16,
+            15
+          ],
+          "texture": "#frame"
+        },
+        "up": {
+          "uv": [
+            14,
+            1,
+            16,
+            12
+          ],
+          "texture": "#frame"
+        },
+        "north": {
+          "uv": [
+            0,
+            7,
+            2,
+            12
+          ],
+          "texture": "#frame"
+        },
+        "south": {
+          "uv": [
+            14,
+            7,
+            16,
+            12
+          ],
+          "texture": "#frame"
+        },
+        "west": {
+          "uv": [
+            1,
+            7,
+            12,
+            12
+          ],
+          "texture": "#frame"
+        },
+        "east": {
+          "uv": [
+            4,
+            7,
+            15,
+            12
+          ],
+          "texture": "#frame",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

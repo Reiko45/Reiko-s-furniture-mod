@@ -1,11 +1,41 @@
 {
   "parent": "reikos_furniture:a_matter_of_style",
   "criteria": {
+    "beach": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:styles/beach"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "futuristic": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:styles/futuristic"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "japanese": {
       "conditions": {
         "items": [
           {
             "items": "#reikos_furniture:styles/japanese"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "medieval": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:styles/medieval"
           }
         ]
       },
@@ -40,6 +70,16 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "victorian": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:styles/victorian"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {
@@ -67,6 +107,18 @@
     ],
     [
       "japanese"
+    ],
+    [
+      "medieval"
+    ],
+    [
+      "victorian"
+    ],
+    [
+      "futuristic"
+    ],
+    [
+      "beach"
     ]
   ],
   "sends_telemetry_event": true

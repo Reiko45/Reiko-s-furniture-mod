@@ -1,0 +1,7 @@
+{
+  "parent": "reikos_furniture:block/template/style/beach/sofa_base",
+  "textures": {
+    "stripes": "reikos_furniture:block/fabric/striped/magenta",
+    "wool": "reikos_furniture:block/fabric/magenta"
+  }
+}

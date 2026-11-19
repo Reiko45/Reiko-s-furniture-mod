@@ -30,7 +30,11 @@ public class German extends Grammar {
             Style.RUSTIC, new String[] {"Rustikaler", "Rustikale", "Rustikales"},
             Style.MODERN, new String[] {"Moderner", "Moderne", "Modernes"},
             Style.ROYAL, new String[] {"Königlicher", "Königliche", "Königliches"},
-            Style.JAPANESE, new String[] {"Japanischer", "Japanische", "Japanisches"}));
+            Style.JAPANESE, new String[] {"Japanischer", "Japanische", "Japanisches"},
+            Style.MEDIEVAL, new String[] {"Mittelalterlicher", "Mittelalterliche", "Mittelalterliches"},
+            Style.VICTORIAN, new String[] {"Viktorianischer", "Viktorianische", "Viktorianisches"},
+            Style.FUTURISTIC, new String[] {"Futuristischer", "Futuristische", "Futuristisches"},
+            Style.BEACH, new String[] {"Maritimer", "Maritime", "Maritimes"}));
 
     public German() {
         noun("bar_counter", "Bartheke", F);
@@ -207,7 +211,7 @@ public class German extends Grammar {
         text(adv + "a_matter_of_style.title", "Eine Frage des Stils");
         text(adv + "a_matter_of_style.description", "Stelle ein Möbelstück in einem Stil her");
         text(adv + "style_icon.title", "Stilikone");
-        text(adv + "style_icon.description", "Besitze ein Stück in jedem Stil: rustikal, modern, königlich und japanisch");
+        text(adv + "style_icon.description", "Besitze ein Stück in jedem der acht Stile");
         text(adv + "tickling_the_ivories.title", "In die Tasten");
         text(adv + "tickling_the_ivories.description", "Spiele eine Note auf einem Klavier");
         text(adv + "bullseye.title", "Volltreffer!");
@@ -359,6 +363,10 @@ public class German extends Grammar {
         text("style.reikos_furniture.modern", "Moderner Stil");
         text("style.reikos_furniture.royal", "Königlicher Stil");
         text("style.reikos_furniture.japanese", "Japanischer Stil");
+        text("style.reikos_furniture.medieval", "Mittelalterlicher Stil");
+        text("style.reikos_furniture.victorian", "Viktorianischer Stil");
+        text("style.reikos_furniture.futuristic", "Futuristischer Stil");
+        text("style.reikos_furniture.beach", "Strandhaus-Stil");
 
         String sub = "subtitles.reikos_furniture.";
         text(sub + "arcade_blip", "Spielautomat piept");

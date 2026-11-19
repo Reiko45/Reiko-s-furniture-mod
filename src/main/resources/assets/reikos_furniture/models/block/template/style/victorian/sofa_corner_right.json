@@ -1,0 +1,80 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "#wool",
+    "frame": "minecraft:block/dark_oak_planks",
+    "brass": "minecraft:block/gold_block"
+  },
+  "elements": [
+    {
+      "from": [
+        11.5,
+        7.5,
+        0
+      ],
+      "to": [
+        16,
+        14,
+        12
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            11.5,
+            4,
+            16,
+            16
+          ],
+          "texture": "#wool"
+        },
+        "up": {
+          "uv": [
+            11.5,
+            0,
+            16,
+            12
+          ],
+          "texture": "#wool"
+        },
+        "north": {
+          "uv": [
+            0,
+            2,
+            4.5,
+            8.5
+          ],
+          "texture": "#wool",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            11.5,
+            2,
+            16,
+            8.5
+          ],
+          "texture": "#wool"
+        },
+        "west": {
+          "uv": [
+            0,
+            2,
+            12,
+            8.5
+          ],
+          "texture": "#wool"
+        },
+        "east": {
+          "uv": [
+            4,
+            2,
+            16,
+            8.5
+          ],
+          "texture": "#wool",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

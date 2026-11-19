@@ -130,6 +130,18 @@ public final class Repaint {
         if (stack.is(Items.BAMBOO)) {
             return Style.JAPANESE;
         }
+        if (stack.is(Items.IRON_BARS)) {
+            return Style.MEDIEVAL;
+        }
+        if (stack.is(ItemTags.CANDLES)) {
+            return Style.VICTORIAN;
+        }
+        if (stack.is(Items.GLOWSTONE_DUST)) {
+            return Style.FUTURISTIC;
+        }
+        if (stack.is(Items.SAND) || stack.is(Items.RED_SAND)) {
+            return Style.BEACH;
+        }
         return null;
     }
 
