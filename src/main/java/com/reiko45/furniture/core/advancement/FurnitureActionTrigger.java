@@ -40,6 +40,7 @@ public class FurnitureActionTrigger extends SimpleCriterionTrigger<FurnitureActi
     public static final String GREEN_THUMB = "green_thumb";
     public static final String MOVIE_NIGHT = "movie_night";
     public static final String THE_ARTIST = "the_artist";
+    public static final String DECK_THE_HALLS = "deck_the_halls";
 
     @Override
     public Codec<TriggerInstance> codec() {

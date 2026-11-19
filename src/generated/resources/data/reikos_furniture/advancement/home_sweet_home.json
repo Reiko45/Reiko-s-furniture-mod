@@ -81,6 +81,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "holiday": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#reikos_furniture:rooms/holiday"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "kids": {
       "conditions": {
         "items": [
@@ -275,6 +285,9 @@
     ],
     [
       "studio"
+    ],
+    [
+      "holiday"
     ]
   ],
   "rewards": {

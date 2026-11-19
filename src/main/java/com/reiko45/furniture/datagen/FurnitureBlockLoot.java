@@ -10,7 +10,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import com.reiko45.furniture.core.lighting.LightSwitchBlock;
 import com.reiko45.furniture.core.registry.ModDataComponents;
+import com.reiko45.furniture.holiday.PresentBlock;
 import com.reiko45.furniture.studio.CanvasBlock;
+import net.minecraft.core.component.DataComponents;
 import com.reiko45.furniture.theater.ProjectorScreenBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -39,6 +41,13 @@ public class FurnitureBlockLoot extends BlockLootSubProvider {
                         .setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(block).apply(CopyComponentsFunction.copyComponents(
                                 CopyComponentsFunction.Source.BLOCK_ENTITY).include(ModDataComponents.LINKED_LAMPS.get()))))));
+            } else if (block instanceof PresentBlock) {
+                // Presents keep what is inside, like shulker boxes.
+                add(block, LootTable.lootTable().withPool(applyExplosionCondition(block, LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block).apply(CopyComponentsFunction.copyComponents(
+                                CopyComponentsFunction.Source.BLOCK_ENTITY).include(DataComponents.CONTAINER)
+                                .include(DataComponents.CUSTOM_NAME))))));
             } else if (block instanceof CanvasBlock) {
                 // The canvas keeps its painting.
                 add(block, LootTable.lootTable().withPool(applyExplosionCondition(block, LootPool.lootPool()

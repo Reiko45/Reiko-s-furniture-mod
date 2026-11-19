@@ -1,0 +1,8 @@
+{
+  "parent": "reikos_furniture:block/template/holiday/string_lights_ceiling_on",
+  "textures": {
+    "b1": "reikos_furniture:block/holiday/bulb_warm",
+    "b2": "reikos_furniture:block/holiday/bulb_warm",
+    "b3": "reikos_furniture:block/holiday/bulb_warm"
+  }
+}

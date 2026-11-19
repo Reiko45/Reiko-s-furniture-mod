@@ -97,6 +97,8 @@ public class Portuguese extends RomanceGrammar {
         noun("vase", "Vaso Decorativo", M);
         noun("floor_cushion", "Almofada de Chão", F);
         noun("paint_pots", "Tinta", F);
+        noun("present", "Presente", M);
+        noun("stocking", "Meia de Natal", F);
         noun("mailbox", "Caixa de Correio", F);
         noun("armchair", "Poltrona", F);
         noun("baby_mobile", "Móbile", M);
@@ -116,6 +118,16 @@ public class Portuguese extends RomanceGrammar {
         noun("wallpaper", "Papel de Parede", M);
 
         single("light_switch", "Interruptor de Luz");
+        single("christmas_tree", "Árvore de Natal");
+        single("warm_string_lights", "Pisca-Pisca Branco Quente");
+        single("colorful_string_lights", "Pisca-Pisca Colorido");
+        single("wreath", "Guirlanda de Natal");
+        single("snow_globe", "Globo de Neve");
+        single("gravestone", "Lápide");
+        single("fake_cobweb", "Teia de Aranha Falsa");
+        single("hanging_bats", "Morcegos Pendurados");
+        single("candy_bowl", "Pote de Doces");
+        single("witch_cauldron", "Caldeirão de Bruxa");
         single("canvas", "Tela de Pintura");
         single("pottery_wheel", "Torno de Oleiro");
         single("terracotta_vase", "Vaso Decorativo de Terracota");
@@ -255,6 +267,7 @@ public class Portuguese extends RomanceGrammar {
         text(item + "watering_can.tooltip", "Clique com o botão direito na água, numa pia ou numa banheira para enchê-lo e depois em plantas para regá-las (3×3)");
         text("message.reikos_furniture.watering_can_empty", "O regador está vazio");
         text("message.reikos_furniture.projector_no_screen", "Não há tela de projeção na frente da lente");
+        text("block.reikos_furniture.present.full", "Tem algo dentro...");
         text("container.reikos_furniture.easel", "Pintura");
         text("container.reikos_furniture.easel.sign", "Assinar");
         text("container.reikos_furniture.easel.title", "Título");
@@ -332,6 +345,7 @@ public class Portuguese extends RomanceGrammar {
         text(room + "greenhouse", "Estufa e Jardim");
         text(room + "theater", "Cinema em Casa");
         text(room + "studio", "Ateliê de Arte");
+        text(room + "holiday", "Festas");
         text("style.reikos_furniture.rustic", "Estilo Rústico");
         text("style.reikos_furniture.modern", "Estilo Moderno");
         text("style.reikos_furniture.royal", "Estilo Real");

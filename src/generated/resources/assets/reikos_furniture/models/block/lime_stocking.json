@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/holiday/stocking",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/lime"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "reikos_furniture:block/template/holiday/present",
+  "textures": {
+    "wool": "reikos_furniture:block/fabric/white"
+  }
+}

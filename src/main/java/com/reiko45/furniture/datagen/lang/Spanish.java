@@ -99,6 +99,8 @@ public class Spanish extends RomanceGrammar {
         noun("vase", "Jarrón", M);
         noun("floor_cushion", "Cojín de suelo", M);
         noun("paint_pots", "Pintura", F);
+        noun("present", "Regalo", M);
+        noun("stocking", "Calcetín navideño", M);
         noun("mailbox", "Buzón", M);
         noun("armchair", "Sillón", M);
         noun("baby_mobile", "Móvil de cuna", M);
@@ -118,6 +120,16 @@ public class Spanish extends RomanceGrammar {
         noun("wallpaper", "Papel pintado", M);
 
         single("light_switch", "Interruptor de luz");
+        single("christmas_tree", "Árbol de Navidad");
+        single("warm_string_lights", "Guirnalda de luces cálidas");
+        single("colorful_string_lights", "Guirnalda de luces de colores");
+        single("wreath", "Corona navideña");
+        single("snow_globe", "Bola de nieve");
+        single("gravestone", "Lápida");
+        single("fake_cobweb", "Telaraña falsa");
+        single("hanging_bats", "Murciélagos colgantes");
+        single("candy_bowl", "Cuenco de caramelos");
+        single("witch_cauldron", "Caldero de bruja");
         single("canvas", "Lienzo");
         single("pottery_wheel", "Torno de alfarero");
         single("terracotta_vase", "Jarrón de terracota");
@@ -257,6 +269,7 @@ public class Spanish extends RomanceGrammar {
         text(item + "watering_can.tooltip", "Haz clic derecho en agua, un fregadero o una bañera para llenarla y luego en plantas para regarlas (3×3)");
         text("message.reikos_furniture.watering_can_empty", "La regadera está vacía");
         text("message.reikos_furniture.projector_no_screen", "No hay ninguna pantalla de proyección delante del objetivo");
+        text("block.reikos_furniture.present.full", "Hay algo dentro...");
         text("container.reikos_furniture.easel", "Pintura");
         text("container.reikos_furniture.easel.sign", "Firmar");
         text("container.reikos_furniture.easel.title", "Título");
@@ -334,6 +347,7 @@ public class Spanish extends RomanceGrammar {
         text(room + "greenhouse", "Invernadero y jardín");
         text(room + "theater", "Cine en casa");
         text(room + "studio", "Taller de arte");
+        text(room + "holiday", "Fiestas");
         text("style.reikos_furniture.rustic", "Estilo rústico");
         text("style.reikos_furniture.modern", "Estilo moderno");
         text("style.reikos_furniture.royal", "Estilo regio");

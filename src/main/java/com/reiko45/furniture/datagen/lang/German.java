@@ -106,6 +106,8 @@ public class German extends Grammar {
         noun("vase", "Vase", F);
         noun("floor_cushion", "Sitzkissen", N);
         noun("paint_pots", "Farbeimer", M);
+        noun("present", "Geschenk", N);
+        noun("stocking", "Nikolausstiefel", M);
         noun("mailbox", "Briefkasten", M);
         noun("armchair", "Sessel", M);
         noun("baby_mobile", "Mobile", N);
@@ -125,6 +127,16 @@ public class German extends Grammar {
         noun("wallpaper", "Tapete", F);
 
         single("light_switch", "Lichtschalter");
+        single("christmas_tree", "Weihnachtsbaum");
+        single("warm_string_lights", "Lichterkette (warmweiß)");
+        single("colorful_string_lights", "Bunte Lichterkette");
+        single("wreath", "Türkranz");
+        single("snow_globe", "Schneekugel");
+        single("gravestone", "Grabstein");
+        single("fake_cobweb", "Falsches Spinnennetz");
+        single("hanging_bats", "Hängende Fledermäuse");
+        single("candy_bowl", "Süßigkeitenschale");
+        single("witch_cauldron", "Hexenkessel");
         single("canvas", "Leinwand");
         single("pottery_wheel", "Töpferscheibe");
         single("terracotta_vase", "Terrakottavase");
@@ -264,6 +276,7 @@ public class German extends Grammar {
         text(item + "watering_can.tooltip", "Rechtsklick auf Wasser, ein Spülbecken oder eine Badewanne füllt sie, dann auf Pflanzen, um sie zu gießen (3×3)");
         text("message.reikos_furniture.watering_can_empty", "Die Gießkanne ist leer");
         text("message.reikos_furniture.projector_no_screen", "Vor dem Objektiv ist keine Projektionsleinwand");
+        text("block.reikos_furniture.present.full", "Da ist etwas drin...");
         text("container.reikos_furniture.easel", "Gemälde");
         text("container.reikos_furniture.easel.sign", "Signieren");
         text("container.reikos_furniture.easel.title", "Titel");
@@ -341,6 +354,7 @@ public class German extends Grammar {
         text(room + "greenhouse", "Gewächshaus & Garten");
         text(room + "theater", "Heimkino");
         text(room + "studio", "Kunstatelier");
+        text(room + "holiday", "Feiertage");
         text("style.reikos_furniture.rustic", "Rustikaler Stil");
         text("style.reikos_furniture.modern", "Moderner Stil");
         text("style.reikos_furniture.royal", "Königlicher Stil");

@@ -96,9 +96,16 @@ public class FurnitureStorageBlock extends FurnitureBlock implements EntityBlock
         }
     }
 
+    /** Whether the contents spill out when it is broken. Presents keep them inside instead, like shulker boxes. */
+    protected boolean dropsContents() {
+        return true;
+    }
+
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        Containers.dropContentsOnDestroy(state, newState, level, pos);
+        if (dropsContents()) {
+            Containers.dropContentsOnDestroy(state, newState, level, pos);
+        }
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
 

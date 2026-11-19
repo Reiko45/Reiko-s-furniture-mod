@@ -1,0 +1,8 @@
+{
+  "parent": "reikos_furniture:block/template/holiday/string_lights_wall_on",
+  "textures": {
+    "b1": "minecraft:block/red_concrete",
+    "b2": "minecraft:block/lime_concrete",
+    "b3": "minecraft:block/light_blue_concrete"
+  }
+}

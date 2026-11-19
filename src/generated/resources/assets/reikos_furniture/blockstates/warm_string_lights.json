@@ -1,0 +1,348 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall"
+      },
+      "when": {
+        "face": "wall",
+        "facing": "north",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_wall_on"
+      },
+      "when": {
+        "face": "wall",
+        "facing": "north",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_west"
+      },
+      "when": {
+        "face": "wall",
+        "facing": "north",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_east"
+      },
+      "when": {
+        "east": "false",
+        "face": "wall",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall",
+        "y": 90
+      },
+      "when": {
+        "face": "wall",
+        "facing": "east",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_wall_on",
+        "y": 90
+      },
+      "when": {
+        "face": "wall",
+        "facing": "east",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_west",
+        "y": 90
+      },
+      "when": {
+        "face": "wall",
+        "facing": "east",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_east",
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "face": "wall",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall",
+        "y": 180
+      },
+      "when": {
+        "face": "wall",
+        "facing": "south",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_wall_on",
+        "y": 180
+      },
+      "when": {
+        "face": "wall",
+        "facing": "south",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_west",
+        "y": 180
+      },
+      "when": {
+        "face": "wall",
+        "facing": "south",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_east",
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "face": "wall",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall",
+        "y": 270
+      },
+      "when": {
+        "face": "wall",
+        "facing": "west",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_wall_on",
+        "y": 270
+      },
+      "when": {
+        "face": "wall",
+        "facing": "west",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_west",
+        "y": 270
+      },
+      "when": {
+        "face": "wall",
+        "facing": "west",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_wall_hook_east",
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "face": "wall",
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling"
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "north",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_ceiling_on"
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "north",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_west"
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "north",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_east"
+      },
+      "when": {
+        "east": "false",
+        "face": "ceiling",
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling",
+        "y": 90
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "east",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_ceiling_on",
+        "y": 90
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "east",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_west",
+        "y": 90
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "east",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_east",
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "face": "ceiling",
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling",
+        "y": 180
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "south",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_ceiling_on",
+        "y": 180
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "south",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_west",
+        "y": 180
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "south",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_east",
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "face": "ceiling",
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling",
+        "y": 270
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "west",
+        "lit": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/warm_string_lights_ceiling_on",
+        "y": 270
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "west",
+        "lit": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_west",
+        "y": 270
+      },
+      "when": {
+        "face": "ceiling",
+        "facing": "west",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "reikos_furniture:block/template/holiday/string_lights_ceiling_hook_east",
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "face": "ceiling",
+        "facing": "west"
+      }
+    }
+  ]
+}

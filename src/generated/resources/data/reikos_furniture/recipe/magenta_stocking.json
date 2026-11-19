@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:white_carpet"
+    },
+    "W": {
+      "item": "minecraft:magenta_wool"
+    }
+  },
+  "pattern": [
+    "C ",
+    "W ",
+    "WW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:magenta_stocking"
+  }
+}

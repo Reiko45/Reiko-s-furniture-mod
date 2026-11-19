@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "tag": "minecraft:leaves"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "L L",
+    "LRL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "reikos_furniture:wreath"
+  }
+}

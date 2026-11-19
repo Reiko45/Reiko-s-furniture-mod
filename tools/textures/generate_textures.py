@@ -1181,6 +1181,40 @@ def canvas_linen():
     save(img, "block/canvas.png")
 
 
+def holiday_lights():
+    """Lights wound round the Christmas tree (lit: four twinkling frames; unlit), and a warm white bulb."""
+    rnd = random.Random("tree lights")
+    dots = [(rnd.randrange(16), rnd.randrange(16)) for _ in range(14)]
+    colors = [(0xFF, 0x40, 0x40), (0xFF, 0xD8, 0x40), (0x50, 0x90, 0xFF), (0x60, 0xE0, 0x60)]
+    dull = [(0x80, 0x30, 0x30), (0x80, 0x70, 0x30), (0x30, 0x48, 0x80), (0x30, 0x70, 0x30)]
+
+    def lights(frame, palette, twinkle):
+        img = Image.new("RGBA", (16, 16), (0, 0, 0, 0))
+        px = img.load()
+        for i, (x, y) in enumerate(dots):
+            c = palette[(i + frame) % 4]
+            if twinkle and (i + frame) % 3 == 0:
+                c = shade(c, 0.6)
+            px[x, y] = c + (255,)
+        # a few gold baubles that don't change
+        for x, y in ((3, 9), (12, 4), (8, 13)):
+            px[x, y] = (0xE8, 0xC0, 0x40, 255)
+        return img
+
+    sheet = Image.new("RGBA", (16, 64), (0, 0, 0, 0))
+    for f in range(4):
+        sheet.paste(lights(f, colors, True), (0, 16 * f))
+    save(sheet, "block/holiday/tree_lights.png", frametime=10)
+    save(lights(0, dull, False), "block/holiday/tree_lights_off.png")
+
+    img = new(color=(0xFF, 0xE8, 0xB0))
+    px = img.load()
+    for x in range(5, 11):
+        for y in range(5, 11):
+            px[x, y] = (0xFF, 0xF8, 0xE0, 255)
+    save(img, "block/holiday/bulb_warm.png")
+
+
 if __name__ == "__main__":
     catalog_item()
     style_textures()
@@ -1191,6 +1225,7 @@ if __name__ == "__main__":
     watering_can()
     theater()
     canvas_linen()
+    holiday_lights()
     window_glass()
     for name, rgb in DYES.items():
         wallpaper(name, rgb)

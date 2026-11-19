@@ -97,6 +97,8 @@ public class French extends RomanceGrammar {
         noun("vase", "Vase", M);
         noun("floor_cushion", "Coussin de sol", M);
         noun("paint_pots", "Peinture", F);
+        noun("present", "Cadeau", M);
+        noun("stocking", "Chaussette de Noël", F);
         noun("mailbox", "Boîte aux lettres", F);
         noun("armchair", "Fauteuil", M);
         noun("baby_mobile", "Mobile pour bébé", M);
@@ -116,6 +118,16 @@ public class French extends RomanceGrammar {
         noun("wallpaper", "Papier peint", M);
 
         single("light_switch", "Interrupteur");
+        single("christmas_tree", "Sapin de Noël");
+        single("warm_string_lights", "Guirlande lumineuse chaude");
+        single("colorful_string_lights", "Guirlande lumineuse multicolore");
+        single("wreath", "Couronne de Noël");
+        single("snow_globe", "Boule à neige");
+        single("gravestone", "Pierre tombale");
+        single("fake_cobweb", "Fausse toile d'araignée");
+        single("hanging_bats", "Chauves-souris suspendues");
+        single("candy_bowl", "Bol à bonbons");
+        single("witch_cauldron", "Chaudron de sorcière");
         single("canvas", "Toile");
         single("pottery_wheel", "Tour de potier");
         single("terracotta_vase", "Vase en terre cuite");
@@ -255,6 +267,7 @@ public class French extends RomanceGrammar {
         text(item + "watering_can.tooltip", "Clic droit sur de l'eau, un évier ou une baignoire pour le remplir, puis sur des plantes pour les arroser (3×3)");
         text("message.reikos_furniture.watering_can_empty", "L'arrosoir est vide");
         text("message.reikos_furniture.projector_no_screen", "Il n'y a pas d'écran de projection devant l'objectif");
+        text("block.reikos_furniture.present.full", "Il y a quelque chose dedans...");
         text("container.reikos_furniture.easel", "Peinture");
         text("container.reikos_furniture.easel.sign", "Signer");
         text("container.reikos_furniture.easel.title", "Titre");
@@ -332,6 +345,7 @@ public class French extends RomanceGrammar {
         text(room + "greenhouse", "Serre et jardin");
         text(room + "theater", "Home cinéma");
         text(room + "studio", "Atelier d'art");
+        text(room + "holiday", "Fêtes");
         text("style.reikos_furniture.rustic", "Style rustique");
         text("style.reikos_furniture.modern", "Style moderne");
         text("style.reikos_furniture.royal", "Style royal");

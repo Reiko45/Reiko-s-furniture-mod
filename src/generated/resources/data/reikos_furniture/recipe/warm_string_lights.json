@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "GGG"
+  ],
+  "result": {
+    "count": 4,
+    "id": "reikos_furniture:warm_string_lights"
+  }
+}

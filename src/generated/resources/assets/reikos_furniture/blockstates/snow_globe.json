@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reikos_furniture:block/template/holiday/snow_globe",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reikos_furniture:block/template/holiday/snow_globe"
+    },
+    "facing=south": {
+      "model": "reikos_furniture:block/template/holiday/snow_globe",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reikos_furniture:block/template/holiday/snow_globe",
+      "y": 270
+    }
+  }
+}
