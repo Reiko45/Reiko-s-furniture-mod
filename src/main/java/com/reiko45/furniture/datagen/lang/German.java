@@ -196,6 +196,9 @@ public class German extends Grammar {
         text("catalog.reikos_furniture.no_recipe", "Nicht herstellbar");
         text("catalog.reikos_furniture.pieces", "%s Möbelstücke");
         text("catalog.reikos_furniture.variants", "Variante %s von %s");
+        text("catalog.reikos_furniture.craft", "Herstellen");
+        text("catalog.reikos_furniture.craft_all", "Alles herstellen");
+        text("catalog.reikos_furniture.missing", "Dir fehlen die Materialien dafür");
         text("catalog.reikos_furniture.workbench", "Möbelwerkbank: %s Bretter");
 
         String config = "config.reikos_furniture.";

@@ -187,6 +187,9 @@ public class Portuguese extends RomanceGrammar {
         text("catalog.reikos_furniture.no_recipe", "Não pode ser fabricado");
         text("catalog.reikos_furniture.pieces", "%s móveis");
         text("catalog.reikos_furniture.variants", "Variante %s de %s");
+        text("catalog.reikos_furniture.craft", "Fabricar");
+        text("catalog.reikos_furniture.craft_all", "Fabricar Tudo");
+        text("catalog.reikos_furniture.missing", "Você não tem os materiais para isto");
         text("catalog.reikos_furniture.workbench", "Bancada de Marcenaria: %s tábuas");
 
         String config = "config.reikos_furniture.";

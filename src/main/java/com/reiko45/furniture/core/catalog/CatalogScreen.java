@@ -7,7 +7,11 @@ import com.reiko45.furniture.core.workbench.CarpentryRecipe;
 import com.reiko45.furniture.kitchen.appliance.ApplianceRecipe;
 import java.util.ArrayList;
 import java.util.List;
+import com.reiko45.furniture.core.network.ModNetwork;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -54,6 +58,9 @@ public class CatalogScreen extends Screen {
     @Nullable
     private CatalogEntries.Entry selected;
     private int variant;
+    private Button craftButton;
+    @Nullable
+    private ResourceLocation craftTarget;
 
     public CatalogScreen() {
         super(Component.translatable("item.reikos_furniture.furniture_catalog"));
@@ -84,8 +91,17 @@ public class CatalogScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
-        super.render(g, mouseX, mouseY, partialTick);
+    protected void init() {
+        super.init();
+        craftButton = addRenderableWidget(Button.builder(Component.translatable("catalog.reikos_furniture.craft"), button -> craft())
+                .bounds(detailX(), top() + HEIGHT - 24, left() + WIDTH - 6 - detailX(), 18).build());
+        craftButton.visible = false;
+    }
+
+    /** The book itself is drawn as the background, so the craft button shows on top of it. */
+    @Override
+    public void renderBackground(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
+        super.renderBackground(g, mouseX, mouseY, partialTick);
         int x = left();
         int y = top();
         g.fill(x - 4, y - 4, x + WIDTH + 4, y + HEIGHT + 4, COVER);
@@ -93,7 +109,12 @@ public class CatalogScreen extends Screen {
         g.fill(x + LIST_W + 6, y + 18, x + LIST_W + 7, y + HEIGHT - 6, PAPER_DARK);
         g.fill(detailX() - 4, y + 18, detailX() - 3, y + HEIGHT - 6, PAPER_DARK);
         g.drawString(font, title, x + (WIDTH - font.width(title)) / 2, y + 6, INK, false);
+    }
 
+    @Override
+    public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
+        updateCraftButton();
+        super.render(g, mouseX, mouseY, partialTick);
         renderSections(g, mouseX, mouseY);
         ItemStack hoveredItem = renderGrid(g, mouseX, mouseY);
         ItemStack hoveredRecipe = renderDetail(g, mouseX, mouseY);
@@ -101,6 +122,46 @@ public class CatalogScreen extends Screen {
             g.renderTooltip(font, hoveredItem, mouseX, mouseY);
         } else if (hoveredRecipe != null) {
             g.renderTooltip(font, hoveredRecipe, mouseX, mouseY);
+        } else if (craftButton.visible && !craftButton.active && craftButton.isHovered()) {
+            g.renderTooltip(font, Component.translatable("catalog.reikos_furniture.missing"), mouseX, mouseY);
+        }
+    }
+
+    /**
+     * The craft button uses the crafting recipe of the chosen piece, or its furniture workbench recipe,
+     * whichever the player has the materials for. Shift crafts as many as possible (up to a stack).
+     */
+    private void updateCraftButton() {
+        craftTarget = null;
+        craftButton.visible = false;
+        if (selected == null || minecraft == null || minecraft.player == null || minecraft.level == null) {
+            return;
+        }
+        ItemStack stack = selected.variants().get(variant % selected.variants().size());
+        List<RecipeHolder<?>> candidates = new ArrayList<>();
+        RecipeHolder<?> crafting = craftingHolder(stack);
+        if (crafting != null) {
+            candidates.add(crafting);
+        }
+        for (RecipeHolder<CarpentryRecipe> holder : minecraft.level.getRecipeManager().getAllRecipesFor(ModRecipes.CARPENTRY.get())) {
+            if (holder.value().result().is(stack.getItem())) {
+                candidates.add(holder);
+            }
+        }
+        if (candidates.isEmpty()) {
+            return;
+        }
+        RecipeHolder<?> usable = candidates.stream().filter(holder -> CatalogCrafting.canCraft(minecraft.player, holder.value()))
+                .findFirst().orElse(null);
+        craftTarget = usable != null ? usable.id() : candidates.get(0).id();
+        craftButton.visible = true;
+        craftButton.active = usable != null;
+        craftButton.setMessage(Component.translatable(hasShiftDown() ? "catalog.reikos_furniture.craft_all" : "catalog.reikos_furniture.craft"));
+    }
+
+    private void craft() {
+        if (craftTarget != null) {
+            PacketDistributor.sendToServer(new ModNetwork.CatalogCraft(craftTarget, hasShiftDown()));
         }
     }
 
@@ -242,6 +303,21 @@ public class CatalogScreen extends Screen {
     private record Recipe(List<Ingredient> grid, ItemStack result, @Nullable Component note) {
     }
 
+    /** The crafting table recipe that makes the item, if any. */
+    @Nullable
+    private RecipeHolder<CraftingRecipe> craftingHolder(ItemStack stack) {
+        if (minecraft == null || minecraft.level == null) {
+            return null;
+        }
+        RegistryAccess access = minecraft.level.registryAccess();
+        for (RecipeHolder<CraftingRecipe> holder : minecraft.level.getRecipeManager().getAllRecipesFor(RecipeType.CRAFTING)) {
+            if (!holder.value().isSpecial() && holder.value().getResultItem(access).is(stack.getItem())) {
+                return holder;
+            }
+        }
+        return null;
+    }
+
     @Nullable
     private Recipe recipeFor(ItemStack stack) {
         if (minecraft == null || minecraft.level == null) {
@@ -249,11 +325,9 @@ public class CatalogScreen extends Screen {
         }
         RecipeManager recipes = minecraft.level.getRecipeManager();
         RegistryAccess access = minecraft.level.registryAccess();
-        for (RecipeHolder<CraftingRecipe> holder : recipes.getAllRecipesFor(RecipeType.CRAFTING)) {
+        RecipeHolder<CraftingRecipe> holder = craftingHolder(stack);
+        if (holder != null) {
             CraftingRecipe recipe = holder.value();
-            if (recipe.isSpecial() || !recipe.getResultItem(access).is(stack.getItem())) {
-                continue;
-            }
             List<Ingredient> grid = emptyGrid();
             NonNullList<Ingredient> ingredients = recipe.getIngredients();
             if (recipe instanceof ShapedRecipe shaped) {
@@ -269,8 +343,8 @@ public class CatalogScreen extends Screen {
             }
             return new Recipe(grid, recipe.getResultItem(access), null);
         }
-        for (RecipeHolder<ApplianceRecipe> holder : recipes.getAllRecipesFor(ModRecipes.APPLIANCE.get())) {
-            ApplianceRecipe recipe = holder.value();
+        for (RecipeHolder<ApplianceRecipe> applianceRecipe : recipes.getAllRecipesFor(ModRecipes.APPLIANCE.get())) {
+            ApplianceRecipe recipe = applianceRecipe.value();
             if (recipe.result().is(stack.getItem())) {
                 List<Ingredient> grid = emptyGrid();
                 for (int i = 0; i < Math.min(9, recipe.ingredients().size()); i++) {

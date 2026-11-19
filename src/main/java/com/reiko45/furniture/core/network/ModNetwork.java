@@ -1,7 +1,9 @@
 package com.reiko45.furniture.core.network;
 
 import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.core.catalog.CatalogCrafting;
 import com.reiko45.furniture.core.mail.MailboxMenu;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -34,9 +36,28 @@ public final class ModNetwork {
         }
     }
 
+    /** Client to server: craft a piece from the catalog (once, or as many as possible). */
+    public record CatalogCraft(ResourceLocation recipe, boolean all) implements CustomPacketPayload {
+        public static final Type<CatalogCraft> TYPE = new Type<>(ReikosFurniture.id("catalog_craft"));
+        public static final StreamCodec<RegistryFriendlyByteBuf, CatalogCraft> STREAM_CODEC = StreamCodec.composite(
+                ResourceLocation.STREAM_CODEC, CatalogCraft::recipe, ByteBufCodecs.BOOL, CatalogCraft::all, CatalogCraft::new);
+
+        @Override
+        public Type<CatalogCraft> type() {
+            return TYPE;
+        }
+
+        static void handle(CatalogCraft message, IPayloadContext context) {
+            if (context.player() instanceof ServerPlayer player) {
+                CatalogCrafting.craft(player, message.recipe(), message.all());
+            }
+        }
+    }
+
     /** Mod bus listener. */
     public static void register(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
         registrar.playToServer(SendMail.TYPE, SendMail.STREAM_CODEC, SendMail::handle);
+        registrar.playToServer(CatalogCraft.TYPE, CatalogCraft.STREAM_CODEC, CatalogCraft::handle);
     }
 }

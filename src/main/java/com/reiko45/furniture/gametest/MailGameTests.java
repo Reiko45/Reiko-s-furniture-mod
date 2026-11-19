@@ -94,13 +94,17 @@ public class MailGameTests {
     @SuppressWarnings("removal") // a mock server player is needed to send by name
     public static void sendingByNameFromTheMailbox(GameTestHelper helper) {
         ServerPlayer player = helper.makeMockServerPlayerInLevel();
-        office(helper).addOwner(player.getUUID());
-        MailboxMenu menu = new MailboxMenu(1, player.getInventory(), true, player.getGameProfile().getName(),
+        // Every mock player has the same name, and other tests make them too: mail goes to whichever one
+        // the name finds, so that player gets the mailbox.
+        String name = player.getGameProfile().getName();
+        ServerPlayer recipient = helper.getLevel().getServer().getPlayerList().getPlayerByName(name);
+        office(helper).addOwner(recipient.getUUID());
+        MailboxMenu menu = new MailboxMenu(1, player.getInventory(), true, name,
                 office(helper).inboxContainer(player.getUUID()), ContainerLevelAccess.NULL);
         // The parcel slots come right after the 27 inbox slots.
         menu.getSlot(PostOffice.INBOX_SIZE).set(new ItemStack(Items.APPLE, 6));
-        menu.send(player, player.getGameProfile().getName());
-        helper.assertTrue(office(helper).inboxContainer(player.getUUID()).getItem(0).is(Items.APPLE), "sent to yourself");
+        menu.send(player, name);
+        helper.assertTrue(office(helper).inboxContainer(recipient.getUUID()).getItem(0).is(Items.APPLE), "sent by name");
         helper.assertTrue(menu.getSlot(PostOffice.INBOX_SIZE).getItem().isEmpty(), "parcel sent");
 
         menu.getSlot(PostOffice.INBOX_SIZE).set(new ItemStack(Items.APPLE, 1));

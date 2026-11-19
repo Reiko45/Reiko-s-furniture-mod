@@ -38,6 +38,9 @@ public class CatalogData implements RoomData {
         add.accept("catalog.reikos_furniture.no_recipe", "Not craftable");
         add.accept("catalog.reikos_furniture.made_in", "Made in: %s");
         add.accept("catalog.reikos_furniture.workbench", "Furniture Workbench: %s planks");
+        add.accept("catalog.reikos_furniture.craft", "Craft");
+        add.accept("catalog.reikos_furniture.craft_all", "Craft all");
+        add.accept("catalog.reikos_furniture.missing", "You don't have the materials for this");
         FurnitureAdvancements.NAMES.forEach((id, text) -> {
             add.accept(FurnitureAdvancements.titleKey(id), text[0]);
             add.accept(FurnitureAdvancements.descriptionKey(id), text[1]);
