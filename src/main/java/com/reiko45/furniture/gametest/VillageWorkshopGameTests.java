@@ -2,6 +2,7 @@ package com.reiko45.furniture.gametest;
 
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
+import com.reiko45.furniture.core.lighting.Lighting;
 import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.villager.VillageWorkshops;
 import java.util.List;
@@ -43,6 +44,12 @@ public class VillageWorkshopGameTests {
                     BuiltInRegistries.BLOCK.get(ReikosFurniture.id(WOODS.get(village) + "_floor_lamp")));
             helper.assertValueEqual(lamp.size(), 2, id + " floor lamp halves");
             helper.assertTrue(lamp.stream().allMatch(info -> info.state().getValue(SwitchableFurnitureBlock.LIT)), id + " lamp is on");
+            List<StructureTemplate.StructureBlockInfo> lightSwitch = template.filterBlocks(BlockPos.ZERO, settings,
+                    Lighting.LIGHT_SWITCH.get());
+            helper.assertValueEqual(lightSwitch.size(), 1, id + " light switch");
+            helper.assertTrue(lightSwitch.get(0).nbt() != null && lightSwitch.get(0).nbt().getBoolean("AutoLink"), id + " switch links its lamps");
+            helper.assertValueEqual(template.filterBlocks(BlockPos.ZERO, settings,
+                    BuiltInRegistries.BLOCK.get(ReikosFurniture.id(WOODS.get(village) + "_mailbox"))).size(), 1, id + " mailbox");
             for (StructureTemplate.StructureBlockInfo info : template.filterBlocks(BlockPos.ZERO, settings, Blocks.AIR)) {
                 helper.assertTrue(info.pos().getY() > 0, id + " has no holes in its floor");
             }

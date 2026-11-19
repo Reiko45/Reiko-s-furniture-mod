@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "light_switch": {
+      "conditions": {
+        "action": "light_switch"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.let_there_be_light.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:light_switch"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.let_there_be_light.title"
+    }
+  },
+  "requirements": [
+    [
+      "light_switch"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

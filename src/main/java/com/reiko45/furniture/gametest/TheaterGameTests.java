@@ -1,6 +1,7 @@
 package com.reiko45.furniture.gametest;
 
 import com.reiko45.furniture.ReikosFurniture;
+import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.theater.MoviePosterBlock;
 import com.reiko45.furniture.theater.ProjectorBlock;
 import com.reiko45.furniture.theater.ProjectorScreenBlock;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.JukeboxBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,7 +34,7 @@ public class TheaterGameTests {
     private static void placeScreen(GameTestHelper helper, BlockPos main) {
         BlockState state = TheaterFurniture.PROJECTOR_SCREEN.get().defaultBlockState()
                 .setValue(ProjectorScreenBlock.FACING, Direction.NORTH);
-        helper.getLevel().setBlock(helper.absolutePos(main), state, net.minecraft.world.level.block.Block.UPDATE_ALL);
+        helper.getLevel().setBlock(helper.absolutePos(main), state, Block.UPDATE_ALL);
         state.getBlock().setPlacedBy(helper.getLevel(), helper.absolutePos(main), state, null,
                 new ItemStack(TheaterFurniture.PROJECTOR_SCREEN.get()));
     }
@@ -145,7 +147,7 @@ public class TheaterGameTests {
         }
 
         BlockPos speaker = new BlockPos(2, 1, 2);
-        helper.setBlock(speaker, TheaterFurniture.SPEAKER.get(com.reiko45.furniture.core.FurnitureWood.OAK).get());
+        helper.setBlock(speaker, TheaterFurniture.SPEAKER.get(FurnitureWood.OAK).get());
         helper.assertFalse(SpeakerBlock.musicNear(helper.getLevel(), helper.absolutePos(speaker)), "quiet");
         helper.setBlock(new BlockPos(0, 1, 2), Blocks.JUKEBOX.defaultBlockState().setValue(JukeboxBlock.HAS_RECORD, true));
         helper.assertTrue(SpeakerBlock.musicNear(helper.getLevel(), helper.absolutePos(speaker)), "a record is playing");

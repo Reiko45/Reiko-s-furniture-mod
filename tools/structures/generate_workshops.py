@@ -6,14 +6,14 @@ The mod adds these to the villages' house pools at server start (see villager/Vi
 
 Every workshop has the same layout in its village's materials: a 7x7 house with the door on the south
 side, a furniture workbench (the furniture maker's job site), a workshop bench, a pegboard and toolbox,
-a dining set in the village's wood, an armchair in a furniture style, a lit floor lamp, a rug and a
-bed. Like the vanilla houses it has two jigsaws: the entrance that joins the street, and one that
+a dining set in the village's wood, an armchair in a furniture style, a lit floor lamp with a light
+switch by the door, a rug, a bed and a mailbox on the doorstep. Like the vanilla houses it has two jigsaws: the entrance that joins the street, and one that
 spawns a villager.
 """
 import os
 
 import nbt
-from nbt import Int, List
+from nbt import Byte, Int, List
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "..", "src", "main", "resources", "data", "reikos_furniture", "structure", "village")
@@ -151,6 +151,12 @@ def workshop(village, v):
     s.set(2, 1, 4, M + f"{wood}_dining_chair", facing="north")
     s.set(1, 1, 5, M + f"{accent}_{style}_armchair", facing="east")
     s.set(3, 1, 4, M + f"{main}_rug")
+    # A light switch by the door. Lamp positions can't be stored in a structure, so it links the lamps
+    # around it the first time it is used.
+    s.set(4, 2, 5, M + "light_switch", {"id": M + "light_switch", "AutoLink": Byte(1)}, facing="north", on=False, waterlogged=False)
+    # A mailbox on the doorstep, on a step of its own; the first player to open it claims it.
+    s.set(4, 0, 7, v["step"])
+    s.set(4, 1, 7, M + f"{wood}_mailbox", facing="south", flag=False, waterlogged=False)
     # The villager's bed along the east wall (a vanilla bed, so villagers can claim it as a home).
     s.set(5, 1, 4, "minecraft:red_bed", facing="north", part="head", occupied=False)
     s.set(5, 1, 5, "minecraft:red_bed", facing="north", part="foot", occupied=False)

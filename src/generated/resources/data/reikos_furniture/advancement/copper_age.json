@@ -1,0 +1,46 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "waxed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "reikos_furniture:waxed_copper_lamp",
+              "reikos_furniture:waxed_exposed_copper_lamp",
+              "reikos_furniture:waxed_weathered_copper_lamp",
+              "reikos_furniture:waxed_oxidized_copper_lamp",
+              "reikos_furniture:waxed_copper_table",
+              "reikos_furniture:waxed_exposed_copper_table",
+              "reikos_furniture:waxed_weathered_copper_table",
+              "reikos_furniture:waxed_oxidized_copper_table",
+              "reikos_furniture:waxed_copper_chair",
+              "reikos_furniture:waxed_exposed_copper_chair",
+              "reikos_furniture:waxed_weathered_copper_chair",
+              "reikos_furniture:waxed_oxidized_copper_chair"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.copper_age.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:waxed_copper_lamp"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.copper_age.title"
+    }
+  },
+  "requirements": [
+    [
+      "waxed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "mail": {
+      "conditions": {
+        "action": "mail"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.youve_got_mail.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:oak_mailbox"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.youve_got_mail.title"
+    }
+  },
+  "requirements": [
+    [
+      "mail"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

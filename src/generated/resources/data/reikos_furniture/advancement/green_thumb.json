@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "green_thumb": {
+      "conditions": {
+        "action": "green_thumb"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.green_thumb.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:terracotta_growing_pot"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.green_thumb.title"
+    }
+  },
+  "requirements": [
+    [
+      "green_thumb"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

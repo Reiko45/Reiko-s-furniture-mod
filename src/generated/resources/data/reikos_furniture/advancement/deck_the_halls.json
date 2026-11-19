@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "deck_the_halls": {
+      "conditions": {
+        "action": "deck_the_halls"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.deck_the_halls.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:christmas_tree"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.deck_the_halls.title"
+    }
+  },
+  "requirements": [
+    [
+      "deck_the_halls"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

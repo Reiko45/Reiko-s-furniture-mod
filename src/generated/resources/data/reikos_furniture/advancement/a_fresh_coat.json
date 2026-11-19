@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:interior_designer",
+  "criteria": {
+    "repaint": {
+      "conditions": {
+        "action": "repaint"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.a_fresh_coat.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:red_paint_pots"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.a_fresh_coat.title"
+    }
+  },
+  "requirements": [
+    [
+      "repaint"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

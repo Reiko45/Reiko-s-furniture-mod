@@ -36,6 +36,9 @@ public class LightSwitchBlock extends FurnitureBlock implements EntityBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof LightSwitchBlockEntity entity) {
+            if (entity.autoLink()) {
+                entity.linkNearby(level);
+            }
             boolean on = Lighting.toggle(level, entity.lamps());
             level.setBlock(pos, state.setValue(ON, on), Block.UPDATE_ALL);
             level.playSound(null, pos, SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.BLOCKS, 0.5F, on ? 1.2F : 0.9F);

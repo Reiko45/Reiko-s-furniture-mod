@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:take_a_seat",
+  "criteria": {
+    "movie_night": {
+      "conditions": {
+        "action": "movie_night"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.movie_night.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:projector"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.movie_night.title"
+    }
+  },
+  "requirements": [
+    [
+      "movie_night"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

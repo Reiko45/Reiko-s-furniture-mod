@@ -16,6 +16,7 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -84,6 +85,24 @@ public class LightSwitchGameTests {
         // Only lamps count: the TV switches on too, but isn't a lamp.
         helper.assertFalse(Lighting.isLamp(LivingRoomFurniture.TV.get().defaultBlockState()), "a TV is not a lamp");
         helper.assertTrue(Lighting.isLamp(LivingRoomFurniture.CEILING_LIGHT.get().defaultBlockState()), "a ceiling light is");
+        helper.succeed();
+    }
+
+    @GameTest(template = CoreGameTests.EMPTY)
+    public static void switchInAStructureLinksTheLampsAroundIt(GameTestHelper helper) {
+        BlockPos lamp = new BlockPos(1, 1, 1);
+        helper.setBlock(lamp, BedroomFurniture.TABLE_LAMP.get(FurnitureWood.OAK).get());
+        BlockPos switchPos = new BlockPos(3, 2, 1);
+        helper.setBlock(switchPos, Lighting.LIGHT_SWITCH.get());
+        CompoundTag tag = new CompoundTag();
+        tag.putBoolean("AutoLink", true);
+        LightSwitchBlockEntity entity = helper.getBlockEntity(switchPos);
+        entity.loadWithComponents(tag, helper.getLevel().registryAccess());
+        helper.assertTrue(entity.autoLink(), "waiting to link");
+        helper.useBlock(switchPos, helper.makeMockPlayer(GameType.SURVIVAL));
+        helper.assertFalse(entity.autoLink(), "linked on first use");
+        helper.assertValueEqual(entity.lamps().size(), 1, "the lamp nearby");
+        helper.assertBlockProperty(lamp, SwitchableFurnitureBlock.LIT, true);
         helper.succeed();
     }
 }

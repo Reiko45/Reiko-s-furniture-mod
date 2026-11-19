@@ -2,6 +2,7 @@ package com.reiko45.furniture.gametest;
 
 import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.core.FurnitureTags;
+import com.reiko45.furniture.core.block.SwitchableFurnitureBlock;
 import com.reiko45.furniture.core.lighting.Lighting;
 import com.reiko45.furniture.kitchen.CounterBlock;
 import com.reiko45.furniture.material.CopperStage;
@@ -64,7 +65,7 @@ public class MaterialGameTests {
     public static void copperLampsDimAsTheyAge(GameTestHelper helper) {
         int last = 16;
         for (CopperStage stage : new CopperStage[] {CopperStage.UNAFFECTED, CopperStage.EXPOSED, CopperStage.WEATHERED, CopperStage.OXIDIZED}) {
-            var lit = MaterialFurniture.COPPER_LAMP.get(stage).get().defaultBlockState().setValue(com.reiko45.furniture.core.block.SwitchableFurnitureBlock.LIT, true);
+            var lit = MaterialFurniture.COPPER_LAMP.get(stage).get().defaultBlockState().setValue(SwitchableFurnitureBlock.LIT, true);
             int light = lit.getLightEmission();
             helper.assertTrue(light > 0 && light < last, stage + " gives less light than the stage before");
             helper.assertTrue(Lighting.isLamp(lit), stage + " is a lamp");

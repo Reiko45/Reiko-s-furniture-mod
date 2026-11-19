@@ -6,17 +6,26 @@ import com.reiko45.furniture.core.FurnitureTags;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Room;
 import com.reiko45.furniture.core.Style;
+import com.reiko45.furniture.core.lighting.Lighting;
+import com.reiko45.furniture.core.mail.Mail;
 import com.reiko45.furniture.core.registry.ModEntities;
 import com.reiko45.furniture.core.tool.Tools;
 import com.reiko45.furniture.core.workbench.Workbench;
 import com.reiko45.furniture.dining.DiningFurniture;
 import com.reiko45.furniture.gameroom.GameRoomFurniture;
+import com.reiko45.furniture.greenhouse.GreenhouseFurniture;
+import com.reiko45.furniture.holiday.HolidayFurniture;
 import com.reiko45.furniture.kitchen.KitchenFurniture;
 import com.reiko45.furniture.laundry.LaundryFurniture;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
+import com.reiko45.furniture.material.CopperStage;
+import com.reiko45.furniture.material.MaterialData;
+import com.reiko45.furniture.material.MaterialFurniture;
 import com.reiko45.furniture.music.MusicFurniture;
 import com.reiko45.furniture.pets.PetFurniture;
+import com.reiko45.furniture.studio.StudioFurniture;
 import com.reiko45.furniture.styles.StyleFurniture;
+import com.reiko45.furniture.theater.TheaterFurniture;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -74,6 +83,14 @@ public class FurnitureAdvancements implements AdvancementProvider.AdvancementGen
         name("fresh_laundry", "Fresh Laundry", "Wash the dye out of something in a washing machine");
         name("good_boy", "Who's a Good Boy?", "Have your pet eat from a feeding bowl");
         name("valued_customer", "Valued Customer", "Buy furniture from a Furniture Maker");
+        name("youve_got_mail", "You've Got Mail", "Receive a parcel in your mailbox");
+        name("let_there_be_light", "Let There Be Light", "Link five lamps to one light switch");
+        name("movie_night", "Movie Night", "Watch a film from a recliner");
+        name("the_artist", "The Artist", "Sign a painting");
+        name("green_thumb", "Green Thumb", "Grow a plant in a growing pot to full size");
+        name("deck_the_halls", "Deck the Halls", "Light up a Christmas tree");
+        name("a_fresh_coat", "A Fresh Coat", "Repaint or stain a piece of furniture");
+        name("copper_age", "Copper Age", "Get a piece of waxed copper furniture");
     }
 
     private static void name(String id, String title, String description) {
@@ -141,6 +158,28 @@ public class FurnitureAdvancements implements AdvancementProvider.AdvancementGen
                 builder -> builder.addCriterion("wash", FurnitureActionTrigger.TriggerInstance.action(FurnitureActionTrigger.WASH)));
         save(saver, "good_boy", "root", PetFurniture.FEEDING_BOWL.get(DyeColor.RED).get(), AdvancementType.TASK,
                 builder -> builder.addCriterion("pet_fed", FurnitureActionTrigger.TriggerInstance.action(FurnitureActionTrigger.PET_FED)));
+        action(saver, "youve_got_mail", "root", Mail.MAILBOX.get(oak).get(), FurnitureActionTrigger.MAIL);
+        action(saver, "let_there_be_light", "root", Lighting.LIGHT_SWITCH.get(),
+                FurnitureActionTrigger.LIGHT_SWITCH);
+        action(saver, "movie_night", "take_a_seat", TheaterFurniture.PROJECTOR.get(),
+                FurnitureActionTrigger.MOVIE_NIGHT);
+        action(saver, "the_artist", "root", StudioFurniture.EASEL.get(oak).get(), FurnitureActionTrigger.THE_ARTIST);
+        action(saver, "green_thumb", "root", GreenhouseFurniture.TERRACOTTA_GROWING_POT.get(),
+                FurnitureActionTrigger.GREEN_THUMB);
+        action(saver, "deck_the_halls", "root", HolidayFurniture.CHRISTMAS_TREE.get(),
+                FurnitureActionTrigger.DECK_THE_HALLS);
+        action(saver, "a_fresh_coat", "interior_designer", StudioFurniture.PAINT_POTS.get(DyeColor.RED).get(),
+                FurnitureActionTrigger.REPAINT);
+        save(saver, "copper_age", "root", MaterialFurniture.COPPER_LAMP
+                .get(CopperStage.WAXED).get(), AdvancementType.TASK, builder -> builder
+                .addCriterion("waxed", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(
+                        MaterialData.waxing().values().toArray(new ItemLike[0])))));
+    }
+
+    /** An advancement for doing something with furniture ({@link FurnitureActionTrigger}). */
+    private void action(Consumer<AdvancementHolder> saver, String id, String parent, ItemLike icon, String action) {
+        save(saver, id, parent, icon, AdvancementType.TASK,
+                builder -> builder.addCriterion(action, FurnitureActionTrigger.TriggerInstance.action(action)));
     }
 
     private static Criterion<InventoryChangeTrigger.TriggerInstance> has(TagKey<Item> tag) {

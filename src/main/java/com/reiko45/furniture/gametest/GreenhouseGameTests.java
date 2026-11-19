@@ -15,6 +15,8 @@ import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
@@ -112,7 +114,7 @@ public class GreenhouseGameTests {
         helper.assertFalse(block.accepts(new ItemStack(Items.STICK)), "not sticks");
 
         DisplayBlockEntity box = helper.getBlockEntity(pos);
-        for (var flower : new net.minecraft.world.item.Item[] {Items.POPPY, Items.DANDELION, Items.CORNFLOWER}) {
+        for (var flower : new Item[] {Items.POPPY, Items.DANDELION, Items.CORNFLOWER}) {
             helper.assertTrue(box.insert(new ItemStack(flower), null), "planted");
         }
         helper.assertFalse(box.canInsert(new ItemStack(Items.ALLIUM)), "three flowers fill it");
@@ -122,7 +124,7 @@ public class GreenhouseGameTests {
     @GameTest(template = CoreGameTests.EMPTY)
     public static void potsGrowOnTheirOwnAndWithBoneMeal(GameTestHelper helper) {
         BlockPos pos = new BlockPos(1, 1, 1);
-        helper.setBlock(pos, GreenhouseFurniture.GROWING_POT.get(net.minecraft.world.item.DyeColor.BLUE).get());
+        helper.setBlock(pos, GreenhouseFurniture.GROWING_POT.get(DyeColor.BLUE).get());
         GrowingPotBlock block = (GrowingPotBlock) helper.getBlockState(pos).getBlock();
         BlockPos abs = helper.absolutePos(pos);
         helper.assertTrue(helper.getBlockState(pos).isRandomlyTicking(), "an unfinished pot ticks");

@@ -4,14 +4,17 @@ import com.reiko45.furniture.ReikosFurniture;
 import com.reiko45.furniture.bedroom.BedroomFurniture;
 import com.reiko45.furniture.core.FurnitureWood;
 import com.reiko45.furniture.core.Style;
-import com.reiko45.furniture.kitchen.CounterBlock;
 import com.reiko45.furniture.core.block.FurnitureBedBlock;
 import com.reiko45.furniture.core.block.FurnitureStorageBlock;
 import com.reiko45.furniture.core.blockentity.FurnitureStorageBlockEntity;
 import com.reiko45.furniture.core.item.FurnitureBlockItem;
+import com.reiko45.furniture.core.lighting.Lighting;
 import com.reiko45.furniture.core.registry.ModCreativeTab;
+import com.reiko45.furniture.dining.DiningFurniture;
 import com.reiko45.furniture.kids.BunkBedBlock;
 import com.reiko45.furniture.kids.BunkTopBlock;
+import com.reiko45.furniture.kitchen.CounterBlock;
+import com.reiko45.furniture.kitchen.KitchenFurniture;
 import com.reiko45.furniture.livingroom.LivingRoomFurniture;
 import com.reiko45.furniture.livingroom.SofaBlock;
 import com.reiko45.furniture.styles.StyleFurniture;
@@ -117,7 +120,7 @@ public class StyleGameTests {
         check(helper, StyleFurniture.get(Style.FUTURISTIC).sofa().get(DyeColor.CYAN).get(),
                 new ItemStack(LivingRoomFurniture.SOFA.get(DyeColor.CYAN).get()), new ItemStack(Items.GLOWSTONE_DUST));
         check(helper, StyleFurniture.get(Style.BEACH).diningChair().get(FurnitureWood.BIRCH).get(),
-                new ItemStack(com.reiko45.furniture.dining.DiningFurniture.DINING_CHAIR.get(FurnitureWood.BIRCH).get()), new ItemStack(Items.RED_SAND));
+                new ItemStack(DiningFurniture.DINING_CHAIR.get(FurnitureWood.BIRCH).get()), new ItemStack(Items.RED_SAND));
         helper.succeed();
     }
 
@@ -143,15 +146,15 @@ public class StyleGameTests {
             helper.setBlock(pos, pieces.bookshelf().get(FurnitureWood.OAK).get());
             helper.assertValueEqual(helper.getBlockState(pos).getEnchantPowerBonus(helper.getLevel(), helper.absolutePos(pos)), 1.0F,
                     style.id() + " bookshelf powers enchanting");
-            helper.assertTrue(com.reiko45.furniture.core.lighting.Lighting.isLamp(pieces.tableLamp().get(FurnitureWood.OAK).get().defaultBlockState()),
+            helper.assertTrue(Lighting.isLamp(pieces.tableLamp().get(FurnitureWood.OAK).get().defaultBlockState()),
                     style.id() + " table lamp is a lamp");
-            helper.assertTrue(com.reiko45.furniture.core.lighting.Lighting.isLamp(pieces.floorLamp().get(FurnitureWood.OAK).get().defaultBlockState()),
+            helper.assertTrue(Lighting.isLamp(pieces.floorLamp().get(FurnitureWood.OAK).get().defaultBlockState()),
                     style.id() + " floor lamp is a lamp");
         }
         check(helper, StyleFurniture.get(Style.MEDIEVAL).floorLamp().get(FurnitureWood.OAK).get(),
                 new ItemStack(LivingRoomFurniture.FLOOR_LAMP.get(FurnitureWood.OAK).get()), new ItemStack(Items.IRON_BARS));
         check(helper, StyleFurniture.get(Style.BEACH).upperCabinet().get(FurnitureWood.JUNGLE).get(),
-                new ItemStack(com.reiko45.furniture.kitchen.KitchenFurniture.UPPER_CABINET.get(FurnitureWood.JUNGLE).get()), new ItemStack(Items.SAND));
+                new ItemStack(KitchenFurniture.UPPER_CABINET.get(FurnitureWood.JUNGLE).get()), new ItemStack(Items.SAND));
         helper.succeed();
     }
 

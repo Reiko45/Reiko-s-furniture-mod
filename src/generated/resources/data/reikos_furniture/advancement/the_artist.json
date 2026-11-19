@@ -1,0 +1,29 @@
+{
+  "parent": "reikos_furniture:root",
+  "criteria": {
+    "the_artist": {
+      "conditions": {
+        "action": "the_artist"
+      },
+      "trigger": "reikos_furniture:furniture_action"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.reikos_furniture.the_artist.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "reikos_furniture:oak_easel"
+    },
+    "title": {
+      "translate": "advancements.reikos_furniture.the_artist.title"
+    }
+  },
+  "requirements": [
+    [
+      "the_artist"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
